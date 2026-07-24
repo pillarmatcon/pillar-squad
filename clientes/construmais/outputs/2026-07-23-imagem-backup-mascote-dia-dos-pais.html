@@ -20,6 +20,12 @@
     banco de fotos aqui.
   - Fonte condensada bold do título (Poppins ExtraBold/Montserrat Black) e a script dourada ainda não têm arquivo
     confirmado (CLIENTE.md, Fonte da marca). Usado stack de sistema equivalente até a fonte real ser confirmada.
+
+  CORREÇÃO v1.1: max-width do headline (720px→480px) e do body (560px→440px) reduzidos porque linhas de texto
+  encostavam na silhueta do mascote (palavra "ele" na orelha, "levantou"/"Tem" no braço/colher). A margem de 64px
+  era medida contra a caixa delimitadora do <img>, não contra o contorno real da silhueta transparente do PNG,
+  que projeta braço e ombro pra dentro da área de texto. Ver checklist item 10b em
+  _squad/03-designer-criativos/SKILL.md.
 -->
 
 <meta charset="UTF-8">
@@ -126,7 +132,7 @@ body {
   color: #fff;
   margin-bottom: 20px;
   letter-spacing: -0.01em;
-  max-width: 720px;
+  max-width: 480px;
   text-shadow: 0 4px 18px rgba(0,0,0,0.25);
 }
 
@@ -141,7 +147,7 @@ body {
   font-size: 30px;
   line-height: 1.55;
   color: rgba(255,255,255,0.92);
-  max-width: 560px;
+  max-width: 440px;
   font-weight: 400;
 }
 

@@ -31,7 +31,7 @@ Entrego em **HTML autocontido** que você transforma em **PNG** via captura de t
 7. **Compliance por nicho aplicado.** Saúde sem antes/depois sem autorização. Direito sem captação ativa. Financeiro sem promessa. Vejo `_shared/regras-globais.md`.
 8. **Sem promessa que não pode cumprir.** Mesma regra do agente Copy.
 9. **Acessibilidade básica.** Contraste WCAG AA mínimo (4.5:1). Tamanho de fonte mínimo 24px.
-10. **Espaço respiratório.** A peça respira. Não enche. Margem interna mínima 64px nos 4 lados.
+10. **Espaço respiratório.** A peça respira. Não enche. Margem interna mínima 64px nos 4 lados. Quando a composição usa foto recortada ou mascote em PNG com fundo transparente (silhueta irregular, não um retângulo), a margem não pode ser medida só contra a caixa delimitadora da imagem: texto pode caber dentro da "caixa" e ainda assim encostar em cabeça, braço, ombro ou objeto que a silhueta projeta pra dentro da área de texto. Nesses casos, meço contra o contorno real da silhueta (visualmente, linha por linha do texto), não contra `width`/`height`/posição do `<img>`. Gap mínimo de ~40px entre a borda de qualquer linha de texto e o pixel visível mais próximo da silhueta.
 11. **Zonas de segurança do Story respeitadas.** Topo (~250px, nome de usuário/ícones do Instagram) e rodapé (~250px, caixa de resposta) livres de headline e CTA.
 12. **Pronto vs v1 sinalizado.** Toda entrega marca o que está pronto pra subir e o que precisa de validação.
 
@@ -248,6 +248,7 @@ Adaptado do protocolo Picasso. Cada item bloqueia entrega se falhar.
 8. ✅ Cor tem propósito (não é decoração aleatória)?
 9. ✅ Foto é real do cliente (não é ilustração nem fundo sólido substituindo foto)?
 10. ✅ Espaço respiratório nos 4 lados (mínimo 64px)?
+10b. ✅ Se há foto recortada ou mascote em PNG transparente: nenhuma linha de texto encosta na silhueta (cabeça, orelha, braço, ombro, objeto na mão)? Conferido contra o contorno real, não contra a caixa delimitadora da imagem.
 11. ✅ 1 ideia central (não enche)?
 12. ✅ CTA claro quando aplicável (botão visível, ação concreta)?
 13. ✅ Identidade do cliente aparece (logo, cor, sem ser excessivo)?
