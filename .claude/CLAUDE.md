@@ -4,7 +4,7 @@ Esta pasta é o **workspace permanente** de uma agência de marketing digital qu
 
 ## Estrutura
 
-- `_squad/` - arquivos de referência do squad (SKILLs, templates HTML, regras compartilhadas, **Humanizer**, **skill embutida de Meta Ads CLI em modo guiado total**, **identidade da própria agência** em `_squad/_shared/identidade-agencia.md`, **logo da Pillar** em `_squad/_shared/marca-pillar/`, **Método Viga Mestra** (metodologia proprietária, 5 pilares) em `_squad/_shared/metodo-viga-mestra.md`).
+- `_squad/` - arquivos de referência do squad (SKILLs, templates HTML, regras compartilhadas, **Humanizer**, **skill embutida de Meta Ads CLI em modo guiado total**, **skill embutida de padronização de Curva ABC** (PDF → XLSX, zero IA na conversão) em `_squad/_skills/padroniza-curva-abc/`, **identidade da própria agência** em `_squad/_shared/identidade-agencia.md`, **logo da Pillar** em `_squad/_shared/marca-pillar/`, **Método Viga Mestra** (metodologia proprietária, 5 pilares) em `_squad/_shared/metodo-viga-mestra.md`).
 - `clientes/` - uma subpasta por cliente fechado. Cada cliente tem `CLIENTE.md`, `outputs/` e `historico/`.
 - `propostas/` - uma subpasta por prospect (cliente em potencial, ainda não fechado). Identidade visual usada é sempre a da Pillar, nunca a do prospect. Ver `propostas/README.md`.
 - `.claude/` - esta pasta. Instruções globais + 7 agentes registrados.
@@ -29,7 +29,7 @@ Via `@nome` ou `/nome` em qualquer conversa neste workspace:
 4. Para copywriter, designer-criativos e webdesigner: leia também `_squad/_shared/humanizer.md`
 5. Para gestor-trafego em pedidos com conta real: detecte CLI (`meta --version`) e ofereça onboarding via `_squad/01-gestor-trafego/cli-onboarding.md` se necessário (modo guiado total)
 6. Para analista-dados (rodapé `{{NOME_AGENCIA}}` do dashboard) ou qualquer material que carregue a identidade da própria agência (proposta comercial, material institucional): leia também `_squad/_shared/identidade-agencia.md` no lugar do `CLIENTE.md`. Isso nunca substitui a marca do cliente em LP, copy, anúncio ou criativo.
-7. Para inteligencia-dados: exige pelo menos um relatório real de ERP (estoque, Curva ABC, vendas por categoria) anexado ou referenciado. Sem isso, para e pede a exportação.
+7. Para inteligencia-dados: exige pelo menos um relatório real de ERP (estoque, Curva ABC, vendas por categoria) anexado ou referenciado. Sem isso, para e pede a exportação. Se a fonte for PDF de Curva ABC do sistema Pontual Tecnologia, roda antes a skill `_squad/_skills/padroniza-curva-abc/SKILL.md` (converte pra XLSX padronizado, script determinístico, sem gasto de IA na conversão em si).
 8. Execute
 9. Rode Humanizer nas saídas textuais
 10. Salve em `clientes/<nome>/outputs/` (cliente fechado) ou `propostas/<nome-prospect>/` (prospect, ver item 6)
@@ -45,9 +45,10 @@ Via `@nome` ou `/nome` em qualquer conversa neste workspace:
 - Token nunca passa pelo chat - só via clipboard (Fase 3 do meta-ads-cli-setup)
 - Compliance por nicho automático
 
-## Skill embutida
+## Skills embutidas
 
-`_squad/_skills/meta-ads-cli-setup/` - skill checkpointed em **modo guiado total**. O agente executa todos os comandos via Bash tool, usuário não toca no terminal. Suporta macOS, Linux e Windows (PowerShell). O `@gestor-trafego` invoca quando o aluno aceita o upgrade.
+- `_squad/_skills/meta-ads-cli-setup/` - skill checkpointed em **modo guiado total**. O agente executa todos os comandos via Bash tool, usuário não toca no terminal. Suporta macOS, Linux e Windows (PowerShell). O `@gestor-trafego` invoca quando o aluno aceita o upgrade.
+- `_squad/_skills/padroniza-curva-abc/` - converte PDF de Curva ABC (sistema Pontual Tecnologia) em XLSX padronizado via script Python determinístico (regex/posição de coluna + pandas, zero chamada de IA na conversão). O `@inteligencia-dados` invoca automaticamente antes do diagnóstico quando a fonte é esse tipo de PDF.
 
 ## Clientes ativos
 
