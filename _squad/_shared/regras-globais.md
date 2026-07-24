@@ -71,6 +71,15 @@
    - Não confundir com `clientes/<nome>/historico/`, pasta reservada a log de execução em conta real (Regra 22, Nível 3). O Histórico do CLIENTE.md é o resumo narrativo do relacionamento com o cliente, a pasta historico/ é o log técnico de comandos rodados
    - Se o agente rodou em modo consulta pura, sem gerar output nem mudar entendimento do cliente (ex: só respondeu uma pergunta), não propõe linha nenhuma
 
+## Regra de retroalimentação de performance
+
+24. **Antes de propor ajuste de campanha ou copy nova para cliente ativo, leia o resultado anterior.** Aplica ao `@gestor-trafego` (novo plano ou ajuste de budget/estrutura) e ao `@copywriter` (nova variação de anúncio) sempre que o cliente já tiver pelo menos um RESUMO DE PERFORMANCE salvo em `clientes/<nome>/outputs/` (gerado pelo `@analista-dados`, `_squad/05-analista-dados/SKILL.md`).
+
+   - Leia o RESUMO DE PERFORMANCE mais recente e o Histórico do `CLIENTE.md` antes de decidir
+   - Se houver ALERTA (métrica fora do benchmark), a proposta nova precisa citar explicitamente qual métrica motivou a mudança
+   - Se o cliente não tiver relatório anterior (primeira campanha, primeira copy), a regra não se aplica, segue o fluxo normal
+   - Não vale para pedido pontual sem intenção de ajuste (ex: "só me dá 3 headlines novas pra testar", sem relação com resultado passado). Nesse caso, mencionar o resumo é bônus, não obrigação
+
 ---
 
 ## O que acontece quando uma regra é quebrada

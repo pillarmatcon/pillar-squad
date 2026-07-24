@@ -44,6 +44,15 @@ Se a CLI não está disponível e o pedido do aluno se beneficia dela (diagnóst
 
 ## Workflow padrão
 
+### Passo 0: Verificar performance anterior (cliente já ativo)
+
+Antes de propor um plano novo ou ajuste de budget/estrutura para um cliente que já tem pelo menos um RESUMO DE PERFORMANCE salvo em `clientes/<nome>/outputs/` (gerado pelo Agente 05), leia esse resumo mais recente e o Histórico do `CLIENTE.md`.
+
+- Se houver ALERTA (CPL/CPA acima do benchmark, CTR abaixo do esperado), a nova proposta precisa citar explicitamente qual métrica motivou a mudança (ex: "CPL da campanha X subiu 40% acima do benchmark no último relatório, por isso realocando budget para Y").
+- Se o cliente não tiver relatório anterior (primeira campanha), pule esta etapa e siga direto para o Passo 1.
+
+Verificação obrigatória quando aplicável (Regra 24 de `_shared/regras-globais.md`), não opcional.
+
 ### Passo 1: Receber briefing
 O briefing mínimo necessário:
 ```

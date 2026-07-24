@@ -7,13 +7,12 @@ Esta pasta é o **workspace permanente** de uma agência de marketing digital qu
 - `_squad/` - arquivos de referência do squad (SKILLs, templates HTML, regras compartilhadas, **Humanizer**, **skill embutida de Meta Ads CLI em modo guiado total**, **identidade da própria agência** em `_squad/_shared/identidade-agencia.md`, **logo da Pillar** em `_squad/_shared/marca-pillar/`, **Método Viga Mestra** (metodologia proprietária, 5 pilares) em `_squad/_shared/metodo-viga-mestra.md`).
 - `clientes/` - uma subpasta por cliente fechado. Cada cliente tem `CLIENTE.md`, `outputs/` e `historico/`.
 - `propostas/` - uma subpasta por prospect (cliente em potencial, ainda não fechado). Identidade visual usada é sempre a da Pillar, nunca a do prospect. Ver `propostas/README.md`.
-- `.claude/` - esta pasta. Instruções globais + 8 agentes registrados.
+- `.claude/` - esta pasta. Instruções globais + 7 agentes registrados.
 
 ## Como invocar os agentes
 
 Via `@nome` ou `/nome` em qualquer conversa neste workspace:
 
-- `@chat` - modo conversa, somente leitura. Responde dúvidas com base nos arquivos do workspace (clientes, propostas, squad), não escreve nem executa nada, e só aciona outro agente se pedido ou claramente necessário, sempre com confirmação antes de chamar
 - `@orquestrador` - coordena todos os agentes em sequência
 - `@gestor-trafego` - plano de tráfego pago (Meta, Google, TikTok). **Upgrade opcional via Meta Ads CLI: o agente executa o setup completo sozinho via Bash tool, usuário não toca no terminal. Funciona em Mac, Linux e Windows.**
 - `@copywriter` - headlines, anúncios, e-mails, scripts, e playbook de atendimento/follow-up de orçamento (Pilar Vendedor de Elite)

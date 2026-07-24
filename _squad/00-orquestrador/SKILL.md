@@ -34,12 +34,13 @@ Tudo numa única conversa, em sequência:
 Ao receber o briefing, o orquestrador:
 
 1. **Lê o briefing** e identifica o nicho, oferta, objetivo e budget
-2. **Executa o Agente 01** internamente, monta o plano de tráfego completo
-3. **Passa o plano para o Agente 02:** escreve a copy dos anúncios usando o plano
-4. **Passa a copy para o Agente 03:** produz o criativo HTML (Story + Post) com a copy
-5. **Passa o briefing técnico para o Agente 04:** constrói a LP com tracking e compliance
-6. **Usa as metas do plano no Agente 05:** preenche o template de dashboard com os benchmarks e KPIs esperados para o período
-7. **Consolida tudo** num relatório final com checklist de publicação
+2. **Se o cliente já tem execução anterior** (existe RESUMO DE PERFORMANCE em `clientes/<nome>/outputs/`, não é a primeira vez), lê o resumo mais recente e o Histórico do `CLIENTE.md` antes de seguir (Regra 24 de `_shared/regras-globais.md`). Se for cliente novo, pula esta etapa.
+3. **Executa o Agente 01** internamente, monta o plano de tráfego completo
+4. **Passa o plano para o Agente 02:** escreve a copy dos anúncios usando o plano
+5. **Passa a copy para o Agente 03:** produz o criativo HTML (Story + Post) com a copy
+6. **Passa o briefing técnico para o Agente 04:** constrói a LP com tracking e compliance
+7. **Usa as metas do plano no Agente 05:** preenche o template de dashboard com os benchmarks e KPIs esperados para o período
+8. **Consolida tudo** num relatório final com checklist de publicação
 
 Em cada etapa, o orquestrador documenta o raciocínio: por que escolheu aquela estrutura de campanha, qual framework de copy usou, qual tipo de criativo se encaixa na oferta.
 

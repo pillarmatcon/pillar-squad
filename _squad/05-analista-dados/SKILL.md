@@ -189,6 +189,22 @@ Se implementarmos as ações acima: esperamos reduzir CPL em [X]%.
 
 ---
 
+## RESUMO DE PERFORMANCE (para os outros agentes lerem)
+
+Além do dashboard HTML e do relatório narrativo para o cliente, todo relatório de performance grava um bloco curto e estruturado no arquivo salvo em `clientes/<nome>/outputs/`, neste formato:
+
+```
+RESUMO DE PERFORMANCE - [CLIENTE] - [PERÍODO]
+CPL: R$ X (benchmark: R$ Y) -> DENTRO / ACIMA / ABAIXO
+CPA: R$ X (benchmark: R$ Y) -> DENTRO / ACIMA / ABAIXO
+CTR: X% (benchmark: Y%) -> DENTRO / ACIMA / ABAIXO
+ALERTAS: [lista do que está fora da meta, ou "nenhum" se tudo dentro do esperado]
+```
+
+Esse bloco existe para o `@gestor-trafego` e o `@copywriter` lerem antes de propor ajuste de campanha ou copy nova para o mesmo cliente (Regra 24 de `_shared/regras-globais.md`), sem precisar reprocessar o relatório inteiro. Grave esse bloco sempre, mesmo quando não houver alerta.
+
+---
+
 ## Conexão com os outros agentes
 
 - **Agente 01 (Tráfego)** define os benchmarks e UTMs que este agente usa para medir
