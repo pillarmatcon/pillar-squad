@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!--
+  Template: Página de Vendas (médio-ticket, R$ 500 a R$ 2.000)
+  Squad AgêncIA 100k, Agente 04-Páginas
+  Trocar todos os {{PLACEHOLDER}} pelos dados reais do briefing antes de subir.
+  Estrutura: Hero, Identificação, Problema, Solução, Conteúdo, Bônus, Prova, Sobre, Comparativo, Garantia, Oferta, FAQ, CTA Final
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a0a">
+
+<title>{{NOME_PRODUTO}} | {{NOME_CLIENTE}}</title>
+<meta name="description" content="{{DESCRIPTION_150_160_CHARS}}">
+<meta name="keywords" content="{{NICHO}}, {{PRODUTO}}, {{BENEFICIO_PRINCIPAL}}">
+<link rel="canonical" href="{{URL_CANONICA}}">
+
+<meta property="og:title" content="{{NOME_PRODUTO}}">
+<meta property="og:description" content="{{SUBHEADLINE}}">
+<meta property="og:image" content="{{URL_OG_IMAGE_1200x630}}">
+<meta property="og:url" content="{{URL_CANONICA}}">
+<meta property="og:type" content="product">
+<meta property="og:locale" content="pt_BR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{NOME_PRODUTO}}">
+<meta name="twitter:description" content="{{SUBHEADLINE}}">
+<meta name="twitter:image" content="{{URL_OG_IMAGE}}">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{NOME_PRODUTO}}",
+  "description": "{{DESCRICAO_PRODUTO}}",
+  "image": "{{URL_OG_IMAGE}}",
+  "offers": {
+    "@type": "Offer",
+    "price": "{{PRECO_NUMERICO}}",
+    "priceCurrency": "BRL",
+    "availability": "https://schema.org/InStock",
+    "url": "{{URL_CANONICA}}"
+  }
+}
+</script>
+
+<style>
+:root {
+  --color-primary: {{COR_PRIMARIA_HEX}};
+  --color-primary-dark: {{COR_PRIMARIA_DARK_HEX}};
+  --color-accent: {{COR_DESTAQUE_HEX}};
+  --color-text: #1a1a1a;
+  --color-text-soft: #4a4a4a;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f7f7f5;
+  --color-bg-dark: #1a1a1a;
+  --color-border: #e5e5e5;
+  --color-success: #2e7d32;
+  --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --max-width: 1100px;
+  --radius: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-stack);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+  padding: 48px 0 64px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 32px;
+  line-height: 1.15;
+  font-weight: 800;
+  margin-bottom: 16px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero p.hero__sub {
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-text-soft);
+  max-width: 640px;
+  margin: 0 auto 32px;
+}
+.hero__video {
+  max-width: 720px;
+  margin: 0 auto 32px;
+  aspect-ratio: 16/9;
+  background: var(--color-bg-dark);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.hero__video iframe { width: 100%; height: 100%; border: 0; }
+.hero__cta { max-width: 320px; margin: 0 auto; }
+
+@media (min-width: 768px) {
+  .hero { padding: 80px 0 96px; }
+  .hero h1 { font-size: 48px; }
+  .hero p.hero__sub { font-size: 20px; }
+}
+
+/* CTA BUTTON */
+.cta-btn {
+  display: block;
+  width: 100%;
+  padding: 18px 24px;
+  font-size: 17px;
+  font-weight: 700;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius);
+  transition: background 0.2s, transform 0.1s;
+  text-align: center;
+}
+.cta-btn--lg { font-size: 20px; padding: 22px 32px; }
+.cta-btn:hover { background: var(--color-primary-dark); }
+.cta-btn:active { transform: translateY(1px); }
+.cta-btn--accent { background: var(--color-accent); color: var(--color-text); }
+.cta-btn__sub {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  margin-top: 4px;
+  opacity: 0.9;
+}
+
+/* SECTIONS */
+.section { padding: 64px 0; }
+.section--alt { background: var(--color-bg-alt); }
+.section--dark { background: var(--color-bg-dark); color: #fff; }
+.section__title {
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.section__sub {
+  font-size: 18px;
+  text-align: center;
+  color: var(--color-text-soft);
+  max-width: 720px;
+  margin: 0 auto 40px;
+}
+.section--dark .section__sub { color: rgba(255,255,255,0.85); }
+
+@media (min-width: 768px) {
+  .section { padding: 96px 0; }
+  .section__title { font-size: 36px; }
+}
+
+/* IDENTIFICAÇÃO */
+.identificacao {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--color-bg);
+  padding: 32px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+}
+.identificacao h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.identificacao ul { list-style: none; }
+.identificacao li {
+  padding: 10px 0 10px 32px;
+  position: relative;
+  font-size: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+.identificacao li:last-child { border: none; }
+.identificacao li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 24px;
+  height: 24px;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+/* PROBLEMA / SOLUÇÃO */
+.bloco-texto {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.bloco-texto p { margin-bottom: 20px; }
+.bloco-texto p:last-child { margin-bottom: 0; }
+
+/* CONTEÚDO / GRADE */
+.modulos {
+  display: grid;
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.modulo {
+  background: var(--color-bg);
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.section--dark .modulo {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.1);
+}
+.modulo__num {
+  width: 40px;
+  height: 40px;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.modulo__content h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.modulo__content p {
+  font-size: 15px;
+  color: var(--color-text-soft);
+}
+.section--dark .modulo__content p { color: rgba(255,255,255,0.75); }
+
+/* DEPOIMENTOS */
+.depoimentos {
+  display: grid;
+  gap: 24px;
+}
+.depoimento {
+  background: var(--color-bg);
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+}
+.depoimento__texto {
+  font-size: 16px;
+  line-height: 1.5;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+.depoimento__autor {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.depoimento__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--color-bg-alt);
+  flex-shrink: 0;
+}
+.depoimento__nome { font-weight: 700; font-size: 15px; }
+.depoimento__contexto { font-size: 13px; color: var(--color-text-soft); }
+
+@media (min-width: 768px) {
+  .depoimentos { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* COMPARATIVO */
+.comparativo {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+}
+.comparativo__col {
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+}
+.comparativo__col--ruim { background: var(--color-bg-alt); }
+.comparativo__col--bom {
+  background: var(--color-bg);
+  border-color: var(--color-primary);
+  border-width: 2px;
+}
+.comparativo h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.comparativo--bom h3 { color: var(--color-primary); }
+.comparativo ul { list-style: none; }
+.comparativo li {
+  padding: 8px 0 8px 28px;
+  position: relative;
+  font-size: 15px;
+}
+.comparativo--ruim li::before {
+  content: "✗";
+  position: absolute;
+  left: 0;
+  color: #d43d3d;
+  font-weight: 700;
+}
+.comparativo--bom li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .comparativo { grid-template-columns: 1fr 1fr; }
+}
+
+/* GARANTIA */
+.garantia {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--color-bg);
+  padding: 32px;
+  border-radius: var(--radius);
+  border: 2px solid var(--color-success);
+  text-align: center;
+}
+.garantia__selo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background: var(--color-success);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 800;
+}
+.garantia h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.garantia p {
+  font-size: 16px;
+  color: var(--color-text-soft);
+}
+
+/* OFERTA */
+.oferta {
+  background: var(--color-bg-dark);
+  color: #fff;
+  padding: 64px 0;
+  text-align: center;
+}
+.oferta__box {
+  max-width: 480px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.05);
+  padding: 40px 32px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.oferta__de {
+  font-size: 14px;
+  text-decoration: line-through;
+  opacity: 0.6;
+  margin-bottom: 8px;
+}
+.oferta__por {
+  font-size: 14px;
+  opacity: 0.85;
+}
+.oferta__preco {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1;
+  margin: 8px 0 16px;
+}
+.oferta__parcelado {
+  font-size: 16px;
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
+/* FAQ */
+.faq__list { max-width: 760px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--color-border); }
+.faq-item__btn {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background: none;
+  text-align: left;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.faq-item__btn::after {
+  content: "+";
+  font-size: 24px;
+  font-weight: 400;
+  transition: transform 0.2s;
+}
+.faq-item.open .faq-item__btn::after { transform: rotate(45deg); }
+.faq-item__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  font-size: 15px;
+  color: var(--color-text-soft);
+  line-height: 1.6;
+}
+.faq-item.open .faq-item__answer { max-height: 500px; padding: 0 0 20px; }
+
+/* FOOTER */
+.footer {
+  padding: 32px 0;
+  background: var(--color-bg-dark);
+  color: rgba(255,255,255,0.85);
+  font-size: 14px;
+}
+.footer__inner { display: grid; gap: 16px; }
+.footer__legal { font-size: 13px; opacity: 0.75; }
+.footer__legal a { text-decoration: underline; margin-right: 16px; }
+@media (min-width: 768px) {
+  .footer__inner { grid-template-columns: 2fr 1fr 1fr; gap: 32px; }
+}
+</style>
+</head>
+
+<body>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <h1>{{HEADLINE_PRINCIPAL}}</h1>
+      <p class="hero__sub">{{SUBHEADLINE}}</p>
+
+      <div class="hero__video">
+        <iframe src="{{URL_VIDEO_EMBED}}" title="Apresentação {{NOME_PRODUTO}}" allowfullscreen></iframe>
+      </div>
+
+      <div class="hero__cta">
+        <a href="#oferta" class="cta-btn cta-btn--lg" data-cta="hero">
+          {{TEXTO_CTA_HERO}}
+          <span class="cta-btn__sub">Garantia incondicional de {{DIAS_GARANTIA}} dias</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="section__title">Pra quem é</h2>
+      <p class="section__sub">{{SUB_IDENTIFICACAO}}</p>
+
+      <div class="identificacao">
+        <h3>{{NOME_PRODUTO}} é pra você que:</h3>
+        <ul>
+          <li>{{PERFIL_1}}</li>
+          <li>{{PERFIL_2}}</li>
+          <li>{{PERFIL_3}}</li>
+          <li>{{PERFIL_4}}</li>
+          <li>{{PERFIL_5}}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title">{{TITULO_PROBLEMA}}</h2>
+      <div class="bloco-texto">
+        <p>{{PARAGRAFO_PROBLEMA_1}}</p>
+        <p>{{PARAGRAFO_PROBLEMA_2}}</p>
+        <p>{{PARAGRAFO_PROBLEMA_3}}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+      <h2 class="section__title">{{TITULO_SOLUCAO}}</h2>
+      <p class="section__sub">{{SUB_SOLUCAO}}</p>
+
+      <div class="modulos">
+        <div class="modulo">
+          <div class="modulo__num">1</div>
+          <div class="modulo__content">
+            <h3>{{MODULO_1_TITULO}}</h3>
+            <p>{{MODULO_1_DESC}}</p>
+          </div>
+        </div>
+        <div class="modulo">
+          <div class="modulo__num">2</div>
+          <div class="modulo__content">
+            <h3>{{MODULO_2_TITULO}}</h3>
+            <p>{{MODULO_2_DESC}}</p>
+          </div>
+        </div>
+        <div class="modulo">
+          <div class="modulo__num">3</div>
+          <div class="modulo__content">
+            <h3>{{MODULO_3_TITULO}}</h3>
+            <p>{{MODULO_3_DESC}}</p>
+          </div>
+        </div>
+        <div class="modulo">
+          <div class="modulo__num">4</div>
+          <div class="modulo__content">
+            <h3>{{MODULO_4_TITULO}}</h3>
+            <p>{{MODULO_4_DESC}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="section__title">Quem já confiou</h2>
+      <div class="depoimentos">
+        <div class="depoimento">
+          <p class="depoimento__texto">"{{DEPOIMENTO_1_TEXTO}}"</p>
+          <div class="depoimento__autor">
+            <div class="depoimento__avatar"><img src="{{DEPOIMENTO_1_AVATAR}}" alt="{{DEPOIMENTO_1_NOME}}" loading="lazy" width="48" height="48"></div>
+            <div>
+              <div class="depoimento__nome">{{DEPOIMENTO_1_NOME}}</div>
+              <div class="depoimento__contexto">{{DEPOIMENTO_1_CONTEXTO}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento">
+          <p class="depoimento__texto">"{{DEPOIMENTO_2_TEXTO}}"</p>
+          <div class="depoimento__autor">
+            <div class="depoimento__avatar"><img src="{{DEPOIMENTO_2_AVATAR}}" alt="{{DEPOIMENTO_2_NOME}}" loading="lazy" width="48" height="48"></div>
+            <div>
+              <div class="depoimento__nome">{{DEPOIMENTO_2_NOME}}</div>
+              <div class="depoimento__contexto">{{DEPOIMENTO_2_CONTEXTO}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title">Comparativo</h2>
+      <p class="section__sub">{{SUB_COMPARATIVO}}</p>
+
+      <div class="comparativo">
+        <div class="comparativo__col comparativo__col--ruim">
+          <h3>Sem {{NOME_PRODUTO}}</h3>
+          <ul class="comparativo--ruim">
+            <li>{{COMP_RUIM_1}}</li>
+            <li>{{COMP_RUIM_2}}</li>
+            <li>{{COMP_RUIM_3}}</li>
+            <li>{{COMP_RUIM_4}}</li>
+          </ul>
+        </div>
+        <div class="comparativo__col comparativo__col--bom">
+          <h3>Com {{NOME_PRODUTO}}</h3>
+          <ul class="comparativo--bom">
+            <li>{{COMP_BOM_1}}</li>
+            <li>{{COMP_BOM_2}}</li>
+            <li>{{COMP_BOM_3}}</li>
+            <li>{{COMP_BOM_4}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="section__title">Garantia</h2>
+
+      <div class="garantia">
+        <div class="garantia__selo">{{DIAS_GARANTIA}}</div>
+        <h3>{{TITULO_GARANTIA}}</h3>
+        <p>{{TEXTO_GARANTIA}}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="oferta" id="oferta">
+    <div class="container">
+      <h2 class="section__title" style="color: #fff;">Oferta</h2>
+
+      <div class="oferta__box">
+        <div class="oferta__de">De {{PRECO_DE}}</div>
+        <div class="oferta__por">Por apenas</div>
+        <div class="oferta__preco">{{PRECO_POR}}</div>
+        <div class="oferta__parcelado">Em até {{PARCELAS}}x de {{PRECO_PARCELA}}</div>
+
+        <a href="{{URL_CHECKOUT}}" class="cta-btn cta-btn--lg" data-cta="oferta" id="ctaCheckout">
+          {{TEXTO_CTA_COMPRA}}
+        </a>
+
+        <p style="font-size: 13px; opacity: 0.75; margin-top: 16px;">
+          Pagamento seguro. {{METODOS_PAGAMENTO}}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title">Dúvidas frequentes</h2>
+
+      <div class="faq__list">
+        <div class="faq-item">
+          <button class="faq-item__btn">{{FAQ_1_PERGUNTA}}</button>
+          <div class="faq-item__answer">{{FAQ_1_RESPOSTA}}</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__btn">{{FAQ_2_PERGUNTA}}</button>
+          <div class="faq-item__answer">{{FAQ_2_RESPOSTA}}</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__btn">{{FAQ_3_PERGUNTA}}</button>
+          <div class="faq-item__answer">{{FAQ_3_RESPOSTA}}</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__btn">{{FAQ_4_PERGUNTA}}</button>
+          <div class="faq-item__answer">{{FAQ_4_RESPOSTA}}</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__btn">{{FAQ_5_PERGUNTA}}</button>
+          <div class="faq-item__answer">{{FAQ_5_RESPOSTA}}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: #fff;">{{NOME_CLIENTE}}</div>
+      <div>{{ENDERECO_COMPLETO}}</div>
+      <div>CNPJ: {{CNPJ}}</div>
+    </div>
+    <div>
+      <div style="font-weight: 600; margin-bottom: 8px; color: #fff;">Contato</div>
+      <div>{{TELEFONE_FORMATADO}}</div>
+      <div>{{EMAIL_CONTATO}}</div>
+    </div>
+    <div class="footer__legal">
+      <a href="/politica-de-privacidade">Política de Privacidade</a>
+      <a href="/termos-de-uso">Termos de Uso</a>
+      <div style="margin-top: 8px;">© {{ANO}} {{NOME_CLIENTE}}. Todos os direitos reservados.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '{{META_PIXEL_ID}}');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', {
+  content_name: '{{NOME_PRODUTO}}',
+  content_type: 'product',
+  value: {{PRECO_NUMERICO}},
+  currency: 'BRL'
+});
+</script>
+
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{GA4_ID}}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '{{GA4_ID}}');
+gtag('event', 'view_item', {
+  currency: 'BRL',
+  value: {{PRECO_NUMERICO}},
+  items: [{ item_name: '{{NOME_PRODUTO}}', price: {{PRECO_NUMERICO}}, quantity: 1 }]
+});
+</script>
+
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-item__btn').forEach(btn => {
+  btn.addEventListener('click', () => btn.parentElement.classList.toggle('open'));
+});
+
+// Track CTA clicks
+document.querySelectorAll('[data-cta]').forEach(el => {
+  el.addEventListener('click', () => {
+    if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { content_name: '{{NOME_PRODUTO}}', value: {{PRECO_NUMERICO}}, currency: 'BRL' });
+    if (typeof gtag !== 'undefined') gtag('event', 'begin_checkout', { currency: 'BRL', value: {{PRECO_NUMERICO}} });
+  });
+});
+</script>
+
+</body>
+</html>

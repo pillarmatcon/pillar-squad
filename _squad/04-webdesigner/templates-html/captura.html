@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!--
+  Template: Página de Captura
+  Squad AgêncIA 100k, Agente 04-Páginas
+  Trocar todos os {{PLACEHOLDER}} pelos dados reais do briefing antes de subir.
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a0a">
+
+<!-- SEO -->
+<title>{{HEADLINE_CURTA}} | {{NOME_CLIENTE}}</title>
+<meta name="description" content="{{DESCRIPTION_150_160_CHARS}}">
+<meta name="keywords" content="{{NICHO}}, {{CIDADE}}, {{OFERTA_PRINCIPAL}}">
+<meta name="author" content="{{NOME_CLIENTE}}">
+<link rel="canonical" href="{{URL_CANONICA}}">
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{HEADLINE_CURTA}}">
+<meta property="og:description" content="{{SUBHEADLINE}}">
+<meta property="og:image" content="{{URL_ABSOLUTA_OG_IMAGE_1200x630}}">
+<meta property="og:image:alt" content="{{ALT_OG_IMAGE}}">
+<meta property="og:url" content="{{URL_CANONICA}}">
+<meta property="og:site_name" content="{{NOME_CLIENTE}}">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{HEADLINE_CURTA}}">
+<meta name="twitter:description" content="{{SUBHEADLINE}}">
+<meta name="twitter:image" content="{{URL_ABSOLUTA_OG_IMAGE}}">
+
+<!-- Schema.org, escolher o tipo conforme nicho -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{SCHEMA_TYPE}}",
+  "name": "{{NOME_CLIENTE}}",
+  "url": "{{URL_CANONICA}}",
+  "telephone": "{{TELEFONE}}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ENDERECO}}",
+    "addressLocality": "{{CIDADE}}",
+    "addressRegion": "{{UF}}",
+    "postalCode": "{{CEP}}",
+    "addressCountry": "BR"
+  }
+}
+</script>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="{{FAVICON_URL}}">
+
+<style>
+:root {
+  --color-primary: {{COR_PRIMARIA_HEX}};
+  --color-primary-dark: {{COR_PRIMARIA_DARK_HEX}};
+  --color-text: #1a1a1a;
+  --color-text-soft: #4a4a4a;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f7f7f5;
+  --color-border: #e5e5e5;
+  --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --max-width: 1200px;
+  --radius: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-stack);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+button { font-family: inherit; cursor: pointer; border: none; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* HEADER */
+.header {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.header__phone {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* HERO */
+.hero {
+  padding: 48px 0 64px;
+  background: var(--color-bg);
+}
+.hero__inner {
+  display: grid;
+  gap: 32px;
+}
+.hero__content h1 {
+  font-size: 32px;
+  line-height: 1.15;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--color-text);
+}
+.hero__content p.hero__sub {
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-text-soft);
+  margin-bottom: 24px;
+}
+.hero__form {
+  background: var(--color-bg-alt);
+  border-radius: var(--radius);
+  padding: 24px;
+  border: 1px solid var(--color-border);
+}
+.hero__form h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.hero__image {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--color-bg-alt);
+  aspect-ratio: 4/3;
+}
+
+@media (min-width: 768px) {
+  .hero { padding: 80px 0 96px; }
+  .hero__inner {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: 56px;
+  }
+  .hero__content h1 { font-size: 44px; }
+  .hero__content p.hero__sub { font-size: 20px; }
+}
+
+/* FORM */
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  font-family: inherit;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  transition: border-color 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+.form-group input.error { border-color: #d43d3d; }
+.form-error {
+  display: none;
+  font-size: 13px;
+  color: #d43d3d;
+  margin-top: 6px;
+}
+.form-group input.error + .form-error { display: block; }
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.cta-btn {
+  display: block;
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius);
+  transition: background 0.2s, transform 0.1s;
+  text-align: center;
+}
+.cta-btn:hover { background: var(--color-primary-dark); }
+.cta-btn:active { transform: translateY(1px); }
+.cta-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.form-success {
+  display: none;
+  padding: 16px;
+  background: #e8f5e9;
+  border: 1px solid #4caf50;
+  border-radius: var(--radius);
+  color: #2e7d32;
+}
+
+/* SECTIONS */
+.section { padding: 64px 0; }
+.section--alt { background: var(--color-bg-alt); }
+
+.section__title {
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.section__sub {
+  font-size: 18px;
+  text-align: center;
+  color: var(--color-text-soft);
+  max-width: 640px;
+  margin: 0 auto 40px;
+}
+
+@media (min-width: 768px) {
+  .section { padding: 96px 0; }
+  .section__title { font-size: 36px; }
+}
+
+/* BENEFICIOS */
+.beneficios__grid {
+  display: grid;
+  gap: 24px;
+}
+.beneficio {
+  background: var(--color-bg);
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+}
+.beneficio__icon {
+  width: 40px;
+  height: 40px;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.beneficio h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.beneficio p {
+  font-size: 15px;
+  color: var(--color-text-soft);
+}
+
+@media (min-width: 768px) {
+  .beneficios__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* PROVA SOCIAL */
+.depoimento {
+  background: var(--color-bg);
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  max-width: 720px;
+  margin: 0 auto;
+}
+.depoimento__texto {
+  font-size: 18px;
+  line-height: 1.5;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+.depoimento__autor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.depoimento__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-bg-alt);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.depoimento__nome {
+  font-weight: 700;
+  font-size: 15px;
+}
+.depoimento__contexto {
+  font-size: 13px;
+  color: var(--color-text-soft);
+}
+
+/* FAQ */
+.faq__list { max-width: 720px; margin: 0 auto; }
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+}
+.faq-item__btn {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background: none;
+  text-align: left;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.faq-item__btn::after {
+  content: "+";
+  font-size: 24px;
+  font-weight: 400;
+  transition: transform 0.2s;
+}
+.faq-item.open .faq-item__btn::after {
+  transform: rotate(45deg);
+}
+.faq-item__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  font-size: 15px;
+  color: var(--color-text-soft);
+  line-height: 1.6;
+}
+.faq-item.open .faq-item__answer {
+  max-height: 500px;
+  padding: 0 0 20px;
+}
+
+/* CTA FINAL */
+.cta-final {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 64px 0;
+  text-align: center;
+}
+.cta-final h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.cta-final p {
+  font-size: 18px;
+  margin-bottom: 24px;
+  opacity: 0.95;
+}
+.cta-final .cta-btn {
+  background: #fff;
+  color: var(--color-primary);
+  max-width: 320px;
+  margin: 0 auto;
+}
+.cta-final .cta-btn:hover {
+  background: var(--color-bg-alt);
+}
+
+/* FOOTER */
+.footer {
+  padding: 32px 0;
+  background: var(--color-text);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+}
+.footer__inner {
+  display: grid;
+  gap: 16px;
+}
+.footer__legal {
+  font-size: 13px;
+  opacity: 0.75;
+}
+.footer__legal a {
+  text-decoration: underline;
+  margin-right: 16px;
+}
+@media (min-width: 768px) {
+  .footer__inner {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+/* COOKIE BANNER */
+.cookie-banner {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--color-text);
+  color: #fff;
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  display: none;
+  z-index: 100;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+.cookie-banner.visible { display: block; }
+.cookie-banner button {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="#" class="header__logo">{{NOME_CLIENTE}}</a>
+    <a href="tel:{{TELEFONE_TEL}}" class="header__phone">{{TELEFONE_FORMATADO}}</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container hero__inner">
+
+      <div class="hero__content">
+        <h1>{{HEADLINE_PRINCIPAL}}</h1>
+        <p class="hero__sub">{{SUBHEADLINE}}</p>
+        <div class="hero__image">
+          <img src="{{URL_HERO_IMAGE_WEBP}}" alt="{{ALT_HERO_IMAGE}}" width="800" height="600">
+        </div>
+      </div>
+
+      <div class="hero__form">
+        <h2>{{TITULO_FORMULARIO}}</h2>
+        <form id="leadForm" action="{{ENDPOINT_FORM}}" method="POST" novalidate>
+
+          <input type="text" name="hp_field" class="honeypot" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="utm_source" id="utm_source">
+          <input type="hidden" name="utm_medium" id="utm_medium">
+          <input type="hidden" name="utm_campaign" id="utm_campaign">
+          <input type="hidden" name="utm_term" id="utm_term">
+          <input type="hidden" name="utm_content" id="utm_content">
+
+          <div class="form-group">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" required minlength="3" autocomplete="name">
+            <div class="form-error">Preencha seu nome.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="telefone">WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone" required pattern="[0-9() \-]{10,15}" autocomplete="tel" placeholder="(00) 00000-0000">
+            <div class="form-error">Preencha um WhatsApp válido.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+            <div class="form-error">Preencha um email válido.</div>
+          </div>
+
+          <button type="submit" class="cta-btn" id="submitBtn">{{TEXTO_BOTAO_CTA}}</button>
+
+          <div class="form-success" id="formSuccess">
+            Recebemos seu contato. Entraremos em contato em breve.
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section--alt" id="beneficios">
+    <div class="container">
+      <h2 class="section__title">{{TITULO_BENEFICIOS}}</h2>
+      <p class="section__sub">{{SUBTITULO_BENEFICIOS}}</p>
+
+      <div class="beneficios__grid">
+        <div class="beneficio">
+          <div class="beneficio__icon">1</div>
+          <h3>{{BENEFICIO_1_TITULO}}</h3>
+          <p>{{BENEFICIO_1_TEXTO}}</p>
+        </div>
+        <div class="beneficio">
+          <div class="beneficio__icon">2</div>
+          <h3>{{BENEFICIO_2_TITULO}}</h3>
+          <p>{{BENEFICIO_2_TEXTO}}</p>
+        </div>
+        <div class="beneficio">
+          <div class="beneficio__icon">3</div>
+          <h3>{{BENEFICIO_3_TITULO}}</h3>
+          <p>{{BENEFICIO_3_TEXTO}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title">{{TITULO_PROVA}}</h2>
+
+      <div class="depoimento">
+        <p class="depoimento__texto">"{{DEPOIMENTO_TEXTO}}"</p>
+        <div class="depoimento__autor">
+          <div class="depoimento__avatar">
+            <img src="{{URL_AVATAR}}" alt="{{NOME_AUTOR}}" width="48" height="48" loading="lazy">
+          </div>
+          <div>
+            <div class="depoimento__nome">{{NOME_AUTOR}}</div>
+            <div class="depoimento__contexto">{{CONTEXTO_AUTOR}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="faq">
+    <div class="container">
+      <h2 class="section__title">Dúvidas frequentes</h2>
+
+      <div class="faq__list">
+        <div class="faq-item">
+          <button class="faq-item__btn">{{FAQ_1_PERGUNTA}}</button>
+          <div class="faq-item__answer">{{FAQ_1_RESPOSTA}}</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__btn">{{FAQ_2_PERGUNTA}}</button>
+          <div class="faq-item__answer">{{FAQ_2_RESPOSTA}}</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__btn">{{FAQ_3_PERGUNTA}}</button>
+          <div class="faq-item__answer">{{FAQ_3_RESPOSTA}}</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__btn">{{FAQ_4_PERGUNTA}}</button>
+          <div class="faq-item__answer">{{FAQ_4_RESPOSTA}}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <div class="container">
+      <h2>{{CTA_FINAL_TITULO}}</h2>
+      <p>{{CTA_FINAL_SUBTITULO}}</p>
+      <a href="#leadForm" class="cta-btn">{{TEXTO_BOTAO_CTA}}</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: #fff;">{{NOME_CLIENTE}}</div>
+      <div>{{ENDERECO_COMPLETO}}</div>
+      <div>CNPJ: {{CNPJ}}</div>
+    </div>
+    <div>
+      <div style="font-weight: 600; margin-bottom: 8px; color: #fff;">Contato</div>
+      <div>{{TELEFONE_FORMATADO}}</div>
+      <div>{{EMAIL_CONTATO}}</div>
+    </div>
+    <div class="footer__legal">
+      <a href="/politica-de-privacidade">Política de Privacidade</a>
+      <a href="/termos-de-uso">Termos de Uso</a>
+      <div style="margin-top: 8px;">© {{ANO}} {{NOME_CLIENTE}}. Todos os direitos reservados.</div>
+      <div style="margin-top: 4px;">{{REGISTRO_PROFISSIONAL_SE_HOUVER}}</div>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner">
+  <p>Usamos cookies para melhorar sua experiência. Ao continuar, você concorda com nossa <a href="/politica-de-privacidade" style="text-decoration: underline; color: #fff;">Política de Privacidade</a>.</p>
+  <button id="cookieAccept">Entendi</button>
+</div>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '{{META_PIXEL_ID}}');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{META_PIXEL_ID}}&ev=PageView&noscript=1"/></noscript>
+
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{GA4_ID}}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '{{GA4_ID}}');
+</script>
+
+<!-- Google Tag (Conversion) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{GOOGLE_ADS_ID}}"></script>
+
+<script>
+// UTM capture
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(k => {
+    const el = document.getElementById(k);
+    if (el) el.value = params.get(k) || '';
+  });
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item__btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.parentElement.classList.toggle('open');
+  });
+});
+
+// Form validation + submit
+const form = document.getElementById('leadForm');
+const submitBtn = document.getElementById('submitBtn');
+const formSuccess = document.getElementById('formSuccess');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  // honeypot check
+  if (form.hp_field.value) return false;
+
+  // basic validation
+  const nome = form.nome;
+  const telefone = form.telefone;
+  const email = form.email;
+  let valid = true;
+
+  [nome, telefone, email].forEach(field => {
+    field.classList.remove('error');
+    if (!field.checkValidity()) {
+      field.classList.add('error');
+      valid = false;
+    }
+  });
+
+  if (!valid) return;
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Enviando...';
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      // tracking events
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'generate_lead', { event_category: 'form', event_label: 'lead_form' });
+        gtag('event', 'conversion', { send_to: '{{GOOGLE_ADS_CONVERSION_ID}}' });
+      }
+
+      form.style.display = 'none';
+      formSuccess.style.display = 'block';
+
+      // Redirect to thank you page if configured
+      // setTimeout(() => { window.location.href = '/obrigado'; }, 1500);
+    } else {
+      throw new Error('Erro no envio');
+    }
+  } catch (err) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = '{{TEXTO_BOTAO_CTA}}';
+    alert('Erro ao enviar. Tente novamente em instantes ou nos chame no WhatsApp.');
+  }
+});
+
+// Cookie banner
+const cookieBanner = document.getElementById('cookieBanner');
+const cookieAccept = document.getElementById('cookieAccept');
+if (!localStorage.getItem('cookieAccepted')) {
+  cookieBanner.classList.add('visible');
+}
+cookieAccept.addEventListener('click', () => {
+  localStorage.setItem('cookieAccepted', '1');
+  cookieBanner.classList.remove('visible');
+});
+</script>
+
+</body>
+</html>

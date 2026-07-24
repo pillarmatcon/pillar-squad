@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!--
+  Template: Dashboard de Performance (relatório mensal/semanal para o cliente)
+  Squad AgêncIA 100k, Agente 05-Relatório/Dashboard
+  Trocar todos os {{PLACEHOLDER}} pelos dados reais do período.
+  Para exportar como PDF: Chrome → Imprimir → Salvar como PDF → A4 Paisagem
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard: {{NOME_CLIENTE}} - {{PERIODO}}</title>
+<style>
+:root {
+  --color-primary: {{COR_PRIMARIA_HEX}};
+  --color-primary-dark: {{COR_PRIMARIA_DARK_HEX}};
+  --color-text: #1a1a1a;
+  --color-text-soft: #4a4a4a;
+  --color-bg: #f7f7f5;
+  --color-white: #ffffff;
+  --color-green: #2e7d32;
+  --color-green-bg: #e8f5e9;
+  --color-yellow: #f57f17;
+  --color-yellow-bg: #fff8e1;
+  --color-orange: #e65100;
+  --color-orange-bg: #fff3e0;
+  --color-red: #c62828;
+  --color-red-bg: #ffebee;
+  --color-border: #e0e0e0;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 3px solid var(--color-primary);
+}
+.header__left h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+.header__left p {
+  font-size: 16px;
+  color: var(--color-text-soft);
+  margin-top: 4px;
+}
+.header__right {
+  text-align: right;
+}
+.header__right .periodo {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-soft);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.header__right .agencia {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-top: 4px;
+}
+
+/* STATUS BADGE */
+.status-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.status-badge--otimo    { background: var(--color-green-bg);  color: var(--color-green); }
+.status-badge--normal   { background: var(--color-yellow-bg); color: var(--color-yellow); }
+.status-badge--atencao  { background: var(--color-orange-bg); color: var(--color-orange); }
+.status-badge--critico  { background: var(--color-red-bg);    color: var(--color-red); }
+
+/* SEÇÃO */
+.section {
+  margin-bottom: 40px;
+}
+.section__title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-text-soft);
+  margin-bottom: 16px;
+}
+
+/* CARDS DE KPI */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+.kpi-card {
+  background: var(--color-white);
+  border-radius: 12px;
+  padding: 20px 24px;
+  border: 1px solid var(--color-border);
+  position: relative;
+}
+.kpi-card__label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-soft);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.kpi-card__value {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.kpi-card__sub {
+  font-size: 13px;
+  color: var(--color-text-soft);
+  margin-top: 6px;
+}
+.kpi-card__status {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.kpi-card__status--otimo   { background: var(--color-green); }
+.kpi-card__status--normal  { background: var(--color-yellow); }
+.kpi-card__status--atencao { background: var(--color-orange); }
+.kpi-card__status--critico { background: var(--color-red); }
+
+/* CARD DESTAQUE (maior) */
+.kpi-card--destaque {
+  grid-column: span 2;
+  background: var(--color-primary);
+  color: white;
+  border-color: transparent;
+}
+.kpi-card--destaque .kpi-card__label { color: rgba(255,255,255,0.7); }
+.kpi-card--destaque .kpi-card__value { color: white; font-size: 48px; }
+.kpi-card--destaque .kpi-card__sub   { color: rgba(255,255,255,0.85); }
+
+/* TABELA DE CRIATIVOS */
+.table-wrap {
+  background: var(--color-white);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+thead {
+  background: var(--color-primary);
+  color: white;
+}
+thead th {
+  padding: 14px 20px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+tbody tr {
+  border-bottom: 1px solid var(--color-border);
+}
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--color-bg); }
+tbody td {
+  padding: 14px 20px;
+  font-size: 14px;
+  color: var(--color-text);
+}
+tbody td:first-child { font-weight: 600; }
+
+/* STATUS NA TABELA */
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.dot--otimo   { background: var(--color-green); }
+.dot--normal  { background: var(--color-yellow); }
+.dot--atencao { background: var(--color-orange); }
+.dot--critico { background: var(--color-red); }
+
+/* BLOCO DE ANÁLISE */
+.analysis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.analysis-card {
+  background: var(--color-white);
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+}
+.analysis-card__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+.analysis-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.analysis-card ul li {
+  font-size: 14px;
+  line-height: 1.5;
+  padding-left: 20px;
+  position: relative;
+  color: var(--color-text);
+}
+.analysis-card ul li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* PRÓXIMAS AÇÕES */
+.actions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.action-item {
+  background: var(--color-white);
+  border-radius: 10px;
+  padding: 16px 20px;
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.action-item__num {
+  min-width: 32px;
+  height: 32px;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+}
+.action-item__content h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+.action-item__content p {
+  font-size: 13px;
+  color: var(--color-text-soft);
+}
+.action-item__prazo {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-soft);
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+/* COMPARATIVO */
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+.compare-card {
+  background: var(--color-white);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--color-border);
+}
+.compare-card__label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-soft);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.compare-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+}
+.compare-row:last-child { border-bottom: none; }
+.compare-row__period { color: var(--color-text-soft); }
+.compare-row__value  { font-weight: 700; }
+.compare-row__delta  { font-size: 12px; font-weight: 700; }
+.delta--up   { color: var(--color-green); }
+.delta--down { color: var(--color-red); }
+.delta--neutral { color: var(--color-text-soft); }
+
+/* FOOTER */
+.footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--color-text-soft);
+}
+
+/* LEGENDA */
+.legend {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--color-text-soft);
+}
+
+@media print {
+  body { background: white; padding: 20px; }
+  .kpi-card, .analysis-card, .action-item, .compare-card { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- CABEÇALHO -->
+<header class="header">
+  <div class="header__left">
+    <h1>{{NOME_CLIENTE}}</h1>
+    <p>Relatório de Performance - {{TIPO_CAMPANHA}}</p>
+  </div>
+  <div class="header__right">
+    <div class="periodo">{{PERIODO}}</div>
+    <div class="agencia">{{NOME_AGENCIA}}</div>
+    <div style="margin-top:8px;">
+      <span class="status-badge status-badge--{{STATUS_GERAL}}">{{TEXTO_STATUS_GERAL}}</span>
+    </div>
+  </div>
+</header>
+
+<!-- KPIs PRINCIPAIS -->
+<section class="section">
+  <div class="section__title">Resultados do período</div>
+  <div class="kpi-grid">
+
+    <div class="kpi-card kpi-card--destaque">
+      <div class="kpi-card__label">{{LABEL_KPI_DESTAQUE}}</div>
+      <div class="kpi-card__value">{{VALOR_KPI_DESTAQUE}}</div>
+      <div class="kpi-card__sub">Meta: {{META_KPI_DESTAQUE}}</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-card__status kpi-card__status--{{STATUS_INVESTIMENTO}}"></div>
+      <div class="kpi-card__label">Investimento</div>
+      <div class="kpi-card__value">R$&nbsp;{{INVESTIMENTO}}</div>
+      <div class="kpi-card__sub">{{PLATAFORMA}}</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-card__status kpi-card__status--{{STATUS_CPL}}"></div>
+      <div class="kpi-card__label">Custo por Lead</div>
+      <div class="kpi-card__value">R$&nbsp;{{CPL}}</div>
+      <div class="kpi-card__sub">Meta: R$ {{META_CPL}}</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-card__status kpi-card__status--{{STATUS_CPA}}"></div>
+      <div class="kpi-card__label">{{LABEL_CPA}}</div>
+      <div class="kpi-card__value">R$&nbsp;{{CPA}}</div>
+      <div class="kpi-card__sub">Meta: R$ {{META_CPA}}</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-card__status kpi-card__status--{{STATUS_CTR}}"></div>
+      <div class="kpi-card__label">Taxa de Clique</div>
+      <div class="kpi-card__value">{{CTR}}%</div>
+      <div class="kpi-card__sub">Meta: acima de 1,5%</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-card__status kpi-card__status--{{STATUS_TAXA_LP}}"></div>
+      <div class="kpi-card__label">Conversão da Página</div>
+      <div class="kpi-card__value">{{TAXA_LP}}%</div>
+      <div class="kpi-card__sub">Meta: acima de 15%</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-card__status kpi-card__status--{{STATUS_LEADS}}"></div>
+      <div class="kpi-card__label">Leads Gerados</div>
+      <div class="kpi-card__value">{{LEADS}}</div>
+      <div class="kpi-card__sub">Meta: {{META_LEADS}}</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-card__status kpi-card__status--{{STATUS_IMPRESSOES}}"></div>
+      <div class="kpi-card__label">Alcance</div>
+      <div class="kpi-card__value">{{IMPRESSOES}}</div>
+      <div class="kpi-card__sub">Impressões únicas</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPARATIVO DE PERÍODOS -->
+<section class="section">
+  <div class="section__title">Comparativo de períodos</div>
+  <div class="compare-grid">
+
+    <div class="compare-card">
+      <div class="compare-card__label">Leads gerados</div>
+      <div class="compare-row">
+        <span class="compare-row__period">Este período</span>
+        <span class="compare-row__value">{{LEADS_ATUAL}}</span>
+        <span class="compare-row__delta delta--{{DELTA_LEADS_DIR}}">{{DELTA_LEADS}}</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-row__period">Período anterior</span>
+        <span class="compare-row__value">{{LEADS_ANTERIOR}}</span>
+      </div>
+    </div>
+
+    <div class="compare-card">
+      <div class="compare-card__label">Custo por lead (R$)</div>
+      <div class="compare-row">
+        <span class="compare-row__period">Este período</span>
+        <span class="compare-row__value">R$ {{CPL_ATUAL}}</span>
+        <span class="compare-row__delta delta--{{DELTA_CPL_DIR}}">{{DELTA_CPL}}</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-row__period">Período anterior</span>
+        <span class="compare-row__value">R$ {{CPL_ANTERIOR}}</span>
+      </div>
+    </div>
+
+    <div class="compare-card">
+      <div class="compare-card__label">Investimento (R$)</div>
+      <div class="compare-row">
+        <span class="compare-row__period">Este período</span>
+        <span class="compare-row__value">R$ {{INV_ATUAL}}</span>
+        <span class="compare-row__delta delta--{{DELTA_INV_DIR}}">{{DELTA_INV}}</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-row__period">Período anterior</span>
+        <span class="compare-row__value">R$ {{INV_ANTERIOR}}</span>
+      </div>
+    </div>
+
+    <div class="compare-card">
+      <div class="compare-card__label">{{LABEL_CPA}} (R$)</div>
+      <div class="compare-row">
+        <span class="compare-row__period">Este período</span>
+        <span class="compare-row__value">R$ {{CPA_ATUAL}}</span>
+        <span class="compare-row__delta delta--{{DELTA_CPA_DIR}}">{{DELTA_CPA}}</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-row__period">Período anterior</span>
+        <span class="compare-row__value">R$ {{CPA_ANTERIOR}}</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DESEMPENHO DOS CRIATIVOS -->
+<section class="section">
+  <div class="section__title">Desempenho dos criativos</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Criativo</th>
+          <th>Impressões</th>
+          <th>CTR</th>
+          <th>Leads</th>
+          <th>CPL</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{CRIATIVO_1_NOME}}</td>
+          <td>{{CRIATIVO_1_IMPRESSOES}}</td>
+          <td>{{CRIATIVO_1_CTR}}%</td>
+          <td>{{CRIATIVO_1_LEADS}}</td>
+          <td>R$ {{CRIATIVO_1_CPL}}</td>
+          <td><span class="dot dot--{{CRIATIVO_1_STATUS}}"></span>{{CRIATIVO_1_STATUS_TEXTO}}</td>
+        </tr>
+        <tr>
+          <td>{{CRIATIVO_2_NOME}}</td>
+          <td>{{CRIATIVO_2_IMPRESSOES}}</td>
+          <td>{{CRIATIVO_2_CTR}}%</td>
+          <td>{{CRIATIVO_2_LEADS}}</td>
+          <td>R$ {{CRIATIVO_2_CPL}}</td>
+          <td><span class="dot dot--{{CRIATIVO_2_STATUS}}"></span>{{CRIATIVO_2_STATUS_TEXTO}}</td>
+        </tr>
+        <tr>
+          <td>{{CRIATIVO_3_NOME}}</td>
+          <td>{{CRIATIVO_3_IMPRESSOES}}</td>
+          <td>{{CRIATIVO_3_CTR}}%</td>
+          <td>{{CRIATIVO_3_LEADS}}</td>
+          <td>R$ {{CRIATIVO_3_CPL}}</td>
+          <td><span class="dot dot--{{CRIATIVO_3_STATUS}}"></span>{{CRIATIVO_3_STATUS_TEXTO}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ANÁLISE -->
+<section class="section">
+  <div class="section__title">Análise do período</div>
+  <div class="analysis-grid">
+
+    <div class="analysis-card">
+      <div class="analysis-card__title">O que funcionou</div>
+      <ul>
+        <li>{{POSITIVO_1}}</li>
+        <li>{{POSITIVO_2}}</li>
+        <li>{{POSITIVO_3}}</li>
+      </ul>
+    </div>
+
+    <div class="analysis-card">
+      <div class="analysis-card__title">O que precisa de atenção</div>
+      <ul>
+        <li>{{ATENCAO_1}}</li>
+        <li>{{ATENCAO_2}}</li>
+        <li>{{ATENCAO_3}}</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRÓXIMAS AÇÕES -->
+<section class="section">
+  <div class="section__title">Próximas ações recomendadas</div>
+  <div class="actions-list">
+
+    <div class="action-item">
+      <div class="action-item__num">1</div>
+      <div class="action-item__content">
+        <h4>{{ACAO_1_TITULO}}</h4>
+        <p>{{ACAO_1_DESCRICAO}}</p>
+      </div>
+      <div class="action-item__prazo">{{ACAO_1_PRAZO}}</div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-item__num">2</div>
+      <div class="action-item__content">
+        <h4>{{ACAO_2_TITULO}}</h4>
+        <p>{{ACAO_2_DESCRICAO}}</p>
+      </div>
+      <div class="action-item__prazo">{{ACAO_2_PRAZO}}</div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-item__num">3</div>
+      <div class="action-item__content">
+        <h4>{{ACAO_3_TITULO}}</h4>
+        <p>{{ACAO_3_DESCRICAO}}</p>
+      </div>
+      <div class="action-item__prazo">{{ACAO_3_PRAZO}}</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RODAPÉ -->
+<footer class="footer">
+  <div>
+    <div class="legend">
+      <div class="legend-item"><span class="dot dot--otimo"></span> Ótimo - acima da meta</div>
+      <div class="legend-item"><span class="dot dot--normal"></span> Normal - dentro da meta</div>
+      <div class="legend-item"><span class="dot dot--atencao"></span> Atenção - abaixo da meta</div>
+      <div class="legend-item"><span class="dot dot--critico"></span> Crítico - ação imediata</div>
+    </div>
+  </div>
+  <div style="text-align:right;">
+    Relatório gerado em {{DATA_GERACAO}}<br>
+    {{NOME_AGENCIA}} - {{RESPONSAVEL}}
+  </div>
+</footer>
+
+</body>
+</html>

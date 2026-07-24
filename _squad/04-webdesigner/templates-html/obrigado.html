@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!--
+  Template: Página de Obrigado / Pós-Conversão
+  Squad AgêncIA 100k, Agente 04-Páginas
+  Trocar todos os {{PLACEHOLDER}} pelos dados reais do briefing.
+  IMPORTANTE: o evento de conversão (Lead/Purchase/CompleteRegistration) dispara automaticamente no carregamento desta página.
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a0a">
+
+<!-- noindex pra essa página, não queremos que apareça no Google -->
+<meta name="robots" content="noindex, nofollow">
+
+<title>{{TITULO_PAGINA}} | {{NOME_CLIENTE}}</title>
+<meta name="description" content="{{DESCRIPTION_CURTA}}">
+
+<style>
+:root {
+  --color-primary: {{COR_PRIMARIA_HEX}};
+  --color-primary-dark: {{COR_PRIMARIA_DARK_HEX}};
+  --color-success: #2e7d32;
+  --color-text: #1a1a1a;
+  --color-text-soft: #4a4a4a;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f7f7f5;
+  --color-border: #e5e5e5;
+  --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --max-width: 800px;
+  --radius: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-stack);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+
+.header {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+}
+.header__logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* HERO CONFIRMAÇÃO */
+.confirm {
+  padding: 64px 0 48px;
+  text-align: center;
+}
+.confirm__icon {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 24px;
+  background: var(--color-success);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: 800;
+}
+.confirm h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+.confirm p.confirm__sub {
+  font-size: 18px;
+  color: var(--color-text-soft);
+  max-width: 600px;
+  margin: 0 auto 32px;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .confirm { padding: 96px 0 64px; }
+  .confirm h1 { font-size: 40px; }
+}
+
+/* PRÓXIMO PASSO */
+.proximo-passo {
+  background: var(--color-bg-alt);
+  padding: 32px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  margin-bottom: 32px;
+}
+.proximo-passo h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.passos { list-style: none; counter-reset: passo; }
+.passos li {
+  counter-increment: passo;
+  padding: 16px 0 16px 56px;
+  position: relative;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 15px;
+}
+.passos li:last-child { border: none; }
+.passos li::before {
+  content: counter(passo);
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 40px;
+  height: 40px;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.passos li strong { display: block; font-size: 16px; margin-bottom: 4px; }
+
+/* CTA SECUNDÁRIO */
+.cta-secundario {
+  text-align: center;
+  padding: 48px 0;
+  background: var(--color-bg-alt);
+}
+.cta-secundario h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.cta-secundario p {
+  font-size: 16px;
+  color: var(--color-text-soft);
+  max-width: 520px;
+  margin: 0 auto 24px;
+}
+.cta-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius);
+  transition: background 0.2s;
+}
+.cta-btn:hover { background: var(--color-primary-dark); }
+.cta-btn--outline {
+  background: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.cta-grid {
+  display: grid;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+@media (min-width: 600px) {
+  .cta-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* PESQUISA RÁPIDA */
+.pesquisa {
+  padding: 48px 0;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+.pesquisa h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.pesquisa p {
+  font-size: 14px;
+  color: var(--color-text-soft);
+  margin-bottom: 24px;
+}
+.estrelas {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.estrela {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: none;
+  font-size: 32px;
+  color: var(--color-border);
+  transition: color 0.1s;
+}
+.estrela.ativa, .estrela:hover { color: #f5a623; }
+.pesquisa__obrigado {
+  display: none;
+  color: var(--color-success);
+  font-weight: 600;
+}
+.pesquisa__obrigado.visible { display: block; }
+
+/* FOOTER */
+.footer {
+  padding: 24px 0;
+  background: var(--color-text);
+  color: rgba(255,255,255,0.85);
+  font-size: 13px;
+  text-align: center;
+}
+.footer a { text-decoration: underline; margin: 0 8px; }
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container">
+    <a href="{{URL_HOME}}" class="header__logo">{{NOME_CLIENTE}}</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="confirm">
+    <div class="container">
+      <div class="confirm__icon">✓</div>
+      <h1>{{TITULO_CONFIRMACAO}}</h1>
+      <p class="confirm__sub">{{TEXTO_CONFIRMACAO}}</p>
+    </div>
+  </section>
+
+  <section style="padding: 0 0 48px;">
+    <div class="container">
+
+      <div class="proximo-passo">
+        <h2>O que acontece agora</h2>
+        <ul class="passos">
+          <li>
+            <strong>{{PASSO_1_TITULO}}</strong>
+            {{PASSO_1_DESC}}
+          </li>
+          <li>
+            <strong>{{PASSO_2_TITULO}}</strong>
+            {{PASSO_2_DESC}}
+          </li>
+          <li>
+            <strong>{{PASSO_3_TITULO}}</strong>
+            {{PASSO_3_DESC}}
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-secundario">
+    <div class="container">
+      <h2>{{CTA_SECUNDARIO_TITULO}}</h2>
+      <p>{{CTA_SECUNDARIO_TEXTO}}</p>
+
+      <div class="cta-grid">
+        <a href="{{URL_INSTAGRAM}}" target="_blank" rel="noopener" class="cta-btn">
+          Seguir no Instagram
+        </a>
+        <a href="{{URL_WHATSAPP}}" target="_blank" rel="noopener" class="cta-btn cta-btn--outline">
+          Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pesquisa">
+    <div class="container">
+      <h2>Como foi sua experiência até aqui?</h2>
+      <p>Sua resposta ajuda a melhorar o atendimento.</p>
+
+      <div class="estrelas" id="estrelas">
+        <button class="estrela" data-valor="1">★</button>
+        <button class="estrela" data-valor="2">★</button>
+        <button class="estrela" data-valor="3">★</button>
+        <button class="estrela" data-valor="4">★</button>
+        <button class="estrela" data-valor="5">★</button>
+      </div>
+
+      <p class="pesquisa__obrigado" id="pesquisaObrigado">Obrigado pelo retorno.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div>{{NOME_CLIENTE}}, CNPJ {{CNPJ}}</div>
+    <div style="margin-top: 8px;">
+      <a href="/politica-de-privacidade">Política de Privacidade</a>
+      <a href="/termos-de-uso">Termos de Uso</a>
+    </div>
+    <div style="margin-top: 8px; opacity: 0.6;">© {{ANO}} {{NOME_CLIENTE}}.</div>
+  </div>
+</footer>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '{{META_PIXEL_ID}}');
+fbq('track', 'PageView');
+// EVENTO DE CONVERSÃO, escolher um:
+// fbq('track', 'Lead');                    // lead capturado
+// fbq('track', 'Purchase', { value: VALOR, currency: 'BRL' });  // compra concluída
+// fbq('track', 'CompleteRegistration');    // cadastro / agendamento concluído
+fbq('track', '{{EVENTO_CONVERSAO_META}}');
+</script>
+
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{GA4_ID}}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '{{GA4_ID}}');
+// EVENTO DE CONVERSÃO GA4, escolher um:
+gtag('event', '{{EVENTO_CONVERSAO_GA4}}');  // generate_lead, purchase, sign_up
+</script>
+
+<!-- Google Ads conversion -->
+<script>
+gtag('event', 'conversion', { send_to: '{{GOOGLE_ADS_CONVERSION}}' });
+</script>
+
+<script>
+// NPS estrelas
+const estrelas = document.querySelectorAll('.estrela');
+const pesquisaObrigado = document.getElementById('pesquisaObrigado');
+
+estrelas.forEach(e => {
+  e.addEventListener('click', () => {
+    const valor = e.dataset.valor;
+    estrelas.forEach((s, i) => {
+      s.classList.toggle('ativa', i < valor);
+    });
+
+    pesquisaObrigado.classList.add('visible');
+
+    // Track NPS
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'nps_response', { value: parseInt(valor) });
+    }
+
+    // POST para endpoint de NPS, opcional
+    // fetch('{{ENDPOINT_NPS}}', { method: 'POST', body: JSON.stringify({ score: valor }) });
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!--
+  Template: Criativo de Oferta (Story + Post, mesma peça em 2 formatos)
+  Squad AgêncIA 100k, Agente 03-Design/Criativos
+  Story: 1080x1920 (9:16) · Post: 1080x1350 (4:5)
+  A foto é a base da composição (princípio 2 do SKILL.md). Sem foto, não uso este template.
+  Trocar todos os {{PLACEHOLDER}} pelos dados reais do briefing, incluindo {{URL_FOTO}}.
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criativo Oferta: {{NOME_OFERTA}}</title>
+
+<style>
+:root {
+  --color-primary: {{COR_PRIMARIA_HEX}};
+  --color-primary-dark: {{COR_PRIMARIA_DARK_HEX}};
+  --color-accent: {{COR_ACCENT_HEX}};
+  --color-text: #1a1a1a;
+  --color-bg: #ffffff;
+  --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-stack);
+  background: #e0e0e0;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.preview-info {
+  background: #fff;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #4a4a4a;
+  max-width: 1080px;
+}
+.preview-info strong { color: var(--color-text); }
+
+.creative {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.creative__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.creative__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.38) 45%, rgba(0,0,0,0) 68%);
+}
+
+.creative__logo {
+  position: absolute;
+  z-index: 1;
+  left: 80px;
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.creative__content {
+  position: relative;
+  z-index: 1;
+  padding: 0 80px;
+  color: #fff;
+}
+
+.creative__eyebrow {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.creative__headline {
+  font-size: 76px;
+  font-weight: 800;
+  line-height: 1.05;
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
+}
+
+.creative__subheadline {
+  font-size: 32px;
+  line-height: 1.4;
+  font-weight: 500;
+  margin-bottom: 40px;
+  color: rgba(255,255,255,0.92);
+}
+
+.creative__cta-btn {
+  display: inline-block;
+  padding: 28px 56px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 30px;
+  font-weight: 800;
+  border-radius: 14px;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+}
+
+/* STORY: 1080x1920. Topo e rodapé ~250px são zona de segurança do Instagram
+   (nome de usuário/ícones no topo, caixa de resposta no rodapé). */
+.creative--story { width: 1080px; height: 1920px; }
+.creative--story .creative__logo { top: 96px; }
+.creative--story .creative__content { padding-bottom: 300px; }
+
+/* POST: 1080x1350, feed do Instagram */
+.creative--post { width: 1080px; height: 1350px; }
+.creative--post .creative__logo { top: 80px; }
+.creative--post .creative__content { padding-bottom: 96px; }
+</style>
+</head>
+
+<body>
+
+<div class="preview-info">
+  <strong>Criativo de Oferta:</strong> {{NOME_OFERTA}} para {{NOME_CLIENTE}}.
+  <br>Story (1080x1920) + Post (1080x1350), mesma foto e mesma copy, reposicionadas por formato.
+</div>
+
+<!-- STORY -->
+<article class="creative creative--story" id="story">
+  <img class="creative__photo" src="{{URL_FOTO}}" alt="{{NOME_CLIENTE}}">
+  <div class="creative__scrim"></div>
+  <div class="creative__logo">{{NOME_CLIENTE}}</div>
+  <div class="creative__content">
+    <span class="creative__eyebrow">{{EYEBROW}}</span>
+    <h1 class="creative__headline">{{HEADLINE}}</h1>
+    <p class="creative__subheadline">{{SUBHEADLINE}}</p>
+    <a href="#" class="creative__cta-btn">{{TEXTO_BOTAO_CTA}}</a>
+  </div>
+</article>
+
+<!-- POST -->
+<article class="creative creative--post" id="post">
+  <img class="creative__photo" src="{{URL_FOTO}}" alt="{{NOME_CLIENTE}}">
+  <div class="creative__scrim"></div>
+  <div class="creative__logo">{{NOME_CLIENTE}}</div>
+  <div class="creative__content">
+    <span class="creative__eyebrow">{{EYEBROW}}</span>
+    <h1 class="creative__headline">{{HEADLINE}}</h1>
+    <p class="creative__subheadline">{{SUBHEADLINE}}</p>
+    <a href="#" class="creative__cta-btn">{{TEXTO_BOTAO_CTA}}</a>
+  </div>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!--
+  Carrossel: Oferta (5 cards, estrutura PAS) para Construmais
+  Briefing: versão express, 2026-07-22
+  Nicho: Material de Construção (varejo local), João Pessoa/PB, mapeado via framework de 6 dimensões de _shared/nichos.md
+  Objetivo: Venda (orçamento)
+  Cards: 5
+  Status: v1, sujeito a refinamento
+
+  Pendências antes de publicar:
+  - Instagram do cliente não informado, handle deixado como placeholder no card 5
+  - Logo real ainda não recebido, usado nome em texto
+  - Card 4 usa diferencial concreto no lugar de depoimento, porque o briefing não trouxe prova social real verificável
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrossel Oferta: Material de Construção Completo - Construmais</title>
+
+<style>
+:root {
+  --color-primary: #EE2526;
+  --color-primary-dark: #C41F20;
+  --color-accent: #F4D000;
+  --color-text: #1a1a1a;
+  --color-text-soft: #4a4a4a;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f7f4f0;
+  --color-success: #2e7d32;
+  --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-stack);
+  background: #e0e0e0;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.preview-info {
+  background: #fff;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--color-text-soft);
+  max-width: 1080px;
+}
+.preview-info strong { color: var(--color-text); }
+
+.card {
+  width: 1080px;
+  height: 1350px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 96px 80px;
+  box-sizing: border-box;
+  background: var(--color-bg);
+}
+
+.card__logo {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 48px;
+}
+
+.card__eyebrow {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.card__headline {
+  font-size: 80px;
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--color-text);
+  margin-bottom: 40px;
+  letter-spacing: -0.02em;
+}
+
+.card__body {
+  font-size: 32px;
+  line-height: 1.4;
+  color: var(--color-text-soft);
+  font-weight: 400;
+}
+
+.card__swipe {
+  position: absolute;
+  bottom: 96px;
+  left: 80px;
+  font-size: 22px;
+  color: var(--color-text-soft);
+  font-weight: 600;
+}
+.card__swipe::after {
+  content: " →";
+  font-size: 28px;
+  color: var(--color-primary);
+}
+
+/* CARD 1: HOOK / PROBLEMA */
+.card--hook { background: var(--color-bg); }
+.card--hook .card__headline { font-size: 88px; }
+
+/* CARD 2: AGITAÇÃO */
+.card--agitar { background: var(--color-bg-alt); }
+.card--agitar .card__numero-grande {
+  font-size: 130px;
+  font-weight: 900;
+  color: var(--color-primary);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.card--agitar .card__numero-legenda {
+  font-size: 28px;
+  color: var(--color-text-soft);
+  margin-bottom: 32px;
+}
+
+/* CARD 3: SOLUÇÃO */
+.card--solucao { background: var(--color-primary); color: #fff; }
+.card--solucao .card__logo { color: rgba(255,255,255,0.95); }
+.card--solucao .card__eyebrow { color: var(--color-text); }
+.card--solucao .card__headline { color: #fff; font-size: 72px; }
+.card--solucao .card__body { color: rgba(255,255,255,0.9); }
+.card--solucao .card__swipe { color: rgba(255,255,255,0.85); }
+.card--solucao .card__swipe::after { color: var(--color-accent); }
+
+.card__lista-beneficios { list-style: none; margin-top: 32px; }
+.card__lista-beneficios li {
+  font-size: 30px;
+  font-weight: 600;
+  padding: 16px 0 16px 56px;
+  position: relative;
+}
+.card__lista-beneficios li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 24px;
+  width: 32px;
+  height: 32px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+
+/* CARD 4: DIFERENCIAL CONCRETO (no lugar de depoimento não verificado) */
+.card--diferencial { background: var(--color-bg); }
+.card--diferencial .card__frase {
+  font-size: 46px;
+  line-height: 1.3;
+  color: var(--color-text);
+  font-weight: 700;
+  margin: 40px 0 40px;
+  padding-left: 64px;
+  position: relative;
+}
+.card--diferencial .card__frase::before {
+  content: "“";
+  position: absolute;
+  left: 0;
+  top: -36px;
+  font-size: 160px;
+  color: var(--color-primary);
+  font-family: Georgia, serif;
+  line-height: 1;
+  font-style: normal;
+}
+.card--diferencial .card__assinatura {
+  margin-top: 24px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.card--diferencial .card__assinatura span {
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-text-soft);
+  margin-top: 4px;
+}
+
+/* CARD 5: CTA */
+.card--cta { background: var(--color-text); color: #fff; justify-content: center; }
+.card--cta .card__logo { color: #fff; }
+.card--cta .card__eyebrow { color: var(--color-accent); }
+.card--cta .card__headline { color: #fff; font-size: 76px; margin-bottom: 24px; }
+.card--cta .card__body { color: rgba(255,255,255,0.85); margin-bottom: 56px; font-size: 30px; }
+
+.card__cta-btn {
+  display: inline-block;
+  padding: 32px 64px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 32px;
+  font-weight: 800;
+  border-radius: 16px;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+.card__cta-btn-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 12px;
+  opacity: 0.9;
+}
+
+.card__info-adicional {
+  margin-top: 56px;
+  padding: 24px 32px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  font-size: 24px;
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+}
+
+.card--cta .card__handle {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 22px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="preview-info">
+  <strong>Carrossel Oferta, 5 cards:</strong> Material de Construção Completo para Construmais.
+  <br>Estrutura PAS (Problema, Agitação, Solução, Diferencial, CTA). Card 4 usa diferencial concreto no lugar de depoimento, pois não há prova social real informada no briefing.
+</div>
+
+<!-- CARD 1: HOOK / PROBLEMA -->
+<article class="card card--hook" id="card-1">
+  <div class="card__logo">Construmais</div>
+  <span class="card__eyebrow">Sua obra não pode esperar</span>
+  <h1 class="card__headline">Obra parada esperando material?</h1>
+  <p class="card__body">Cada peça que falta atrasa a obra e testa a paciência de quem contratou o serviço.</p>
+  <div class="card__swipe">arraste</div>
+</article>
+
+<!-- CARD 2: AGITAÇÃO -->
+<article class="card card--agitar" id="card-2">
+  <div class="card__logo">Construmais</div>
+  <span class="card__eyebrow">O que ninguém calcula</span>
+  <div class="card__numero-grande">Atraso</div>
+  <p class="card__numero-legenda">é o que sobra quando falta uma peça só.</p>
+  <h2 class="card__headline" style="font-size: 54px;">Cada loja a mais na busca é um dia a menos de prazo.</h2>
+  <p class="card__body">O pedreiro para, o cronograma estica, e quem sente o aperto é quem contratou a obra.</p>
+  <div class="card__swipe">continua</div>
+</article>
+
+<!-- CARD 3: SOLUÇÃO -->
+<article class="card card--solucao" id="card-3">
+  <div class="card__logo">Construmais</div>
+  <span class="card__eyebrow">A solução</span>
+  <h2 class="card__headline">A Construmais resolve em um pedido só</h2>
+  <p class="card__body">Material básico, elétrica, hidráulica e pintura na mesma loja, em João Pessoa.</p>
+  <ul class="card__lista-beneficios">
+    <li>Um único orçamento para as quatro categorias</li>
+    <li>Atendimento para quem reforma a própria casa e para quem trabalha na obra</li>
+    <li>Resposta rápida pelo WhatsApp</li>
+  </ul>
+  <div class="card__swipe">veja a diferença</div>
+</article>
+
+<!-- CARD 4: DIFERENCIAL CONCRETO -->
+<article class="card card--diferencial" id="card-4">
+  <div class="card__logo">Construmais</div>
+  <span class="card__eyebrow">Como funciona por aqui</span>
+  <p class="card__frase">Um pedido resolve o que antes precisava de três fornecedores diferentes.</p>
+  <div class="card__assinatura">
+    Construmais
+    <span>João Pessoa/PB</span>
+  </div>
+  <div class="card__swipe">como participar</div>
+</article>
+
+<!-- CARD 5: CTA -->
+<article class="card card--cta" id="card-5">
+  <div class="card__logo">Construmais</div>
+  <span class="card__eyebrow">Próximo passo</span>
+  <h2 class="card__headline">Peça seu orçamento agora</h2>
+  <p class="card__body">Preencha o formulário e a Construmais retorna com os valores para resolver o que falta na obra.</p>
+  <a href="#" class="card__cta-btn">
+    Receber orçamento
+    <span class="card__cta-btn-sub">Resposta rápida, sem compromisso</span>
+  </a>
+  <div class="card__info-adicional">Atendimento em João Pessoa e região</div>
+  <div class="card__handle">[INSTAGRAM A CONFIRMAR COM O CLIENTE]</div>
+</article>
+
+</body>
+</html>
+<!-- ✓ Humanizer aplicado · 10 padrões anti-cara-de-IA verificados -->

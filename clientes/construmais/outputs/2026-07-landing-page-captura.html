@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!--
+  Página: Captura (orçamento) para Construmais
+  Briefing: versão express, 2026-07-22
+  Nicho: Material de Construção (varejo local), João Pessoa/PB
+  Objetivo: Venda (orçamento gerado por formulário)
+  Status: v1, sujeito a refinamento
+
+  Pendências para virar "pronto para publicar" (ver lista completa no README de entrega):
+  - Trocar {{META_PIXEL_ID}}, {{GA4_ID}}, {{GOOGLE_ADS_ID}} e {{GOOGLE_ADS_CONVERSION_ID}} pelos IDs reais (não vieram no formulário de onboarding)
+  - Trocar {{ENDPOINT_FORM}} pelo endpoint real (CRM, WhatsApp API, Formspree ou similar)
+  - Domínio, endereço, telefone, CNPJ e e-mail atualizados com dado real do formulário de onboarding (21/07/2026, ver clientes/construmais/CLIENTE.md)
+  - Confirmar com o cliente se há entrega para Cabedelo, Bayeux e Santa Rita antes de publicar a FAQ 1 (raio de entrega lucrativo declarado é 5km, mas não fecha se essas cidades estão cobertas)
+  - Confirmar prazo médio e taxa de entrega antes de publicar a FAQ 4 (cliente confirmou que cobra frete em alguns casos, mas não informou prazo nem valor)
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#EE2526">
+
+<!-- SEO -->
+<title>Tudo para sua obra em uma loja só | Construmais</title>
+<meta name="description" content="Material básico, elétrica, hidráulica e pintura em João Pessoa. Peça seu orçamento e resolva a obra em um pedido só.">
+<meta name="keywords" content="material de construção, João Pessoa, orçamento de obra">
+<meta name="author" content="Construmais">
+<link rel="canonical" href="https://construmaisjp.com.br/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Tudo para sua obra em uma loja só">
+<meta property="og:description" content="Material básico, elétrica, hidráulica e pintura em João Pessoa. Peça seu orçamento agora.">
+<meta property="og:image" content="https://construmaisjp.com.br/og-image-construmais.jpg">
+<meta property="og:image:alt" content="Construmais, material de construção em João Pessoa">
+<meta property="og:url" content="https://construmaisjp.com.br/">
+<meta property="og:site_name" content="Construmais">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tudo para sua obra em uma loja só">
+<meta name="twitter:description" content="Material básico, elétrica, hidráulica e pintura em João Pessoa. Peça seu orçamento agora.">
+<meta name="twitter:image" content="https://construmaisjp.com.br/og-image-construmais.jpg">
+
+<!-- Schema.org: HardwareStore (loja de material de construção) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HardwareStore",
+  "name": "Construmais",
+  "url": "https://construmaisjp.com.br/",
+  "telephone": "+55 83 3223-1568",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Elias Cavalcanti de Albuquerque, 750, Cristo Redentor",
+    "addressLocality": "João Pessoa",
+    "addressRegion": "PB",
+    "postalCode": "58070-400",
+    "addressCountry": "BR"
+  }
+}
+</script>
+
+<style>
+:root {
+  --color-primary: #EE2526;
+  --color-primary-dark: #C41F20;
+  --color-text: #1a1a1a;
+  --color-text-soft: #4a4a4a;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f7f4f0;
+  --color-border: #e5e0da;
+  --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --max-width: 1200px;
+  --radius: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-stack);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+
+/* HEADER */
+.header { padding: 16px 0; border-bottom: 1px solid var(--color-border); }
+.header__inner { display: flex; justify-content: space-between; align-items: center; }
+.header__logo { font-size: 20px; font-weight: 800; color: var(--color-primary); }
+.header__phone { font-size: 14px; font-weight: 600; }
+
+/* HERO */
+.hero { padding: 48px 0 64px; background: var(--color-bg); }
+.hero__inner { display: grid; gap: 32px; }
+.hero__content h1 {
+  font-size: 32px; line-height: 1.15; font-weight: 800; margin-bottom: 16px; color: var(--color-text);
+}
+.hero__content p.hero__sub {
+  font-size: 18px; line-height: 1.5; color: var(--color-text-soft); margin-bottom: 24px;
+}
+.hero__form {
+  background: var(--color-bg-alt); border-radius: var(--radius); padding: 24px; border: 1px solid var(--color-border);
+}
+.hero__form h2 { font-size: 20px; font-weight: 700; margin-bottom: 16px; }
+.hero__image {
+  border-radius: var(--radius); overflow: hidden; background: var(--color-bg-alt); aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center; color: var(--color-text-soft); font-size: 14px; text-align: center; padding: 24px;
+}
+
+@media (min-width: 768px) {
+  .hero { padding: 80px 0 96px; }
+  .hero__inner { grid-template-columns: 1.1fr 1fr; align-items: center; gap: 56px; }
+  .hero__content h1 { font-size: 44px; }
+  .hero__content p.hero__sub { font-size: 20px; }
+}
+
+/* FORM */
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 12px 14px; font-size: 16px; font-family: inherit;
+  border: 1px solid var(--color-border); border-radius: var(--radius); background: var(--color-bg);
+  transition: border-color 0.2s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none; border-color: var(--color-primary);
+}
+.form-group input.error { border-color: #d43d3d; }
+.form-error { display: none; font-size: 13px; color: #d43d3d; margin-top: 6px; }
+.form-group input.error + .form-error { display: block; }
+.honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+.cta-btn {
+  display: block; width: 100%; padding: 16px 24px; font-size: 16px; font-weight: 700;
+  background: var(--color-primary); color: #fff; border-radius: var(--radius);
+  transition: background 0.2s, transform 0.1s; text-align: center;
+}
+.cta-btn:hover { background: var(--color-primary-dark); }
+.cta-btn:active { transform: translateY(1px); }
+.cta-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.form-success {
+  display: none; padding: 16px; background: #e8f5e9; border: 1px solid #4caf50; border-radius: var(--radius); color: #2e7d32;
+}
+
+/* SECTIONS */
+.section { padding: 64px 0; }
+.section--alt { background: var(--color-bg-alt); }
+.section__title { font-size: 28px; line-height: 1.2; font-weight: 800; text-align: center; margin-bottom: 16px; }
+.section__sub { font-size: 18px; text-align: center; color: var(--color-text-soft); max-width: 640px; margin: 0 auto 40px; }
+
+@media (min-width: 768px) {
+  .section { padding: 96px 0; }
+  .section__title { font-size: 36px; }
+}
+
+/* BENEFICIOS */
+.beneficios__grid { display: grid; gap: 24px; }
+.beneficio { background: var(--color-bg); padding: 24px; border-radius: var(--radius); border: 1px solid var(--color-border); }
+.beneficio__icon {
+  width: 40px; height: 40px; background: var(--color-primary); color: #fff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-weight: 700; margin-bottom: 16px;
+}
+.beneficio h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.beneficio p { font-size: 15px; color: var(--color-text-soft); }
+
+@media (min-width: 768px) {
+  .beneficios__grid { grid-template-columns: repeat(3, 1fr); }
+  .beneficios__grid .beneficio:first-child { grid-column: span 1; border-color: var(--color-primary); border-width: 2px; }
+}
+
+/* DIFERENCIAL (substitui prova social não verificada) */
+.diferencial {
+  background: var(--color-bg); padding: 32px; border-radius: var(--radius); border: 1px solid var(--color-border);
+  max-width: 720px; margin: 0 auto; border-left: 4px solid var(--color-primary);
+}
+.diferencial__texto { font-size: 22px; line-height: 1.5; font-weight: 700; margin-bottom: 12px; }
+.diferencial__contexto { font-size: 14px; color: var(--color-text-soft); }
+
+/* FAQ */
+.faq__list { max-width: 720px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--color-border); }
+.faq-item__btn {
+  display: flex; width: 100%; justify-content: space-between; align-items: center; padding: 20px 0;
+  background: none; text-align: left; font-size: 17px; font-weight: 600; color: var(--color-text);
+}
+.faq-item__btn::after { content: "+"; font-size: 24px; font-weight: 400; transition: transform 0.2s; }
+.faq-item.open .faq-item__btn::after { transform: rotate(45deg); }
+.faq-item__answer {
+  max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;
+  font-size: 15px; color: var(--color-text-soft); line-height: 1.6;
+}
+.faq-item.open .faq-item__answer { max-height: 500px; padding: 0 0 20px; }
+
+/* CTA FINAL */
+.cta-final { background: var(--color-primary); color: #fff; padding: 64px 0; text-align: center; }
+.cta-final h2 { font-size: 28px; font-weight: 800; margin-bottom: 16px; }
+.cta-final p { font-size: 18px; margin-bottom: 24px; opacity: 0.95; }
+.cta-final .cta-btn { background: #fff; color: var(--color-primary); max-width: 320px; margin: 0 auto; }
+.cta-final .cta-btn:hover { background: var(--color-bg-alt); }
+
+/* FOOTER */
+.footer { padding: 32px 0; background: var(--color-text); color: rgba(255, 255, 255, 0.85); font-size: 14px; }
+.footer__inner { display: grid; gap: 16px; }
+.footer__legal { font-size: 13px; opacity: 0.75; }
+.footer__legal a { text-decoration: underline; margin-right: 16px; }
+@media (min-width: 768px) {
+  .footer__inner { grid-template-columns: 2fr 1fr 1fr; gap: 32px; }
+}
+
+/* COOKIE BANNER */
+.cookie-banner {
+  position: fixed; bottom: 16px; left: 16px; right: 16px; max-width: 480px; margin: 0 auto;
+  background: var(--color-text); color: #fff; padding: 16px 20px; border-radius: var(--radius);
+  font-size: 14px; display: none; z-index: 100; box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+.cookie-banner.visible { display: block; }
+.cookie-banner button {
+  background: var(--color-primary); color: #fff; padding: 8px 16px; border-radius: 6px;
+  margin-top: 12px; font-weight: 600; font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="#" class="header__logo">Construmais</a>
+    <a href="tel:+558332231568" class="header__phone">(83) 3223-1568</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container hero__inner">
+
+      <div class="hero__content">
+        <h1>Tudo para sua obra em uma loja só em João Pessoa</h1>
+        <p class="hero__sub">Material básico, elétrica, hidráulica e pintura. Preencha o formulário e receba seu orçamento.</p>
+        <div class="hero__image">
+          [Espaço reservado para foto real da loja ou do estoque. Substituir por foto real antes de publicar, evitar imagem de banco de imagens genérica.]
+        </div>
+      </div>
+
+      <div class="hero__form">
+        <h2>Peça seu orçamento</h2>
+        <form id="leadForm" action="{{ENDPOINT_FORM}}" method="POST" novalidate>
+
+          <input type="text" name="hp_field" class="honeypot" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="utm_source" id="utm_source">
+          <input type="hidden" name="utm_medium" id="utm_medium">
+          <input type="hidden" name="utm_campaign" id="utm_campaign">
+          <input type="hidden" name="utm_term" id="utm_term">
+          <input type="hidden" name="utm_content" id="utm_content">
+
+          <div class="form-group">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" required minlength="3" autocomplete="name">
+            <div class="form-error">Preencha seu nome.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="telefone">WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone" required pattern="[0-9() \-]{10,15}" autocomplete="tel" placeholder="(83) 00000-0000">
+            <div class="form-error">Preencha um WhatsApp válido.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="material">O que você precisa</label>
+            <select id="material" name="material" required>
+              <option value="">Selecione</option>
+              <option value="basico">Material básico</option>
+              <option value="eletrica">Elétrica</option>
+              <option value="hidraulica">Hidráulica</option>
+              <option value="pintura">Pintura</option>
+              <option value="varios">Mais de uma categoria</option>
+            </select>
+          </div>
+
+          <button type="submit" class="cta-btn" id="submitBtn">Receber orçamento</button>
+
+          <div class="form-success" id="formSuccess">
+            Recebemos seu pedido. A Construmais entra em contato para fechar seu orçamento.
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section--alt" id="beneficios">
+    <div class="container">
+      <h2 class="section__title">Quatro categorias, um pedido só</h2>
+      <p class="section__sub">A Construmais resolve o que a obra precisa sem o cliente rodar de loja em loja.</p>
+
+      <div class="beneficios__grid">
+        <div class="beneficio">
+          <div class="beneficio__icon">1</div>
+          <h3>Quatro categorias em um pedido só</h3>
+          <p>Básico, elétrica, hidráulica e pintura sem precisar rodar a cidade atrás de fornecedor diferente para cada etapa da obra.</p>
+        </div>
+        <div class="beneficio">
+          <div class="beneficio__icon">2</div>
+          <h3>Atendimento para quem mora e para quem trabalha na obra</h3>
+          <p>Seja para a reforma da própria casa ou para o material que o profissional autônomo compra na obra do cliente dele.</p>
+        </div>
+        <div class="beneficio">
+          <div class="beneficio__icon">3</div>
+          <h3>Orçamento sem compromisso</h3>
+          <p>Preenche o formulário, a Construmais retorna com os valores e o cliente decide com calma.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title">Como funciona por aqui</h2>
+
+      <div class="diferencial">
+        <p class="diferencial__texto">Um pedido resolve o que antes precisava de três fornecedores diferentes.</p>
+        <div class="diferencial__contexto">Construmais, João Pessoa/PB. Assim que houver depoimento real de cliente com autorização, substituir este bloco por prova social verificada.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="faq">
+    <div class="container">
+      <h2 class="section__title">Dúvidas frequentes</h2>
+
+      <div class="faq__list">
+        <div class="faq-item">
+          <button class="faq-item__btn">A Construmais atende fora de João Pessoa?</button>
+          <div class="faq-item__answer">[PREENCHER: cliente declarou raio de entrega lucrativo de 5km. Confirmar especificamente se cobre Cabedelo, Bayeux e Santa Rita antes de publicar.]</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__btn">Preciso ir até a loja para receber o orçamento?</button>
+          <div class="faq-item__answer">Não. Preencha o formulário com o que precisa e a Construmais retorna pelo contato informado.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__btn">A Construmais atende profissional autônomo (pedreiro, eletricista, encanador, pintor)?</button>
+          <div class="faq-item__answer">Sim. O atendimento cobre tanto quem está reformando a própria casa quanto o profissional que compra material para a obra do cliente dele.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__btn">Como funciona a entrega?</button>
+          <div class="faq-item__answer">[PREENCHER: cliente confirmou que cobra frete em parte dos pedidos, mas ainda não informou prazo médio nem valor da taxa. Não publicar sem esse dado.]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <div class="container">
+      <h2>Sua obra não precisa esperar</h2>
+      <p>Peça o orçamento agora e resolva o que falta em um pedido só.</p>
+      <a href="#leadForm" class="cta-btn">Receber orçamento</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: #fff;">Construmais</div>
+      <div>Rua Elias Cavalcanti de Albuquerque, 750, Cristo Redentor, João Pessoa/PB</div>
+      <div>CNPJ: 13.796.094/0001-07</div>
+    </div>
+    <div>
+      <div style="font-weight: 600; margin-bottom: 8px; color: #fff;">Contato</div>
+      <div>(83) 3223-1568 · WhatsApp (83) 9 9847-1242</div>
+      <div>contato@construmaisjp.com.br</div>
+    </div>
+    <div class="footer__legal">
+      <a href="/politica-de-privacidade">Política de Privacidade</a>
+      <a href="/termos-de-uso">Termos de Uso</a>
+      <div style="margin-top: 8px;">© 2026 Construmais. Todos os direitos reservados.</div>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner">
+  <p>Usamos cookies para melhorar sua experiência. Ao continuar, você concorda com nossa <a href="/politica-de-privacidade" style="text-decoration: underline; color: #fff;">Política de Privacidade</a>.</p>
+  <button id="cookieAccept">Entendi</button>
+</div>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '{{META_PIXEL_ID}}');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{META_PIXEL_ID}}&ev=PageView&noscript=1"/></noscript>
+
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{GA4_ID}}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '{{GA4_ID}}');
+</script>
+
+<!-- Google Tag (Conversion) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{GOOGLE_ADS_ID}}"></script>
+
+<script>
+// UTM capture
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(k => {
+    const el = document.getElementById(k);
+    if (el) el.value = params.get(k) || '';
+  });
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item__btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.parentElement.classList.toggle('open');
+  });
+});
+
+// Form validation + submit
+const form = document.getElementById('leadForm');
+const submitBtn = document.getElementById('submitBtn');
+const formSuccess = document.getElementById('formSuccess');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  // honeypot check
+  if (form.hp_field.value) return false;
+
+  // basic validation
+  const nome = form.nome;
+  const telefone = form.telefone;
+  const material = form.material;
+  let valid = true;
+
+  [nome, telefone, material].forEach(field => {
+    field.classList.remove('error');
+    if (!field.checkValidity()) {
+      field.classList.add('error');
+      valid = false;
+    }
+  });
+
+  if (!valid) return;
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Enviando...';
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      // tracking events
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'generate_lead', { event_category: 'form', event_label: 'lead_form' });
+        gtag('event', 'conversion', { send_to: '{{GOOGLE_ADS_CONVERSION_ID}}' });
+      }
+
+      form.style.display = 'none';
+      formSuccess.style.display = 'block';
+    } else {
+      throw new Error('Erro no envio');
+    }
+  } catch (err) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Receber orçamento';
+    alert('Erro ao enviar. Tente novamente em instantes ou nos chame no WhatsApp.');
+  }
+});
+
+// Cookie banner
+const cookieBanner = document.getElementById('cookieBanner');
+const cookieAccept = document.getElementById('cookieAccept');
+if (!localStorage.getItem('cookieAccepted')) {
+  cookieBanner.classList.add('visible');
+}
+cookieAccept.addEventListener('click', () => {
+  localStorage.setItem('cookieAccepted', '1');
+  cookieBanner.classList.remove('visible');
+});
+</script>
+
+</body>
+</html>
+<!-- ✓ Humanizer aplicado · 10 padrões anti-cara-de-IA verificados -->

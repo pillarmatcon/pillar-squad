@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!--
+  Template: Proposta Comercial (uso interno da agência Pillar)
+  Squad AgêncIA 100k, Agente 04-Páginas
+  Diferente dos outros templates desta pasta: aqui a identidade é da Pillar
+  (_squad/_shared/identidade-agencia.md), não a do prospect.
+  Trocar todos os {{PLACEHOLDER}} pelos dados reais do prospect antes de enviar.
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f172a">
+<meta name="robots" content="noindex, nofollow">
+
+<title>Proposta Comercial Pillar | {{NOME_PROSPECT}}</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --color-primary: #f97316;
+  --color-dark: #0f172a;
+  --color-neutral: #64748b;
+  --color-bg: #f8fafc;
+  --color-bg-card: #ffffff;
+  --font-heading: "Barlow", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --max-width: 860px;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--color-dark);
+  background: var(--color-bg);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.2;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* HEADER */
+.header {
+  background: var(--color-dark);
+  padding: 40px 0 32px;
+}
+.header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.header__logo {
+  height: 32px;
+  width: auto;
+}
+.header__meta {
+  color: #cbd5e1;
+  font-size: 14px;
+  text-align: right;
+}
+
+/* HERO */
+.hero {
+  padding: 56px 0 40px;
+}
+.hero__tag {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+.hero p {
+  font-size: 18px;
+  color: var(--color-neutral);
+  max-width: 620px;
+}
+
+/* SECTION */
+.section {
+  padding: 32px 0;
+  border-top: 1px solid #e2e8f0;
+}
+.section h2 {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+.section h2 span {
+  color: var(--color-primary);
+}
+
+/* DIAGNÓSTICO */
+.diagnostico__item {
+  background: var(--color-bg-card);
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.diagnostico__item h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.diagnostico__item p {
+  color: var(--color-neutral);
+  font-size: 15px;
+}
+
+/* PILARES DO MÉTODO */
+.pilares {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.pilar {
+  background: var(--color-bg-card);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.pilar__numero {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 26px;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  display: block;
+}
+.pilar h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+.pilar p {
+  font-size: 14px;
+  color: var(--color-neutral);
+}
+
+/* PLANO / ENTREGAS */
+.plano-item {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+.plano-item:last-child { border-bottom: none; }
+.plano-item__marca {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+.plano-item h3 {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+.plano-item p {
+  font-size: 14px;
+  color: var(--color-neutral);
+}
+
+/* INVESTIMENTO */
+.investimento {
+  background: var(--color-dark);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  color: #ffffff;
+}
+.investimento h2 {
+  color: #ffffff;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.investimento table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.investimento td {
+  padding: 10px 0;
+  border-bottom: 1px solid #334155;
+  font-size: 15px;
+}
+.investimento td:last-child {
+  text-align: right;
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+.investimento tr:last-child td {
+  border-bottom: none;
+  padding-top: 16px;
+  font-size: 18px;
+}
+.investimento tr:last-child td:last-child {
+  color: var(--color-primary);
+}
+.investimento__validade {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 40px 0 56px;
+}
+.cta h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.cta p {
+  color: var(--color-neutral);
+  margin-bottom: 20px;
+}
+.cta__botao {
+  display: inline-block;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 14px 32px;
+  border-radius: var(--radius);
+  text-decoration: none;
+}
+
+/* FOOTER */
+.footer {
+  border-top: 1px solid #e2e8f0;
+  padding: 24px 0 40px;
+  font-size: 13px;
+  color: var(--color-neutral);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .hero h1 { font-size: 26px; }
+  .pilares { grid-template-columns: 1fr; }
+  .header__meta { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <img src="assets/logo-pillar.png" alt="Pillar" class="header__logo">
+    <div class="header__meta">
+      Proposta preparada para {{NOME_PROSPECT}}<br>
+      {{DATA_PROPOSTA}}
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="hero__tag">Marketing com Resultado Concreto</span>
+    <h1>Proposta comercial para {{NOME_PROSPECT}}</h1>
+    <p>{{RESUMO_UMA_FRASE_DA_PROPOSTA}}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Onde estamos <span>hoje</span></h2>
+    <div class="diagnostico__item">
+      <h3>{{DIAGNOSTICO_TITULO_1}}</h3>
+      <p>{{DIAGNOSTICO_DESCRICAO_1}}</p>
+    </div>
+    <div class="diagnostico__item">
+      <h3>{{DIAGNOSTICO_TITULO_2}}</h3>
+      <p>{{DIAGNOSTICO_DESCRICAO_2}}</p>
+    </div>
+    <div class="diagnostico__item">
+      <h3>{{DIAGNOSTICO_TITULO_3}}</h3>
+      <p>{{DIAGNOSTICO_DESCRICAO_3}}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Como trabalhamos: <span>Método Viga Mestra</span></h2>
+    <div class="pilares">
+      <div class="pilar">
+        <span class="pilar__numero">01</span>
+        <h3>{{PILAR_1_NOME}}</h3>
+        <p>{{PILAR_1_DESCRICAO}}</p>
+      </div>
+      <div class="pilar">
+        <span class="pilar__numero">02</span>
+        <h3>{{PILAR_2_NOME}}</h3>
+        <p>{{PILAR_2_DESCRICAO}}</p>
+      </div>
+      <div class="pilar">
+        <span class="pilar__numero">03</span>
+        <h3>{{PILAR_3_NOME}}</h3>
+        <p>{{PILAR_3_DESCRICAO}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>O que <span>entregamos</span></h2>
+    <div class="plano-item">
+      <span class="plano-item__marca"></span>
+      <div>
+        <h3>{{ENTREGA_1_TITULO}}</h3>
+        <p>{{ENTREGA_1_DESCRICAO}}</p>
+      </div>
+    </div>
+    <div class="plano-item">
+      <span class="plano-item__marca"></span>
+      <div>
+        <h3>{{ENTREGA_2_TITULO}}</h3>
+        <p>{{ENTREGA_2_DESCRICAO}}</p>
+      </div>
+    </div>
+    <div class="plano-item">
+      <span class="plano-item__marca"></span>
+      <div>
+        <h3>{{ENTREGA_3_TITULO}}</h3>
+        <p>{{ENTREGA_3_DESCRICAO}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="investimento">
+      <h2>Investimento</h2>
+      <table>
+        <tr>
+          <td>{{ITEM_INVESTIMENTO_1}}</td>
+          <td>{{VALOR_1}}</td>
+        </tr>
+        <tr>
+          <td>{{ITEM_INVESTIMENTO_2}}</td>
+          <td>{{VALOR_2}}</td>
+        </tr>
+        <tr>
+          <td>Total mensal</td>
+          <td>{{VALOR_TOTAL}}</td>
+        </tr>
+      </table>
+      <p class="investimento__validade">Proposta válida até {{DATA_VALIDADE}}.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Próximo passo</h2>
+    <p>{{CHAMADA_PARA_PROXIMO_PASSO}}</p>
+    <a href="{{LINK_AGENDAMENTO_OU_WHATSAPP}}" class="cta__botao">{{TEXTO_BOTAO}}</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer">
+    <span>Pillar, marketing com resultado concreto</span>
+    <span>{{RESPONSAVEL_PILLAR}} · {{CONTATO_PILLAR}}</span>
+  </div>
+</footer>
+
+</body>
+</html>
