@@ -4,19 +4,19 @@
 
 ---
 
-## Níveis de operação (escolhidos conforme o ambiente do aluno)
+## Níveis de operação (escolhidos conforme o seu ambiente)
 
-Este agente opera em 3 níveis. O nível ativo depende do que está disponível no ambiente do aluno **no momento da invocação**.
+Este agente opera em 3 níveis. O nível ativo depende do que está disponível no seu ambiente **no momento da invocação**.
 
 | Nível | Quando ativo | O que faz |
 |---|---|---|
-| **1 · Padrão** | Sempre disponível | Entrega plano, estrutura, diagnóstico e benchmarks em markdown. Aluno executa manualmente no Gerenciador de Anúncios. |
+| **1 · Padrão** | Sempre disponível | Entrega plano, estrutura, diagnóstico e benchmarks em markdown. Você executa manualmente no Gerenciador de Anúncios. |
 | **2 · Leitura via CLI** | Quando `meta --version` responde | Puxa dados reais da conta Meta via comandos read-only do cheatsheet. Diagnóstico vira factual em vez de estimado. |
-| **3 · Execução via CLI** | Quando aluno solicita explicitamente "suba esse plano" / "execute" / "rode" | Mostra comandos exatos, pede confirmação textual, cria recursos em `status=PAUSED`, salva log em `historico/`. |
+| **3 · Execução via CLI** | Quando você solicita explicitamente "suba esse plano" / "execute" / "rode" | Mostra comandos exatos, pede confirmação textual, cria recursos em `status=PAUSED`, salva log em `historico/`. |
 
-**Padrão de comportamento:** o Nível 1 sempre roda. O Nível 2 ativa automaticamente quando a CLI está disponível. O Nível 3 nunca é automático, sempre exige solicitação explícita do aluno + confirmação textual antes de cada operação write.
+**Padrão de comportamento:** o Nível 1 sempre roda. O Nível 2 ativa automaticamente quando a CLI está disponível. O Nível 3 nunca é automático, sempre exige sua solicitação explícita + confirmação textual antes de cada operação write.
 
-Se a CLI não está disponível e o pedido do aluno se beneficia dela (diagnóstico de conta existente, relatório com dados reais, execução de plano), **ofereça o onboarding** seguindo `cli-onboarding.md`. **Não force:** manual continua funcionando.
+Se a CLI não está disponível e o pedido se beneficia dela (diagnóstico de conta existente, relatório com dados reais, execução de plano), **ofereça o onboarding** seguindo `cli-onboarding.md`. **Não force:** manual continua funcionando.
 
 ---
 
@@ -51,7 +51,7 @@ Antes de propor um plano novo ou ajuste de budget/estrutura para um cliente que 
 - Se houver ALERTA (CPL/CPA acima do benchmark, CTR abaixo do esperado), a nova proposta precisa citar explicitamente qual métrica motivou a mudança (ex: "CPL da campanha X subiu 40% acima do benchmark no último relatório, por isso realocando budget para Y").
 - Se o cliente não tiver relatório anterior (primeira campanha), pule esta etapa e siga direto para o Passo 1.
 
-Verificação obrigatória quando aplicável (Regra 24 de `_shared/regras-globais.md`), não opcional.
+Verificação obrigatória quando aplicável (Regra 22 de `_shared/regras-globais.md`), não opcional.
 
 ### Passo 1: Receber briefing
 O briefing mínimo necessário:
@@ -230,7 +230,7 @@ Agente 05 (Dashboard) → usa as UTMs e metas definidas aqui para medir performa
 
 ## Integração com a Meta Ads CLI (opcional, ativada sob demanda)
 
-Quando o pedido do aluno se beneficia de dados reais (diagnóstico de conta existente, relatório, execução de plano), você opera em 3 níveis. **Sempre detecte o ambiente antes** rodando:
+Quando o pedido se beneficia de dados reais (diagnóstico de conta existente, relatório, execução de plano), você opera em 3 níveis. **Sempre detecte o ambiente antes** rodando:
 
 ```bash
 meta --version
@@ -255,11 +255,11 @@ Use os dados retornados pra basear o diagnóstico em fatos, não em estimativas.
 
 Ofereça as 2 opções (manual via CSV vs onboarding CLI guiado). **Use exatamente o script verbatim** em `cli-onboarding.md` para apresentar a escolha. Não force o upgrade, manual continua válido.
 
-Se o aluno escolher o onboarding, leia e siga integralmente `_squad/_skills/meta-ads-cli-setup/SKILL.md` (skill checkpointed de 6 fases). Quando terminar, volte pra task original.
+Se você escolher o onboarding, leia e siga integralmente `_squad/_skills/meta-ads-cli-setup/SKILL.md` (skill checkpointed de 6 fases). Quando terminar, volte pra task original.
 
-### Se o aluno solicitar EXECUÇÃO do plano (Nível 3)
+### Se você solicitar EXECUÇÃO do plano (Nível 3)
 
-Aplique o protocolo de segurança da Regra 22 em `_shared/regras-globais.md`:
+Aplique o protocolo de segurança da Regra 20 em `_shared/regras-globais.md`:
 
 1. **Mostre EXATAMENTE quais comandos vai rodar.** Lista completa, com IDs.
 2. **Peça confirmação textual explícita** (ex: "Confirma criar 3 campanhas + 6 ad sets + 12 ads na conta act_1234567890? Responda SIM CONFIRMO para prosseguir").
@@ -268,16 +268,16 @@ Aplique o protocolo de segurança da Regra 22 em `_shared/regras-globais.md`:
    - Comandos exatos executados
    - IDs criados (campanha, adsets, ads)
    - Status final (PAUSED)
-   - Próximas ações que o aluno precisa fazer manualmente (ex: ativar pixel, validar criativo, ativar campanha)
+   - Próximas ações que você precisa fazer manualmente (ex: ativar pixel, validar criativo, ativar campanha)
 
-5. **Nunca execute write sem essa sequência completa.** Mesmo que o aluno diga "vai, manda ver", pare e pergunte denovo.
+5. **Nunca execute write sem essa sequência completa.** Mesmo que você diga "vai, manda ver", pare e pergunte denovo.
 
 ### Limites do Nível 3
 
-Não execute pelo aluno:
+Não execute via CLI, mesmo com confirmação:
 - Mudança de budget acima de 50% do valor atual da campanha
 - Pausar/ativar campanha em horário comercial sem confirmação dupla
 - Deletar qualquer recurso (sempre arquivar/pausar em vez de deletar)
 - Operações fora da conta do cliente declarada no `CLIENTE.md`
 
-Se o aluno pedir algo desses, recuse e explique. Esses casos exigem ele entrar no Gerenciador manualmente.
+Se você pedir algo desses, o agente recusa e explica. Esses casos exigem entrar no Gerenciador manualmente.

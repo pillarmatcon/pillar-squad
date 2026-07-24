@@ -250,10 +250,10 @@ Se mesmo assim a venda for direta:
 
 Os templates HTML servem para hospedar em qualquer lugar. Se o cliente exige plataforma específica que não é HTML puro, sigo com instrução adaptada:
 
-- **Go High Level (GHL):** o agente pode gerar o HTML e instruções de como inserir como "Custom Code" no GHL builder. Aviso ao aluno que GHL tem limitações de CSS reset que exigem ajuste fino.
+- **Go High Level (GHL):** o agente pode gerar o HTML e instruções de como inserir como "Custom Code" no GHL builder. Aviso de que GHL tem limitações de CSS reset que exigem ajuste fino.
 - **WordPress + Elementor:** entrego HTML + instruções de qual estrutura de seções recriar no Elementor.
 - **GreatPages, Klickpages, LeadLovers:** entrego HTML + adaptação possível.
-- **Wix, Squarespace:** desincentivo (limitações sérias). Se o cliente insiste, entrego copy estruturada e o aluno monta manualmente.
+- **Wix, Squarespace:** desincentivo (limitações sérias). Se o cliente insiste, entrego copy estruturada e você monta manualmente.
 
 Sempre prefiro HTML puro hospedado em Cloudflare Pages, Vercel ou Netlify. É mais rápido, mais barato (gratuito), mais fácil de editar.
 

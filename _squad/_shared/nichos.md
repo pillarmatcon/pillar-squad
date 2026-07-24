@@ -77,100 +77,9 @@ Com essas 5 respostas, o agente já consegue produzir saída específica.
 
 ---
 
-## Galeria de exemplos (referência, não limite)
+## Perfil padrão da Pillar
 
-> **Atenção:** estes exemplos servem para o agente ter calibração inicial e para o aluno entender o método. **Não são os únicos nichos suportados.** Qualquer cliente novo é mapeado pelo framework acima.
-
-### Restaurante (físico, com delivery)
-- Tipo de oferta: experiência + produto físico
-- Modelo: B2C local
-- Ticket: baixo a médio (R$ 30 a R$ 250 por pedido)
-- Jornada: impulsiva (delivery) ou considerada (reserva)
-- Recompra: frequente (mensal) a diária
-- Compliance: ANVISA/Vigilância Sanitária (alergênicos)
-- KPIs típicos: ticket médio, pedidos/dia, custo por pedido, retenção 30 dias
-- Canais que funcionam: Meta (visual de prato), Google (intent: "restaurante perto de mim"), iFood/Rappi (marketplace)
-- Ofertas comuns: combo, segunda dose grátis, frete grátis acima de X
-- Jargão a usar: ticket, cobertura, prato campeão, casadinha
-- Jargão a evitar: "lead qualificado", "funil de vendas" (cliente não fala assim)
-
-### Clínica odontológica
-- Tipo de oferta: serviço pontual (consulta) que abre serviço recorrente (tratamento)
-- Modelo: B2C local (até 8km de raio para clínica popular, até 20km para premium)
-- Ticket: médio na consulta (R$ 100 a R$ 300), alto no tratamento (R$ 1.500 a R$ 30.000)
-- Jornada: considerada para consulta, planejada para tratamento estético/ortodôntico
-- Recompra: esporádica (1 a 2x/ano para limpeza), frequente em tratamentos longos
-- Compliance: CRO/CFO (proibido: garantia de resultado, antes/depois sem autorização escrita, valores em mídia paga)
-- KPIs típicos: agendamentos, custo por agendamento, taxa de comparecimento, conversão consulta-tratamento, ticket médio do tratamento
-- Canais que funcionam: Meta (público local com interesse em estética), Google Search (intent: "dentista perto de mim", "implante dentário")
-- Ofertas comuns: avaliação gratuita, primeira consulta com desconto, parcelamento sem juros
-- Jargão a usar: agendamento, avaliação, plano de tratamento
-- Jargão a evitar: "lead", "convertido"
-
-### E-commerce de moda
-- Tipo de oferta: produto físico
-- Modelo: B2C nacional/digital
-- Ticket: baixo a médio (R$ 80 a R$ 600 por pedido)
-- Jornada: impulsiva (peça única) a considerada (look completo)
-- Recompra: esporádica a frequente (depende da marca)
-- Compliance: nenhuma específica relevante
-- KPIs típicos: ROAS, ticket médio, taxa de conversão da loja, frequência de recompra, CAC vs LTV
-- Canais que funcionam: Meta (catálogo de produto), Google Shopping, TikTok Ads, parcerias com criadoras
-- Ofertas comuns: cupom primeira compra, frete grátis, kit, edição limitada
-- Jargão a usar: ROAS, ticket, conversão, recorrência, look
-- Jargão a evitar: "lead" (e-commerce vende, não capta lead)
-
-### Hotel/pousada
-- Tipo de oferta: experiência
-- Modelo: B2C nacional ou regional (depende da geografia do destino)
-- Ticket: médio a alto (R$ 300 a R$ 5.000 por estadia)
-- Jornada: planejada (pesquisa, comparação, reserva com antecedência)
-- Recompra: esporádica
-- Compliance: nenhuma agressiva (Embratur tem registro, mas pouco regula publicidade)
-- KPIs típicos: ocupação, diária média, RevPAR, custo por reserva, ADR
-- Canais que funcionam: Meta (visual do quarto/destino), Google Hotel Ads, Booking/Airbnb (marketplace)
-- Ofertas comuns: pacote casal, check-in antecipado, café incluído, last minute
-- Jargão a usar: ocupação, diária, reserva, hóspede
-- Jargão a evitar: "cliente" (é "hóspede"), "lead" (é "reserva")
-
-### Profissional liberal autônomo (terapeuta, coach, psicólogo, fisio)
-- Tipo de oferta: serviço pontual (sessão) que pode virar recorrente
-- Modelo: B2C local ou online
-- Ticket: médio (R$ 100 a R$ 400 por sessão)
-- Jornada: considerada (precisa de confiança)
-- Recompra: frequente (semanal/quinzenal em terapia continuada)
-- Compliance: depende da formação (CRP para psicólogo, CREFITO para fisio, sem regulação para coach)
-- KPIs típicos: agendamentos, ticket médio do pacote, taxa de retenção em terapia
-- Canais que funcionam: Meta Ads (interesse local + dor), Google Search
-- Ofertas comuns: primeira sessão com desconto, pacote 4 sessões, online + presencial
-- Jargão a usar: sessão, processo, acompanhamento
-- Jargão a evitar: "consumidor", "produto"
-
-### Curso/escola presencial (idiomas, técnico, profissionalizante)
-- Tipo de oferta: serviço recorrente (mensalidade)
-- Modelo: B2C local
-- Ticket: médio (R$ 300 a R$ 1.200/mês)
-- Jornada: considerada (visita à escola comum antes da matrícula)
-- Recompra: alta retenção mensal por anos
-- Compliance: MEC para alguns segmentos
-- KPIs típicos: matrículas, custo por matrícula, retenção 6/12 meses, ticket médio
-- Canais que funcionam: Meta (vídeo de aula/aluno), Google Search (intent), parceria com escolas regulares
-- Ofertas comuns: matrícula gratuita, primeira aula experimental, desconto irmão
-- Jargão a usar: matrícula, aluno, turma, cronograma
-- Jargão a evitar: "lead frio"
-
-### B2B serviço para PME (contabilidade, consultoria, agência)
-- Tipo de oferta: serviço recorrente (mensal)
-- Modelo: B2B
-- Ticket: médio a alto (R$ 500 a R$ 15.000/mês)
-- Jornada: planejada (RFP, comparação, reunião, negociação)
-- Recompra: alta retenção
-- Compliance: depende do segmento
-- KPIs típicos: SQLs (lead qualificado), custo por SQL, taxa de fechamento, MRR, churn
-- Canais que funcionam: LinkedIn Ads, Google Search, parcerias, evento presencial
-- Ofertas comuns: diagnóstico gratuito, primeira reunião sem compromisso, garantia de resultado
-- Jargão a usar: SQL, MRR, ICP, ticket, churn
-- Jargão a evitar: "compra impulsiva"
+> **Contexto:** a Pillar atende hoje só o nicho de material de construção (MatCon). O perfil abaixo é o padrão usado em praticamente toda entrega. O framework de 6 dimensões e as 5 perguntas-chave acima continuam servindo de método de fallback, caso um dia apareça um cliente fora desse nicho, mas não há galeria de outros nichos mantida aqui, exatamente para manter este arquivo enxuto e focado na realidade da agência.
 
 ### Loja de material de construção
 - Tipo de oferta: produto físico (varejo), com componente de B2B para profissional autônomo (pedreiro, eletricista, pintor, empreiteiro)
@@ -188,9 +97,9 @@ Com essas 5 respostas, o agente já consegue produzir saída específica.
 
 ---
 
-## Como adicionar novo nicho ao mapeamento (extensão da biblioteca)
+## Como registrar um nicho novo, se aparecer
 
-Quando um aluno (ou você) atende um cliente de nicho que ainda não está aqui, adicionar ao final desta galeria seguindo o mesmo template:
+Se a Pillar um dia atender um cliente fora do nicho MatCon, adicionar o perfil dele aqui seguindo o mesmo template:
 
 ```
 ### {Nome do nicho}
@@ -207,10 +116,6 @@ Quando um aluno (ou você) atende um cliente de nicho que ainda não está aqui,
 - Jargão a evitar:
 ```
 
-A biblioteca cresce com o uso. Não precisa ser exaustiva no v1. Precisa ser **certa nos exemplos que existem** e **clara no método para mapear o que ainda não está**.
-
----
-
 ## Regra final
 
-Se o agente receber um briefing de nicho que não está nesta galeria E não conseguir mapear com as 5 perguntas-chave, ele para a execução e devolve a pergunta. Nunca chuta perfil. Nunca usa exemplo de outro nicho como se fosse o do cliente.
+Se o agente receber um briefing de nicho que não é MatCon e não conseguir mapear com as 5 perguntas-chave, ele para a execução e devolve a pergunta. Nunca chuta perfil. Nunca usa o perfil MatCon como se fosse o do cliente fora do nicho.

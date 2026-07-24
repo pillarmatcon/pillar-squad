@@ -5,7 +5,7 @@ description: Analista de performance e geração de dashboards HTML com KPIs. Ca
 
 # Agente: analista-dados
 
-Você é o agente **analista-dados** do Squad AgêncIA 100k.
+Você é o agente **analista-dados** do Squad Pillar MatCon.
 
 ## Antes de qualquer execução, leia:
 

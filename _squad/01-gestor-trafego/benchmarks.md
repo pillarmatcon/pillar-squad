@@ -1,6 +1,8 @@
 # Benchmarks de Tráfego por Nicho
 
 > Referências para CPL, CPA, ROAS e CTR por tipo de negócio e tipo de oferta. Usar para avaliar se uma conta está performando bem, mal ou dentro do esperado. Todos os valores em R$ e baseados em campanhas no Brasil (2025-2026).
+>
+> **Nota MatCon:** a Pillar atende loja de material de construção. Não existe uma linha de benchmark de mercado específica para esse nicho, então as tabelas abaixo foram mantidas por proximidade (Imóveis e Construção para reforma/orçamento, E-commerce e Varejo para o lado de venda de produto, Serviços B2B para o relacionamento com profissional recorrente). Trate como ponto de partida e recalibre com o histórico real de campanha do cliente assim que houver dado suficiente (`clientes/<nome>/outputs/`).
 
 ---
 
@@ -16,66 +18,6 @@
 ---
 
 ## Benchmarks por nicho: Meta Ads
-
-### Saúde e Odontologia
-
-| Oferta | CPL Ótimo | CPL Normal | CPL Caro | CPA (agendamento) |
-|---|---|---|---|---|
-| Avaliação/consulta gratuita | R$ 15-35 | R$ 35-70 | Acima de R$ 70 | R$ 40-100 |
-| Procedimento específico (implante, invisível) | R$ 30-60 | R$ 60-120 | Acima de R$ 120 | R$ 80-200 |
-| Clínica geral (lead para orçamento) | R$ 20-45 | R$ 45-90 | Acima de R$ 90 | R$ 60-150 |
-| Cirurgia plástica | R$ 50-100 | R$ 100-200 | Acima de R$ 200 | R$ 150-400 |
-| Estética e beleza (facial, corporal) | R$ 20-50 | R$ 50-100 | Acima de R$ 100 | R$ 60-150 |
-| Psicólogo / terapeuta | R$ 25-60 | R$ 60-120 | Acima de R$ 120 | R$ 80-200 |
-| Nutricionista | R$ 20-50 | R$ 50-100 | Acima de R$ 100 | R$ 60-150 |
-
-**Atenção para saúde:** o CPL baixo não garante qualidade. Um lead de R$ 15 que não aparece na consulta vale menos que um de R$ 80 que fecha tratamento.
-
----
-
-### Direito e Advocacia
-
-| Área | CPL Ótimo | CPL Normal | CPL Caro |
-|---|---|---|---|
-| Trabalhista | R$ 30-70 | R$ 70-150 | Acima de R$ 150 |
-| Família (divórcio, inventário) | R$ 40-80 | R$ 80-180 | Acima de R$ 180 |
-| Previdenciário (INSS) | R$ 25-60 | R$ 60-120 | Acima de R$ 120 |
-| Criminal | R$ 50-100 | R$ 100-250 | Acima de R$ 250 |
-| Empresarial | R$ 60-150 | R$ 150-300 | Acima de R$ 300 |
-| Consumidor (negativação indevida) | R$ 15-40 | R$ 40-80 | Acima de R$ 80 |
-
-**Nota OAB:** Advocacia tem restrições de captação. O objetivo de campanha é "consulta gratuita" ou "análise do caso", nunca "contrate um advogado".
-
----
-
-### Alimentação e Restaurantes
-
-| Tipo | CPR (custo por reserva) | CPA (custo por pedido) | ROAS esperado |
-|---|---|---|---|
-| Restaurante (reserva física) | R$ 8-25 |, |, |
-| Delivery (pedido online) |, | R$ 4-15 | 3x-8x |
-| Marmita/fit food |, | R$ 3-12 | 4x-10x |
-| Doceria / confeitaria |, | R$ 5-20 | 3x-7x |
-| Franquia de alimentação | R$ 15-40 | R$ 10-30 | 4x-8x |
-
-**Para delivery:** ROAS é a métrica principal. Ticket médio baixo exige ROAS acima de 4x para ser rentável com margin de entrega incluída.
-
----
-
-### Educação e Cursos
-
-| Ticket / Tipo | CPL Ótimo | CPL Normal | Taxa de conversão LP |
-|---|---|---|---|
-| Curso online grátis (isca) | R$ 3-10 | R$ 10-25 | 20-40% |
-| Webinar pago (R$ 27-97) | R$ 5-20 | R$ 20-50 | 15-30% |
-| Curso online mid-ticket (R$ 200-800) | R$ 15-40 | R$ 40-100 | 5-15% |
-| Curso online high-ticket (R$ 1.000+) | R$ 30-80 | R$ 80-200 | 2-8% |
-| Escola presencial (mensalidade) | R$ 40-100 | R$ 100-250 | 5-15% |
-| Pós-graduação / MBA | R$ 60-150 | R$ 150-400 | 3-8% |
-
-**Para cursos:** CPL baixo com muitos leads que não compram é pior que CPL alto com leads qualificados.
-
----
 
 ### Imóveis e Construção
 
@@ -123,32 +65,6 @@ ROAS mínimo = 1 / margem bruta do produto
 Exemplo: produto com 40% de margem → ROAS mínimo = 1 / 0,4 = 2,5x
 Abaixo de 2,5x o cliente está perdendo dinheiro com tráfego.
 ```
-
----
-
-### Hotelaria e Turismo
-
-| Tipo | CPR (custo por reserva) | Taxa de ocupação meta |
-|---|---|---|
-| Hotel / pousada | R$ 25-80 |, |
-| Pacote de viagem | R$ 30-100 |, |
-| Airbnb / aluguel temporada | R$ 15-50 |, |
-| Agência de turismo | R$ 40-120 |, |
-
----
-
-### Outros serviços locais
-
-| Serviço | CPL Ótimo | CPL Normal |
-|---|---|---|
-| Auto escola | R$ 15-40 | R$ 40-90 |
-| Academia de musculação | R$ 10-30 | R$ 30-70 |
-| Escola de idiomas | R$ 20-50 | R$ 50-120 |
-| Pet shop / veterinário | R$ 15-40 | R$ 40-90 |
-| Oficina mecânica | R$ 20-50 | R$ 50-120 |
-| Imobiliária de aluguel | R$ 20-60 | R$ 60-150 |
-| Dedetização / limpeza | R$ 15-40 | R$ 40-90 |
-| Seguro | R$ 25-70 | R$ 70-180 |
 
 ---
 

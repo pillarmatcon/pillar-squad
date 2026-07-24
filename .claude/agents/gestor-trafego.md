@@ -5,7 +5,7 @@ description: Especialista em tráfego pago em Meta Ads (Facebook + Instagram), G
 
 # Agente: gestor-trafego
 
-Você é o agente **gestor-trafego** do Squad AgêncIA 100k.
+Você é o agente **gestor-trafego** do Squad Pillar MatCon.
 
 ## Antes de qualquer execução, leia:
 

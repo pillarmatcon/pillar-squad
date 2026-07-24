@@ -133,49 +133,28 @@ Se a substituição produzir algo banal ou robótico, o agente reescreve com voz
 
 ---
 
-## Por nicho: ângulos que funcionam
+## Ângulos que funcionam para loja de material de construção (MatCon)
 
-### Clínica odontológica
-- "Sua avaliação é gratuita. Seu sorriso é único."
-- "Quanto custa um implante? Vamos te mostrar antes da consulta."
-- "O dia em que seu paciente entendeu o tratamento foi o dia em que ele fechou."
-- "{Cidade}: clínica com {especialidade} aceitando novos pacientes"
+> Nicho único da Pillar hoje. Ver perfil completo em `_shared/nichos.md`.
 
-### Restaurante/delivery
-- "{Prato campeão} de {restaurante}. Pra dois ou pra um faminto."
-- "{Cidade}: o {tipo de prato} mais pedido do mês"
-- "Reserva pra sexta? Tem mesa pra {número} no nosso {ambiente diferenciado}"
-- "Combo executivo a {preço}. Almoço em {tempo} sem furar a hora"
+### Para consumidor final (reforma, reposição urgente)
+- "Faltou {material} no meio da obra? A gente entrega hoje em {cidade/bairro}"
+- "Orçamento de reforma sem sair de casa. Manda a lista no WhatsApp"
+- "{Cidade}: material de construção com entrega em {prazo}"
+- "Reforma sem estourar o orçamento: kit {elétrica/hidráulica/tinta} fechado"
+- "Quanto custa reformar {cômodo}? A gente monta o orçamento certo"
 
-### Hotel/pousada
-- "{Quantidade} dias em {destino}, {tipo de quarto}, {preço}"
-- "{Destino} em {estação do ano}: aqui o que poucas pessoas sabem"
-- "Last minute pra {final de semana}: {número} quartos abertos"
-- "Pacote {ocasião} (lua de mel, aniversário, escapada): {detalhes}"
+### Para profissional (pedreiro, eletricista, pintor, empreiteiro)
+- "Cadastro de profissional: desconto em toda obra, não só na primeira compra"
+- "Profissional que compra aqui não perde tempo esperando material"
+- "Sua obra parada custa mais caro que o frete. A gente entrega rápido"
+- "{Número} profissionais já compram aqui toda semana em {cidade}"
+- "Condição especial pra quem fecha o material da obra inteira com a gente"
 
-### E-commerce de moda
-- "Veio mais peça do {item esgotado}. Limitado."
-- "{Item} no {tom da estação}. Pra usar com tudo."
-- "Look completo a partir de {preço}. Frete grátis em {ocasião}"
-- "Quem comprou {item A} também levou {item B}"
-
-### Profissional liberal (terapeuta, fisio, coach)
-- "Atendendo presencial em {cidade} e online pro Brasil todo"
-- "Primeira sessão exploratória, sem compromisso de continuar"
-- "Pacote {número} sessões com {benefício adicional}"
-- "Especialidade em {área específica} desde {ano}"
-
-### Curso/escola
-- "Próxima turma de {curso}: {data}. {Número} vagas."
-- "Aula experimental gratuita até {data}"
-- "Empregabilidade de {número}% em até {prazo} após formatura"
-- "Mensalidade {valor} com material incluso. Sem matrícula."
-
-### B2B serviço
-- "Diagnóstico gratuito da sua {área} antes de qualquer proposta"
-- "Atendemos {tipo de empresa} de {tamanho/setor}"
-- "Caso real: {empresa} reduziu {custo} em {número}% em {prazo}"
-- "Reunião de 30 minutos pra ver se faz sentido"
+### Prova e proximidade
+- "{Cidade}: loja de material de construção com {diferencial real, ex: entrega no mesmo dia}"
+- "Quem já fechou orçamento aqui sabe: {prova concreta, ex: sem enrolação no preço}"
+- "Perto da sua obra, com o que sua obra precisa"
 
 ---
 

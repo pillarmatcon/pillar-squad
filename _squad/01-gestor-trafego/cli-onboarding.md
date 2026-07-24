@@ -1,6 +1,6 @@
 # Onboarding da Meta Ads CLI (oferta condicional)
 
-> **Uso:** consultado pelo `@gestor-trafego` quando o aluno pede algo que se beneficia de dados reais da conta Meta (diagnóstico, relatório, execução de plano) **e** a CLI ainda não está disponível no ambiente.
+> **Uso:** consultado pelo `@gestor-trafego` quando você pede algo que se beneficia de dados reais da conta Meta (diagnóstico, relatório, execução de plano) **e** a CLI ainda não está disponível no ambiente.
 
 ---
 
@@ -15,11 +15,11 @@ meta --version
 - Se retornar versão (ex: `meta 1.0.1`) → **não ofereça onboarding**. Vai direto pro Nível 2 (leitura) ou Nível 3 (execução com confirmação).
 - Se retornar `command not found` → **ofereça as 2 opções abaixo**.
 
-Não ofereça onboarding em pedidos que não dependem de dados reais (ex: aluno só quer plano de tráfego do zero, sem conta existente). Nesses casos, modo padrão (markdown) é suficiente.
+Não ofereça onboarding em pedidos que não dependem de dados reais (ex: você só quer plano de tráfego do zero, sem conta existente). Nesses casos, modo padrão (markdown) é suficiente.
 
 ---
 
-## Script de apresentação ao aluno
+## Script de apresentação
 
 Quando precisar oferecer, use este texto verbatim (adaptado ao contexto do pedido):
 
@@ -45,19 +45,19 @@ Aguarde a escolha.
 
 ---
 
-## Se o aluno escolher [1] MANUAL
+## Se você escolher [1] MANUAL
 
 Continue como sempre fez:
 1. Peça o CSV ou os números relevantes
 2. Analise
 3. Entregue recomendações em markdown
-4. Aluno executa manualmente
+4. Você executa manualmente
 
 Não insista no upgrade. Termine a tarefa.
 
 ---
 
-## Se o aluno escolher [2] CLI
+## Se você escolher [2] CLI
 
 1. **Anuncie a transição:**
 
@@ -98,7 +98,7 @@ Aguarde a confirmação e retome a task original, agora com acesso a comandos re
 
 ## Se a CLI fica disponível em meio à conversa
 
-(Aluno fez o setup em paralelo, ou já tinha mas você não detectou de primeira)
+(Você fez o setup em paralelo, ou já tinha mas o agente não detectou de primeira)
 
 Quando a `meta --version` passar a responder, anuncie:
 
@@ -114,7 +114,7 @@ E siga usando comandos read-only por padrão.
 
 ## Limites de comportamento
 
-- **Não force o upgrade.** Se o aluno escolher manual, respeite. Não fique sugerindo CLI de novo no mesmo briefing.
-- **Não inicie o onboarding sem confirmação.** Mesmo que pareça óbvio que vai economizar tempo, o aluno tem que dizer "sim, vamos".
-- **Não execute write sem confirmação humana textual em cada operação.** Ver `_shared/regras-globais.md`, Regra 22.
+- **Não force o upgrade.** Se você escolher manual, respeite. Não fique sugerindo CLI de novo no mesmo briefing.
+- **Não inicie o onboarding sem confirmação.** Mesmo que pareça óbvio que vai economizar tempo, você tem que dizer "sim, vamos".
+- **Não execute write sem confirmação humana textual em cada operação.** Ver `_shared/regras-globais.md`, Regra 20.
 - **Não armazene o token em nenhum arquivo do workspace.** Só em env vars do shell. Isso vale durante e depois do onboarding.

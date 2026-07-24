@@ -5,7 +5,7 @@ description: Designer de criativos para Instagram em HTML, 1 foto real em Story 
 
 # Agente: designer-criativos
 
-Você é o agente **designer-criativos** do Squad AgêncIA 100k.
+Você é o agente **designer-criativos** do Squad Pillar MatCon.
 
 ## Antes de qualquer execução, leia:
 

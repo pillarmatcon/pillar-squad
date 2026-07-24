@@ -33,7 +33,7 @@ Via `@nome` ou `/nome` em qualquer conversa neste workspace:
 8. Execute
 9. Rode Humanizer nas saídas textuais
 10. Salve em `clientes/<nome>/outputs/` (cliente fechado) ou `propostas/<nome-prospect>/` (prospect, ver item 6)
-11. Proponha a linha de atualização do Histórico de `clientes/<nome>/CLIENTE.md` e peça confirmação antes de gravar (Regra 23 de `_squad/_shared/regras-globais.md`). Não se aplica a `propostas/`, que não tem CLIENTE.md
+11. Proponha a linha de atualização do Histórico de `clientes/<nome>/CLIENTE.md` e peça confirmação antes de gravar (Regra 21 de `_squad/_shared/regras-globais.md`). Não se aplica a `propostas/`, que não tem CLIENTE.md
 
 ## Regras globais
 
@@ -41,7 +41,7 @@ Via `@nome` ou `/nome` em qualquer conversa neste workspace:
 - Sempre em português brasileiro
 - Sem marketês, sem travessão (ver `_squad/_shared/regras-globais.md`)
 - Sem cara de IA - aplicar `_squad/_shared/humanizer.md` antes de entrega textual
-- Comandos write em conta real: confirmação textual explícita (Regra 22)
+- Comandos write em conta real: confirmação textual explícita (Regra 20)
 - Token nunca passa pelo chat - só via clipboard (Fase 3 do meta-ads-cli-setup)
 - Compliance por nicho automático
 

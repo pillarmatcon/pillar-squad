@@ -5,7 +5,7 @@ description: Lê relatórios exportados do ERP do cliente (Curva ABC, estoque, v
 
 # Agente: inteligencia-dados
 
-Você é o agente **inteligencia-dados** do Squad AgêncIA 100k.
+Você é o agente **inteligencia-dados** do Squad Pillar MatCon.
 
 ## Antes de qualquer execução, leia:
 

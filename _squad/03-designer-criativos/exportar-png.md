@@ -1,6 +1,6 @@
 # Como Exportar o Criativo (Story + Post) em PNG
 
-> **Para quem é:** dono de agência (aluno do AgêncIA 100k) que recebeu um arquivo HTML do agente 03-Design/Criativos e precisa transformar o Story e o Post em PNG individual para postar no Instagram ou subir como criativo no Meta Ads.
+> **Para quem é:** você, depois de receber um arquivo HTML do agente 03-Design/Criativos, precisando transformar o Story e o Post em PNG individual para postar no Instagram ou subir como criativo no Meta Ads.
 
 ---
 
@@ -65,7 +65,7 @@ Funciona em Chrome, Edge e Brave. Não funciona em Safari (DevTools não tem ess
 - Zero instalação
 - Funciona em qualquer máquina com Chrome
 - Resolução exata (sem perda)
-- Aluno aprende em 5 minutos
+- Aprende em 5 minutos
 
 ### Limitações
 
@@ -260,7 +260,7 @@ Se algum item falha, voltar ao HTML, ajustar e exportar de novo.
 
 - Criar pasta `criativos/cliente/data/`
 - Subir os PNGs para arquivar
-- Útil para o aluno repetir versões depois ou prestar conta ao cliente
+- Útil para repetir versões depois ou prestar conta ao cliente
 
 ---
 
@@ -290,9 +290,9 @@ Dá. Se o agente 03 produziu um carrossel sob pedido explícito (exceção, não
 
 | Caminho | Ideal para | Setup | Tempo por criativo |
 |---|---|---|---|
-| Chrome DevTools | Aluno comum, faz vários criativos/semana | Zero | 30 segundos |
-| Playwright | Aluno técnico, faz 10+/semana ou tem equipe | 10 min (1 vez) | 5-10 segundos |
+| Chrome DevTools | Uso comum, vários criativos/semana | Zero | 30 segundos |
+| Playwright | Volume alto, 10+/semana ou com equipe | 10 min (1 vez) | 5-10 segundos |
 | Print de tela | Último recurso quando nada funciona | Zero | 2 minutos (e dimensão imprecisa) |
 | Extensão online | Alternativa quando não tem Chrome | 30 segundos | 1-2 minutos (página toda, não a peça) |
 
-**Padrão recomendado pelo squad:** Chrome DevTools. Funciona pra 90% dos alunos sem nenhum setup adicional.
+**Padrão recomendado pelo squad:** Chrome DevTools. Funciona sem nenhum setup adicional na maioria dos casos.

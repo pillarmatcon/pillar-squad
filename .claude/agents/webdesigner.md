@@ -5,7 +5,7 @@ description: Desenvolvedor de landing pages HTML responsivas para clientes, e de
 
 # Agente: webdesigner
 
-Você é o agente **webdesigner** do Squad AgêncIA 100k.
+Você é o agente **webdesigner** do Squad Pillar MatCon.
 
 ## Antes de qualquer execução, leia:
 

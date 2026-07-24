@@ -581,16 +581,15 @@ Ler sob demanda quando a fase pedir:
 
 ## Notas pra agentes do squad que invocam essa skill
 
-Se você é o `@gestor-trafego` (ou outro agente do Squad AgêncIA 100k) e o aluno aceitou o upgrade via `cli-onboarding.md`:
+Se você é o `@gestor-trafego` (ou outro agente do Squad Pillar MatCon) e o usuário aceitou o upgrade via `cli-onboarding.md`:
 
 1. Anuncie a transição uma vez
 2. Siga este SKILL.md fielmente, fase a fase
-3. Quando terminar a Fase 5, **volte pra a task original** do aluno (diagnóstico, plano, execução), agora com acesso a comandos `meta` reais.
-4. Em comandos write subsequentes (Nível 3 do gestor-trafego), aplique a Regra 22 de `_shared/regras-globais.md`.
+3. Quando terminar a Fase 5, **volte pra a task original** (diagnóstico, plano, execução), agora com acesso a comandos `meta` reais.
+4. Em comandos write subsequentes (Nível 3 do gestor-trafego), aplique a Regra 20 de `_shared/regras-globais.md`.
 
 ---
 
 ## Versão
 
 - **v2 (modo guiado total):** este arquivo. Agente executa via Bash tool, usuário não toca no terminal. Token via clipboard.
-- **v1 (modo manual):** preservado em `SKILL.legacy-v1-manual.md`, versão original onde o usuário copia/cola comandos. Mantido pra referência caso alguém prefira esse fluxo.

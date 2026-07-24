@@ -1,6 +1,6 @@
-# Regras Globais do Squad: AgêncIA 100k
+# Regras Globais do Squad: Pillar MatCon
 
-> **Aplicação:** todos os 5 agentes deste squad seguem estas regras sem exceção.
+> **Aplicação:** o orquestrador e os 6 agentes especialistas deste squad seguem estas regras sem exceção.
 
 ---
 
@@ -24,7 +24,7 @@
 
 11. **Sempre indicar o que é "v1, sujeito a refinamento"** vs "pronto para publicar". O agente sabe a diferença e sinaliza.
 12. **Sempre listar próximos passos** ao fim de qualquer entrega (o que falta para usar de verdade, ou o que validar com o cliente).
-13. **Sempre referenciar o briefing usado** no início da entrega (qual versão, quem é o cliente, qual objetivo). Isso evita confusão quando o aluno produz para vários clientes.
+13. **Sempre referenciar o briefing usado** no início da entrega (qual versão, quem é o cliente, qual objetivo). Isso evita confusão quando você produz para vários clientes.
 
 ## Regras anti-IA (para tudo que vai virar arte/design)
 
@@ -33,19 +33,17 @@
 16. **Sem gradient mesh roxo→rosa→azul gratuito.** Cor tem propósito ou não está no design.
 17. **Sem cards `rounded-2xl shadow-lg border` idênticos repetidos.** Variar a hierarquia visual.
 
-## Regras de compliance por nicho
+## Regras de compliance
 
-18. **Saúde:** sem antes/depois sem autorização escrita do paciente, sem garantia de resultado clínico, sem nome de procedimento que viole CFM/CRO/COFFITO. Sempre validar com o cliente o que pode e o que não pode antes de publicar.
-19. **Direito:** sem captação ativa de cliente, sem ranking, sem promessa de resultado processual, sem mercantilização da advocacia (regras OAB).
-20. **Financeiro:** sem promessa de retorno, sem comparação direta com produto regulado, sem termo que se confunda com instrumento financeiro regulado.
+18. **Compliance MatCon (CDC padrão).** A Pillar atende hoje só loja de material de construção, nicho sem regulamentação publicitária específica além do Código de Defesa do Consumidor: sem propaganda de preço enganosa, sem prometer prazo de entrega ou disponibilidade de estoque que não existe, garantia de produto sempre conforme a política real do cliente (ver perfil completo em `_shared/nichos.md`). Se a Pillar um dia atender um cliente fora do nicho MatCon (saúde, direito, financeiro etc.), mapear a regulamentação daquele setor antes de publicar, ela não está pré-carregada aqui.
 
 ## Regra final anti-cara-de-IA no texto (Humanizer)
 
-21. **Revisão Humanizer obrigatória nas 3 saídas textuais.** Antes de entregar copy, criativo ou landing page, o agente roda o protocolo completo em `_shared/humanizer.md` (10 padrões: aberturas travadas, tríades artificiais, conectores marcados, ritmo monótono, fechamentos resumidores, adjetivos genéricos sem prova, vocabulário corporativo vazio, "Você sabe que...", "uma forma de" + verbo, pares redundantes). Se algum padrão falhar, reescreve e roda de novo. A entrega final inclui a linha `✓ Humanizer aplicado · 10 padrões anti-cara-de-IA verificados` no rodapé.
+19. **Revisão Humanizer obrigatória nas 3 saídas textuais.** Antes de entregar copy, criativo ou landing page, o agente roda o protocolo completo em `_shared/humanizer.md` (10 padrões: aberturas travadas, tríades artificiais, conectores marcados, ritmo monótono, fechamentos resumidores, adjetivos genéricos sem prova, vocabulário corporativo vazio, "Você sabe que...", "uma forma de" + verbo, pares redundantes). Se algum padrão falhar, reescreve e roda de novo. A entrega final inclui a linha `✓ Humanizer aplicado · 10 padrões anti-cara-de-IA verificados` no rodapé.
 
 ## Regras de execução em conta real do cliente (CLI write: Nível 3)
 
-22. **Comandos write em conta real são opt-in com confirmação textual explícita.** Aplica quando o `@gestor-trafego` opera no Nível 3 (executar plano via Meta Ads CLI) ou em qualquer cenário futuro de integração de execução. Protocolo inviolável:
+20. **Comandos write em conta real são opt-in com confirmação textual explícita.** Aplica quando o `@gestor-trafego` opera no Nível 3 (executar plano via Meta Ads CLI) ou em qualquer cenário futuro de integração de execução. Protocolo inviolável:
 
    - O agente deve **mostrar EXATAMENTE quais comandos vai rodar** (lista completa, com IDs, valores e flags) antes de executar
    - O agente deve **pedir confirmação textual explícita** do tipo "Responda SIM CONFIRMO para prosseguir", não aceitar "ok", "vai", "manda", "pode"
@@ -54,11 +52,11 @@
    - Deleção é proibida. Sempre arquivar/pausar em vez de deletar
    - Operações restritas à conta declarada no `CLIENTE.md` do cliente em foco. Trabalhar em outra conta exige novo briefing
    - Todo write é logado em `clientes/<nome>/historico/<YYYY-MM-DD>-execucao-<agente>.md` com comandos, IDs criados, status final e próximas ações manuais
-   - **Token nunca passa pelo chat.** Token mora em env vars do shell do aluno (`~/.zshrc` ou `~/.bashrc`). Se o aluno colar token no chat por engano, o agente para, alerta e instrui a revogar antes de continuar (regra herdada de `_skills/meta-ads-cli-setup/SKILL.md`)
+   - **Token nunca passa pelo chat.** Token mora em env vars do seu shell (`~/.zshrc` ou `~/.bashrc`). Se você colar token no chat por engano, o agente para, alerta e instrui a revogar antes de continuar (regra herdada de `_skills/meta-ads-cli-setup/SKILL.md`)
 
 ## Regras de atualização de histórico do cliente
 
-23. **Toda entrega que use ou gere dado real do cliente propõe uma atualização do Histórico do CLIENTE.md, e pede confirmação antes de gravar.** Ao final de qualquer execução que leia `clientes/<nome>/CLIENTE.md` ou produza um output novo em `clientes/<nome>/outputs/`, o agente redige a linha candidata, no formato já usado no arquivo:
+21. **Toda entrega que use ou gere dado real do cliente propõe uma atualização do Histórico do CLIENTE.md, e pede confirmação antes de gravar.** Ao final de qualquer execução que leia `clientes/<nome>/CLIENTE.md` ou produza um output novo em `clientes/<nome>/outputs/`, o agente redige a linha candidata, no formato já usado no arquivo:
 
    - **YYYY-MM-DD:** [resumo em 1-3 frases do que foi feito, arquivo gerado se houver, e pendência que ficou em aberto]
 
@@ -68,12 +66,12 @@
    - Sempre acrescenta, nunca reescreve ou apaga linha anterior do Histórico
    - Cita o arquivo de output relevante quando existir (ex: `outputs/2026-07-diagnostico-estoque.md`)
    - Se a execução revelou contradição com dado anterior do CLIENTE.md (número que não bate, informação desatualizada), registra a contradição na mesma linha, não corrige o dado antigo silenciosamente
-   - Não confundir com `clientes/<nome>/historico/`, pasta reservada a log de execução em conta real (Regra 22, Nível 3). O Histórico do CLIENTE.md é o resumo narrativo do relacionamento com o cliente, a pasta historico/ é o log técnico de comandos rodados
+   - Não confundir com `clientes/<nome>/historico/`, pasta reservada a log de execução em conta real (Regra 20, Nível 3). O Histórico do CLIENTE.md é o resumo narrativo do relacionamento com o cliente, a pasta historico/ é o log técnico de comandos rodados
    - Se o agente rodou em modo consulta pura, sem gerar output nem mudar entendimento do cliente (ex: só respondeu uma pergunta), não propõe linha nenhuma
 
 ## Regra de retroalimentação de performance
 
-24. **Antes de propor ajuste de campanha ou copy nova para cliente ativo, leia o resultado anterior.** Aplica ao `@gestor-trafego` (novo plano ou ajuste de budget/estrutura) e ao `@copywriter` (nova variação de anúncio) sempre que o cliente já tiver pelo menos um RESUMO DE PERFORMANCE salvo em `clientes/<nome>/outputs/` (gerado pelo `@analista-dados`, `_squad/05-analista-dados/SKILL.md`).
+22. **Antes de propor ajuste de campanha ou copy nova para cliente ativo, leia o resultado anterior.** Aplica ao `@gestor-trafego` (novo plano ou ajuste de budget/estrutura) e ao `@copywriter` (nova variação de anúncio) sempre que o cliente já tiver pelo menos um RESUMO DE PERFORMANCE salvo em `clientes/<nome>/outputs/` (gerado pelo `@analista-dados`, `_squad/05-analista-dados/SKILL.md`).
 
    - Leia o RESUMO DE PERFORMANCE mais recente e o Histórico do `CLIENTE.md` antes de decidir
    - Se houver ALERTA (métrica fora do benchmark), a proposta nova precisa citar explicitamente qual métrica motivou a mudança

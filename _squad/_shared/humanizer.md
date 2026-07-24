@@ -201,4 +201,4 @@ Ao devolver a peça revisada, **inclua uma linha** no rodapé do output indicand
 ✓ Humanizer aplicado · 10 padrões anti-cara-de-IA verificados
 ```
 
-Isso dá rastreabilidade pro aluno saber que o agente passou pela peneira final.
+Isso dá rastreabilidade pra você saber que o agente passou pela peneira final.

@@ -1,7 +1,7 @@
 # Template de Briefing: Cliente da Agência
 
 > **Quando usar:** todo agente do squad pede este briefing antes de executar. É o input mínimo padronizado.
-> **Quem preenche:** o aluno (dono da agência) preenche para cada cliente real, antes de invocar qualquer agente.
+> **Quem preenche:** você preenche para cada cliente real, antes de invocar qualquer agente.
 > **Tempo estimado:** 5 a 10 minutos para preencher.
 
 ---

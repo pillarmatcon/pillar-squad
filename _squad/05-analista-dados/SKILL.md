@@ -16,11 +16,11 @@
 
 ## Como o agente recebe os dados
 
-O dono de agência pode trazer os dados de 3 formas. O agente aceita qualquer uma:
+Você pode trazer os dados de 3 formas. O agente aceita qualquer uma:
 
-### Tier 1: Dados manuais (funciona para qualquer aluno)
+### Tier 1: Dados manuais (funciona sempre)
 
-O aluno exporta os dados das plataformas e cola no chat:
+Você exporta os dados das plataformas e cola no chat:
 
 ```
 Meta Ads - exportar de: Gerenciador de Anúncios → Relatórios → Exportar CSV
@@ -35,31 +35,31 @@ Dados opcionais (melhoram o relatório):
   Receita gerada, Taxa de fechamento, Ticket médio, ROAS
 ```
 
-O aluno cola o CSV ou uma tabela com os números, o agente interpreta e monta o relatório.
+Você cola o CSV ou uma tabela com os números, o agente interpreta e monta o relatório.
 
-### Tier 2: Reportei MCP (para alunos com conta Reportei)
+### Tier 2: Reportei MCP (se você tiver conta Reportei)
 
-Se o aluno usa o Reportei (reportei.com), o agente pode puxar os dados diretamente via integração. O Reportei conecta com 47+ plataformas (Meta Ads, Google Ads, GA4, Instagram, TikTok, LinkedIn, etc.).
+Se você usa o Reportei (reportei.com), o agente pode puxar os dados diretamente via integração. O Reportei conecta com 47+ plataformas (Meta Ads, Google Ads, GA4, Instagram, TikTok, LinkedIn, etc.).
 
 **Como configurar:**
-1. Aluno cria conta no Reportei e conecta as plataformas do cliente
+1. Criar conta no Reportei e conectar as plataformas do cliente
 2. No Claude Desktop, adicionar o MCP do Reportei nas configurações
 3. O agente acessa os dados direto, sem exportar nada manualmente
 
 **Vantagem:** dados sempre atualizados, sem risco de erro de digitação, histórico disponível para comparativo.
 
-**Custo do Reportei:** plano pago (verificar preço atual em reportei.com). Vale para agências que gerenciam 3+ clientes, o tempo economizado justifica.
+**Custo do Reportei:** plano pago (verificar preço atual em reportei.com). Vale a pena quando o volume de clientes justificar o tempo economizado.
 
-### Tier 3: APIs nativas (para alunos técnicos)
+### Tier 3: APIs nativas (se houver suporte técnico)
 
 Conexão direta com as APIs do Meta Ads, Google Ads e GA4. Exige configuração técnica inicial (app no Meta for Developers, credenciais Google OAuth).
 
-**Quando indicar:** alunos que já têm experiência com APIs ou que têm desenvolvedor no time. Para a maioria dos alunos iniciantes, o Tier 1 (manual) resolve bem.
+**Quando indicar:** se você tiver experiência com APIs ou desenvolvedor no time. Na maioria dos casos, o Tier 1 (manual) resolve bem.
 
 **Decisão prática:**
-- Aluno iniciante → Tier 1 (manual)
-- Aluno intermediário gerenciando 3+ clientes → Tier 2 (Reportei)
-- Aluno avançado ou agência com desenvolvedor → Tier 3 (APIs)
+- Sem tempo/estrutura técnica agora → Tier 1 (manual)
+- Volume de clientes crescendo → Tier 2 (Reportei)
+- Estrutura técnica própria (desenvolvedor no time) → Tier 3 (APIs)
 
 ---
 
@@ -74,7 +74,7 @@ Verificar com o briefing do Agente 01 (Tráfego):
 - Qual o benchmark esperado para este nicho?
 - Quais UTMs foram configuradas?
 
-Se não tiver o briefing do Agente 01, perguntar ao aluno: "qual era a meta de CPL/CPA para este cliente?"
+Se não tiver o briefing do Agente 01, perguntar: "qual era a meta de CPL/CPA para este cliente?"
 
 ### Passo 3: Calcular os KPIs principais
 Fórmulas usadas:
@@ -201,7 +201,7 @@ CTR: X% (benchmark: Y%) -> DENTRO / ACIMA / ABAIXO
 ALERTAS: [lista do que está fora da meta, ou "nenhum" se tudo dentro do esperado]
 ```
 
-Esse bloco existe para o `@gestor-trafego` e o `@copywriter` lerem antes de propor ajuste de campanha ou copy nova para o mesmo cliente (Regra 24 de `_shared/regras-globais.md`), sem precisar reprocessar o relatório inteiro. Grave esse bloco sempre, mesmo quando não houver alerta.
+Esse bloco existe para o `@gestor-trafego` e o `@copywriter` lerem antes de propor ajuste de campanha ou copy nova para o mesmo cliente (Regra 22 de `_shared/regras-globais.md`), sem precisar reprocessar o relatório inteiro. Grave esse bloco sempre, mesmo quando não houver alerta.
 
 ---
 

@@ -1,6 +1,6 @@
-# Guia de Hospedagem para o Aluno
+# Guia de Hospedagem
 
-> **Para quem é:** dono de agência (aluno do AgêncIA 100k) que precisa subir uma landing page de cliente e ainda não tem hospedagem própria. Esse guia mostra o caminho mais simples, mais barato e mais rápido.
+> **Para quem é:** você, quando precisa subir uma landing page de cliente e ainda não tem hospedagem própria. Esse guia mostra o caminho mais simples, mais barato e mais rápido.
 > **Quem usa:** os agentes 04-Páginas e 03-Design/Criativos recomendam essa rota como padrão.
 
 ---
@@ -9,7 +9,7 @@
 
 **Cloudflare Pages.** Gratuito, sem cartão, drag-and-drop, sai no ar em 60 segundos. URL pública grátis (`nome-do-projeto.pages.dev`). Permite domínio próprio depois sem custo de hospedagem.
 
-Se o aluno seguir esse guia, em 15 minutos a LP do cliente está no ar com URL pública e SSL automático. Sem servidor, sem mensalidade.
+Se você seguir esse guia, em 15 minutos a LP do cliente está no ar com URL pública e SSL automático. Sem servidor, sem mensalidade.
 
 ---
 
@@ -23,13 +23,13 @@ Se o aluno seguir esse guia, em 15 minutos a LP do cliente está no ar com URL p
 | GitHub Pages | 5 min (precisa conta GitHub) | `*.github.io` | Grátis | Automático | Sim (CDN básico) | 100GB banda/mês | Bom para quem já usa GitHub |
 | Hospedagem cPanel/FTP | Variável | Não | Sim (custo do registrador) | Manual | Não | Conforme plano | Só se cliente já tem |
 
-**Razão de Cloudflare Pages ser #1:** banda ilimitada no plano gratuito (Vercel e Netlify cobram acima de 100GB), edge global mais amplo, integração nativa com domínio Cloudflare (que o Bindes já tem).
+**Razão de Cloudflare Pages ser #1:** banda ilimitada no plano gratuito (Vercel e Netlify cobram acima de 100GB), edge global mais amplo, integração nativa com domínio Cloudflare.
 
 ---
 
 ## Passo a passo: subir LP do cliente em Cloudflare Pages
 
-### O que o aluno precisa antes de começar
+### O que você precisa antes de começar
 
 - Arquivo HTML produzido pelo agente 04-Páginas (.html único)
 - Imagens da página (logo, hero, depoimentos), todas em uma pasta
@@ -40,7 +40,7 @@ Se o aluno seguir esse guia, em 15 minutos a LP do cliente está no ar com URL p
 **1. Criar conta no Cloudflare (1 minuto)**
 
 - Acessar [cloudflare.com](https://cloudflare.com)
-- Clicar em "Sign Up", usar email do aluno
+- Clicar em "Sign Up", usar seu email
 - Confirmar email
 - Não precisa cartão de crédito
 
@@ -50,7 +50,7 @@ Se o aluno seguir esse guia, em 15 minutos a LP do cliente está no ar com URL p
 - Botão "Create application"
 - Aba "Pages"
 - Botão "Upload assets"
-- Nome do projeto: `nome-do-cliente-lp` (ex: `clinica-vital-lp`)
+- Nome do projeto: `nome-do-cliente-lp` (ex: `construmais-lp`)
 - Botão "Create project"
 
 **3. Upload dos arquivos (1 minuto)**
@@ -61,7 +61,7 @@ Se o aluno seguir esse guia, em 15 minutos a LP do cliente está no ar com URL p
 
 **4. Pronto. URL pública criada**
 
-- Cloudflare gera URL automática: `https://clinica-vital-lp.pages.dev`
+- Cloudflare gera URL automática: `https://construmais-lp.pages.dev`
 - Abrir essa URL no navegador, verificar que a página carregou
 - SSL automático já ativo
 - Edge global já ativo (página rápida em qualquer parte do mundo)
@@ -112,28 +112,28 @@ Comprar é simples e barato:
 - Ou NameCheap (~US$ 12/ano)
 - Ou Registro.br também tem .com (mais caro)
 
-**Dica do guia:** se o aluno tem vários clientes, considerar transferir todos os domínios para Cloudflare Registrar (preço de custo, sem markup) e gerenciar tudo num painel só.
+**Dica do guia:** se você tem vários clientes, considerar transferir todos os domínios para Cloudflare Registrar (preço de custo, sem markup) e gerenciar tudo num painel só.
 
 ---
 
 ## Alternativas se Cloudflare Pages não couber
 
 ### Vercel
-**Quando preferir:** se o aluno já usa Next.js ou Vue em outros projetos. Vercel é mais integrado com esses frameworks.
+**Quando preferir:** se você já usa Next.js ou Vue em outros projetos. Vercel é mais integrado com esses frameworks.
 
 **Setup:** mesmo princípio. Conta gratuita, drag-and-drop em [vercel.com/new](https://vercel.com/new), URL `*.vercel.app`, conexão com domínio próprio em 3 cliques.
 
 **Limite:** 100GB banda/mês. Para LP de tráfego pago, geralmente não chega.
 
 ### Netlify
-**Quando preferir:** se o aluno gosta de UI mais "marketing-friendly" (alguns acham mais bonito).
+**Quando preferir:** se você gosta de UI mais "marketing-friendly" (alguns acham mais bonito).
 
 **Setup:** [netlify.com](https://netlify.com), drag-and-drop em [app.netlify.com/drop](https://app.netlify.com/drop), URL `*.netlify.app`.
 
 **Limite:** 100GB banda/mês.
 
 ### GitHub Pages
-**Quando preferir:** se o aluno já tem GitHub ativo e quer versionar a LP em git desde o começo.
+**Quando preferir:** se você já tem GitHub ativo e quer versionar a LP em git desde o começo.
 
 **Setup:** criar repo público, fazer push do HTML, ativar Pages nas Settings, URL `usuario.github.io/repo`.
 
@@ -161,9 +161,9 @@ Comprar é simples e barato:
 **Quando faz sentido:** cliente já tem essa hospedagem e quer aproveitar (não vale migrar só pra LP, mas se já tem, usa).
 
 ### LeadLovers, Klickpages, GreatPages, Builderall (plataformas de "leads")
-**Por que não:** custam R$ 100 a R$ 500/mês. Travam o aluno na ferramenta (LP fica lá, se cancela, perde). Performance ruim (LP renderizada via builder próprio). Limitação séria de customização.
+**Por que não:** custam R$ 100 a R$ 500/mês. Travam você na ferramenta (LP fica lá, se cancela, perde). Performance ruim (LP renderizada via builder próprio). Limitação séria de customização.
 
-**Quando faz sentido:** se o aluno já paga por uma dessas pra outras funções (envio de email, CRM) e quer hospedar a LP no mesmo lugar pra simplificar. Mesmo assim, geralmente é mais barato manter o builder pra email/CRM e a LP em Cloudflare Pages.
+**Quando faz sentido:** se você já paga por uma dessas pra outras funções (envio de email, CRM) e quer hospedar a LP no mesmo lugar pra simplificar. Mesmo assim, geralmente é mais barato manter o builder pra email/CRM e a LP em Cloudflare Pages.
 
 ---
 
@@ -177,11 +177,11 @@ Comprar é simples e barato:
 
 **Total:** R$ 40/ano por cliente, ou R$ 0 se usar URL `*.pages.dev`.
 
-Para o aluno comparar: hospedagem WordPress + domínio + plugin de cache + SSL premium custaria R$ 60 a R$ 100/mês. Cloudflare Pages dá o mesmo resultado por 1/30 do preço.
+Para comparar: hospedagem WordPress + domínio + plugin de cache + SSL premium custaria R$ 60 a R$ 100/mês. Cloudflare Pages dá o mesmo resultado por 1/30 do preço.
 
 ---
 
-## Como o agente apresenta isso pro aluno
+## Como o agente apresenta isso pra você
 
 Os agentes 04-Páginas e 03-Design/Criativos, ao entregar uma página/criativo, sempre incluem:
 
@@ -202,7 +202,7 @@ E sinaliza pendência: confirmar com o cliente se o domínio dele já está no C
 
 ### Cliente exige hospedagem própria dele (cPanel, GoDaddy, Locaweb)
 
-Aluno faz upload do HTML via FTP no diretório `public_html` ou `www`. Se já tem SSL, ok. Se não tem, instalar Let's Encrypt grátis pelo cPanel (botão "Vamos criptografar" ou similar).
+Você faz upload do HTML via FTP no diretório `public_html` ou `www`. Se já tem SSL, ok. Se não tem, instalar Let's Encrypt grátis pelo cPanel (botão "Vamos criptografar" ou similar).
 
 ### Cliente usa Go High Level (GHL) e quer hospedar lá
 
