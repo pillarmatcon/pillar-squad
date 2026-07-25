@@ -5,11 +5,11 @@ Esta pasta é o **workspace permanente** de uma agência de marketing digital qu
 ## Estrutura
 
 - `.claude/` - esta pasta. Instruções globais (este arquivo) + 7 agentes registrados. Fica sempre na raiz de `Pillar/`: é daqui que o Claude Code carrega o CLAUDE.md e os agentes ao iniciar uma sessão na raiz do workspace. Mover essa pasta quebraria o carregamento automático.
-- `_squad/` - arquivos de referência do squad (SKILLs, templates HTML, regras compartilhadas, **Humanizer**, **skill embutida de Meta Ads CLI em modo guiado total**, **skill embutida de padronização de Curva ABC** (PDF → XLSX, zero IA na conversão) em `_squad/_skills/padroniza-curva-abc/`, **identidade da própria agência** em `_squad/_shared/identidade-agencia.md`, **logo da Pillar** em `_squad/_shared/marca-pillar/`, **Método Viga Mestra** (metodologia proprietária, 5 pilares, racional completo) em `_squad/_shared/metodo-viga-mestra.md`, **template de tarefa reutilizável** em `_squad/_shared/template-tarefa.md`).
+- `_squad/` - arquivos de referência do squad (SKILLs, templates HTML, regras compartilhadas, **Humanizer**, **skill embutida de Meta Ads CLI em modo guiado total**, **identidade da própria agência** em `_squad/_shared/identidade-agencia.md`, **logo da Pillar** em `_squad/_shared/marca-pillar/`, **Método Viga Mestra** (metodologia proprietária, 5 pilares, racional completo) em `_squad/_shared/metodo-viga-mestra.md`, **template de tarefa reutilizável** em `_squad/_shared/template-tarefa.md`).
 
 ### `Operacional/` - execução com cliente já fechado
 
-- `Operacional/Método Viga Mestra/` - biblioteca de playbooks genéricos da metodologia, organizada em `Pilar > Atividade > Tarefa` (ver `Operacional/Método Viga Mestra/_metodo.md`). Todo conteúdo aqui é template, com `[placeholders]` no lugar de dado de cliente. A versão real preenchida pra um cliente específico vai em `Operacional/clientes/<nome>/outputs/`, nunca aqui.
+- `Operacional/Método Viga Mestra/` - biblioteca de playbooks genéricos da metodologia, organizada em `Pilar > Atividade > Tarefa` (ver `Operacional/Método Viga Mestra/_metodo.md`). Todo conteúdo aqui é template, com `[placeholders]` no lugar de dado de cliente. A versão real preenchida pra um cliente específico vai em `Operacional/clientes/<nome>/outputs/`, nunca aqui. Exceção: a tarefa `1 - Inteligência de Dados/1 - Curva ABC do Estoque/` guarda também uma ferramenta pronta (não-template), o script `pillar_padroniza_curva_abc.py` + `SKILL.md`, que converte PDF de Curva ABC do sistema Pontual Tecnologia em XLSX padronizado, zero IA na conversão.
 - `Operacional/clientes/` - uma subpasta por cliente fechado. Cada cliente tem `CLIENTE.md`, `outputs/` e `historico/`.
 
 ### `Comercial/` - prospecção, cliente ainda não fechado
@@ -36,7 +36,7 @@ Via `@nome` ou `/nome` em qualquer conversa neste workspace:
 4. Para copywriter, designer-criativos e webdesigner: leia também `_squad/_shared/humanizer.md`
 5. Para gestor-trafego em pedidos com conta real: detecte CLI (`meta --version`) e ofereça onboarding via `_squad/01-gestor-trafego/cli-onboarding.md` se necessário (modo guiado total)
 6. Para analista-dados (rodapé `{{NOME_AGENCIA}}` do dashboard) ou qualquer material que carregue a identidade da própria agência (proposta comercial, material institucional): leia também `_squad/_shared/identidade-agencia.md` no lugar do `CLIENTE.md`. Isso nunca substitui a marca do cliente em LP, copy, anúncio ou criativo.
-7. Para inteligencia-dados: exige pelo menos um relatório real de ERP (estoque, Curva ABC, vendas por categoria) anexado ou referenciado. Sem isso, para e pede a exportação. Se a fonte for PDF de Curva ABC do sistema Pontual Tecnologia, roda antes a skill `_squad/_skills/padroniza-curva-abc/SKILL.md` (converte pra XLSX padronizado, script determinístico, sem gasto de IA na conversão em si).
+7. Para inteligencia-dados: exige pelo menos um relatório real de ERP (estoque, Curva ABC, vendas por categoria) anexado ou referenciado. Sem isso, para e pede a exportação. Se a fonte for PDF de Curva ABC do sistema Pontual Tecnologia, roda antes a ferramenta em `Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md` (converte pra XLSX padronizado, script determinístico, sem gasto de IA na conversão em si).
 8. Execute
 9. Rode Humanizer nas saídas textuais
 10. Salve em `Operacional/clientes/<nome>/outputs/` (cliente fechado) ou `Comercial/propostas/<nome-prospect>/` (prospect, ver item 6)
@@ -55,7 +55,7 @@ Via `@nome` ou `/nome` em qualquer conversa neste workspace:
 ## Skills embutidas
 
 - `_squad/_skills/meta-ads-cli-setup/` - skill checkpointed em **modo guiado total**. O agente executa todos os comandos via Bash tool, usuário não toca no terminal. Suporta macOS, Linux e Windows (PowerShell). O `@gestor-trafego` invoca quando o aluno aceita o upgrade.
-- `_squad/_skills/padroniza-curva-abc/` - converte PDF de Curva ABC (sistema Pontual Tecnologia) em XLSX padronizado via script Python determinístico (regex/posição de coluna + pandas, zero chamada de IA na conversão). O `@inteligencia-dados` invoca automaticamente antes do diagnóstico quando a fonte é esse tipo de PDF.
+- `Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md` - converte PDF de Curva ABC (sistema Pontual Tecnologia) em XLSX padronizado via script Python determinístico (regex/posição de coluna + pandas, zero chamada de IA na conversão). O `@inteligencia-dados` invoca automaticamente antes do diagnóstico quando a fonte é esse tipo de PDF. Fica junto da tarefa correspondente do Método Viga Mestra em vez de `_squad/_skills/`, porque é a ferramenta operacional dessa tarefa específica, não um setup genérico de conta.
 
 ## Clientes ativos
 
