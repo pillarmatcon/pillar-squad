@@ -38,4 +38,4 @@ Essa atividade não precisa de monitoramento diário nem ferramenta paga de tend
 2. **Validação de sazonalidade com o cliente**: nunca presumir calendário sazonal sem confirmação, cada região tem padrão próprio.
 3. **Estrutura de campanha de captura**: Google Search focado na palavra em alta, com página de destino certa e lista de negativas.
 
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `Claude/_squad/_shared/template-tarefa.md`.
+Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.

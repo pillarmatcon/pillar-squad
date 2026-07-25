@@ -1,6 +1,6 @@
 # Pilar 2: Domínio Territorial
 
-> Detalhe completo em `Claude/_squad/_shared/metodo-viga-mestra.md`. Agente que mais aplica: `@gestor-trafego`.
+> Detalhe completo em `_squad/_shared/metodo-viga-mestra.md`. Agente que mais aplica: `@gestor-trafego`.
 
 **Problema que resolve:** verba de anúncio jogada fora com quem está longe ou é só "curioso".
 

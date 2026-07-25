@@ -1,6 +1,6 @@
 # Pilar 4: Vendedor de Elite
 
-> Detalhe completo em `Claude/_squad/_shared/metodo-viga-mestra.md`. Agente que mais aplica: `@copywriter` (ver "Playbook de vendedor" em `Claude/_squad/02-copywriter/SKILL.md`).
+> Detalhe completo em `_squad/_shared/metodo-viga-mestra.md`. Agente que mais aplica: `@copywriter` (ver "Playbook de vendedor" em `_squad/02-copywriter/SKILL.md`).
 
 **Problema que resolve:** atendimento lento, orçamentos "frios" e falta de acompanhamento (follow-up).
 

@@ -37,4 +37,4 @@ Não precisa de CRM sofisticado pra começar. Uma planilha com nome, contato, ú
 2. **Mapeamento do funil de fases**: fundação, alvenaria, cobertura, instalações, acabamento, como referência pra prever a próxima necessidade.
 3. **Atualização periódica do status**: garantir que o registro não fica parado no primeiro cadastro.
 
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `Claude/_squad/_shared/template-tarefa.md`.
+Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.

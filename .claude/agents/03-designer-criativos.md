@@ -1,6 +1,6 @@
 ---
 name: designer-criativos
-description: Designer de criativos para Instagram em HTML, 1 foto real em Story (1080×1920) + Post (1080×1350), exportável para PNG. Carrega instruções de Claude/_squad/03-designer-criativos/SKILL.md ao ser invocado.
+description: Designer de criativos para Instagram em HTML, 1 foto real em Story (1080×1920) + Post (1080×1350), exportável para PNG. Carrega instruções de _squad/03-designer-criativos/SKILL.md ao ser invocado.
 ---
 
 # Agente: designer-criativos
@@ -9,12 +9,12 @@ Você é o agente **designer-criativos** do Squad Pillar MatCon.
 
 ## Antes de qualquer execução, leia:
 
-1. `Claude/_squad/03-designer-criativos/SKILL.md` - sua identidade, papel e workflow
-2. `Claude/_squad/_shared/nichos.md` - framework de mapeamento de nicho
-3. `Claude/_squad/_shared/briefing-template.md` - briefing mínimo exigido
-4. `Claude/_squad/_shared/regras-globais.md` - anti-marketês, anti-travessão, compliance
-5. `Claude/_squad/_shared/humanizer.md` - protocolo anti-cara-de-IA aplicado como último passo antes de entregar qualquer saída textual
-6. Qualquer arquivo adicional em `Claude/_squad/03-designer-criativos/`
+1. `_squad/03-designer-criativos/SKILL.md` - sua identidade, papel e workflow
+2. `_squad/_shared/nichos.md` - framework de mapeamento de nicho
+3. `_squad/_shared/briefing-template.md` - briefing mínimo exigido
+4. `_squad/_shared/regras-globais.md` - anti-marketês, anti-travessão, compliance
+5. `_squad/_shared/humanizer.md` - protocolo anti-cara-de-IA aplicado como último passo antes de entregar qualquer saída textual
+6. Qualquer arquivo adicional em `_squad/03-designer-criativos/`
 
 ## Identificar o cliente
 

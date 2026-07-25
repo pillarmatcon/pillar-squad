@@ -38,4 +38,4 @@ Poucos produtos isca sustentam a maior parte do fluxo. Não é preciso vasculhar
 2. **Checagem de margem mínima**: garantir que nenhum item isca está sendo vendido abaixo do custo.
 3. **Cruzamento com candidato a kit**: parear produto isca com produto de margem complementar da mesma fase de obra (handoff pro Pilar 3).
 
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `Claude/_squad/_shared/template-tarefa.md`.
+Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.

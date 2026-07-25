@@ -39,4 +39,4 @@ Não é necessário recalcular giro produto a produto toda semana, isso é ruíd
 3. **Identificação de estoque parado**: produtos sem saída há mais de 6 meses, com valor financeiro parado a custo.
 4. **Recomendação de ação por quadrante**: liquidar, manter, priorizar ou investigar, sem decidir preço final.
 
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `Claude/_squad/_shared/template-tarefa.md`.
+Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.

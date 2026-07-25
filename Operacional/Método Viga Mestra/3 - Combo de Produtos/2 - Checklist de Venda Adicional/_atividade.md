@@ -36,4 +36,4 @@ O ganho vem de um checklist curto e realmente usado, não de um documento extens
 2. **Roteiro de abordagem do vendedor**: como oferecer o complemento sem soar forçado.
 3. **Revisão periódica com o dono da loja**: ajuste conforme mudança de mix ou sazonalidade.
 
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `Claude/_squad/_shared/template-tarefa.md`.
+Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.

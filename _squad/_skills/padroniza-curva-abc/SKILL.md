@@ -55,7 +55,7 @@ Tolera um glitch conhecido de extração de PDF (dígito solto que a extração 
 
 2. **Rodar o script apontando pro PDF do cliente e pro destino em `outputs/`:**
    ```bash
-   python "Claude/_squad/_skills/padroniza-curva-abc/pillar_padroniza_curva_abc.py" "<caminho do PDF recebido>" "Operacional/clientes/<nome-cliente>/outputs/<YYYY-MM>-curva-abc-padronizada.xlsx"
+   python "_squad/_skills/padroniza-curva-abc/pillar_padroniza_curva_abc.py" "<caminho do PDF recebido>" "Operacional/clientes/<nome-cliente>/outputs/<YYYY-MM>-curva-abc-padronizada.xlsx"
    ```
    Se for prospect (ainda sem `CLIENTE.md`), salvar em `Comercial/propostas/<nome-prospect>/<YYYY-MM>-curva-abc-padronizada.xlsx`.
 

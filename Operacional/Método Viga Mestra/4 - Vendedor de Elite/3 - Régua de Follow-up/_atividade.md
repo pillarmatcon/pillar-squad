@@ -25,7 +25,7 @@ A régua roda por orçamento individual (D0 a D15 de cada lead). A revisão do d
 
 ## Squad responsável
 
-`@copywriter` monta a régua completa (ver "Playbook de vendedor" em `Claude/_squad/02-copywriter/SKILL.md`).
+`@copywriter` monta a régua completa (ver "Playbook de vendedor" em `_squad/02-copywriter/SKILL.md`).
 
 ## Operação enxuta
 
@@ -37,4 +37,4 @@ A régua roda por orçamento individual (D0 a D15 de cada lead). A revisão do d
 2. **Critério de quando arquivar**: D15 sem resposta encerra o follow-up, sem insistência infinita.
 3. **Revisão da taxa de resposta por etapa**: identificar em qual dia o cliente mais volta a responder, pra calibrar a régua.
 
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `Claude/_squad/_shared/template-tarefa.md`.
+Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.

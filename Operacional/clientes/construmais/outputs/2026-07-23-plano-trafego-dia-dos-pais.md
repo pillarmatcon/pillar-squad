@@ -12,7 +12,7 @@
 - `Operacional/clientes/construmais/outputs/2026-07-23-skus-ferramentas-kit-dia-dos-pais.md` (candidatos reais a kit, giro e margem por SKU)
 - `Operacional/clientes/construmais/outputs/2026-07-23-pesquisa-concorrentes-dia-dos-pais.md` (concorrência local e padrão nacional do nicho)
 - `Operacional/clientes/construmais/outputs/2026-07-estrategia-kits-e-vendas.md` (playbook comercial e nota de escopo do Pilar 3)
-- `Claude/_squad/01-gestor-trafego/benchmarks.md` e `estruturas-de-campanha.md`
+- `_squad/01-gestor-trafego/benchmarks.md` e `estruturas-de-campanha.md`
 
 ## Nota de escopo, leia antes de tudo
 

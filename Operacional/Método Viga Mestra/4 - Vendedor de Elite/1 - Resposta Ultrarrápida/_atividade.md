@@ -25,7 +25,7 @@ O script é fixo até ser revisado. A medição de tempo de resposta deve ser se
 
 ## Squad responsável
 
-`@copywriter` monta o script (ver "Playbook de vendedor" em `Claude/_squad/02-copywriter/SKILL.md`).
+`@copywriter` monta o script (ver "Playbook de vendedor" em `_squad/02-copywriter/SKILL.md`).
 
 ## Operação enxuta
 
@@ -37,4 +37,4 @@ Não exige ferramenta cara de CRM pra começar. Um combinado simples de plantão
 2. **Rotina de plantão/revezamento**: garantir que sempre exista alguém responsável por responder dentro da meta, mesmo em pico de movimento.
 3. **Medição de tempo de resposta**: registro simples pra saber se a meta de 15 minutos está sendo cumprida de fato.
 
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `Claude/_squad/_shared/template-tarefa.md`.
+Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.

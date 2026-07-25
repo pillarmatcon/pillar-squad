@@ -43,7 +43,7 @@ Também é possível chamar cada agente individualmente para tarefas pontuais.
 ## Estrutura de pastas
 
 ```
-Claude/_squad/
+_squad/
 ├── README.md                              ← este arquivo
 │
 ├── 00-orquestrador/

@@ -150,12 +150,12 @@ Antes de produzir a página:
 
 **Quando usar:** quando o pedido é uma proposta para um prospect (cliente em potencial), não uma página para o cliente final de um cliente já fechado. Diferença chave: aqui a identidade visual é da **própria Pillar**, não do prospect.
 
-**Diferença de fonte de dados:** para este tipo eu leio `Claude/_squad/_shared/identidade-agencia.md` no lugar de `Operacional/clientes/<nome>/CLIENTE.md`. Cores, fonte (Barlow/Inter), tom de voz e tagline vêm de lá. O que preciso do usuário é só o conteúdo específico do prospect: nome, diagnóstico, plano proposto, investimento, validade da proposta.
+**Diferença de fonte de dados:** para este tipo eu leio `_squad/_shared/identidade-agencia.md` no lugar de `Operacional/clientes/<nome>/CLIENTE.md`. Cores, fonte (Barlow/Inter), tom de voz e tagline vêm de lá. O que preciso do usuário é só o conteúdo específico do prospect: nome, diagnóstico, plano proposto, investimento, validade da proposta.
 
 **Componentes obrigatórios:**
 - Cabeçalho com logo Pillar + nome do prospect + data
 - Diagnóstico (2 a 3 pontos concretos sobre a situação atual do prospect, vindos de conversa/briefing real, nunca inventados)
-- Bloco "Método Viga Mestra" (3 dos 5 pilares do método, os mais aderentes ao diagnóstico deste prospect especificamente. Nomes e descrições completas de cada pilar estão em `Claude/_squad/_shared/metodo-viga-mestra.md`; se não for óbvio quais 3 encaixam melhor, pergunto ao usuário antes de escolher sozinho)
+- Bloco "Método Viga Mestra" (3 dos 5 pilares do método, os mais aderentes ao diagnóstico deste prospect especificamente. Nomes e descrições completas de cada pilar estão em `_squad/_shared/metodo-viga-mestra.md`; se não for óbvio quais 3 encaixam melhor, pergunto ao usuário antes de escolher sozinho)
 - Entregas propostas (o que a Pillar vai fazer)
 - Investimento (tabela de itens + total mensal + validade da proposta)
 - CTA de próximo passo (agendar call, responder, assinar)
@@ -163,7 +163,7 @@ Antes de produzir a página:
 
 **Template-base:** [templates-html/proposta-comercial.html](templates-html/proposta-comercial.html)
 
-**Onde salvar:** `Comercial/propostas/<nome-prospect>/proposta-<YYYY-MM-DD>.html`, com a logo copiada para `Comercial/propostas/<nome-prospect>/assets/logo-pillar.png` (copiar de `Claude/_squad/_shared/marca-pillar/logo-pillar.png`) para o arquivo funcionar sozinho se for enviado ou hospedado separado do resto do squad.
+**Onde salvar:** `Comercial/propostas/<nome-prospect>/proposta-<YYYY-MM-DD>.html`, com a logo copiada para `Comercial/propostas/<nome-prospect>/assets/logo-pillar.png` (copiar de `_squad/_shared/marca-pillar/logo-pillar.png`) para o arquivo funcionar sozinho se for enviado ou hospedado separado do resto do squad.
 
 **Regras que seguem valendo:** sem travessão, sem marketês, sem número fictício, sem promessa de garantia inexistente, Humanizer obrigatório no texto (diagnóstico, descrições de pilar e entregas, chamada do CTA). Se faltar dado do prospect (diagnóstico, valor, nome dos pilares do método), paro e pergunto, não invento.
 

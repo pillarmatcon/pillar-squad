@@ -9,7 +9,7 @@ Material de construção tem baixo ticket relativo por item e frete caro proporc
 ## Como executar
 
 1. Definir o raio de entrega lucrativo cruzando custo logístico médio com ticket médio do cliente, não usar raio arbitrário.
-2. Montar a segmentação geográfica na plataforma (Meta Ads: raio em km ao redor da loja; Google: raio + extensão de local), seguindo os templates de `Claude/_squad/01-gestor-trafego/estruturas-de-campanha.md`.
+2. Montar a segmentação geográfica na plataforma (Meta Ads: raio em km ao redor da loja; Google: raio + extensão de local), seguindo os templates de `_squad/01-gestor-trafego/estruturas-de-campanha.md`.
 3. Criar lista de exclusão geográfica pra não desperdiçar impressão fora do raio.
 4. Vincular rastreamento (Pixel, GA4, UTMs) antes de subir qualquer campanha, conforme Passo 6 do workflow do `@gestor-trafego`.
 5. Revisar o raio a cada ciclo de relatório, expandindo ou reduzindo conforme o CPL real por distância.
@@ -20,7 +20,7 @@ Estrutura definida na criação da campanha, revisão do raio a cada relatório 
 
 ## Indicadores de sucesso
 
-- CPL e CPA dentro do benchmark do nicho (comparar com `Claude/_squad/01-gestor-trafego/benchmarks.md`)
+- CPL e CPA dentro do benchmark do nicho (comparar com `_squad/01-gestor-trafego/benchmarks.md`)
 - % do orçamento gasto dentro do raio de entrega lucrativo
 - Taxa de conversão de lead pra orçamento fechado, segmentada por distância até a loja
 
@@ -39,4 +39,4 @@ Não expandir o raio pra "pegar mais gente" sem antes checar o CPL por distânci
 3. **Estrutura de campanha Google Local/Performance Max com raio**: extensão de local + segmentação geográfica.
 4. **Revisão periódica do raio**: ajuste conforme CPL real por distância, alimentado pelo relatório do `@analista-dados`.
 
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `Claude/_squad/_shared/template-tarefa.md`.
+Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.

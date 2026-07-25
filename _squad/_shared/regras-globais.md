@@ -72,7 +72,7 @@
 
 ## Regra de retroalimentação de performance
 
-22. **Antes de propor ajuste de campanha ou copy nova para cliente ativo, leia o resultado anterior.** Aplica ao `@gestor-trafego` (novo plano ou ajuste de budget/estrutura) e ao `@copywriter` (nova variação de anúncio) sempre que o cliente já tiver pelo menos um RESUMO DE PERFORMANCE salvo em `Operacional/clientes/<nome>/outputs/` (gerado pelo `@analista-dados`, `Claude/_squad/05-analista-dados/SKILL.md`).
+22. **Antes de propor ajuste de campanha ou copy nova para cliente ativo, leia o resultado anterior.** Aplica ao `@gestor-trafego` (novo plano ou ajuste de budget/estrutura) e ao `@copywriter` (nova variação de anúncio) sempre que o cliente já tiver pelo menos um RESUMO DE PERFORMANCE salvo em `Operacional/clientes/<nome>/outputs/` (gerado pelo `@analista-dados`, `_squad/05-analista-dados/SKILL.md`).
 
    - Leia o RESUMO DE PERFORMANCE mais recente e o Histórico do `CLIENTE.md` antes de decidir
    - Se houver ALERTA (métrica fora do benchmark), a proposta nova precisa citar explicitamente qual métrica motivou a mudança

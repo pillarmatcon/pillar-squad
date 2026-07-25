@@ -9,7 +9,7 @@ Loja de material de construção costuma ter centenas de SKUs, mas uma fração 
 ## Como executar
 
 1. Pedir ao cliente a exportação do relatório de estoque/vendas do ERP (Curva ABC pronta, ou vendas por SKU no período).
-2. Se a fonte for PDF do sistema Pontual Tecnologia, rodar antes `Claude/_squad/_skills/padroniza-curva-abc/SKILL.md` pra converter em XLSX padronizado.
+2. Se a fonte for PDF do sistema Pontual Tecnologia, rodar antes `_squad/_skills/padroniza-curva-abc/SKILL.md` pra converter em XLSX padronizado.
 3. `@inteligencia-dados` classifica os produtos em A (≈80% do faturamento), B (≈15%) e C (≈5% restante), documentando o critério de corte usado.
 4. Cruzar a classificação por faturamento com a classificação por margem bruta, pois nem todo item A em faturamento é A em margem.
 5. Entregar o diagnóstico com a participação de cada categoria de produto (básico, elétrica, hidráulica, pintura, acabamento, ferramentas) na curva.
@@ -39,4 +39,4 @@ Uma curva ABC bem feita substitui reunião de "achismo" sobre o que comprar. É 
 3. **Classificação ABC por margem**: repetir o corte usando margem bruta em vez de faturamento, e apontar onde as duas classificações divergem.
 4. **Leitura de participação por categoria**: consolidar a curva por categoria de produto, não só por SKU individual, pra virar leitura executiva pro dono da loja.
 
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `Claude/_squad/_shared/template-tarefa.md`.
+Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.

@@ -1,6 +1,6 @@
 # Pilar 5: Plano Obra Integral
 
-> Detalhe completo em `Claude/_squad/_shared/metodo-viga-mestra.md`. Agentes que mais aplicam: `@analista-dados` + `@copywriter`.
+> Detalhe completo em `_squad/_shared/metodo-viga-mestra.md`. Agentes que mais aplicam: `@analista-dados` + `@copywriter`.
 
 **Problema que resolve:** o cliente compra o cimento, mas faz o acabamento em outra loja.
 

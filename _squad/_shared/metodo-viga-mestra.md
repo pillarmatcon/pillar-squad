@@ -56,12 +56,12 @@
 | 1. Inteligência de Dados | `@inteligencia-dados` | Lê relatório de ERP (Curva ABC, estoque) e produz diagnóstico de giro, margem, estoque parado e produtos isca. Resultado alimenta `@analista-dados` (KPI de dashboard), `@copywriter` (kits do Pilar 3) e `@webdesigner` (diagnóstico de proposta) |
 | 2. Domínio Territorial | `@gestor-trafego` | Geolocalização, raio de entrega e otimização de perfil no Google são estrutura de campanha |
 | 3. Combo de Produtos | `@copywriter` + `@gestor-trafego` | Kit e precificação isca viram oferta, ângulo de copy e criativo. Candidatos a kit vêm do diagnóstico do `@inteligencia-dados` |
-| 4. Vendedor de Elite | `@copywriter` | Script de resposta ultrarrápida, playbook de fechamento de orçamento e régua de follow-up (ver "Playbook de vendedor" em `Claude/_squad/02-copywriter/SKILL.md`) |
+| 4. Vendedor de Elite | `@copywriter` | Script de resposta ultrarrápida, playbook de fechamento de orçamento e régua de follow-up (ver "Playbook de vendedor" em `_squad/02-copywriter/SKILL.md`) |
 | 5. Plano Obra Integral | `@analista-dados` + `@copywriter` | LTV e jornada viram KPI de retenção; cronograma de ofertas preditivas vira sequência de e-mail/WhatsApp |
 
 ## Onde este documento é usado
 
-- **Proposta comercial** (`Claude/_squad/04-webdesigner/templates-html/proposta-comercial.html`): os placeholders `{{PILAR_1_NOME}}` a `{{PILAR_3_DESCRICAO}}` usam por padrão os 3 pilares mais relevantes para o diagnóstico daquele prospect específico, escolhidos entre os 5 acima. Se o usuário não indicar quais, o agente pergunta qual dos 5 pilares tem mais aderência ao caso antes de escolher sozinho.
+- **Proposta comercial** (`_squad/04-webdesigner/templates-html/proposta-comercial.html`): os placeholders `{{PILAR_1_NOME}}` a `{{PILAR_3_DESCRICAO}}` usam por padrão os 3 pilares mais relevantes para o diagnóstico daquele prospect específico, escolhidos entre os 5 acima. Se o usuário não indicar quais, o agente pergunta qual dos 5 pilares tem mais aderência ao caso antes de escolher sozinho.
 - **Plano de tráfego, copy e dashboard** de qualquer cliente MatCon: os agentes consultam este arquivo para alinhar diagnóstico e ângulo de comunicação com a metodologia oficial da Pillar, em vez de reinventar enquadramento a cada cliente.
 
 ## Regra

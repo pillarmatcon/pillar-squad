@@ -38,4 +38,4 @@ O calendário não precisa prever tudo com precisão cirúrgica. Acertar a janel
 2. **Gatilho de disparo**: combinação de tempo desde a última compra com fase declarada.
 3. **Acompanhamento de taxa de conversão da oferta preditiva**: medir se o timing está funcionando e recalibrar.
 
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `Claude/_squad/_shared/template-tarefa.md`.
+Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.

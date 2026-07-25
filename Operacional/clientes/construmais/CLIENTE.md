@@ -1,10 +1,10 @@
 # Cliente: Construmais
 
 ## Identidade
-- **Agência responsável:** Pillar (ver `Claude/_squad/_shared/identidade-agencia.md`)
+- **Agência responsável:** Pillar (ver `_squad/_shared/identidade-agencia.md`)
 - **Responsável pela conta (lado Pillar):** Murillo e Alex
 - **Contato principal (lado cliente, decisor):** Tony Carvalho Barbosa
-- **Nicho:** Loja de material de construção (varejo local, materiais básicos, elétrica, hidráulica e pintura), com atendimento a consumidor final e profissional autônomo (pedreiro, eletricista, encanador, pintor). Perfil catalogado em `Claude/_squad/_shared/nichos.md`.
+- **Nicho:** Loja de material de construção (varejo local, materiais básicos, elétrica, hidráulica e pintura), com atendimento a consumidor final e profissional autônomo (pedreiro, eletricista, encanador, pintor). Perfil catalogado em `_squad/_shared/nichos.md`.
 - **Cidade / região:** João Pessoa/PB
 - **CNPJ:** 13.796.094/0001-07
 - **Endereço:** Rua Elias Cavalcanti de Albuquerque, 750, Cristo Redentor, João Pessoa/PB, CEP 58070-400
@@ -70,7 +70,7 @@ Ata completa em `historico/2026-07-23-briefing-reuniao-tony.md`.
 
 ## Diagnóstico Método Viga Mestra (formulário de onboarding, 21/07/2026)
 
-Respostas reais do cliente, organizadas pelos 5 pilares de `Claude/_squad/_shared/metodo-viga-mestra.md`. Substitui a nota anterior de "pendente de dado real".
+Respostas reais do cliente, organizadas pelos 5 pilares de `_squad/_shared/metodo-viga-mestra.md`. Substitui a nota anterior de "pendente de dado real".
 
 ### Pilar 1, Inteligência de Dados
 - Sistema de gestão / ERP: Pontual Tecnologia
@@ -149,7 +149,7 @@ Respostas reais do cliente, organizadas pelos 5 pilares de `Claude/_squad/_share
 - **Ad Account ID Meta (act_...):** [PREENCHER - opcional, necessário só se for usar Meta Ads CLI Nível 2/3]
 
 ## Métricas-alvo
-- **CPL meta:** R$ 30-80 (benchmark adaptado de "Reforma/Construção" em `Claude/_squad/01-gestor-trafego/benchmarks.md`. O nicho "loja de material de construção" já está catalogado em `_shared/nichos.md`, mas `benchmarks.md` ainda não tem uma linha numérica dedicada, então a aproximação segue valendo até termos entrada própria lá)
+- **CPL meta:** R$ 30-80 (benchmark adaptado de "Reforma/Construção" em `_squad/01-gestor-trafego/benchmarks.md`. O nicho "loja de material de construção" já está catalogado em `_shared/nichos.md`, mas `benchmarks.md` ainda não tem uma linha numérica dedicada, então a aproximação segue valendo até termos entrada própria lá)
 - **CPA meta:** R$ 60-150 (estimativa anterior). Agora que o ticket médio real é conhecido (até R$ 300, baixo ticket), este número deve ser recalculado pelo `@gestor-trafego` na próxima rodada. Falta ainda margem de lucro e taxa de fechamento real (o cliente não monitora "a cada 10 orçamentos, quantas vendas"), então o recálculo fica como estimativa até esses dois dados existirem.
 - **ROAS meta:** não aplicável neste momento (loja física sem e-commerce declarado). Se o cliente abrir venda online com catálogo, recalcular.
 

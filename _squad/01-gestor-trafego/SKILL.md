@@ -238,7 +238,7 @@ meta --version
 
 ### Se a CLI está disponível
 
-Use diretamente os comandos read-only do cheatsheet em `Claude/_squad/_skills/meta-ads-cli-setup/references/comandos-cheatsheet.md`.
+Use diretamente os comandos read-only do cheatsheet em `_squad/_skills/meta-ads-cli-setup/references/comandos-cheatsheet.md`.
 
 **Comandos read-only mais úteis** (não exigem confirmação):
 
@@ -255,7 +255,7 @@ Use os dados retornados pra basear o diagnóstico em fatos, não em estimativas.
 
 Ofereça as 2 opções (manual via CSV vs onboarding CLI guiado). **Use exatamente o script verbatim** em `cli-onboarding.md` para apresentar a escolha. Não force o upgrade, manual continua válido.
 
-Se você escolher o onboarding, leia e siga integralmente `Claude/_squad/_skills/meta-ads-cli-setup/SKILL.md` (skill checkpointed de 6 fases). Quando terminar, volte pra task original.
+Se você escolher o onboarding, leia e siga integralmente `_squad/_skills/meta-ads-cli-setup/SKILL.md` (skill checkpointed de 6 fases). Quando terminar, volte pra task original.
 
 ### Se você solicitar EXECUÇÃO do plano (Nível 3)
 

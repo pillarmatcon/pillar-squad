@@ -8,7 +8,7 @@ Pilar > Atividade > Tarefa
 
 - **Pilar**: um dos 5 pilares do método (pasta numerada, ex: `2 - Domínio Territorial`). Descrito em `_pilar.md` dentro da pasta.
 - **Atividade**: uma frente de execução dentro do pilar (pasta numerada dentro do pilar, ex: `1 - Google Meu Negócio`). Descrita em `_atividade.md` dentro da pasta.
-- **Tarefa**: um arquivo `.md` dentro da atividade, com o passo a passo executável (ex: `script-respostas-avaliacoes-google.md`). Formato definido em `Claude/_squad/_shared/template-tarefa.md`.
+- **Tarefa**: um arquivo `.md` dentro da atividade, com o passo a passo executável (ex: `script-respostas-avaliacoes-google.md`). Formato definido em `_squad/_shared/template-tarefa.md`.
 
 ## Regra: aqui é template, não execução
 
@@ -18,7 +18,7 @@ A versão real, preenchida com o dado do cliente (nome da loja, WhatsApp, telefo
 
 ## Onde está o "porquê" de cada pilar
 
-O racional completo dos 5 pilares (problema que resolve, resultado que busca, qual agente do squad mais aplica) está em `Claude/_squad/_shared/metodo-viga-mestra.md`. Os `_pilar.md` desta pasta são um resumo local, pra bater o olho sem sair da pasta; a fonte da verdade continua sendo `Claude/_squad/_shared/metodo-viga-mestra.md`.
+O racional completo dos 5 pilares (problema que resolve, resultado que busca, qual agente do squad mais aplica) está em `_squad/_shared/metodo-viga-mestra.md`. Os `_pilar.md` desta pasta são um resumo local, pra bater o olho sem sair da pasta; a fonte da verdade continua sendo `_squad/_shared/metodo-viga-mestra.md`.
 
 ## Os 5 pilares
 
@@ -30,4 +30,4 @@ O racional completo dos 5 pilares (problema que resolve, resultado que busca, qu
 
 ## Quando uma atividade não tem nenhuma tarefa ainda
 
-O `_atividade.md` diz isso explicitamente. Não existe tarefa "fantasma" ali só pra preencher espaço. Adicione a tarefa quando o processo for realmente definido, seguindo `Claude/_squad/_shared/template-tarefa.md`.
+O `_atividade.md` diz isso explicitamente. Não existe tarefa "fantasma" ali só pra preencher espaço. Adicione a tarefa quando o processo for realmente definido, seguindo `_squad/_shared/template-tarefa.md`.

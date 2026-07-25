@@ -1,6 +1,6 @@
 # Pilar 1: Inteligência de Dados
 
-> Detalhe completo em `Claude/_squad/_shared/metodo-viga-mestra.md`. Agente que mais aplica: `@inteligencia-dados`.
+> Detalhe completo em `_squad/_shared/metodo-viga-mestra.md`. Agente que mais aplica: `@inteligencia-dados`.
 
 **Problema que resolve:** dinheiro preso em estoque parado e perda de venda por falta de produto.
 

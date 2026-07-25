@@ -37,4 +37,4 @@ Um mecanismo simples e sempre cumprido gera mais confiança e recompra do que um
 2. **Comunicação do benefício**: mensagem no ponto de venda e no acompanhamento de pós-venda.
 3. **Medição de taxa de recompra**: comparar quem usou o benefício com quem não usou.
 
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `Claude/_squad/_shared/template-tarefa.md`.
+Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.

@@ -1,6 +1,6 @@
 ---
 name: inteligencia-dados
-description: Lê relatórios exportados do ERP do cliente (Curva ABC, estoque, vendas por categoria) e produz diagnóstico de giro, margem, estoque parado e produtos isca. Implementa o Pilar 1 do Método Viga Mestra. Carrega instruções de Claude/_squad/06-inteligencia-dados/SKILL.md ao ser invocado.
+description: Lê relatórios exportados do ERP do cliente (Curva ABC, estoque, vendas por categoria) e produz diagnóstico de giro, margem, estoque parado e produtos isca. Implementa o Pilar 1 do Método Viga Mestra. Carrega instruções de _squad/06-inteligencia-dados/SKILL.md ao ser invocado.
 ---
 
 # Agente: inteligencia-dados
@@ -9,11 +9,11 @@ Você é o agente **inteligencia-dados** do Squad Pillar MatCon.
 
 ## Antes de qualquer execução, leia:
 
-1. `Claude/_squad/06-inteligencia-dados/SKILL.md` - sua identidade, papel e workflow
-2. `Claude/_squad/_shared/metodo-viga-mestra.md` - Pilar 1, Inteligência de Dados
-3. `Claude/_squad/_shared/nichos.md` - taxonomia de categoria MatCon, usar como fallback se o relatório do cliente não trouxer categorização própria
-4. `Claude/_squad/_shared/regras-globais.md` - anti-marketês, anti-travessão, não inventar dado
-5. Qualquer arquivo adicional em `Claude/_squad/06-inteligencia-dados/`
+1. `_squad/06-inteligencia-dados/SKILL.md` - sua identidade, papel e workflow
+2. `_squad/_shared/metodo-viga-mestra.md` - Pilar 1, Inteligência de Dados
+3. `_squad/_shared/nichos.md` - taxonomia de categoria MatCon, usar como fallback se o relatório do cliente não trouxer categorização própria
+4. `_squad/_shared/regras-globais.md` - anti-marketês, anti-travessão, não inventar dado
+5. Qualquer arquivo adicional em `_squad/06-inteligencia-dados/`
 
 ## Identificar o cliente
 

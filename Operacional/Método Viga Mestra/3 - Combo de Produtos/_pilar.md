@@ -1,6 +1,6 @@
 # Pilar 3: Combo de Produtos
 
-> Detalhe completo em `Claude/_squad/_shared/metodo-viga-mestra.md`. Agentes que mais aplicam: `@copywriter` + `@gestor-trafego`. Candidatos a kit vêm do diagnóstico do `@inteligencia-dados`.
+> Detalhe completo em `_squad/_shared/metodo-viga-mestra.md`. Agentes que mais aplicam: `@copywriter` + `@gestor-trafego`. Candidatos a kit vêm do diagnóstico do `@inteligencia-dados`.
 
 **Problema que resolve:** vender só o "grosso" (com margem baixa) e perder o acessório pro vizinho.
 

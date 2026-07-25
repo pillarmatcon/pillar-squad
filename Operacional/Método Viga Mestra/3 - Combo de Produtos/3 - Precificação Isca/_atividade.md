@@ -37,4 +37,4 @@ Não é necessário reprecificar o catálogo inteiro. O trabalho se concentra no
 2. **Estratégia de preço de gancho vinculado ao mix**: comunicação do preço isca sempre junto da oferta de kit ou complemento.
 3. **Monitoramento de impacto no ticket médio**: confirmar se o fluxo gerado pelo item isca está convertendo em venda de margem maior.
 
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `Claude/_squad/_shared/template-tarefa.md`.
+Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.

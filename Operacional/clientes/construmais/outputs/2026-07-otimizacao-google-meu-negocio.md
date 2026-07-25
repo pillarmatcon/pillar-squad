@@ -172,7 +172,7 @@ Jardim Cidade Universitária, Bancários, Geisel, José Américo, Cidade dos Col
 - loja de ferragem perto de mim
 - material de construção pra profissional autônomo João Pessoa
 
-Esses termos servem tanto pro texto de post e Q&A quanto pra orientar o `@gestor-trafego` numa eventual campanha de Google Search (intent alto, já mapeado em `Claude/_squad/_shared/nichos.md` como canal que funciona pra esse nicho).
+Esses termos servem tanto pro texto de post e Q&A quanto pra orientar o `@gestor-trafego` numa eventual campanha de Google Search (intent alto, já mapeado em `_squad/_shared/nichos.md` como canal que funciona pra esse nicho).
 
 ---
 

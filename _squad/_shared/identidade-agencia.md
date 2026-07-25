@@ -11,7 +11,7 @@
 
 ## Visual
 
-- **Logo:** wordmark "Pillar" em laranja sobre fundo branco. Arquivo em `Claude/_squad/_shared/marca-pillar/logo-pillar.png`
+- **Logo:** wordmark "Pillar" em laranja sobre fundo branco. Arquivo em `_squad/_shared/marca-pillar/logo-pillar.png`
 - **Cor primária (laranja):** `#f97316`
 - **Cor secundária (azul-marinho):** `#0f172a`
 - **Cor neutra (cinza-ardósia):** `#64748b`
@@ -29,7 +29,7 @@
 
 ## Onde este arquivo se aplica
 
-- Rodapé de relatórios e dashboards entregues ao cliente (placeholder `{{NOME_AGENCIA}}` em `Claude/_squad/05-analista-dados/template-dashboard.html`)
+- Rodapé de relatórios e dashboards entregues ao cliente (placeholder `{{NOME_AGENCIA}}` em `_squad/05-analista-dados/template-dashboard.html`)
 - Propostas comerciais e materiais de prospecção da própria Pillar
 - Qualquer apresentação institucional que o squad vier a gerar
 

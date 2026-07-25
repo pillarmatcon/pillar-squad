@@ -24,7 +24,7 @@ Montagem inicial única, revisão a cada 2-3 meses ou quando surgir objeção no
 
 ## Squad responsável
 
-`@copywriter` monta o playbook completo (ver "Playbook de vendedor" em `Claude/_squad/02-copywriter/SKILL.md`).
+`@copywriter` monta o playbook completo (ver "Playbook de vendedor" em `_squad/02-copywriter/SKILL.md`).
 
 ## Operação enxuta
 
@@ -36,4 +36,4 @@ Playbook eficaz cobre as poucas objeções que realmente aparecem no dia a dia d
 2. **Quebra de objeção**: resposta pronta pras objeções mais comuns confirmadas pelo cliente (nunca inventadas).
 3. **Gatilho de fechamento sem mentira**: reforço de valor real, nunca urgência ou escassez falsa.
 
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `Claude/_squad/_shared/template-tarefa.md`.
+Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.

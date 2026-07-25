@@ -74,11 +74,11 @@ dados reais.
 Confirmando, vou começar pela Fase 0 (pré-requisitos).
 ```
 
-2. **Leia e siga integralmente** `Claude/_squad/_skills/meta-ads-cli-setup/SKILL.md`. Esse arquivo é uma skill completa e checkpointed, ele toma conta do onboarding por 6 fases (0 → 5).
+2. **Leia e siga integralmente** `_squad/_skills/meta-ads-cli-setup/SKILL.md`. Esse arquivo é uma skill completa e checkpointed, ele toma conta do onboarding por 6 fases (0 → 5).
 
 3. **Durante o onboarding, mantenha-se em personagem da skill** `meta-ads-cli-setup`. Não saia de fase sem confirmação.
 
-4. **Regras de segurança da skill são INVIOLÁVEIS** (ver `Claude/_squad/_skills/meta-ads-cli-setup/SKILL.md`, seção "REGRAS INVIOLÁVEIS"):
+4. **Regras de segurança da skill são INVIOLÁVEIS** (ver `_squad/_skills/meta-ads-cli-setup/SKILL.md`, seção "REGRAS INVIOLÁVEIS"):
    - Token nunca passa pelo chat
    - Tudo em env vars no shell
    - Comandos write são opt-in explícito

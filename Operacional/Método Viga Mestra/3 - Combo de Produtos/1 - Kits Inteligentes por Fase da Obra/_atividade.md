@@ -39,4 +39,4 @@ Não é preciso lançar dezenas de kits de uma vez. 2 a 3 kits bem montados, tes
 3. **Copy de oferta do kit**: descrição, preço, CTA, seguindo a estrutura "Descrição de oferta" do `@copywriter`.
 4. **Teste piloto antes de escalar**: validar ticket médio em pequena escala antes de investir em campanha maior.
 
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `Claude/_squad/_shared/template-tarefa.md`.
+Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.
