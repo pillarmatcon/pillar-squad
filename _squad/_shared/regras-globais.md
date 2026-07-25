@@ -65,7 +65,7 @@
 
    Regras da atualização, uma vez confirmada:
    - Sempre acrescenta, nunca reescreve ou apaga linha anterior do Histórico
-   - Cita o arquivo de output relevante quando existir (ex: `outputs/2026-07-diagnostico-estoque.md`)
+   - Cita o arquivo de output relevante quando existir (ex: `outputs/2026-07-diagnostico-estoque.md`; para `@inteligencia-dados`, que mantém um único diagnóstico cumulativo por cliente, ex: `outputs/1 - Inteligência de Dados/1 - Curva ABC do Estoque/diagnostico-estoque.md`, seção do período recém adicionado)
    - Se a execução revelou contradição com dado anterior do CLIENTE.md (número que não bate, informação desatualizada), registra a contradição na mesma linha, não corrige o dado antigo silenciosamente
    - Não confundir com `Operacional/clientes/<nome>/historico/`, pasta reservada a log de execução em conta real (Regra 20, Nível 3). O Histórico do CLIENTE.md é o resumo narrativo do relacionamento com o cliente, a pasta historico/ é o log técnico de comandos rodados
    - Se o agente rodou em modo consulta pura, sem gerar output nem mudar entendimento do cliente (ex: só respondeu uma pergunta), não propõe linha nenhuma

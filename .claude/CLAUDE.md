@@ -39,7 +39,7 @@ Via `@nome` ou `/nome` em qualquer conversa neste workspace:
 7. Para inteligencia-dados: exige pelo menos um relatório real de ERP (estoque, Curva ABC, vendas por categoria) anexado ou referenciado. Sem isso, para e pede a exportação. Se a fonte for PDF de Curva ABC do sistema Pontual Tecnologia, roda antes a ferramenta em `Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md` (converte pra XLSX padronizado, script determinístico, sem gasto de IA na conversão em si).
 8. Execute
 9. Rode Humanizer nas saídas textuais
-10. Salve em `Operacional/clientes/<nome>/outputs/` (cliente fechado) ou `Comercial/propostas/<nome-prospect>/` (prospect, ver item 6)
+10. Salve em `Operacional/clientes/<nome>/outputs/` (cliente fechado) ou `Comercial/propostas/<nome-prospect>/` (prospect, ver item 6). Exceção: `@inteligencia-dados` salva em `outputs/<Pilar>/<Atividade>/`, espelhando a estrutura de `Operacional/Método Viga Mestra/`: planilhas por período dentro de subpastas `<MM-YYYY>` (mês de execução), e um único `diagnostico-estoque.md` cumulativo na raiz da atividade, que cresce por período em vez de ser sobrescrito (ver "Formato de output" em `_squad/06-inteligencia-dados/SKILL.md`)
 11. Proponha a linha de atualização do Histórico de `Operacional/clientes/<nome>/CLIENTE.md` e peça confirmação antes de gravar (Regra 21 de `_squad/_shared/regras-globais.md`). Não se aplica a `Comercial/propostas/`, que não tem CLIENTE.md
 
 ## Regras globais

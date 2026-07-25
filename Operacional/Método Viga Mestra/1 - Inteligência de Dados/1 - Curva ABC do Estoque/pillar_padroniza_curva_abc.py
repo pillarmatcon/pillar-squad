@@ -83,6 +83,44 @@ def numero_br(valor):
         return None
 
 
+PERIODO_RE = re.compile(
+    r"Per[íi]odo\s*(?:de)?:?\s*(\d{2})/(\d{2})/(\d{4})\s*a\s*(\d{2})/(\d{2})/(\d{4})"
+)
+
+
+def extrair_periodo(caminho_pdf: str) -> tuple[str, str] | None:
+    """Lê a 1a página em busca de 'Periodo de: DD/MM/AAAA a DD/MM/AAAA'
+    (o relatório da Pontual Tecnologia sempre declara o período coberto
+    no cabeçalho). Retorna (data_inicio, data_fim) em AAAA-MM-DD, ou
+    None se o layout não trouxer essa linha reconhecível."""
+    with pdfplumber.open(caminho_pdf) as pdf:
+        texto = pdf.pages[0].extract_text() or ""
+    m = PERIODO_RE.search(texto)
+    if not m:
+        return None
+    d1, m1, a1, d2, m2, a2 = m.groups()
+    return f"{a1}-{m1}-{d1}", f"{a2}-{m2}-{d2}"
+
+
+TOTAL_GERAL_RE = re.compile(
+    r"Total\s*Geral:?\s*([\d\.]+,\d{2})\s+([\d\.]+,\d{2})\s+([\d\.,]+)"
+)
+
+
+def extrair_total_oficial(caminho_pdf: str) -> float | None:
+    """Lê a última página em busca de 'Total Geral: <custo> <venda> <margem%>',
+    linha de fechamento que o próprio sistema Pontual imprime no relatório.
+    Retorna o valor de venda total oficial (float), ou None se não achar.
+    Serve para o script conferir sozinho se perdeu produto na extração,
+    em vez de confiar cegamente na soma linha a linha."""
+    with pdfplumber.open(caminho_pdf) as pdf:
+        texto = pdf.pages[-1].extract_text() or ""
+    m = TOTAL_GERAL_RE.search(texto)
+    if not m:
+        return None
+    return numero_br(m.group(2))
+
+
 def extrair_texto_linhas(caminho_pdf: str) -> list[str]:
     """Extrai o texto de cada página do PDF, uma página por vez,
     liberando o cache para não estourar memória em relatórios grandes."""
@@ -181,7 +219,12 @@ COLS_NUMERICAS = [
     ("venda_total", 698, 771),
     ("margem_bruta_pct", 771, 10_000),
 ]
-UNIDADE_TOKEN_RE = re.compile(r"^[A-ZÇ]{1,4}$")
+# Unidade normal é só letra (UN, SC, KG, ML...), mas o sistema também usa
+# unidade de área/volume com dígito (M2, M3). Sem aceitar o dígito final, a
+# linha inteira do produto era descartada (nunca reconhecida como "linha de
+# dados"), causando perda silenciosa de produtos inteiros do catálogo,
+# sobretudo cerâmica, laje e forro (medidos em m²/m³).
+UNIDADE_TOKEN_RE = re.compile(r"^[A-ZÇ]{1,4}[0-9]?$")
 
 
 def _coluna_de(x0: float, limites) -> str | None:
@@ -222,7 +265,17 @@ def parsear_formato_estendido(caminho_pdf: str):
             registros.append({**pendente, "grupo_abc": grupo_abc_atual})
 
     with pdfplumber.open(caminho_pdf) as pdf:
-        for pagina in pdf.pages:
+        for pagina_idx, pagina in enumerate(pdf.pages):
+            # A 1a página tem o cabeçalho completo do relatório (nome da
+            # empresa, endereço, "Periodo de:", primeiro "Grupo.:"), que
+            # ocupa bem mais espaço vertical que o cabeçalho compacto
+            # (só nome das colunas) repetido nas páginas seguintes. Usar
+            # o mesmo limite para as duas situações cortava os 1o e 2o
+            # produtos de TODA página a partir da 2a (calibrado empiricamente:
+            # cabeçalho compacto termina por volta de top=37, 1o produto real
+            # de cada página começa em top=70, exatamente onde o limite de
+            # 130 usado antes cortava sem necessidade).
+            limite_topo_cabecalho = 130 if pagina_idx == 0 else 45
             palavras = pagina.extract_words()
             for linha in _agrupar_em_linhas(palavras):
                 linha = sorted(linha, key=lambda w: w["x0"])
@@ -235,7 +288,7 @@ def parsear_formato_estendido(caminho_pdf: str):
                     continue
 
                 # cabeçalho de página / metadados — ignora
-                if primeira["top"] < 130:
+                if primeira["top"] < limite_topo_cabecalho:
                     continue
                 if primeira["text"] in (
                     "Código", "Unidade", "Relatório", "Curva",
@@ -295,17 +348,33 @@ def parsear_formato_estendido(caminho_pdf: str):
 # Saída padronizada
 # ---------------------------------------------------------------------------
 
-def salvar_xlsx(df: pd.DataFrame, caminho_saida: str):
-    df.to_excel(caminho_saida, index=False, sheet_name="Curva ABC padronizada")
+def salvar_xlsx(df: pd.DataFrame, caminho_saida: str, periodo: tuple[str, str] | None = None):
+    # Linha 1 = banner do período coberto por este relatório (cada PDF
+    # vira sua própria planilha, nunca consolidada, porque o cliente
+    # não manda cortes de período padronizados). Cabeçalho na linha 2,
+    # dados a partir da linha 3.
+    df.to_excel(caminho_saida, index=False, sheet_name="Curva ABC padronizada", startrow=1)
 
     wb = load_workbook(caminho_saida)
     ws = wb.active
 
     fonte_padrao = Font(name="Arial", size=10)
     fonte_cabecalho = Font(name="Arial", size=10, bold=True, color="FFFFFF")
+    fonte_periodo = Font(name="Arial", size=10, bold=True)
     preenchimento_cabecalho = PatternFill("solid", fgColor="1F4E78")
+    preenchimento_periodo = PatternFill("solid", fgColor="D9E1F2")
 
+    if periodo:
+        texto_periodo = f"Período do relatório: {periodo[0]} a {periodo[1]}"
+    else:
+        texto_periodo = "Período do relatório: não detectado automaticamente no PDF, preencher manualmente"
+    ws.cell(row=1, column=1, value=texto_periodo)
+    ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=len(df.columns))
     for celula in ws[1]:
+        celula.font = fonte_periodo
+        celula.fill = preenchimento_periodo
+
+    for celula in ws[2]:
         celula.font = fonte_cabecalho
         celula.fill = preenchimento_cabecalho
         celula.alignment = Alignment(horizontal="center")
@@ -320,22 +389,33 @@ def salvar_xlsx(df: pd.DataFrame, caminho_saida: str):
     for idx, col in enumerate(df.columns, start=1):
         ws.column_dimensions[get_column_letter(idx)].width = larguras.get(col, 12)
 
-    for linha in ws.iter_rows(min_row=2):
+    for linha in ws.iter_rows(min_row=3):
         for celula in linha:
             celula.font = fonte_padrao
 
-    ws.freeze_panes = "A2"
+    ws.freeze_panes = "A3"
     wb.save(caminho_saida)
 
 
 def main():
     if len(sys.argv) < 3:
-        print("Uso: python pillar_padroniza_curva_abc.py entrada.pdf saida.xlsx")
+        print(
+            "Uso: python pillar_padroniza_curva_abc.py entrada.pdf saida.xlsx\n"
+            "  ou: python pillar_padroniza_curva_abc.py entrada.pdf pasta_destino/\n"
+            "      (nesse caso o nome do arquivo é montado sozinho com o período\n"
+            "      detectado no PDF, ex: curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx)"
+        )
         sys.exit(1)
 
     entrada, saida = sys.argv[1], sys.argv[2]
     formato = detectar_formato(entrada)
     print(f"Formato detectado: {formato}")
+
+    periodo = extrair_periodo(entrada)
+    if periodo:
+        print(f"Período do relatório: {periodo[0]} a {periodo[1]}")
+    else:
+        print("Período do relatório: não detectado automaticamente, preencher manualmente na planilha")
 
     if formato == "simples":
         linhas = extrair_texto_linhas(entrada)
@@ -343,7 +423,18 @@ def main():
     else:
         df, falhas = parsear_formato_estendido(entrada)
 
-    salvar_xlsx(df, saida)
+    saida_path = Path(saida)
+    if saida_path.suffix.lower() != ".xlsx":
+        # 'saida' é uma pasta (cada PDF vira sua própria planilha,
+        # nunca consolidada): monta o nome do arquivo com o período.
+        if periodo:
+            nome = f"curva-abc-padronizada_{periodo[0]}_a_{periodo[1]}.xlsx"
+        else:
+            nome = "curva-abc-padronizada_periodo-nao-detectado.xlsx"
+        saida_path.mkdir(parents=True, exist_ok=True)
+        saida = str(saida_path / nome)
+
+    salvar_xlsx(df, saida, periodo)
 
     print(f"Produtos padronizados: {len(df)}")
     if "grupo_abc" in df.columns:
@@ -351,6 +442,23 @@ def main():
     print(f"Linhas com falha de parsing: {len(falhas)}")
     for f in falhas[:10]:
         print("  FALHA:", f)
+
+    total_oficial = extrair_total_oficial(entrada)
+    soma_extraida = df["venda_total"].sum() if "venda_total" in df.columns else None
+    if total_oficial and soma_extraida is not None:
+        cobertura = soma_extraida / total_oficial * 100 if total_oficial else 0
+        print(f"Total Geral oficial do relatório (rodapé): R$ {total_oficial:,.2f}")
+        print(f"Soma de venda_total extraída: R$ {soma_extraida:,.2f} ({cobertura:.1f}% do oficial)")
+        if cobertura < 99.5:
+            print(
+                f"  ATENÇÃO: cobertura abaixo de 99,5%. Isso indica produto(s) perdido(s) "
+                f"na extração (não é diferença de arredondamento). Não usar a soma linha a "
+                f"linha como faturamento do período sem investigar antes; use o Total Geral "
+                f"oficial (R$ {total_oficial:,.2f}) como fonte do resumo executivo."
+            )
+    else:
+        print("Não foi possível localizar o 'Total Geral' oficial no rodapé para conferência de cobertura.")
+
     print(f"Arquivo salvo em: {saida}")
 
 
