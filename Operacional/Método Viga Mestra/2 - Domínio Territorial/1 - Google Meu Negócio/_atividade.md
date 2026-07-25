@@ -35,6 +35,6 @@ Isso não exige ferramenta paga nem agência dedicada full time: 15 a 20 minutos
 ## Tarefas desta atividade
 
 1. [Respostas a avaliações do Google](script-respostas-avaliacoes-google.md): script com variações por faixa de nota (5, 3-4, 1-2 estrelas), regra de quando mencionar produto e quando só convidar pro privado.
-2. **Checklist de otimização de perfil**: categoria, horário, atributos, fotos, conferência mensal de dados desatualizados.
-3. **Rotina de postagem semanal**: calendário simples de posts (novidade, promoção, obra de cliente), sem depender de criativo elaborado.
-4. **Monitoramento de Perguntas e Respostas**: checagem periódica pra responder antes do concorrente ou de um usuário qualquer.
+2. [Checklist de otimização de perfil](checklist-otimizacao-de-perfil.md): categoria, horário, atributos, fotos, Q&A, conferência mensal de dados desatualizados.
+3. [Rotina de postagem semanal e priorização de fotos](rotina-de-postagem-semanal-e-priorizacao-de-fotos.md): cadência de posts, fila de fotos de um repositório (fila manual, já que o Google não tem agendamento nativo de post), critério de priorização de produto ligado à Curva ABC do cliente, e nota sobre automação via ferramenta terceira como upsell futuro.
+4. **Monitoramento de Perguntas e Respostas**: checagem periódica pra responder antes do concorrente ou de um usuário qualquer (coberto dentro do checklist de otimização de perfil, item 5).
