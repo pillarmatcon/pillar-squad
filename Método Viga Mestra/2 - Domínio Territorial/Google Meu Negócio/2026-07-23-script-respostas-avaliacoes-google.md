@@ -1,19 +1,3 @@
-# Copy para Construmais
-**Briefing:** `CLIENTE.md` (atualizado em 2026-07-23) + `outputs/2026-07-diagnostico-estoque.md` (produtos de giro e margem) + `outputs/2026-07-otimizacao-google-meu-negocio.md` (estratégia de pedir avaliação, pendências de compliance)
-**Nicho:** Loja de material de construção, perfil completo em `_shared/nichos.md`
-**Objetivo desta peça:** Scripts de resposta a avaliações do Google Meu Negócio (Pilar 2, Domínio Territorial), complemento do trabalho de captação de review já entregue
-**Status:** v1, pronto pro dia a dia. As variações que tocam frete, prazo, pagamento e horário ficam propositalmente sem dado fechado até o Tony confirmar (ver Pendências)
-
----
-
-## Antes de usar
-
-O output de GMB já cobre como pedir avaliação (seção 6 de `outputs/2026-07-otimizacao-google-meu-negocio.md`). Este arquivo é o passo seguinte: como responder a avaliação que já chegou.
-
-Regra que vale pros três blocos abaixo: a Construmais ainda não confirmou horário de funcionamento, política de frete, prazo de entrega nem forma de pagamento com o Tony. Se a avaliação tocar em qualquer um desses pontos, a resposta reconhece o comentário e chama pro WhatsApp. Nunca afirma valor, prazo ou regra que ainda não foi validada.
-
----
-
 ## 1. Resposta a avaliação 5 estrelas
 
 Alterne entre as 3 variações pra não repetir sempre o mesmo texto. Troque [nome] pelo nome que aparece na avaliação.
@@ -76,23 +60,5 @@ Por que a Variação C não nega nem confirma: mesmo quando a reclamação parec
 ## Boas práticas gerais (valem pros 3 blocos)
 
 - Responder em poucos dias ajuda a mostrar que alguém acompanha o perfil de verdade.
-- O Google já mostra "Construmais" como quem respondeu, não precisa assinar de novo dentro do texto. Mas o tom tem que soar como pessoa falando, não como departamento.
 - Nunca copiar a mesma resposta pra avaliações seguidas. Mesmo com o texto base parecido, troca ao menos uma frase.
-- Nunca oferecer desconto, brinde ou reembolso na resposta pública. Isso se resolve no privado, depois de entender o caso (mesma lógica já registrada na seção 6 de `outputs/2026-07-otimizacao-google-meu-negocio.md`, sobre não incentivar avaliação com brinde).
-
----
-
-## Próximos passos
-
-1. Confirmar com o Tony quem no time vai responder as avaliações no dia a dia (o mesmo vendedor que faz orçamento, ou alguém dedicado ao perfil do Google).
-2. Assim que o Tony validar horário de funcionamento, frete, prazo e forma de pagamento, atualizar as Variações C dos blocos 2 e 3 com a política real. Hoje elas só reconhecem o ponto e chamam pro WhatsApp, de propósito.
-3. Usar este script junto com o playbook de atendimento do Pilar 4 (`outputs/2026-07-estrategia-kits-e-vendas.md`, seção 4), já que normalmente é o mesmo time que atende orçamento e responde review.
-
-## Pendências para virar "pronto para publicar" sem ressalva
-
-- Confirmação do Tony sobre horário de funcionamento, política de frete, prazo de entrega e forma de pagamento. Sem isso, as Variações C dos blocos 2 e 3 continuam no formato "reconhece e chama pro WhatsApp", não viram resposta com dado fechado.
-- Definir quem no time vai ter acesso ao painel de avaliações do Google Business Profile pra usar estes scripts.
-
----
-
-✓ Humanizer aplicado · 10 padrões anti-cara-de-IA verificados
+- Nunca oferecer desconto, brinde ou reembolso na resposta pública, isso se resolve no privado, depois de entender o caso.

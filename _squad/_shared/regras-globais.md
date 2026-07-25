@@ -12,6 +12,7 @@
 4. **Sem marketês.** Banidos: "transforme sua vida", "no cenário atual", "virar o jogo", "alavancar", "potencializar", "trazer resultados", "multiplique seus ganhos", "destrave seu potencial".
 5. **Sem números fictícios.** Toda métrica citada vem do briefing ou de dado público verificável. "Mais de 10 mil clientes atendidos" só se for verdade comprovada.
 6. **Sem promessa de garantia que não existe.** "Resultado em 7 dias", "ROI garantido", "100% de satisfação" só se for política real do cliente.
+6b. **Verbo no imperativo sempre na forma de "você", nunca misturado com "tu".** Todo CTA usa a conjugação do imperativo afirmativo de "você" (que pega emprestada do subjuntivo): "mande", "conheça", "chame", "confira", "agende", "ligue", "peça", "venha". Nunca a forma de "tu" ("manda", "conhece", "chama", "confere", "vem"), mesmo que soe mais falada ou espontânea. É um erro fácil de cometer porque na fala coloquial brasileira é comum misturar o pronome "você" com a conjugação de "tu" ("você manda", "você conhece"), mas em peça publicitária escrita isso lê como erro de português, não como tom casual. Antes de fechar qualquer CTA com dois verbos (ex: "Manda mensagem... e conhece as opções"), confere os dois na mesma forma. Se o cliente tiver voz de marca explicitamente "tu" (nicho regional, briefing confirma), documentar a exceção e manter "tu" em 100% dos verbos da peça, nunca misturado com "você".
 
 ## Regras de execução
 
