@@ -36,7 +36,7 @@
 
 ## Regras de compliance
 
-18. **Compliance MatCon (CDC padrão).** A Pillar atende hoje só loja de material de construção, nicho sem regulamentação publicitária específica além do Código de Defesa do Consumidor: sem propaganda de preço enganosa, sem prometer prazo de entrega ou disponibilidade de estoque que não existe, garantia de produto sempre conforme a política real do cliente (ver perfil completo em `_shared/nichos.md`). Se a Pillar um dia atender um cliente fora do nicho MatCon (saúde, direito, financeiro etc.), mapear a regulamentação daquele setor antes de publicar, ela não está pré-carregada aqui.
+18. **Compliance MatCon (CDC padrão).** A Pillar atende hoje só loja de material de construção, nicho sem regulamentação publicitária específica além do Código de Defesa do Consumidor: sem propaganda de preço enganosa, sem prometer prazo de entrega ou disponibilidade de estoque que não existe, garantia de produto sempre conforme a política real do cliente (ver perfil completo em `_shared/nichos.md`). Se a Pillar um dia atender um cliente fora do nicho MatCon (saúde, direito, financeiro etc.): os SKILLs de copywriter, webdesigner, designer-criativos e gestor-trafego trazem seções de referência sobre saúde (CFM/CRO) e direito (OAB), mas são ponto de partida, não mapeamento completo. Validar a regulamentação vigente daquele setor antes de publicar qualquer peça.
 
 ## Regra final anti-cara-de-IA no texto (Humanizer)
 
@@ -53,7 +53,7 @@
    - Deleção é proibida. Sempre arquivar/pausar em vez de deletar
    - Operações restritas à conta declarada no `CLIENTE.md` do cliente em foco. Trabalhar em outra conta exige novo briefing
    - Todo write é logado em `Operacional/clientes/<nome>/historico/<YYYY-MM-DD>-execucao-<agente>.md` com comandos, IDs criados, status final e próximas ações manuais
-   - **Token nunca passa pelo chat.** Token mora em env vars do seu shell (`~/.zshrc` ou `~/.bashrc`). Se você colar token no chat por engano, o agente para, alerta e instrui a revogar antes de continuar (regra herdada de `_skills/meta-ads-cli-setup/SKILL.md`)
+   - **Token nunca passa pelo chat.** Token mora em env var permanente do sistema: `~/.zshrc` ou `~/.bashrc` no Mac/Linux, variável de ambiente de usuário no Windows (escopo User, via PowerShell). Se você colar token no chat por engano, o agente para, alerta e instrui a revogar antes de continuar (regra herdada de `_skills/meta-ads-cli-setup/SKILL.md`)
 
 ## Regras de atualização de histórico do cliente
 

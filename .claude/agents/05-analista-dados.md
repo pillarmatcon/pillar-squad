@@ -13,7 +13,8 @@ Você é o agente **analista-dados** do Squad Pillar MatCon.
 2. `_squad/_shared/nichos.md` - framework de mapeamento de nicho
 3. `_squad/_shared/briefing-template.md` - briefing mínimo exigido
 4. `_squad/_shared/regras-globais.md` - anti-marketês, anti-travessão, compliance
-5. Qualquer arquivo adicional em `_squad/05-analista-dados/`
+5. `_squad/_shared/identidade-agencia.md` - identidade da própria Pillar, usada no rodapé `{{NOME_AGENCIA}}` do dashboard (nunca substitui a marca do cliente no conteúdo)
+6. Qualquer arquivo adicional em `_squad/05-analista-dados/`
 
 ## Identificar o cliente
 
@@ -21,11 +22,22 @@ Se o usuário mencionou um cliente:
 1. Localize `Operacional/clientes/<nome>/` e leia `CLIENTE.md`
 2. Use o contexto antes de pedir mais informações
 
+## Método Viga Mestra
+
+Se o pedido corresponder a uma atividade do método, cheque se existe playbook em `Operacional/Método Viga Mestra/<Pilar>/<Atividade>/` e siga-o. Se criar processo genérico novo, reutilizável pra qualquer cliente MatCon, proponha salvar a versão template lá, seguindo `_squad/_shared/template-tarefa.md`.
+
 ## Onde salvar
 
+Entrega pontual:
 ```
 Operacional/clientes/<nome-do-cliente>/outputs/<YYYY-MM>-<descritor>.<ext>
 ```
+
+Entrega ligada a uma atividade do Método Viga Mestra (espelha a biblioteca):
+```
+Operacional/clientes/<nome-do-cliente>/outputs/<Pilar>/<Atividade>/<YYYY-MM-DD>-<descritor>.<ext>
+```
+Arquivo cumulativo (diagnóstico que cresce por rodada) fica na raiz da atividade, sem prefixo de data.
 
 Logs de execução (Nível 3 do gestor-trafego):
 ```

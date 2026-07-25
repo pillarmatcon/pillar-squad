@@ -1,5 +1,7 @@
 # Diagnóstico de Estoque e Giro para Construmais
 
+> **⚠️ ARQUIVO SUPERADO (nota de 2026-07-25).** A fonte da verdade atual do Pilar 1 é `outputs/1 - Inteligência de Dados/1 - Curva ABC do Estoque/diagnostico-estoque.md` (diagnóstico cumulativo por período, produzido com a ferramenta determinística de padronização de Curva ABC). Este arquivo fica preservado como registro da análise de 23/07/2026: os totais de 14 meses foram reconciliados entre as duas análises (faturamento R$ 3.081.818,22, margem 39,27%), e o estoque parado de referência foi recalculado em 25/07 (R$ 295.126,57 em 1.695 produtos, ver Histórico do CLIENTE.md, 23ª atualização). Não usar os números daqui pra decisão nova sem conferir o diagnóstico atual.
+
 **Fonte dos dados:** análise direta dos 5 arquivos originais exportados do ERP (Pontual Tecnologia), sem uso de resumo de conversa anterior: `Curva ABC parte 1.pdf` (45 páginas, período 01/05/2025 a 31/10/2025), `Curva ABC parte 2.pdf` (41 páginas, 01/11/2025 a 31/12/2025), `Curva ABC parte 3.pdf` (41 páginas, 01/01/2026 a 31/03/2026), `Curva ABC parte 4.pdf` (41 páginas, 01/04/2026 a 30/06/2026) e `Estoque ETL.xlsx` (aba "Estoque", 15.228 linhas de produto, mais uma aba "Dina" não analisada em detalhe por não ser fonte primária de estoque). Os 168 páginas de PDF foram lidas por completo, na íntegra, célula a célula, com script próprio de extração (não houve leitura parcial nem amostragem).
 
 **Metodologia:** Pilar 1, Inteligência de Dados, Método Viga Mestra

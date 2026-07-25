@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "PowerShell(Start-Process \"c:\\\\Users\\\\calil\\\\OneDrive\\\\�rea de Trabalho\\\\vs_code\\\\index.html\")"
-    ]
-  }
-}

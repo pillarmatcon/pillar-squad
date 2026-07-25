@@ -144,7 +144,7 @@ LANDING PAGE
 [ ] Página de obrigado está com evento de conversão disparando
 
 COMPLIANCE
-[ ] Copy revisada para as restrições do nicho (CFM/CRO, OAB, etc.)
+[ ] Copy revisada para o compliance MatCon (CDC, Regra 18): preço real e vigente, sem promessa de prazo/estoque que não existe, garantia conforme política do cliente
 [ ] CNPJ e endereço no rodapé da LP
 [ ] Depoimentos com autorização escrita confirmada
 
@@ -160,24 +160,24 @@ PUBLICAÇÃO
 
 ## Exemplo de uso direto
 
-**Input:**
+**Input:** (exemplo fictício, formato de loja MatCon)
 ```
 @orquestrador
-CLIENTE: Studio Pilates Forma
-NICHO: Pilates - São Paulo, Moema
-OFERTA: Aula experimental gratuita
-OBJETIVO: Agendamentos de aula experimental
-BUDGET: R$ 2.500/mês
-CORES: #2C5F5D (verde escuro), #A8D5D1 (verde claro)
-INSTAGRAM: @studiopilatesforma
+CLIENTE: Casa Norte Materiais
+NICHO: Loja de material de construção - Recife/PE, bairro Casa Amarela
+OFERTA: Linha completa de básicos (cimento, areia, tijolo) com entrega no bairro
+OBJETIVO: Orçamentos via WhatsApp que convertem em venda na loja ou entrega
+BUDGET: R$ 2.000/mês
+CORES: #1B4F8A (azul escuro), #F2A900 (amarelo)
+INSTAGRAM: @casanortematerials
 ```
 
 **O que o orquestrador entrega:**
-- Plano Meta Ads com estrutura Advantage+, segmentação raio 5km Moema, CPL meta R$ 20-40
-- Copy de 3 anúncios (direta, PAS, prova social) + 5 headlines
-- Criativo (Story + Post) em HTML com as cores do studio
-- LP de captura em HTML com formulário de agendamento, Pixel e GA4
-- Dashboard template preenchido com metas: CPL R$ 20-40, CPA R$ 40-80, 30 agendamentos/mês
+- Plano Meta Ads + Google com segmentação por raio no bairro, CPL meta R$ 30-80 (benchmark "Reforma/construção" de `_squad/01-gestor-trafego/benchmarks.md`, recalibrar com histórico do cliente)
+- Copy de 3 anúncios (direta, PAS, prova social) + 5 headlines, com CTA de orçamento no WhatsApp
+- Criativo (Story + Post) em HTML com as cores da loja, a partir de 1 foto real
+- LP de captura em HTML com formulário de orçamento, Pixel e GA4
+- Dashboard template preenchido com metas de CPL, CPA e orçamentos/mês do plano
 - Checklist de publicação completo
 
 Tudo em uma única conversa. O dono da agência só precisa exportar os PNGs, publicar a LP e subir os anúncios.

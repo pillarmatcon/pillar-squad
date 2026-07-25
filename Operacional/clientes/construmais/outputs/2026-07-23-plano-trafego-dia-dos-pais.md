@@ -173,7 +173,7 @@ Este agente não produz os criativos nem a copy final, só indica o que precisa 
 2. **Carrossel ou post único Kit Ferramenta Manual** (3 a 4 slides): mesmo racional, com Trena e Martelo ou Alicate, posicionado como presente de entrada, ticket mais acessível
 3. **1 imagem única de backup/hook alternativo**, usando o mascote da marca (operário 3D já catalogado no CLIENTE.md) com gancho emocional puro, sem preço, para o teste A/B de gancho
 4. **Formatos:** feed quadrado 1:1 e vertical 9:16 para Stories/Reels
-5. **Pendência a resolver antes da produção:** confirmar com o Tony se existe banco de fotos reais do Carro de Mão, da luva, da trena, do martelo e do alicate. Essa mesma lacuna já foi sinalizada em `outputs/2026-07-otimizacao-google-meu-negocio.md`. Sem foto real do produto, o criativo não pode usar imagem de banco genérica (regra anti-IA)
+5. **Pendência a resolver antes da produção:** confirmar com o Tony se existe banco de fotos reais do Carro de Mão, da luva, da trena, do martelo e do alicate. Essa mesma lacuna já foi sinalizada em `outputs/2 - Domínio Territorial/1 - Google Meu Negócio/2026-07-otimizacao-google-meu-negocio.md`. Sem foto real do produto, o criativo não pode usar imagem de banco genérica (regra anti-IA)
 
 ---
 

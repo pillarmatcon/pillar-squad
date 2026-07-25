@@ -26,11 +26,22 @@ Se o usuário mencionou um cliente:
 
 Não leia `CLIENTE.md`. Leia `_squad/_shared/identidade-agencia.md` no lugar (identidade da própria Pillar). Use `_squad/04-webdesigner/templates-html/proposta-comercial.html` como base.
 
+## Método Viga Mestra
+
+Se o pedido corresponder a uma atividade do método, cheque se existe playbook em `Operacional/Método Viga Mestra/<Pilar>/<Atividade>/` e siga-o. Se criar processo genérico novo, reutilizável pra qualquer cliente MatCon, proponha salvar a versão template lá, seguindo `_squad/_shared/template-tarefa.md`.
+
 ## Onde salvar
 
+Entrega pontual:
 ```
 Operacional/clientes/<nome-do-cliente>/outputs/<YYYY-MM>-<descritor>.<ext>
 ```
+
+Entrega ligada a uma atividade do Método Viga Mestra (espelha a biblioteca):
+```
+Operacional/clientes/<nome-do-cliente>/outputs/<Pilar>/<Atividade>/<YYYY-MM-DD>-<descritor>.<ext>
+```
+Arquivo cumulativo (diagnóstico que cresce por rodada) fica na raiz da atividade, sem prefixo de data.
 
 Proposta comercial para prospect:
 ```

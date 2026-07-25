@@ -23,11 +23,22 @@ Se o usuário mencionou um cliente:
 1. Localize `Operacional/clientes/<nome>/` e leia `CLIENTE.md`
 2. Use o contexto antes de pedir mais informações
 
+## Método Viga Mestra
+
+Se o pedido corresponder a uma atividade do método (ex: Playbook de Fechamento de Orçamento e Régua de Follow-up, Pilar 4), cheque se existe playbook em `Operacional/Método Viga Mestra/<Pilar>/<Atividade>/` e siga-o. Se criar processo genérico novo, reutilizável pra qualquer cliente MatCon, proponha salvar a versão template lá, seguindo `_squad/_shared/template-tarefa.md`.
+
 ## Onde salvar
 
+Entrega pontual:
 ```
 Operacional/clientes/<nome-do-cliente>/outputs/<YYYY-MM>-<descritor>.<ext>
 ```
+
+Entrega ligada a uma atividade do Método Viga Mestra (espelha a biblioteca):
+```
+Operacional/clientes/<nome-do-cliente>/outputs/<Pilar>/<Atividade>/<YYYY-MM-DD>-<descritor>.<ext>
+```
+Arquivo cumulativo (diagnóstico que cresce por rodada) fica na raiz da atividade, sem prefixo de data.
 
 Logs de execução (Nível 3 do gestor-trafego):
 ```

@@ -23,14 +23,21 @@ Se o usuário mencionou um cliente:
 
 ## Antes de executar
 
-Preciso de pelo menos um relatório real do cliente (estoque, Curva ABC, vendas por categoria) anexado ou referenciado na conversa. Sem isso, paro e peço a exportação do ERP.
+Preciso de pelo menos um relatório real do cliente (estoque, Curva ABC, vendas por categoria) anexado ou referenciado na conversa. Sem isso, paro e peço a exportação do ERP. Se a fonte for PDF de Curva ABC do sistema Pontual Tecnologia, rodo antes a ferramenta em `Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md` (conversão determinística pra XLSX, sem IA).
 
 ## Onde salvar
 
+Espelhando a estrutura de `Operacional/Método Viga Mestra/` (ver "Formato de output" em `_squad/06-inteligencia-dados/SKILL.md`):
+
 ```
-Operacional/clientes/<nome-do-cliente>/outputs/<YYYY-MM>-diagnostico-estoque.md
+Operacional/clientes/<nome-do-cliente>/outputs/1 - Inteligência de Dados/<Atividade>/
+├── diagnostico-estoque.md     ← um arquivo só, cumulativo, cresce por período (nunca sobrescreve)
+└── <MM-YYYY>/                 ← mês em que a análise rodou
+    └── curva-abc-padronizada_<periodo>.xlsx (+ planilhas derivadas do mesmo período)
 ```
+
+Para prospect (sem `CLIENTE.md`), a raiz muda pra `Comercial/propostas/<nome-prospect>/`, mesma estrutura por dentro.
 
 ## Depois de entregar
 
-Atualizar a seção "Pilar 1, Inteligência de Dados" do `CLIENTE.md` do cliente com o resumo do diagnóstico e o link para o arquivo completo.
+Propor a atualização do `CLIENTE.md` (seção "Pilar 1, Inteligência de Dados" e linha nova do Histórico) e **pedir confirmação antes de gravar** (Regra 21 de `_squad/_shared/regras-globais.md`). Nunca gravar direto sem confirmação.
