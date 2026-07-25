@@ -4,7 +4,8 @@ Esta pasta é o **workspace permanente** de uma agência de marketing digital qu
 
 ## Estrutura
 
-- `_squad/` - arquivos de referência do squad (SKILLs, templates HTML, regras compartilhadas, **Humanizer**, **skill embutida de Meta Ads CLI em modo guiado total**, **skill embutida de padronização de Curva ABC** (PDF → XLSX, zero IA na conversão) em `_squad/_skills/padroniza-curva-abc/`, **identidade da própria agência** em `_squad/_shared/identidade-agencia.md`, **logo da Pillar** em `_squad/_shared/marca-pillar/`, **Método Viga Mestra** (metodologia proprietária, 5 pilares) em `_squad/_shared/metodo-viga-mestra.md`).
+- `_squad/` - arquivos de referência do squad (SKILLs, templates HTML, regras compartilhadas, **Humanizer**, **skill embutida de Meta Ads CLI em modo guiado total**, **skill embutida de padronização de Curva ABC** (PDF → XLSX, zero IA na conversão) em `_squad/_skills/padroniza-curva-abc/`, **identidade da própria agência** em `_squad/_shared/identidade-agencia.md`, **logo da Pillar** em `_squad/_shared/marca-pillar/`, **Método Viga Mestra** (metodologia proprietária, 5 pilares, racional completo) em `_squad/_shared/metodo-viga-mestra.md`, **template de tarefa reutilizável** em `_squad/_shared/template-tarefa.md`).
+- `Método Viga Mestra/` - biblioteca de playbooks genéricos da metodologia, organizada em `Pilar > Atividade > Tarefa` (ver `Método Viga Mestra/_metodo.md`). Todo conteúdo aqui é template, com `[placeholders]` no lugar de dado de cliente. A versão real preenchida pra um cliente específico vai em `clientes/<nome>/outputs/`, nunca aqui.
 - `clientes/` - uma subpasta por cliente fechado. Cada cliente tem `CLIENTE.md`, `outputs/` e `historico/`.
 - `propostas/` - uma subpasta por prospect (cliente em potencial, ainda não fechado). Identidade visual usada é sempre a da Pillar, nunca a do prospect. Ver `propostas/README.md`.
 - `.claude/` - esta pasta. Instruções globais + 7 agentes registrados.
