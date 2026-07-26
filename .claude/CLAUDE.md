@@ -19,15 +19,17 @@ Esta pasta é o **workspace permanente** de uma agência de marketing digital qu
 
 ## Como invocar os agentes
 
-Via `@nome` ou `/nome` em qualquer conversa neste workspace:
+Não existe sintaxe `@nome` ou `/nome` no Claude Code (isso não é um mecanismo real da ferramenta). Para acionar um agente específico, basta nomeá-lo no pedido em linguagem natural, por exemplo "peça ao gestor-trafego para montar um plano de tráfego pra Construmais". Isso aciona só aquele agente diretamente, sem passar pelo orquestrador.
 
-- `@orquestrador` - coordena todos os agentes em sequência
-- `@gestor-trafego` - plano de tráfego pago (Meta, Google, TikTok). **Upgrade opcional via Meta Ads CLI: o agente executa o setup completo sozinho via Bash tool, usuário não toca no terminal. Funciona em Mac, Linux e Windows.**
-- `@copywriter` - headlines, anúncios, e-mails, scripts, e playbook de atendimento/follow-up de orçamento (Pilar Vendedor de Elite)
-- `@designer-criativos` - criativos HTML para Instagram, 1 foto real em Story (1080×1920) + Post (1080×1350)
-- `@webdesigner` - landing pages HTML para clientes, e propostas comerciais HTML para prospects (`Comercial/propostas/`)
-- `@analista-dados` - dashboards e relatórios de performance de campanha
-- `@inteligencia-dados` - lê relatório de ERP (Curva ABC, estoque, vendas por categoria) e produz diagnóstico de giro, margem, estoque parado e produtos isca (Pilar 1 do Método Viga Mestra)
+Use o orquestrador apenas quando o pedido envolver vários agentes em sequência (ex: onboarding completo de um cliente novo, cobrindo vários pilares do método de uma vez). Para pedir uma tarefa isolada de um único especialista, chame-o direto pelo nome.
+
+- `orquestrador` - coordena todos os agentes em sequência
+- `gestor-trafego` - plano de tráfego pago (Meta, Google, TikTok). **Upgrade opcional via Meta Ads CLI: o agente executa o setup completo sozinho via Bash tool, usuário não toca no terminal. Funciona em Mac, Linux e Windows.**
+- `copywriter` - headlines, anúncios, e-mails, scripts, e playbook de atendimento/follow-up de orçamento (Pilar Vendedor de Elite)
+- `designer-criativos` - criativos HTML para Instagram, 1 foto real em Story (1080×1920) + Post (1080×1350)
+- `webdesigner` - landing pages HTML para clientes, e propostas comerciais HTML para prospects (`Comercial/propostas/`)
+- `analista-dados` - dashboards e relatórios de performance de campanha
+- `inteligencia-dados` - lê relatório de ERP (Curva ABC, estoque, vendas por categoria) e produz diagnóstico de giro, margem, estoque parado e produtos isca (Pilar 1 do Método Viga Mestra)
 
 ## Workflow padrão
 
@@ -41,7 +43,7 @@ Via `@nome` ou `/nome` em qualquer conversa neste workspace:
 7b. Para qualquer agente: se o pedido corresponde a uma atividade do Método Viga Mestra, cheque antes se existe playbook em `Operacional/Método Viga Mestra/<Pilar>/<Atividade>/` e siga-o. Se durante a execução nascer um processo genérico novo (reutilizável pra qualquer cliente MatCon), proponha salvar a versão template lá, seguindo `_squad/_shared/template-tarefa.md` (placeholders no lugar de dado real).
 8. Execute
 9. Rode Humanizer nas saídas textuais
-10. Salve em `Operacional/clientes/<nome>/outputs/` (cliente fechado) ou `Comercial/propostas/<nome-prospect>/` (prospect, ver item 6). Entrega ligada a uma atividade do Método Viga Mestra vai em `outputs/<Pilar>/<Atividade>/`, espelhando a estrutura de `Operacional/Método Viga Mestra/` (vale pra todos os pilares, não só o 1). Entrega pontual fora do método fica na raiz de `outputs/` com prefixo `<YYYY-MM>-` ou `<YYYY-MM-DD>-`. Detalhes do `@inteligencia-dados`: planilhas por período dentro de subpastas `<MM-YYYY>` (mês de execução), e um único `diagnostico-estoque.md` cumulativo na raiz da atividade, que cresce por período em vez de ser sobrescrito (ver "Formato de output" em `_squad/06-inteligencia-dados/SKILL.md`). Arquivo cumulativo (diagnóstico que cresce por rodada) fica na raiz da atividade sem prefixo de data; arquivo pontual leva prefixo de data
+10. Salve em `Operacional/clientes/<nome>/outputs/` (cliente fechado) ou `Comercial/propostas/<nome-prospect>/` (prospect, ver item 6). Entrega ligada a uma atividade do Método Viga Mestra vai em `outputs/<Pilar>/<Atividade>/`, espelhando a estrutura de `Operacional/Método Viga Mestra/` (vale pra todos os pilares, não só o 1). Entrega pontual fora do método fica na raiz de `outputs/` com prefixo `<YYYY-MM>-` ou `<YYYY-MM-DD>-`. Detalhes do `inteligencia-dados`: planilhas por período dentro de subpastas `<MM-YYYY>` (mês de execução), e um único `diagnostico-estoque.md` cumulativo na raiz da atividade, que cresce por período em vez de ser sobrescrito (ver "Formato de output" em `_squad/06-inteligencia-dados/SKILL.md`). Arquivo cumulativo (diagnóstico que cresce por rodada) fica na raiz da atividade sem prefixo de data; arquivo pontual leva prefixo de data
 11. Proponha a linha de atualização do Histórico de `Operacional/clientes/<nome>/CLIENTE.md` e peça confirmação antes de gravar (Regra 21 de `_squad/_shared/regras-globais.md`). Não se aplica a `Comercial/propostas/`, que não tem CLIENTE.md
 
 ## Regras globais
@@ -56,8 +58,8 @@ Via `@nome` ou `/nome` em qualquer conversa neste workspace:
 
 ## Skills embutidas
 
-- `_squad/_skills/meta-ads-cli-setup/` - skill checkpointed em **modo guiado total**. O agente executa todos os comandos via Bash tool, usuário não toca no terminal. Suporta macOS, Linux e Windows (PowerShell). O `@gestor-trafego` invoca quando o usuário aceita o upgrade.
-- `Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md` - converte PDF de Curva ABC (sistema Pontual Tecnologia) em XLSX padronizado via script Python determinístico (regex/posição de coluna + pandas, zero chamada de IA na conversão). O `@inteligencia-dados` invoca automaticamente antes do diagnóstico quando a fonte é esse tipo de PDF. Fica junto da tarefa correspondente do Método Viga Mestra em vez de `_squad/_skills/`, porque é a ferramenta operacional dessa tarefa específica, não um setup genérico de conta.
+- `_squad/_skills/meta-ads-cli-setup/` - skill checkpointed em **modo guiado total**. O agente executa todos os comandos via Bash tool, usuário não toca no terminal. Suporta macOS, Linux e Windows (PowerShell). O `gestor-trafego` invoca quando o usuário aceita o upgrade.
+- `Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md` - converte PDF de Curva ABC (sistema Pontual Tecnologia) em XLSX padronizado via script Python determinístico (regex/posição de coluna + pandas, zero chamada de IA na conversão). O `inteligencia-dados` invoca automaticamente antes do diagnóstico quando a fonte é esse tipo de PDF. Fica junto da tarefa correspondente do Método Viga Mestra em vez de `_squad/_skills/`, porque é a ferramenta operacional dessa tarefa específica, não um setup genérico de conta.
 
 ## Clientes ativos
 
