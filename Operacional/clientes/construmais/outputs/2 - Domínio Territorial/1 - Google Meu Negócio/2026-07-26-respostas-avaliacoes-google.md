@@ -8,7 +8,7 @@
 
 ## Nota de limitação da fonte
 
-Duas avaliações (Fica a Dica, item 47 desta lista, e Gawaine Cavalcanti, item 48) tinham o texto cortado na tela no momento da coleta ("[texto truncado na tela, avaliação completa não capturada]"). As respostas abaixo usam só o trecho visível, sem completar ou adivinhar o que viria depois. Se o texto completo aparecer numa consulta futura ao painel, revisar essas duas respostas.
+Duas avaliações (Fica a Dica, item 100, e Gawaine Cavalcanti, item 107) tinham o texto cortado na tela no momento da coleta original. O usuário colou o texto completo das duas em 26/07/2026 e as respostas já foram revisadas com base nele (ver seção de texto positivo). Não há mais avaliação com trecho pendente de confirmação nesta lista.
 
 Também identificada uma pequena divergência entre a amostra de 25/07 e esta lista completa: Arnaldo Romanus aparece como 4★ no arquivo anterior e como 5★ nesta lista, e as referências de tempo mudaram de data absoluta ("um mês atrás") para contagem de semanas ("há 8 semanas"), sinal de que o perfil foi consultado de novo em momento diferente. Isso não muda o conteúdo da resposta (nenhuma menciona nota), mas fica registrado. Nota agregada do perfil (4,6 de 108, distribuição 5★ 77 / 4★ 22 / 3★ 6 / 2★ 2 / 1★ 1) segue como já registrada no `CLIENTE.md`, não recalculada aqui.
 
@@ -184,14 +184,16 @@ Avaliações com crítica concreta, mesmo quando a nota é alta.
 **98. Luciene Rufino da Silva, 5★, 27/06/2019** — "O atendimento é muito bom"
 > Obrigado, Luciene! Fico feliz que o atendimento fez diferença. Conta com a gente sempre.
 
-**100. Fica a Dica, 5★, 24/05/2019** — "Ótimo!! Os donos são excelentes pessoas, super [texto truncado na tela]"
-> Muito obrigado pelo carinho com o time da Construmais! Fico feliz que isso apareceu na sua experiência. Volta sempre.
+**100. Fica a Dica, 5★, 24/05/2019** — "Ótimo!! Os donos são excelentes pessoas, super carismáticos e educados. Fora que tem um precinho muito bom. Super indico." (texto completo confirmado em 26/07/2026)
+> Muito obrigado, Fica a Dica! Vou repassar esse carinho pros donos, eles ficam felizes com esse tipo de retorno. Bom saber que o preço também valeu a pena. Obrigado pela indicação!
 
 **106. José Maia Lima, 5★, 15/11/2018** — "Materiais de construção de bairro, tem um excelente atendimento do proprietário Toni."
 > Muito obrigado, José! Vou repassar o recado pro Tony, ele fica feliz com esse retorno sobre o atendimento dele. Conta com a gente sempre.
 
-**107. Gawaine Cavalcanti, 5★, 30/01/2018** — "O Construmais oferece aos seus clientes uma excelente variedades de produtos. Dispensando ao público em geral, breve... [texto truncado na tela]"
-> Obrigado, Gawaine! Fico feliz que a variedade de produtos atendeu o que você precisava. Volta sempre que precisar.
+**107. Gawaine Cavalcanti, 5★, 30/01/2018** — "O Construmais oferece aos seus clientes uma excelente variedades de produtos. Dispensando ao público em geral, breve orientação, sobre determinadas mercadorias. Na melhor forma de utilização e aplicação. Com excelente preço e parcelamento." (texto completo confirmado em 26/07/2026)
+> Muito obrigado, Gawaine! Fico feliz que a orientação da equipe na hora de indicar o material certo fez diferença, além da variedade que você encontrou aqui. Conta com a gente pra próxima etapa da obra.
+
+**Por que essa redação:** o texto completo cita "parcelamento", condição de pagamento que ainda não foi confirmada como política vigente da loja. A resposta reforça o que é seguro confirmar (variedade e orientação da equipe, ambos elogiados pelo próprio cliente) e não toca em preço nem parcelamento, mesma lógica de cautela usada nas avaliações que tocam frete, prazo ou forma de pagamento.
 
 ---
 
@@ -263,7 +265,7 @@ Sem contexto pra puxar produto ou detalhe específico, então cada resposta vari
 
 ## Nota de compliance
 
-Nenhuma resposta confirma valor, prazo ou política de frete/pagamento/horário ainda não fechada. Nenhuma resposta contesta ou nega o relato do cliente, mesmo nos casos de crítica (Nilhendeson, Flávio, Lindo Silva). Nenhuma resposta oferece desconto, brinde ou reembolso. Nenhum produto é mencionado além do que o próprio cliente já citou na avaliação (não houve menção específica de produto em nenhuma das 108 avaliações desta lista além de referências genéricas a "material", "material de construção" e "variedade"). As duas menções nominais ao Tony (Francisco Albuquerque e José Maia Lima) foram respondidas repassando o elogio, sem inventar fala do proprietário.
+Nenhuma resposta confirma valor, prazo ou política de frete/pagamento/horário ainda não fechada, incluindo a menção a "parcelamento" na avaliação completa de Gawaine Cavalcanti (item 107), reconhecida sem confirmar a condição. Nenhuma resposta contesta ou nega o relato do cliente, mesmo nos casos de crítica (Nilhendeson, Flávio, Lindo Silva). Nenhuma resposta oferece desconto, brinde ou reembolso. Nenhum produto é mencionado além do que o próprio cliente já citou na avaliação (não houve menção específica de produto em nenhuma das 108 avaliações desta lista além de referências genéricas a "material", "material de construção" e "variedade"). As menções nominais ao Tony (Francisco Albuquerque e José Maia Lima) e às menções genéricas aos donos (Fica a Dica) foram respondidas repassando o elogio, sem inventar fala do proprietário.
 
 ---
 
