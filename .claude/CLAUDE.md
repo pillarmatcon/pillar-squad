@@ -27,7 +27,7 @@ Use o orquestrador apenas quando o pedido envolver vários agentes em sequência
 - `orquestrador` - coordena todos os agentes em sequência
 - `gestor-trafego` - plano de tráfego pago (Meta, Google, TikTok). **Upgrade opcional via Meta Ads CLI: o agente executa o setup completo sozinho via Bash tool, usuário não toca no terminal. Funciona em Mac, Linux e Windows.**
 - `copywriter` - headlines, anúncios, e-mails, scripts, e playbook de atendimento/follow-up de orçamento (Pilar Vendedor de Elite)
-- `designer-criativos` - criativos HTML para Instagram, 1 foto real em Story (1080×1920) + Post (1080×1350)
+- `designer-criativos` - criativos HTML para Instagram, 1 foto real em Story (1080×1920) + Post (1080×1350). **Exceção sem foto real: gera a imagem-base via Gemini (nano banana)** quando briefing autoriza e não há foto nem asset de marca disponível (precisa de `GEMINI_API_KEY` no ambiente).
 - `webdesigner` - landing pages HTML para clientes, e propostas comerciais HTML para prospects (`Comercial/propostas/`)
 - `analista-dados` - dashboards e relatórios de performance de campanha
 - `inteligencia-dados` - lê relatório de ERP (Curva ABC, estoque, vendas por categoria) e produz diagnóstico de giro, margem, estoque parado e produtos isca (Pilar 1 do Método Viga Mestra)

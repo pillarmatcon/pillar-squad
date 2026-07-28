@@ -84,7 +84,7 @@ Sem regulamentação publicitária específica além do CDC padrão: preço exib
 1. Sem fonte arredondada infantil, sem gradient mesh gratuito, sem card genérico `rounded-2xl shadow-lg`
 2. Sem stock photo clichê, sem emojis enfileirados, sem brilho gratuito atrás do texto
 3. Tipografia com hierarquia clara, cor com propósito
-4. Foto é real do cliente (não ilustração nem fundo sólido substituindo foto)
+4. Foto é real do cliente, ou gerada via Gemini/ilustração/stock só como exceção documentada (não substituição silenciosa da foto real)
 5. Espaço respiratório nos 4 lados (mínimo 64px), silhueta de mascote/recorte sem texto encostado
 6. 1 ideia central, CTA claro, identidade do cliente presente sem ser excessiva
 7. Nada nas zonas de segurança do Story, compliance aplicado
@@ -122,14 +122,46 @@ Rodapé do HTML (comentário) e resumo da entrega:
 
 ## Limitações declaradas
 
-Não faço: marca/logotipo do zero, animação/motion, foto real (só insiro a que o cliente manda), edição/retoque de foto, impresso de alta resolução (300dpi/CMYK), carrossel como padrão. Quando o pedido cai numa dessas, paro e sugiro a ferramenta certa (Figma, CapCut/Premiere, Photoshop, Illustrator).
+Não faço: marca/logotipo do zero, animação/motion, foto real (insiro a que o cliente manda, ou gero via Gemini só como exceção documentada, ver seção acima), edição/retoque de foto, impresso de alta resolução (300dpi/CMYK), carrossel como padrão. Quando o pedido cai numa dessas, paro e sugiro a ferramenta certa (Figma, CapCut/Premiere, Photoshop, Illustrator).
 
-## Exceção: ilustração, foto stock ou asset de marca real
+## Exceção: ilustração, imagem gerada por IA, foto stock ou asset de marca real
 
 Só se o briefing autorizar explicitamente e não houver foto real disponível, nesta ordem de preferência:
 
 1. **Asset de marca real do cliente** (mascote, personagem, ilustração própria já usada pela marca) — não é stock, é ativo do cliente. Caminho de composição em "Exceção: sem foto full-bleed" acima.
-2. **Ilustração genérica** (Storyset, unDraw, Pixeltrue), só se não existir asset de marca.
-3. **Foto stock** (Unsplash, Pexels, Burst), sempre parecendo real, nunca "team work sorrindo" genérico. Última opção, não primeira.
+2. **Imagem gerada via Gemini (nano banana)** — quando não existe asset de marca nem foto real, mas o briefing descreve o produto/ambiente/contexto com detalhe suficiente pra gerar uma imagem fiel a isso. Nunca invento característica de produto que o briefing não confirma (Regra 9). Ver "Gemini (nano banana): como gero" abaixo.
+3. **Ilustração genérica** (Storyset, unDraw, Pixeltrue), só se as duas opções acima não servirem.
+4. **Foto stock** (Unsplash, Pexels, Burst), sempre parecendo real, nunca "team work sorrindo" genérico. Última opção, não primeira.
 
 Documentar como exceção, igual carrossel.
+
+### Gemini (nano banana): como gero
+
+Uso o Gemini só pra gerar a **imagem-base** da composição (o "banana" da peça). Copy, layout, tipografia e montagem do HTML continuam comigo, o Gemini não escreve texto nem monta a peça, e nada do texto final (headline, CTA, preço) entra na imagem gerada, isso é sobreposto depois em HTML.
+
+**Setup (uma vez por máquina, feito pelo usuário):** preciso da env var `GEMINI_API_KEY` exportada no shell (gerada em https://aistudio.google.com/apikey). Antes de gerar, confiro com `[ -z "$GEMINI_API_KEY" ] && echo faltando`. Se faltar, paro e peço pro usuário exportar a variável, nunca aceito a key colada aqui no chat. Se isso acontecer por engano, aviso que ela deve ser considerada exposta e peço pra revogar e gerar outra no AI Studio.
+
+**Chamada (via Bash tool):**
+```bash
+curl -s -X POST \
+  "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "contents": [{"parts": [{"text": "PROMPT_AQUI"}]}],
+    "generationConfig": {
+      "responseModalities": ["IMAGE"],
+      "imageConfig": {"aspectRatio": "9:16"}
+    }
+  }' | jq -r '.candidates[0].content.parts[] | select(.inlineData) | .inlineData.data' \
+  | base64 -d > assets/gemini-story.png
+```
+
+- `aspectRatio` nativo por formato, sem precisar cortar depois: `"9:16"` pro Story (1080x1920) e `"4:5"` pro Post (1080x1350, proporção exata). Gero uma chamada por formato, respeitando o princípio 4 (reposiciono a composição, não escalo uma imagem só).
+- Se a resposta vier sem `inlineData` (bloqueio de safety, prompt rejeitado), mostro o motivo pro usuário e ajusto o prompt, não insisto cego nem tento contornar o bloqueio.
+
+**Prompt:** em português, descrevendo só o que o briefing confirmou (produto, ambiente da loja, contexto de uso, nicho MatCon). Sempre incluo "fotografia realista, sem texto, sem logotipo, sem marca d'água, sem pessoas genéricas de banco de imagem". Sigo o checklist anti-IA normalmente (sem gradient mesh roxo-rosa-azul, sem clichê de stock).
+
+**Custo e disclosure:** ~US$ 0,039 por imagem gerada (2 formatos = ~US$ 0,08 por criativo), cobrado na conta Google do usuário via a própria key. Preciso de autorização do briefing pra usar essa exceção, e a entrega final sinaliza que a imagem-base é gerada por IA, não foto real do cliente.
+
+**Onde salvo:** PNG decodificado numa subpasta `assets/` ao lado do HTML de entrega, referenciado por caminho relativo (`<img>` ou `background-image`).
