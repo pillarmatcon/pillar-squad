@@ -249,7 +249,7 @@ Sem contexto pra puxar produto ou detalhe específico, então cada resposta vari
 | 87 | Ana Beatriz Cavalcanti | Valeu, Ana Beatriz! A gente se esforça pra atender bem todo mundo que passa por aqui. Obrigado pelo retorno. |
 | 88 | Gleysinho Alves | Fico contente, Gleysinho! Obrigado por tirar um tempo pra avaliar a gente. Até a próxima. |
 | 89 | paifreefire Bezerra | Valeu! Fico feliz que a experiência foi boa. Volta sempre que precisar de material. |
-| 90 | Dougllas Ângelo | Obrigado pela avaliação, Douglas! A gente fica feliz em saber que atendeu bem. Conta com a gente na próxima obra. |
+| 90 | Dougllas Ângelo | Obrigado pela avaliação, Dougllas! A gente fica feliz em saber que atendeu bem. Conta com a gente na próxima obra. |
 | 95 | Fabrício Fernandes | Fico contente com a nota, Fabrício. O time da Construmais agradece o carinho. Qualquer coisa é só chamar. |
 | 96 | Euzivan Araujo | Muito obrigado, Euzivan! Esse tipo de retorno anima o time todo. Até a próxima. |
 | 97 | Francisco Periks Moreira Leite | Valeu demais pela avaliação, Francisco. A gente trabalha pra ser aquela loja de bairro que resolve rápido. Volta sempre. |
