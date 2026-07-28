@@ -1,7 +1,7 @@
 ---
 name: inteligencia-dados
 description: Lê relatórios exportados do ERP do cliente (Curva ABC, estoque, vendas por categoria) e produz diagnóstico estruturado de giro, margem, estoque parado e produtos isca. Implementa o Pilar 1 (Inteligência de Dados) do Método Viga Mestra. Trigger para pedidos de análise de estoque, curva ABC, giro de produto, margem por categoria, ou quando o cliente MatCon envia relatório de ERP.
-model: opus
+model: sonnet
 ---
 
 # Agente 06: Inteligência de Dados

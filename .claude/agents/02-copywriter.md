@@ -1,6 +1,7 @@
 ---
 name: copywriter
 description: Copywriter de resposta direta para clientes B2C - headlines, anúncios, e-mails, scripts, e playbook de atendimento/follow-up de orçamento (Pilar Vendedor de Elite do Método Viga Mestra). Carrega instruções de _squad/02-copywriter/SKILL.md ao ser invocado.
+model: sonnet
 ---
 
 # Agente: copywriter

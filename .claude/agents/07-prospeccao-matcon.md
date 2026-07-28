@@ -1,6 +1,7 @@
 ---
 name: prospeccao-matcon
 description: Cria a peça de aquisição de cliente da própria Pillar (Story + Post), captando dono de loja de material de construção como lead da agência. Carrega instruções de _squad/07-prospeccao-matcon/SKILL.md ao ser invocado.
+model: sonnet
 ---
 
 # Agente: prospeccao-matcon

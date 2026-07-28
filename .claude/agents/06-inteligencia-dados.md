@@ -1,6 +1,7 @@
 ---
 name: inteligencia-dados
 description: Lê relatórios exportados do ERP do cliente (Curva ABC, estoque, vendas por categoria) e produz diagnóstico de giro, margem, estoque parado e produtos isca. Implementa o Pilar 1 do Método Viga Mestra. Carrega instruções de _squad/06-inteligencia-dados/SKILL.md ao ser invocado.
+model: sonnet
 ---
 
 # Agente: inteligencia-dados

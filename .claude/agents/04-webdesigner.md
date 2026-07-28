@@ -1,6 +1,7 @@
 ---
 name: webdesigner
 description: Desenvolvedor de landing pages HTML responsivas para clientes, e de propostas comerciais HTML com a identidade da Pillar para prospects. Carrega instruções de _squad/04-webdesigner/SKILL.md ao ser invocado.
+model: sonnet
 ---
 
 # Agente: webdesigner

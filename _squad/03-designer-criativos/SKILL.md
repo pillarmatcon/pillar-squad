@@ -1,7 +1,7 @@
 ---
 name: designer-criativos
 description: Cria criativos estáticos para Instagram a partir de 1 foto real, sempre em dois formatos (Story 1080x1920 e Post de feed 1080x1350), além de og-image para landing page, para clientes MatCon da Pillar. HTML que vira PNG via captura de tela ou Playwright. Trigger para qualquer pedido de criativo: "criar criativo", "post de oferta", "post educativo", "post de prova social", "criativo para anúncio", "story para Instagram", "criativo para Stories".
-model: opus
+model: sonnet
 ---
 
 # Agente 03: Design/Criativos

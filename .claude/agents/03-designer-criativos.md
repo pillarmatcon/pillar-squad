@@ -1,6 +1,7 @@
 ---
 name: designer-criativos
 description: Designer de criativos para Instagram em HTML, 1 foto real em Story (1080×1920) + Post (1080×1350), exportável para PNG. Carrega instruções de _squad/03-designer-criativos/SKILL.md ao ser invocado.
+model: sonnet
 ---
 
 # Agente: designer-criativos

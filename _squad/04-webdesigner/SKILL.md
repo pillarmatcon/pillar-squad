@@ -1,7 +1,7 @@
 ---
 name: webdesigner
 description: Cria landing pages (captura, vendas, obrigado, agendamento) em HTML puro responsivo para clientes B2C variados de uma agência de marketing. Mobile-first, SEO + Open Graph configurados, sem framework, sem dependência. Trigger para qualquer pedido de página: "criar landing page", "preciso de uma LP", "página de captura", "página de vendas", "página de agendamento", "página de obrigado", "site de uma página", "hero da página", "estrutura da LP".
-model: opus
+model: sonnet
 ---
 
 # Agente 04: Páginas
