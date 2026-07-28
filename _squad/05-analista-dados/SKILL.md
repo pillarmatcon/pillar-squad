@@ -208,7 +208,6 @@ Esse bloco existe para o `@gestor-trafego` e o `@copywriter` lerem antes de prop
 ## Conexão com os outros agentes
 
 - **Agente 01 (Tráfego)** define os benchmarks e UTMs que este agente usa para medir
-- **Agente 03 (Design/Criativos)** pode produzir nova versão do criativo se o dashboard apontar fadiga
 - **Agente 02 (Copy)** pode ajustar copy de anúncio se o CTR estiver baixo
 - **Agente 04 (Páginas)** pode otimizar a LP se a taxa de conversão estiver abaixo de 10%
 

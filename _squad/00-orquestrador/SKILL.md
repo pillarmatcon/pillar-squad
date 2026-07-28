@@ -22,10 +22,9 @@ Tudo numa única conversa, em sequência:
 0. Diagnóstico de estoque e giro (Pilar 1, só se houver relatório de ERP anexado)
 1. Plano de tráfego (Meta Ads + Google)
 2. Copy dos anúncios (headline + body + CTA)
-3. Criativo HTML pronto (1 foto real, Story 1080x1920 + Post 1080x1350)
-4. Landing page HTML pronta (captura + obrigado)
-5. Dashboard HTML (template preenchido com metas do plano)
-6. Checklist de publicação (o que fazer antes de subir tudo)
+3. Landing page HTML pronta (captura + obrigado)
+4. Dashboard HTML (template preenchido com metas do plano)
+5. Checklist de publicação (o que fazer antes de subir tudo)
 ```
 
 ---
@@ -39,12 +38,11 @@ Ao receber o briefing, o orquestrador:
 3. **Se houver relatório de ERP anexado ou referenciado** (Curva ABC, estoque, vendas por categoria), **executa o Agente 06** primeiro e usa o diagnóstico de giro/margem/produtos isca para orientar oferta e segmentação nas etapas seguintes. Sem relatório de ERP, pula esta etapa — não pede o relatório proativamente, só usa se o cliente já forneceu.
 4. **Executa o Agente 01** internamente, monta o plano de tráfego completo
 5. **Passa o plano para o Agente 02:** escreve a copy dos anúncios usando o plano
-6. **Passa a copy para o Agente 03:** produz o criativo HTML (Story + Post) com a copy
-7. **Passa o briefing técnico para o Agente 04:** constrói a LP com tracking e compliance
-8. **Usa as metas do plano no Agente 05:** preenche o template de dashboard com os benchmarks e KPIs esperados para o período
-9. **Consolida tudo** num relatório final com checklist de publicação
+6. **Passa o briefing técnico para o Agente 04:** constrói a LP com tracking e compliance
+7. **Usa as metas do plano no Agente 05:** preenche o template de dashboard com os benchmarks e KPIs esperados para o período
+8. **Consolida tudo** num relatório final com checklist de publicação
 
-Em cada etapa, o orquestrador documenta o raciocínio: por que escolheu aquela estrutura de campanha, qual framework de copy usou, qual tipo de criativo se encaixa na oferta.
+Em cada etapa, o orquestrador documenta o raciocínio: por que escolheu aquela estrutura de campanha, qual framework de copy usou, quais seções a LP precisa.
 
 ---
 
@@ -69,11 +67,11 @@ Se algum dado estiver faltando, o orquestrador pergunta apenas o que bloqueia a 
 **Use o orquestrador quando:**
 - Cliente novo, você precisa de tudo do zero
 - Quer ver o squad funcionando integrado numa demonstração
-- Quer garantir que os outputs estão alinhados entre si (a copy bate com o criativo, o criativo bate com a LP, as UTMs do plano estão na LP)
+- Quer garantir que os outputs estão alinhados entre si (a copy bate com a LP, as UTMs do plano estão na LP)
 
 **Chame agentes individualmente quando:**
 - Precisa só de uma peça (ex: só a copy de um anúncio novo)
-- Quer iterar em algo específico (ex: nova variação do criativo)
+- Quer iterar em algo específico (ex: nova variação da copy)
 - Já tem o plano de tráfego e só precisa do dashboard atualizado
 
 ---
@@ -101,17 +99,12 @@ ETAPA 2: COPY DOS ANÚNCIOS
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-ETAPA 3: CRIATIVO (STORY + POST)
-[arquivo HTML do Agente 03]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-ETAPA 4: LANDING PAGE HTML
+ETAPA 3: LANDING PAGE HTML
 [arquivo HTML do Agente 04]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-ETAPA 5: DASHBOARD DE METAS
+ETAPA 4: DASHBOARD DE METAS
 [arquivo HTML do Agente 05 - com metas e benchmarks do plano]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -132,11 +125,6 @@ TRACKING
 [ ] Evento Lead disparando na página de obrigado (testar com Meta Pixel Helper)
 [ ] GA4 instalado na LP
 [ ] UTMs configuradas nos links dos anúncios (conforme o Agente 01 especificou)
-
-CRIATIVOS
-[ ] Criativo exportado como PNG (Story 1080x1920 + Post 1080x1350, seguir exportar-png.md do Agente 03)
-[ ] PNGs abertos no celular para verificar legibilidade e zona de segurança do Story
-[ ] Foto real substituiu o placeholder cinza (se houver depoimento)
 
 LANDING PAGE
 [ ] Abre corretamente no celular (testar no Chrome mobile)
@@ -175,9 +163,8 @@ INSTAGRAM: @casanortematerials
 **O que o orquestrador entrega:**
 - Plano Meta Ads + Google com segmentação por raio no bairro, CPL meta R$ 30-80 (benchmark "Reforma/construção" de `_squad/01-gestor-trafego/benchmarks.md`, recalibrar com histórico do cliente)
 - Copy de 3 anúncios (direta, PAS, prova social) + 5 headlines, com CTA de orçamento no WhatsApp
-- Criativo (Story + Post) em HTML com as cores da loja, a partir de 1 foto real
 - LP de captura em HTML com formulário de orçamento, Pixel e GA4
 - Dashboard template preenchido com metas de CPL, CPA e orçamentos/mês do plano
 - Checklist de publicação completo
 
-Tudo em uma única conversa. O dono da agência só precisa exportar os PNGs, publicar a LP e subir os anúncios.
+Tudo em uma única conversa. O dono da agência só precisa publicar a LP e subir os anúncios.

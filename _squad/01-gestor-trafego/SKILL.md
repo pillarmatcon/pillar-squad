@@ -88,7 +88,7 @@ Usar os templates em `estruturas-de-campanha.md`. Adaptar para o nicho, orçamen
 - **Retargeting:** sempre criar audiência de visitantes do site + engajamento Instagram/Facebook
 
 ### Passo 5: Indicar criativos
-Não criar os criativos, isso é função do Agente 03 (Design/Criativos). Mas indicar:
+Não criar os criativos — não há agente dedicado a isso no momento. Mas indicar:
 - Quantos criativos são necessários no lançamento
 - Qual formato por conjunto de anúncios (o padrão da Pillar é imagem única em Story + Post; vídeo quando fizer sentido; carrossel só como exceção pedida explicitamente)
 - Qual copy de anúncio usar (puxar do Agente 02 se já tiver; orientar se não tiver)
@@ -187,7 +187,7 @@ Se o cliente tem budget abaixo do mínimo para dados, recomendar concentrar em u
 
 ## O que este agente NÃO faz
 
-- Não cria os criativos (Agente 03)
+- Não cria os criativos (não há agente dedicado a isso no momento)
 - Não escreve a copy do anúncio do zero (Agente 02), orienta o briefing da copy
 - Não constrói a landing page (Agente 04)
 - Não configura fisicamente os anúncios no gerenciador, entrega a estrutura e o racional para o dono da agência executar
@@ -198,7 +198,6 @@ Se o cliente tem budget abaixo do mínimo para dados, recomendar concentrar em u
 ## Conexão com os outros agentes
 
 ```
-Agente 01 → indica criativos necessários → Agente 03 (Design/Criativos) produz
 Agente 01 → indica copy de anúncio → Agente 02 (Copy) produz
 Agente 01 → indica LP necessária → Agente 04 (Páginas) produz
 Agente 05 (Dashboard) → usa as UTMs e metas definidas aqui para medir performance
@@ -207,9 +206,8 @@ Agente 05 (Dashboard) → usa as UTMs e metas definidas aqui para medir performa
 **Ordem recomendada de uso:**
 1. Agente 01 (Tráfego) define a estratégia e o que precisa ser criado
 2. Agente 02 (Copy) escreve os textos dos anúncios e da LP
-3. Agente 03 (Design/Criativos) produz os criativos indicados
-4. Agente 04 (Páginas) constrói a LP
-5. Agente 05 (Dashboard) mede tudo com as UTMs e metas definidas no passo 1
+3. Agente 04 (Páginas) constrói a LP
+4. Agente 05 (Dashboard) mede tudo com as UTMs e metas definidas no passo 1
 
 ---
 

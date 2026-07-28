@@ -1,7 +1,7 @@
 # Guia de Hospedagem
 
 > **Para quem é:** você, quando precisa subir uma landing page de cliente e ainda não tem hospedagem própria. Esse guia mostra o caminho mais simples, mais barato e mais rápido.
-> **Quem usa:** os agentes 04-Páginas e 03-Design/Criativos recomendam essa rota como padrão.
+> **Quem usa:** o agente 04-Páginas recomenda essa rota como padrão.
 
 ---
 
@@ -183,7 +183,7 @@ Para comparar: hospedagem WordPress + domínio + plugin de cache + SSL premium c
 
 ## Como o agente apresenta isso pra você
 
-Os agentes 04-Páginas e 03-Design/Criativos, ao entregar uma página/criativo, sempre incluem:
+O agente 04-Páginas, ao entregar uma página, sempre inclui:
 
 > **Hospedagem recomendada:** Cloudflare Pages (gratuita).
 > 1. Criar conta em [cloudflare.com](https://cloudflare.com), 30 segundos

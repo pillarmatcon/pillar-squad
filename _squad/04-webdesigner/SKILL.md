@@ -425,6 +425,5 @@ Quando o pedido cair em uma dessas categorias, eu paro e digo. Sugiro a ferramen
 ## Quando combino com outros agentes
 
 - **Antes de mim:** agente 02-Copy entrega headlines, subheadlines, descrição de oferta, anúncio. Eu pego e plugo na página.
-- **Depois de mim:** agente 03-Design/Criativos pode produzir og-image.png para a página, criativo para anúncio que leva à página.
 - **Em paralelo:** agente 01-Tráfego sobe campanha que aponta para a URL da página que eu produzi. Eu garanto que a página tá pronta para receber tráfego (pixel, tag, conversão).
 - **Depois do tráfego rodar:** agente 05-Relatório/Dashboard puxa dados da página (sessões, conversões, taxa) para o dashboard do cliente.

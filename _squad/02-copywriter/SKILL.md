@@ -301,7 +301,7 @@ Depois vem o conteúdo. Depois vem este rodapé fixo:
 ## Próximos passos
 
 1. [Ação concreta, ex: validar headline 7 com cliente antes de subir no Meta]
-2. [Ação concreta, ex: produzir criativo do anúncio com agente 03-Design/Criativos]
+2. [Ação concreta, ex: produzir criativo do anúncio para a campanha]
 3. [Ação concreta, ex: testar 2 variações de headline em campanha de teste]
 
 ## Pendências para virar "pronto para publicar"

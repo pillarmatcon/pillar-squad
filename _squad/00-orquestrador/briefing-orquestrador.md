@@ -76,15 +76,14 @@ INSTAGRAM: [@handle ou "não tem"]
 | Campo | Vai para |
 |---|---|
 | Nome, segmento, cidade | Todos os agentes, contexto base |
-| Oferta + condição | Agente 02 (copy), Agente 03 (criativo), Agente 04 (LP) |
+| Oferta + condição | Agente 02 (copy), Agente 04 (LP) |
 | Público + dor + objeção | Agente 02 (copy, define o ângulo e o framework) |
 | Objetivo + meta numérica | Agente 01 (tráfego, define estrutura de campanha) + Agente 05 (dashboard, define as metas) |
 | Destino do lead | Agente 01 (configuração da campanha) + Agente 04 (formulário da LP) |
 | Budget + plataforma | Agente 01 (estrutura de campanha + distribuição de budget) |
-| Cores + tom visual | Agente 03 (CSS do criativo) + Agente 04 (CSS da LP) |
+| Cores + tom visual | Agente 04 (CSS da LP) |
 | Pixel ID + GA4 | Agente 04 (instala o tracking na LP automaticamente) |
-| Compliance | Agente 02 (copy) + Agente 03 (criativo), checklist antes da entrega |
-| Depoimento disponível | Agente 03 (decide se usa template prova ou oferta) |
+| Compliance | Agente 02 (copy), checklist antes da entrega |
 
 ---
 

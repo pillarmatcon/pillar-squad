@@ -1,6 +1,6 @@
 # Squad Pillar MatCon: Agentes para Operação da Agência
 
-> **O que é:** Squad completo de 7 agentes, 1 orquestrador + 6 especialistas, que cobrem as funções operacionais centrais da Pillar no atendimento a clientes de material de construção (MatCon).
+> **O que é:** Squad completo de 7 agentes: 1 orquestrador, 5 especialistas no pipeline de cliente (tráfego, copy, páginas, relatório, inteligência de dados) e 1 agente de prospecção que capta cliente novo pra própria Pillar, cobrindo as funções operacionais centrais da Pillar no atendimento a clientes de material de construção (MatCon).
 > **Para que serve:** Uso real no dia a dia da Pillar com clientes próprios.
 > **Onde roda:** Claude Desktop (modo Chat ou modo Code).
 
@@ -16,7 +16,6 @@ Você dá um único briefing ao `@orquestrador`. Ele executa os agentes especial
 → Agente 06 lê relatório de ERP e produz diagnóstico de estoque/giro (só se houver relatório anexado)
 → Agente 01 produz plano de tráfego
 → Agente 02 usa o plano para escrever copy
-→ Agente 03 usa a copy para gerar o criativo (Story + Post) HTML
 → Agente 04 usa briefing + copy para construir a LP HTML
 → Agente 05 usa as metas do plano para preencher o dashboard
 → Orquestrador consolida tudo + entrega checklist de publicação
@@ -33,7 +32,7 @@ Também é possível chamar cada agente individualmente para tarefas pontuais.
 | 00 | **Orquestrador** | Recebe o briefing e executa os agentes especialistas em sequência | Squad completo entregue numa única conversa |
 | 01 | **Tráfego** | Estrutura campanha Meta + Google, audita contas, define budget e UTMs | Plano de campanha + benchmarks + UTMs + cronograma |
 | 02 | **Copy** | Escreve anúncios, headlines, emails, scripts, sequências de follow-up e playbook de atendimento/orçamento | 10 headlines + 3 anúncios (direta/PAS/prova) + email + script + playbook de vendedor |
-| 03 | **Design/Criativos** | Gera criativo HTML a partir de 1 foto real, em Story (1080×1920) + Post (1080×1350), nas cores do cliente | Criativo HTML exportável para PNG |
+| 03 | **Designer (Prospecção)** | Gera a peça de aquisição de cliente da própria Pillar (Story + Post), captando dono de loja MatCon como lead — chamado à parte, não roda no pipeline do `@orquestrador` | Criativo HTML de prospecção (Story + Post) |
 | 04 | **Páginas** | Cria landing page HTML completa, captura, vendas, obrigado, agendamento, e proposta comercial para prospect | LP responsiva com Pixel, GA4, SEO, Open Graph, ou proposta HTML com a marca da Pillar |
 | 05 | **Relatório/Dashboard** | Gera relatório semanal e dashboard HTML com KPIs visuais de campanha | Dashboard HTML com análise + próximas ações + ROI |
 | 06 | **Inteligência de Dados** | Lê relatório de ERP (Curva ABC, estoque, vendas) e produz diagnóstico de giro, margem, estoque parado e produtos isca | Diagnóstico estruturado, insumo para copy (kits), dashboard (KPI de estoque) e proposta |
@@ -72,6 +71,11 @@ _squad/
 │   ├── frameworks.md                      ← AIDA, PAS, PROTTO, 4Ps + quando usar cada
 │   └── biblioteca-headlines.md            ← headlines testadas por objetivo, ângulos MatCon
 │
+├── 03-designer/
+│   ├── SKILL.md
+│   └── templates-html/
+│       └── prospeccao-matcon.html         ← peça de captação de cliente pra própria Pillar (Story + Post)
+│
 ├── 04-webdesigner/
 │   ├── SKILL.md
 │   ├── estrutura-lp.md                    ← seções obrigatórias e ordem
@@ -108,6 +112,7 @@ _squad/
 ### Opção 2: Agente individual (para tarefas pontuais)
 
 - Só precisa de copy nova? Chame `@copywriter`
+- Precisa de nova peça pra captar cliente novo pra própria Pillar? Chame `@designer`
 - Já tem plano de tráfego e só quer atualizar o dashboard? Chame `@analista-dados`
 - Recebeu relatório de estoque/Curva ABC do cliente? Chame `@inteligencia-dados`
 

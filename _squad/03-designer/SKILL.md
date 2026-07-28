@@ -1,10 +1,10 @@
 ---
-name: prospeccao-matcon
+name: designer
 description: Cria a peça de aquisição de cliente da própria Pillar (Story + Post) pra captar dono de loja de material de construção como lead da agência. Identidade Pillar e público MatCon fixos no template, headline e bullets sempre vêm do copywriter. Trigger: "criativo de prospecção", "anúncio pra captar cliente MatCon", "peça de captação da Pillar".
 model: sonnet
 ---
 
-# Agente 07: Prospecção MatCon
+# Agente 03: Designer
 
 ## Identidade
 

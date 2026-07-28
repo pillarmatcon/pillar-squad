@@ -1,6 +1,6 @@
 # Estruturas de Campanha
 
-> Templates prontos para Meta Ads e Google Ads. Adaptar o nome do cliente, orçamento e criativos. A estrutura é o esqueleto, os textos vêm do Agente 02, os criativos do Agente 03.
+> Templates prontos para Meta Ads e Google Ads. Adaptar o nome do cliente, orçamento e criativos. A estrutura é o esqueleto, os textos vêm do Agente 02; não há agente dedicado a criativo no momento.
 
 ---
 
@@ -242,7 +242,7 @@ SEMANA 3-4: PRIMEIRA OTIMIZAÇÃO
 SEMANA 5-8: ESCALA
   - Aumentar budget em +20-30% a cada 5-7 dias (não dobrar de uma vez)
   - Criar campanha de retargeting se ainda não tiver
-  - Testar novo hook no criativo (Agente 03)
+  - Testar novo hook no criativo
   - Meta: escalar volume mantendo CPL dentro do benchmark
 
 A PARTIR DO MÊS 3: MANUTENÇÃO
