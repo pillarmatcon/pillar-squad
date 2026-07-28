@@ -4,7 +4,7 @@ Esta pasta é o **workspace permanente** de uma agência de marketing digital qu
 
 ## Estrutura
 
-- `.claude/` - esta pasta. Instruções globais (este arquivo) + 7 agentes registrados. Fica sempre na raiz de `Pillar/`: é daqui que o Claude Code carrega o CLAUDE.md e os agentes ao iniciar uma sessão na raiz do workspace. Mover essa pasta quebraria o carregamento automático.
+- `.claude/` - esta pasta. Instruções globais (este arquivo) + 8 agentes registrados. Fica sempre na raiz de `Pillar/`: é daqui que o Claude Code carrega o CLAUDE.md e os agentes ao iniciar uma sessão na raiz do workspace. Mover essa pasta quebraria o carregamento automático.
 - `_squad/` - arquivos de referência do squad (SKILLs, templates HTML, regras compartilhadas, **Humanizer**, **skill embutida de Meta Ads CLI em modo guiado total**, **identidade da própria agência** em `_squad/_shared/identidade-agencia.md`, **logo da Pillar** em `_squad/_shared/marca-pillar/`, **Método Viga Mestra** (metodologia proprietária, 5 pilares, racional completo) em `_squad/_shared/metodo-viga-mestra.md`, **template de tarefa reutilizável** em `_squad/_shared/template-tarefa.md`).
 
 ### `Operacional/` - execução com cliente já fechado
@@ -16,6 +16,7 @@ Esta pasta é o **workspace permanente** de uma agência de marketing digital qu
 
 - `Comercial/propostas/` - uma subpasta por prospect (cliente em potencial, ainda não fechado). Identidade visual usada é sempre a da Pillar, nunca a do prospect. Ver `Comercial/propostas/README.md`.
 - `Comercial/site-pillar/` - site institucional da própria Pillar (HTML/CSS/JS). Não é proposta de prospect: usa a identidade de `_squad/_shared/identidade-agencia.md`.
+- `Comercial/materiais-prospeccao/` - criativos de aquisição de cliente da própria Pillar (não ligados a um prospect específico), produzidos pelo agente `prospeccao-matcon`.
 
 ## Como invocar os agentes
 
@@ -30,13 +31,14 @@ Use o orquestrador apenas quando o pedido envolver vários agentes em sequência
 - `webdesigner` - landing pages HTML para clientes, e propostas comerciais HTML para prospects (`Comercial/propostas/`)
 - `analista-dados` - dashboards e relatórios de performance de campanha
 - `inteligencia-dados` - lê relatório de ERP (Curva ABC, estoque, vendas por categoria) e produz diagnóstico de giro, margem, estoque parado e produtos isca (Pilar 1 do Método Viga Mestra)
+- `prospeccao-matcon` - criativo de aquisição de cliente da própria Pillar (Story + Post), captando dono de loja de MatCon como lead da agência. Identidade Pillar e público fixos no template; headline e bullets sempre vêm do `copywriter`. Não atende cliente final (isso é o `designer-criativos`).
 
 ## Workflow padrão
 
 1. Leia `Operacional/clientes/<nome>/CLIENTE.md`
 2. Leia o SKILL.md em `_squad/<pasta>/SKILL.md`
 3. Leia `_squad/_shared/nichos.md`, `briefing-template.md`, `regras-globais.md`
-4. Para copywriter, designer-criativos e webdesigner: leia também `_squad/_shared/humanizer.md`
+4. Para copywriter, designer-criativos, webdesigner e prospeccao-matcon: leia também `_squad/_shared/humanizer.md`
 5. Para gestor-trafego em pedidos com conta real: detecte CLI (`meta --version`) e ofereça onboarding via `_squad/01-gestor-trafego/cli-onboarding.md` se necessário (modo guiado total)
 6. Para analista-dados (rodapé `{{NOME_AGENCIA}}` do dashboard) ou qualquer material que carregue a identidade da própria agência (proposta comercial, material institucional): leia também `_squad/_shared/identidade-agencia.md` no lugar do `CLIENTE.md`. Isso nunca substitui a marca do cliente em LP, copy, anúncio ou criativo.
 7. Para inteligencia-dados: exige pelo menos um relatório real de ERP (estoque, Curva ABC, vendas por categoria) anexado ou referenciado. Sem isso, para e pede a exportação. Se a fonte for PDF de Curva ABC do sistema Pontual Tecnologia, roda antes a ferramenta em `Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md` (converte pra XLSX padronizado, script determinístico, sem gasto de IA na conversão em si).
