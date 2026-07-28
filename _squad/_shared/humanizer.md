@@ -1,6 +1,6 @@
 # Humanizer: Revisão Final Anti-Cara-de-IA
 
-> **Aplicação:** os agentes **copywriter**, **designer-criativos** e **webdesigner** rodam este protocolo como **último passo antes de entregar** qualquer saída textual. Bloqueia a entrega se algum item falhar.
+> **Aplicação:** os agentes **copywriter** e **webdesigner** rodam este protocolo como **último passo antes de entregar** qualquer saída textual. Bloqueia a entrega se algum item falhar.
 
 ---
 

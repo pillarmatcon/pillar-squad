@@ -36,7 +36,7 @@
 
 ## Regras de compliance
 
-18. **Compliance MatCon (CDC padrão).** A Pillar atende hoje só loja de material de construção, nicho sem regulamentação publicitária específica além do Código de Defesa do Consumidor: sem propaganda de preço enganosa, sem prometer prazo de entrega ou disponibilidade de estoque que não existe, garantia de produto sempre conforme a política real do cliente (ver perfil completo em `_shared/nichos.md`). Se a Pillar um dia atender um cliente fora do nicho MatCon (saúde, direito, financeiro etc.): os SKILLs de copywriter, webdesigner, designer-criativos e gestor-trafego trazem seções de referência sobre saúde (CFM/CRO) e direito (OAB), mas são ponto de partida, não mapeamento completo. Validar a regulamentação vigente daquele setor antes de publicar qualquer peça.
+18. **Compliance MatCon (CDC padrão).** A Pillar atende hoje só loja de material de construção, nicho sem regulamentação publicitária específica além do Código de Defesa do Consumidor: sem propaganda de preço enganosa, sem prometer prazo de entrega ou disponibilidade de estoque que não existe, garantia de produto sempre conforme a política real do cliente (ver perfil completo em `_shared/nichos.md`). Se a Pillar um dia atender um cliente fora do nicho MatCon (saúde, direito, financeiro etc.): os SKILLs de copywriter, webdesigner e gestor-trafego trazem seções de referência sobre saúde (CFM/CRO) e direito (OAB), mas são ponto de partida, não mapeamento completo. Validar a regulamentação vigente daquele setor antes de publicar qualquer peça.
 
 ## Regra final anti-cara-de-IA no texto (Humanizer)
 

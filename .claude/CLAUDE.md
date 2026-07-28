@@ -27,18 +27,17 @@ Use o orquestrador apenas quando o pedido envolver vários agentes em sequência
 - `orquestrador` - coordena todos os agentes em sequência
 - `gestor-trafego` - plano de tráfego pago (Meta, Google, TikTok). **Upgrade opcional via Meta Ads CLI: o agente executa o setup completo sozinho via Bash tool, usuário não toca no terminal. Funciona em Mac, Linux e Windows.**
 - `copywriter` - headlines, anúncios, e-mails, scripts, e playbook de atendimento/follow-up de orçamento (Pilar Vendedor de Elite)
-- `designer-criativos` - criativos HTML para Instagram, 1 foto real em Story (1080×1920) + Post (1080×1350)
 - `webdesigner` - landing pages HTML para clientes, e propostas comerciais HTML para prospects (`Comercial/propostas/`)
 - `analista-dados` - dashboards e relatórios de performance de campanha
 - `inteligencia-dados` - lê relatório de ERP (Curva ABC, estoque, vendas por categoria) e produz diagnóstico de giro, margem, estoque parado e produtos isca (Pilar 1 do Método Viga Mestra)
-- `prospeccao-matcon` - criativo de aquisição de cliente da própria Pillar (Story + Post), captando dono de loja de MatCon como lead da agência. Identidade Pillar e público fixos no template; headline e bullets sempre vêm do `copywriter`. Não atende cliente final (isso é o `designer-criativos`).
+- `prospeccao-matcon` - criativo de aquisição de cliente da própria Pillar (Story + Post), captando dono de loja de MatCon como lead da agência. Identidade Pillar e público fixos no template; headline e bullets sempre vêm do `copywriter`. Não atende cliente final.
 
 ## Workflow padrão
 
 1. Leia `Operacional/clientes/<nome>/CLIENTE.md`
 2. Leia o SKILL.md em `_squad/<pasta>/SKILL.md`
 3. Leia `_squad/_shared/nichos.md`, `briefing-template.md`, `regras-globais.md`
-4. Para copywriter, designer-criativos, webdesigner e prospeccao-matcon: leia também `_squad/_shared/humanizer.md`
+4. Para copywriter, webdesigner e prospeccao-matcon: leia também `_squad/_shared/humanizer.md`
 5. Para gestor-trafego em pedidos com conta real: detecte CLI (`meta --version`) e ofereça onboarding via `_squad/01-gestor-trafego/cli-onboarding.md` se necessário (modo guiado total)
 6. Para analista-dados (rodapé `{{NOME_AGENCIA}}` do dashboard) ou qualquer material que carregue a identidade da própria agência (proposta comercial, material institucional): leia também `_squad/_shared/identidade-agencia.md` no lugar do `CLIENTE.md`. Isso nunca substitui a marca do cliente em LP, copy, anúncio ou criativo.
 7. Para inteligencia-dados: exige pelo menos um relatório real de ERP (estoque, Curva ABC, vendas por categoria) anexado ou referenciado. Sem isso, para e pede a exportação. Se a fonte for PDF de Curva ABC do sistema Pontual Tecnologia, roda antes a ferramenta em `Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md` (converte pra XLSX padronizado, script determinístico, sem gasto de IA na conversão em si).

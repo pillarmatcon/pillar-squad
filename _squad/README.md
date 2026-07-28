@@ -72,14 +72,6 @@ _squad/
 │   ├── frameworks.md                      ← AIDA, PAS, PROTTO, 4Ps + quando usar cada
 │   └── biblioteca-headlines.md            ← headlines testadas por objetivo, ângulos MatCon
 │
-├── 03-designer-criativos/
-│   ├── SKILL.md
-│   ├── templates-html/
-│   │   ├── educativo.html                 ← template de insight educativo (Story + Post)
-│   │   ├── oferta.html                    ← template de promoção/oferta (Story + Post)
-│   │   └── prova.html                     ← template de prova social / resultado (Story + Post)
-│   └── exportar-png.md                    ← como gerar PNG via Chrome DevTools (sem instalar nada)
-│
 ├── 04-webdesigner/
 │   ├── SKILL.md
 │   ├── estrutura-lp.md                    ← seções obrigatórias e ordem
@@ -116,7 +108,6 @@ _squad/
 ### Opção 2: Agente individual (para tarefas pontuais)
 
 - Só precisa de copy nova? Chame `@copywriter`
-- Só precisa de nova variação do criativo? Chame `@designer-criativos`
 - Já tem plano de tráfego e só quer atualizar o dashboard? Chame `@analista-dados`
 - Recebeu relatório de estoque/Curva ABC do cliente? Chame `@inteligencia-dados`
 
