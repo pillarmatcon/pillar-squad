@@ -5,7 +5,7 @@
 **Metodologia:** Pilar 3 (Combo de Produtos) e Pilar 4 (Vendedor de Elite) do Método Viga Mestra.
 **Status:** v1, sujeito a refinamento.
 
-**Nota de escopo contratual:** Pilar 3 (Combo de Produtos) está fora do escopo contratado hoje com a Construmais, conforme `CLIENTE.md`, seção Contrato com a Pillar. Tratar a parte de kits deste documento como material de upsell a negociar com o Tony, não como entrega já vendida. Já o Pilar 4 (Treinamento Comercial / Vendedor de Elite) está dentro do escopo contratado (Anexo I), então a seção de playbook de vendas abaixo pode ser executada como entrega regular.
+**Nota de escopo contratual:** Pilar 3 (Combo de Produtos) não está detalhado como item formal no Anexo I hoje com a Construmais, conforme `CLIENTE.md`, seção Contrato com a Pillar. Isso é só uma decisão de risco jurídico da Pillar sobre o que fica formalmente descrito e cobrado no contrato, o Método Viga Mestra é único e a parte de kits deste documento é entregue como as demais. O que ainda depende de confirmação do Tony é incluir o Pilar 3 como item explícito e faturável do contrato (upsell contratual), não a execução do trabalho em si. O Pilar 4 (Treinamento Comercial / Vendedor de Elite) já está detalhado no Anexo I, então a seção de playbook de vendas abaixo tem também essa cobertura formal.
 
 ---
 
@@ -134,4 +134,4 @@ Os kits mostram o "o quê" (dado concreto, líder de giro por categoria, oportun
 1. Corrigir a composição do Kit Alvenaria em qualquer material já produzido ou em produção que tenha usado a versão antiga (Tijolo + Argamassa AC-II).
 2. Confirmar com o Tony se ele topa expandir o contrato para incluir o Pilar 3 (Combo de Produtos) formalmente, já que o playbook de vendas (Pilar 4) já está no escopo e os dois pilares se complementam na prática.
 3. `@copywriter` pode usar os 10 kits e o playbook de vendas para roteiro de atendimento e follow-up de orçamento (Pilar 4, já contratado).
-4. Antes de lançar qualquer kit em campanha paga, checar se depende de produto do Pilar 3 (fora do contrato hoje) e confirmar com o Tony se é upsell aprovado.
+4. Antes de lançar qualquer kit em campanha paga, confirmar com o Tony se ele já quer formalizar o Pilar 3 como item explícito do contrato (upsell contratual), o trabalho de kit em si já é entregue como parte do método único.

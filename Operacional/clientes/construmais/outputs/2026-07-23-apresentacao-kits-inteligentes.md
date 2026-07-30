@@ -1,7 +1,7 @@
 # Copy para Construmais
 **Briefing:** `outputs/2026-07-estrategia-kits-e-vendas.md` e `outputs/2026-07-diagnostico-estoque.md`, produzidos em 23/07/2026 a partir dos relatórios de Curva ABC do ERP Pontual Tecnologia (14 meses, 01/05/2025 a 30/06/2026)
 **Nicho:** Loja de material de construção (MatCon), perfil de `_shared/nichos.md`
-**Objetivo desta peça:** Apresentação para o Tony decidir se quer formalizar o Pilar 3 (Combo de Produtos) como upsell de contrato
+**Objetivo desta peça:** Apresentação para o Tony decidir se quer formalizar o Pilar 3 (Combo de Produtos) como item explícito e faturável do contrato (o trabalho de kits em si já é entregue como parte do método único, independente dessa formalização)
 **Status:** v1, pendente de validação do Tony
 
 ---
@@ -76,11 +76,11 @@ Para saber se está funcionando, a métrica é a taxa de anexo: das vendas do pr
 
 ## Nota de escopo contratual
 
-O contrato assinado hoje com a Pillar (Anexo I) cobre o Pilar 1, Inteligência de Dados, o Pilar 2, Domínio Territorial, e o Pilar 4, Vendedor de Elite. O Pilar 3, que é justamente o de Combo de Produtos, ficou fora dessa versão do contrato.
+O contrato assinado hoje com a Pillar (Anexo I) lista formalmente o Pilar 1, Inteligência de Dados, o Pilar 2, Domínio Territorial, e o Pilar 4, Vendedor de Elite. O Pilar 3, Combo de Produtos, não está detalhado como item explícito nessa versão do Anexo I.
 
-Isso quer dizer que todo o material de kits deste documento é uma proposta, não uma entrega já paga. Se o Tony quiser seguir com os kits, o próximo passo é formalizar isso como um adicional ao contrato atual. Sem essa formalização, a Pillar não vai executar ou monitorar os kits como parte do trabalho recorrente.
+O Método Viga Mestra é único e os 5 pilares são aplicados à Construmais por completo, por isso o material de kits deste documento já é entregue como parte do trabalho, não como algo condicionado a pagamento à parte. O que fica pendente é o Tony decidir se quer incluir o Pilar 3 como item explícito e faturável do contrato, formalizando o acompanhamento recorrente da taxa de anexo e a expansão dos outros 9 kits como parte contínua do escopo, em vez de uma entrega pontual.
 
-O playbook de atendimento e follow-up de orçamento (Pilar 4) é diferente: esse já está dentro do escopo contratado e pode ser executado independente da decisão sobre os kits.
+O playbook de atendimento e follow-up de orçamento (Pilar 4) já está detalhado no Anexo I e é executado independente da decisão sobre os kits.
 
 ---
 
@@ -93,7 +93,7 @@ O playbook de atendimento e follow-up de orçamento (Pilar 4) é diferente: esse
 
 ## Pendências para virar "pronto para publicar"
 
-- Confirmação formal do Tony sobre incluir o Pilar 3 no contrato (upsell).
+- Confirmação formal do Tony sobre incluir o Pilar 3 como item explícito e faturável no contrato (upsell contratual).
 - Verificar com o Tony se o Pontual permite regra automática de sugestão de complemento no PDV, ou se o fluxo inicial depende de material impresso no caixa.
 - Definir o desconto exato do kit dentro da faixa sugerida (3% a 5%) com aprovação do Tony antes de aplicar em qualquer orçamento real.
 

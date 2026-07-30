@@ -48,6 +48,7 @@
   1. Rastreamento da jornada do cliente da fundação até o acabamento
   2. Mecanismo de bônus/cashback para garantir a recompra do material fino
   3. Cronograma de ofertas preditivas conforme o avanço físico da obra
+  4. Parceria formal com profissionais de campo e especificadores (pedreiro, eletricista, encanador, pintor, arquiteto, engenheiro) que decidem ou indicam onde o cliente final compra
 
 ## Qual agente do squad executa cada pilar
 

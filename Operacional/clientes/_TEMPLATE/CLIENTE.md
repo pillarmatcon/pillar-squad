@@ -51,7 +51,7 @@
 - **Início / vigência:** [data, duração]
 - **Valor:** [R$ X/mês, distinto do orçamento de mídia pago às plataformas]
 - **Escopo contratado:** [itens do contrato, mapeados pros pilares do Método Viga Mestra]
-- **Fora do escopo atual:** [pilares/entregas não vendidos: tratar como upsell a negociar, não como entrega padrão]
+- **Pilares não detalhados como item formal no Anexo I:** [se houver, listar quais. É só decisão de risco jurídico sobre o que fica formalmente descrito e cobrado no contrato: o Método Viga Mestra é único, os 5 pilares são aplicados ao cliente por completo. O que ainda depende de confirmação do cliente é incluir esse(s) pilar(es) como item explícito e faturável do contrato (upsell contratual), não a execução do trabalho]
 - **SLA:** [...]
 - **Rescisão:** [...]
 
