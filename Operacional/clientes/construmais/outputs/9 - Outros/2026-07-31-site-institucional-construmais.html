@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!--
+  Página: Site institucional single-page para Construmais
+  Briefing: pedido direto no chat, 2026-07-31. Estrutura de seções replicada da página
+  hoje publicada em https://pillar.pages.net.br/construmais (GreatPages), que usa texto
+  placeholder genérico de marcenaria/madeira sem relação com o cliente. Este arquivo mantém
+  o esqueleto de seções (nav, hero, departamentos, sobre, números, depoimentos, rodapé) e
+  substitui 100% do conteúdo pelo dado real da Construmais, confirmado em CLIENTE.md.
+  Nicho: loja de material de construção (varejo local + profissional autônomo),
+  perfil em _squad/_shared/nichos.md
+  Objetivo: presença institucional single-page com CTA de orçamento via WhatsApp
+  Status: v1, sujeito a refinamento
+  Pendências para virar pronto: ver README de entrega (mesma pasta,
+  2026-07-31-site-institucional-construmais-README.md). Resumo: falta Pixel Meta ID e
+  GA4 ID (ambos [PREENCHER] no CLIENTE.md), falta confirmar domínio de publicação e
+  criar as páginas de Política de Privacidade / Termos de Uso / Cookies.
+  ✓ Humanizer aplicado · 10 padrões anti-cara-de-IA verificados
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#EE2526">
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- SEO -->
+<title>Construmais | Material de Construção no Cristo Redentor, João Pessoa</title>
+<meta name="description" content="Material básico, elétrica, hidráulica e tinta no Cristo Redentor, João Pessoa. 15 anos de loja, sistema tintométrico próprio com até 5.000 cores. Orçamento pelo WhatsApp.">
+<meta name="keywords" content="material de construção, João Pessoa, Cristo Redentor, loja de construção, tinta, cimento, elétrica, hidráulica">
+<meta name="author" content="Construmais">
+<link rel="canonical" href="https://construmaisjp.com.br/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Construmais | Material de Construção no Cristo Redentor">
+<meta property="og:description" content="Material básico, elétrica, hidráulica e tinta em um só endereço, no bairro Cristo Redentor, João Pessoa. 15 anos de loja. Orçamento pelo WhatsApp.">
+<meta property="og:image" content="https://construmaisjp.com.br/assets/og-image-construmais.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo da Construmais em fundo vermelho">
+<meta property="og:url" content="https://construmaisjp.com.br/">
+<meta property="og:site_name" content="Construmais">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Construmais | Material de Construção no Cristo Redentor">
+<meta name="twitter:description" content="Material básico, elétrica, hidráulica e tinta em um só endereço, no bairro Cristo Redentor, João Pessoa. 15 anos de loja.">
+<meta name="twitter:image" content="https://construmaisjp.com.br/assets/og-image-construmais.png">
+
+<!-- Schema.org: HardwareStore (mais específico que LocalBusiness genérico para loja de material de construção) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HardwareStore",
+  "name": "Construmais",
+  "image": "https://construmaisjp.com.br/assets/logo-construmais.png",
+  "url": "https://construmaisjp.com.br/",
+  "telephone": "+55-83-3223-1568",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Elias Cavalcanti de Albuquerque, 750",
+    "addressLocality": "João Pessoa",
+    "addressRegion": "PB",
+    "postalCode": "58070-400",
+    "addressCountry": "BR"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "07:30",
+      "closes": "17:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday"],
+      "opens": "07:30",
+      "closes": "16:00"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "reviewCount": "108"
+  },
+  "sameAs": [
+    "https://www.instagram.com/construmaisjpa",
+    "https://www.facebook.com/construmaisjp"
+  ]
+}
+</script>
+
+<!-- Favicon (pendência: gerar favicon.ico/png quadrado a partir do logo, ver README) -->
+<link rel="icon" type="image/png" href="assets/logo-construmais.png">
+<link rel="apple-touch-icon" href="assets/logo-construmais.png">
+
+<!-- Fonte de título (Poppins ExtraBold/Bold, aproximação da condensada geométrica da marca). Só 2 pesos, font-display:swap -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --red: #EE2526;
+  --red-fill: #C81E1F;
+  --red-soft: rgba(238, 37, 38, 0.07);
+  --yellow: #F4D000;
+  --yellow-dark: #D9BB00;
+  --orange: #F7941D;
+  --black: #1A1A1A;
+  --white: #FFFFFF;
+  --gray-bg: #F7F7F5;
+  --text: #1A1A1A;
+  --text-soft: #4A4A4A;
+  --text-on-dark: rgba(255, 255, 255, 0.82);
+  --border: #E5E5E5;
+  --font-display: 'Poppins', system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --max-width: 1200px;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+ul { list-style: none; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+.icon { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.icon--fill { fill: currentColor; stroke: none; }
+
+/* Skip link */
+.skip-link {
+  position: absolute; top: -48px; left: 12px; background: var(--black); color: #fff;
+  padding: 10px 16px; border-radius: 6px; z-index: 200; transition: top .15s;
+}
+.skip-link:focus { top: 12px; }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.nav__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px;
+}
+.nav__logo { font-family: var(--font-display); font-size: 22px; font-weight: 800; font-style: italic; white-space: nowrap; }
+.nav__logo-c { color: var(--red); }
+.nav__logo-m { color: var(--black); }
+/* Sem JS: menu fica sempre visível, empilhado, sem depender de clique nenhum.
+   Só quando o JS roda (classe .js no html, adicionada no <head>) é que o
+   botão de hambúrguer aparece e o menu vira colapsável. Garante navegação
+   funcional com JS desativado, conforme validação técnica do SKILL. */
+.nav__toggle { display: none; }
+.nav__menu {
+  display: flex; flex-direction: column;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.nav__menu a {
+  padding: 14px 20px; font-weight: 600; font-size: 15px; color: var(--text);
+  border-top: 1px solid var(--border);
+}
+.nav__cta {
+  margin: 12px 20px 16px; padding: 12px 18px; text-align: center;
+  background: var(--yellow); color: var(--black); font-weight: 700;
+  border-radius: 8px; border-top: none !important;
+}
+.nav__cta:hover { background: var(--yellow-dark); }
+
+html.js .nav__toggle {
+  display: flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; color: var(--black);
+}
+html.js .nav__toggle .icon-close { display: none; }
+html.js .nav__toggle[aria-expanded="true"] .icon-menu { display: none; }
+html.js .nav__toggle[aria-expanded="true"] .icon-close { display: block; }
+html.js .nav__menu {
+  position: absolute; top: 100%; left: 0; right: 0;
+  max-height: 0; overflow: hidden;
+  transition: max-height .25s ease;
+}
+html.js .nav__menu.open { max-height: 420px; }
+
+@media (min-width: 768px) {
+  .nav__inner { padding: 16px 20px; }
+  html.js .nav__toggle { display: none; }
+  .nav__menu {
+    position: static; max-height: none; overflow: visible;
+    flex-direction: row; align-items: center; border-bottom: none;
+    background: transparent;
+  }
+  .nav__menu a { border-top: none; padding: 8px 14px; font-size: 14px; }
+  .nav__menu a:hover { color: var(--red); }
+  .nav__cta { margin: 0 0 0 8px; padding: 10px 20px; border-radius: 24px; white-space: nowrap; }
+}
+
+/* HERO */
+.hero {
+  background: var(--red);
+  color: var(--white);
+  padding: 40px 0 56px;
+  text-align: center;
+}
+.hero__logo { width: 220px; height: auto; margin: 0 auto 20px; }
+.hero__badge {
+  display: inline-block; background: var(--white); color: var(--red-fill);
+  font-size: 12.5px; font-weight: 800; letter-spacing: 0.06em;
+  padding: 7px 14px; border-radius: 999px; margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: 30px; font-weight: 800; color: var(--white);
+  max-width: 720px; margin: 0 auto 16px;
+}
+.hero__sub {
+  font-size: 19px; font-weight: 700; color: var(--white);
+  max-width: 560px; margin: 0 auto 28px; opacity: 0.96;
+}
+.hero__cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--yellow); color: var(--black);
+  font-family: var(--font-display); font-weight: 800; font-size: 17px;
+  padding: 16px 30px; border-radius: 8px; letter-spacing: 0.02em;
+  transition: background .15s, transform .1s;
+}
+.hero__cta:hover { background: var(--yellow-dark); }
+.hero__cta:active { transform: translateY(1px); }
+
+@media (min-width: 768px) {
+  .hero { padding: 64px 0 84px; }
+  .hero__logo { width: 280px; }
+  .hero h1 { font-size: 46px; }
+  .hero__sub { font-size: 21px; }
+}
+
+/* SECTIONS shared */
+.section { padding: 56px 0; }
+.section--alt { background: var(--gray-bg); }
+.section--dark { background: var(--black); color: var(--text-on-dark); }
+.section__title {
+  font-size: 26px; font-weight: 800; text-align: center; margin-bottom: 10px; color: var(--text);
+}
+.section__title--light { color: var(--white); }
+.section__sub {
+  font-size: 16.5px; text-align: center; color: var(--text-soft);
+  max-width: 560px; margin: 0 auto 36px;
+}
+@media (min-width: 768px) {
+  .section { padding: 88px 0; }
+  .section__title { font-size: 34px; }
+  .section__sub { font-size: 18px; margin-bottom: 48px; }
+}
+
+/* DEPARTAMENTOS */
+.dept__grid { display: grid; gap: 18px; }
+.dept-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 26px 24px;
+}
+.dept-card__icon-wrap {
+  width: 52px; height: 52px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.dept-card__icon-wrap--red { background: var(--red); color: var(--white); }
+.dept-card__icon-wrap--yellow { background: var(--yellow); color: var(--black); }
+.dept-card h3 { font-size: 19px; font-weight: 800; margin-bottom: 8px; }
+.dept-card p { font-size: 15px; color: var(--text-soft); }
+
+.dept-card--featured {
+  background: var(--red-soft);
+  border-color: rgba(238, 37, 38, 0.18);
+  display: grid; gap: 20px; align-items: center;
+}
+.dept-card--featured h3 { font-size: 22px; }
+.dept-card--featured p { font-size: 16px; }
+.dept-card--featured .dept-card__icon-wrap { width: 64px; height: 64px; margin-bottom: 0; }
+.dept-card--featured .dept-card__icon-wrap .icon { width: 30px; height: 30px; }
+
+.dept__grid--rest { display: grid; gap: 18px; margin-top: 18px; }
+
+@media (min-width: 768px) {
+  .dept-card--featured { grid-template-columns: auto 1fr; text-align: left; }
+  .dept__grid--rest { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* SOBRE */
+.sobre__grid { display: grid; gap: 40px; align-items: center; }
+.sobre__content h2 { font-size: 26px; font-weight: 800; margin-bottom: 18px; }
+.sobre__content p { font-size: 16px; color: var(--text-soft); margin-bottom: 14px; }
+.sobre__media { text-align: center; }
+.sobre__media img { max-width: 240px; margin: 0 auto; }
+
+.sobre__stats { display: flex; gap: 28px; margin-top: 28px; flex-wrap: wrap; }
+.stat__number { display: block; font-family: var(--font-display); font-weight: 800; color: var(--red); line-height: 1; }
+.stat--big .stat__number { font-size: 52px; }
+.stat:not(.stat--big) .stat__number { font-size: 34px; }
+.stat__label { display: block; font-size: 13.5px; color: var(--text-soft); font-weight: 600; margin-top: 6px; max-width: 160px; }
+
+@media (min-width: 768px) {
+  .sobre__grid { grid-template-columns: 1.15fr 1fr; }
+  .sobre__content h2 { font-size: 32px; }
+  .sobre__media img { max-width: 320px; }
+  .stat--big .stat__number { font-size: 64px; }
+  .stat:not(.stat--big) .stat__number { font-size: 40px; }
+}
+
+/* DEPOIMENTOS */
+.depo__grid { display: grid; gap: 20px; }
+.depo {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  padding: 26px 24px;
+}
+.depo__quote-icon { color: var(--yellow); margin-bottom: 12px; }
+.depo p { font-size: 16px; line-height: 1.55; margin-bottom: 16px; color: var(--white); }
+.depo cite { font-style: normal; font-weight: 700; font-size: 14px; color: var(--yellow); }
+.depo--featured { padding: 34px 30px; }
+.depo--featured p { font-size: 19px; }
+.depo__side { display: grid; gap: 20px; }
+
+@media (min-width: 768px) {
+  .depo__grid { grid-template-columns: 1.2fr 1fr; }
+}
+
+/* ATENDIMENTO (CTA final) */
+.atendimento { background: var(--yellow); padding: 56px 0; text-align: center; }
+.atendimento h2 { font-size: 26px; font-weight: 800; color: var(--black); margin-bottom: 12px; }
+.atendimento p { font-size: 16.5px; color: var(--black); max-width: 480px; margin: 0 auto 24px; }
+.atendimento__cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--red-fill); color: var(--white);
+  font-weight: 800; font-size: 16px; padding: 15px 28px;
+  border-radius: 8px; margin-bottom: 12px;
+  transition: background .15s;
+}
+.atendimento__cta:hover { background: var(--red); }
+.atendimento__phone { display: block; font-weight: 700; color: var(--black); text-decoration: underline; }
+
+@media (min-width: 768px) {
+  .atendimento { padding: 80px 0; }
+  .atendimento h2 { font-size: 32px; }
+}
+
+/* FOOTER */
+.footer { background: #111111; color: rgba(255, 255, 255, 0.72); padding: 48px 0 24px; font-size: 14.5px; }
+.footer__inner { display: grid; gap: 32px; margin-bottom: 32px; }
+.footer__logo { font-family: var(--font-display); font-size: 22px; font-weight: 800; font-style: italic; margin-bottom: 10px; }
+.footer__logo-c { color: var(--yellow); }
+.footer__logo-m { color: var(--white); }
+.footer__brand p { max-width: 260px; margin-bottom: 16px; }
+.footer__social { display: flex; gap: 12px; }
+.footer__social a {
+  width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center; color: #fff;
+}
+.footer__social a:hover { background: var(--red); }
+.footer .footer-heading { font-family: var(--font-display); font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 14px; letter-spacing: 0.03em; }
+.footer__col a, .footer__col p { display: block; margin-bottom: 10px; color: rgba(255,255,255,0.72); }
+.footer__col a:hover { color: var(--yellow); }
+.footer__col-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.footer__col-item .icon { width: 17px; height: 17px; margin-top: 2px; color: var(--yellow); }
+.footer__legal {
+  border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px;
+  display: flex; flex-direction: column; gap: 12px; font-size: 13px;
+}
+.footer__legal-links a { text-decoration: underline; margin-right: 16px; color: rgba(255,255,255,0.6); }
+
+@media (min-width: 768px) {
+  .footer__inner { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+  .footer__legal { flex-direction: row; justify-content: space-between; align-items: center; }
+}
+
+/* COOKIE BANNER */
+.cookie-banner {
+  position: fixed; bottom: 16px; left: 16px; right: 16px; max-width: 460px; margin: 0 auto;
+  background: var(--black); color: #fff; padding: 18px 20px; border-radius: var(--radius);
+  font-size: 13.5px; display: none; z-index: 150; box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+.cookie-banner.visible { display: block; }
+.cookie-banner a { text-decoration: underline; color: #fff; }
+.cookie-banner button {
+  background: var(--yellow); color: var(--black); padding: 9px 18px; border-radius: 6px;
+  margin-top: 12px; font-weight: 700; font-size: 13.5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+</style>
+</head>
+
+<body>
+<a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+
+<!-- Sprite de ícones SVG, curados à mão (sem emoji). Escondido fora da tela em vez de
+     display:none, que em alguns navegadores impede o <use> de renderizar os símbolos. -->
+<svg style="position:absolute; width:0; height:0; overflow:hidden" aria-hidden="true">
+  <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+  <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="icon-cimento" viewBox="0 0 24 24"><path d="M8 3h8l2 4-1.2 14H7.2L6 7z"/><path d="M9 9.5h6"/></symbol>
+  <symbol id="icon-eletrica" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></symbol>
+  <symbol id="icon-hidraulica" viewBox="0 0 24 24"><path d="M12 2s7 8.2 7 13a7 7 0 1 1-14 0c0-4.8 7-13 7-13z"/></symbol>
+  <symbol id="icon-tinta" viewBox="0 0 24 24"><path d="M4 10l8-5 8 5-8 5-8-5z"/><path d="M6 11.5v4.5a6 2.3 0 0 0 12 0v-4.5"/></symbol>
+  <symbol id="icon-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.6-5 4.4 1.5 6.6L12 17l-5.9 3.2 1.5-6.6-5-4.4 6.6-.6z"/></symbol>
+  <symbol id="icon-quote" viewBox="0 0 24 24"><path d="M7 7h4v4c0 3-2 5-4 6l-1-2c1-.6 2-1.6 2-3H7V7zm9 0h4v4c0 3-2 5-4 6l-1-2c1-.6 2-1.6 2-3h-1V7z"/></symbol>
+  <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path d="M8.7 8.4c.3-.6.9-.5 1.3-.1l.8 1.1c.2.3.2.6 0 .9l-.6.8c.4.9 1.7 2.2 2.6 2.6l.8-.6c.3-.2.6-.2.9 0l1.1.8c.5.4.5 1-.1 1.3-1.4.7-3.5-.1-5.1-1.7-1.6-1.6-2.4-3.7-1.7-5.1z"/></symbol>
+  <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none"/><circle cx="12" cy="12" r="4" fill="none"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M14 21v-7h2.4l.4-3H14V9c0-.9.2-1.5 1.6-1.5H17V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.7 1.4-3.7 3.9V11H8.5v3H11v7z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M5 4h3.2l1.3 3.8-2 1.6a12.5 12.5 0 0 0 6.1 6.1l1.6-2 3.8 1.3V18c0 1.1-.9 2-2 2h-.3A15.7 15.7 0 0 1 3.3 6.3V6c0-1.1.9-2 1.7-2z"/></symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5L12 13l8.5-6.5"/></symbol>
+  <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 21.5s7-7.4 7-12.7A7 7 0 0 0 5 8.8c0 5.3 7 12.7 7 12.7z"/><circle cx="12" cy="8.7" r="2.4"/></symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5l3.3 1.9"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a href="#inicio" class="nav__logo"><span class="nav__logo-c">constru</span><span class="nav__logo-m">mais</span></a>
+    <button type="button" class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menu de navegação">
+      <svg class="icon icon-menu" aria-hidden="true"><use href="#icon-menu"/></svg>
+      <svg class="icon icon-close" aria-hidden="true"><use href="#icon-close"/></svg>
+    </button>
+    <nav class="nav__menu" id="navMenu" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#departamentos">Departamentos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#atendimento">Atendimento</a>
+      <a href="https://wa.me/5583988555601?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20material%20com%20a%20Construmais." class="nav__cta" id="ctaNav" target="_blank" rel="noopener">Solicitar Orçamento</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <img class="hero__logo" src="assets/logo-construmais.webp" width="800" height="450" alt="Logo Construmais, a sua loja de construção" loading="eager">
+      <span class="hero__badge">CONSTRUMAIS &bull; DESDE 2011</span>
+      <h1>Quinze anos abastecendo obra no Cristo Redentor</h1>
+      <p class="hero__sub">Material básico, elétrica, hidráulica e tinta em um só endereço. A gente atende quem está reformando em casa e o profissional que compra toda semana pra obra.</p>
+      <a href="https://wa.me/5583988555601?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20material%20com%20a%20Construmais." class="hero__cta" id="ctaHero" target="_blank" rel="noopener">ORÇAMENTO ➝</a>
+    </div>
+  </section>
+
+  <!-- DEPARTAMENTOS -->
+  <section class="section" id="departamentos">
+    <div class="container">
+      <h2 class="section__title">Departamentos</h2>
+      <p class="section__sub">Da fundação ao acabamento, sem precisar rodar a cidade toda.</p>
+
+      <div class="dept__grid">
+        <article class="dept-card dept-card--featured">
+          <div class="dept-card__icon-wrap dept-card__icon-wrap--red">
+            <svg class="icon" aria-hidden="true"><use href="#icon-cimento"/></svg>
+          </div>
+          <div>
+            <h3>Material Básico</h3>
+            <p>Cimento, tijolo, areia e brita, com opção ensacada em sacaria própria de 20kg.</p>
+          </div>
+        </article>
+
+        <div class="dept__grid--rest">
+          <article class="dept-card">
+            <div class="dept-card__icon-wrap dept-card__icon-wrap--yellow">
+              <svg class="icon" aria-hidden="true"><use href="#icon-eletrica"/></svg>
+            </div>
+            <h3>Elétrica</h3>
+            <p>Cabo flex, tomadas, disjuntores e os acessórios que fecham a instalação.</p>
+          </article>
+
+          <article class="dept-card">
+            <div class="dept-card__icon-wrap dept-card__icon-wrap--red">
+              <svg class="icon" aria-hidden="true"><use href="#icon-hidraulica"/></svg>
+            </div>
+            <h3>Hidráulica</h3>
+            <p>Tubos, conexões e metais pra obra nova ou reforma.</p>
+          </article>
+
+          <article class="dept-card">
+            <div class="dept-card__icon-wrap dept-card__icon-wrap--yellow">
+              <svg class="icon" aria-hidden="true"><use href="#icon-tinta"/></svg>
+            </div>
+            <h3>Tintas e Acabamento</h3>
+            <p>Sistema tintométrico próprio, com até 5.000 cores personalizadas.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE + NÚMEROS -->
+  <section class="section section--alt" id="sobre">
+    <div class="container sobre__grid">
+      <div class="sobre__content">
+        <h2>Quinze anos no mesmo bairro</h2>
+        <p>A Construmais abriu no Cristo Redentor em 2011 e nunca saiu do bairro.</p>
+        <p>Quem chega pedindo pouco cimento ou areia leva o material ensacado em sacos de 20kg, fechados na sacaria própria da loja, sem precisar comprar a granel.</p>
+        <p>Pra quem procura tinta, o sistema tintométrico próprio mistura até 5.000 cores na hora, sem depender de lote pronto de fábrica.</p>
+
+        <div class="sobre__stats">
+          <div class="stat stat--big">
+            <span class="stat__number">+15</span>
+            <span class="stat__label">anos de mercado</span>
+          </div>
+          <div class="stat">
+            <span class="stat__number">4,6</span>
+            <span class="stat__label">nota no Google, 108 avaliações reais</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sobre__media">
+        <img src="assets/mascote-construmais.webp" width="900" height="1593" alt="Mascote da Construmais, operário com capacete e colete amarelos e camisa vermelha com o logo da loja, segurando colher de pedreiro" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="section section--dark" id="depoimentos">
+    <div class="container">
+      <h2 class="section__title section__title--light">Quem compra aqui, fala</h2>
+      <p class="section__sub" style="color: rgba(255,255,255,0.6);">Avaliações reais do perfil da Construmais no Google.</p>
+
+      <div class="depo__grid">
+        <blockquote class="depo depo--featured">
+          <svg class="icon depo__quote-icon" aria-hidden="true"><use href="#icon-quote"/></svg>
+          <p>&ldquo;Loja completa de materiais de construção em geral. Atendimento excelente, preço justo e entrega garantida. Super indico.&rdquo;</p>
+          <cite>Auricelia Felix</cite>
+        </blockquote>
+
+        <div class="depo__side">
+          <blockquote class="depo">
+            <svg class="icon depo__quote-icon" aria-hidden="true"><use href="#icon-quote"/></svg>
+            <p>&ldquo;Atendimento e preço excelentes. Entrega pontual e material de qualidade.&rdquo;</p>
+            <cite>Mário Anastácio Galdino do Vallo</cite>
+          </blockquote>
+          <blockquote class="depo">
+            <svg class="icon depo__quote-icon" aria-hidden="true"><use href="#icon-quote"/></svg>
+            <p>&ldquo;Ótimos preços, atendimento humanizado e entrega pontual.&rdquo;</p>
+            <cite>Vanderleia Ribeiro</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATENDIMENTO / CTA FINAL -->
+  <section class="atendimento" id="atendimento">
+    <div class="container">
+      <h2>Precisa de orçamento agora?</h2>
+      <p>Mande a lista de material pelo WhatsApp e a gente responde rápido, direto com quem monta o orçamento.</p>
+      <a href="https://wa.me/5583988555601?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20material%20com%20a%20Construmais." class="atendimento__cta" id="ctaAtendimento" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+        Chame no WhatsApp
+      </a>
+      <a href="tel:+558332231568" class="atendimento__phone">ou ligue para (83) 3223-1568</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <div class="footer__logo"><span class="footer__logo-c">constru</span><span class="footer__logo-m">mais</span></div>
+      <p>Material de construção no Cristo Redentor, João Pessoa, desde 2011.</p>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/construmaisjpa" target="_blank" rel="noopener" aria-label="Instagram da Construmais">
+          <svg class="icon" style="width:18px;height:18px" aria-hidden="true"><use href="#icon-instagram"/></svg>
+        </a>
+        <a href="https://www.facebook.com/construmaisjp" target="_blank" rel="noopener" aria-label="Facebook da Construmais">
+          <svg class="icon" style="width:18px;height:18px" aria-hidden="true"><use href="#icon-facebook"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer-heading">Navegação</p>
+      <a href="#inicio">Início</a>
+      <a href="#departamentos">Departamentos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#atendimento">Atendimento</a>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer-heading">Contato</p>
+      <div class="footer__col-item">
+        <svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+        <a href="https://wa.me/5583988555601?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20material%20com%20a%20Construmais." target="_blank" rel="noopener">(83) 98855-5601</a>
+      </div>
+      <div class="footer__col-item">
+        <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+        <a href="tel:+558332231568">(83) 3223-1568</a>
+      </div>
+      <div class="footer__col-item">
+        <svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>
+        <a href="mailto:contato@construmaisjp.com.br">contato@construmaisjp.com.br</a>
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer-heading">Endereço e horário</p>
+      <div class="footer__col-item">
+        <svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>
+        <p style="margin-bottom:0;">Rua Elias Cavalcanti de Albuquerque, 750<br>Cristo Redentor, João Pessoa/PB<br>CEP 58070-400</p>
+      </div>
+      <div class="footer__col-item" style="margin-top:14px;">
+        <svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg>
+        <p style="margin-bottom:0;">Segunda a sexta: 07h30 às 17h30<br>Sábado: 07h30 às 16h<br>Domingo: fechado</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer__legal">
+    <div>CNPJ 13.796.094/0001-07</div>
+    <div class="footer__legal-links">
+      <a href="/politica-de-privacidade">Política de Privacidade</a>
+      <a href="/termos-de-uso">Termos de Uso</a>
+      <a href="/cookies">Cookies</a>
+    </div>
+    <div>&copy; 2026 Construmais. Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner">
+  <p>A gente usa cookies pra melhorar sua visita ao site. Ao continuar, você concorda com nossa <a href="/politica-de-privacidade">Política de Privacidade</a>.</p>
+  <button type="button" id="cookieAccept">Entendi</button>
+</div>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'META_PIXEL_ID_AQUI');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=META_PIXEL_ID_AQUI&ev=PageView&noscript=1"/></noscript>
+
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA4_ID_AQUI"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'GA4_ID_AQUI');
+</script>
+
+<script>
+// Nav mobile toggle
+var navToggle = document.getElementById('navToggle');
+var navMenu = document.getElementById('navMenu');
+navToggle.addEventListener('click', function () {
+  var open = navMenu.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+navMenu.querySelectorAll('a').forEach(function (link) {
+  link.addEventListener('click', function () {
+    navMenu.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    navMenu.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
+// Tracking de clique nos CTAs de WhatsApp/telefone (evento de contato)
+['ctaNav', 'ctaHero', 'ctaAtendimento'].forEach(function (id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('click', function () {
+    if (typeof fbq !== 'undefined') fbq('track', 'Contact');
+    if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'whatsapp', event_label: id });
+  });
+});
+
+// Cookie banner
+var cookieBanner = document.getElementById('cookieBanner');
+var cookieAccept = document.getElementById('cookieAccept');
+if (!localStorage.getItem('cookieAccepted')) {
+  cookieBanner.classList.add('visible');
+}
+cookieAccept.addEventListener('click', function () {
+  localStorage.setItem('cookieAccepted', '1');
+  cookieBanner.classList.remove('visible');
+});
+</script>
+
+</body>
+</html>
