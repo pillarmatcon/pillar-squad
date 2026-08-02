@@ -92,7 +92,6 @@
 
   .post {
     width: min(420px, 100%);
-    aspect-ratio: 4 / 5;
     background: var(--red);
     border-radius: 14px;
     position: relative;
@@ -106,6 +105,8 @@
     padding: 7.5% 8% 0;
     position: relative;
     z-index: 3;
+    display: flex;
+    justify-content: center;
   }
 
   .kicker {
@@ -313,11 +314,13 @@
   <div class="stage">
     <div class="post">
       <div class="post-head">
-        <div class="kicker">
-          <div class="hash">#</div>
-          <span>Tem na</span>
+        <div class="headline">
+          <div class="kicker">
+            <div class="hash">#</div>
+            <span>Tem na</span>
+          </div>
+          <h2>Constru<span>mais</span></h2>
         </div>
-        <h2>Constru<span>mais</span></h2>
       </div>
 
       <div class="stageimg">
