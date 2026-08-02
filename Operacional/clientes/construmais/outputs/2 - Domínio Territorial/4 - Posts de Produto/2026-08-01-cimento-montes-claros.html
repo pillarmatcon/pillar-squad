@@ -86,9 +86,30 @@
 
   .stage {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
     padding: 8px 0 44px;
   }
+
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 20px;
+    background: var(--red);
+    color: #fff;
+    font-weight: 800;
+    font-size: 13px;
+    font-family: inherit;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+  }
+  .download-btn:hover { background: var(--red-deep); }
+  .download-btn:disabled { opacity: 0.6; cursor: wait; }
+  .download-btn svg { width: 16px; height: 16px; flex: none; }
 
   .post {
     width: min(420px, 100%);
@@ -126,11 +147,13 @@
     justify-content: center;
     color: var(--red);
     font-weight: 900;
-    font-size: 13px;
+    font-size: 26px;
+    line-height: 1;
     flex: none;
+    transform: rotate(-6deg);
   }
 
-  .kicker span {
+  .kicker > span {
     font-weight: 800;
     font-size: clamp(25px, 8vw, 34px);
     color: #fff;
@@ -138,7 +161,7 @@
   }
 
   .post-head h2 {
-    margin: 2px 0 0;
+    margin: -8px 0 0;
     font-size: clamp(30px, 9.6vw, 41px);
     font-weight: 900;
     color: #fff;
@@ -165,7 +188,7 @@
     position: absolute;
     top: 6%;
     left: 6%;
-    width: 30%;
+    width: 25%;
     aspect-ratio: 1;
     background: var(--yellow);
     border-radius: 50%;
@@ -174,6 +197,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 2%;
     box-shadow: 0 8px 18px rgba(0,0,0,0.22);
     transform: rotate(-6deg);
   }
@@ -188,9 +212,9 @@
 
   .hashmark {
     position: absolute;
-    left: -6%;
+    left: -2%;
     bottom: 21%;
-    width: 22%;
+    width: 16%;
     aspect-ratio: 1;
     background: var(--red-deep);
     border: 3px solid rgba(255,255,255,0.14);
@@ -199,11 +223,12 @@
     align-items: center;
     justify-content: center;
     z-index: 4;
+    transform: rotate(-6deg);
   }
   .hashmark .glyph {
     color: var(--yellow);
     font-weight: 900;
-    font-size: clamp(28px, 8.6vw, 37px);
+    font-size: clamp(38px, 12vw, 48px);
   }
 
   .product-shot {
@@ -253,8 +278,8 @@
     margin-top: 4px;
   }
   .legend .item {
-    background: var(--paper);
-    border: 1px solid color-mix(in srgb, var(--canvas-ink) 10%, transparent);
+    background: transparent;
+    border: 1px solid var(--canvas-sub);
     border-radius: 10px;
     padding: 16px 18px;
   }
@@ -272,7 +297,6 @@
     line-height: 1.5;
     color: var(--canvas-ink);
   }
-  :root[data-theme="dark"] .item { background: color-mix(in srgb, var(--canvas) 88%, #fff 4%); }
 </style>
 
 <div class="wrap">
@@ -289,7 +313,7 @@
       <div class="post-head">
         <div class="headline">
           <div class="kicker">
-            <div class="hash">#</div>
+            <div class="hash"><span>#</span></div>
             <span>Tem na</span>
           </div>
           <h2>Constru<span>mais</span></h2>
@@ -327,6 +351,11 @@
         </div>
       </div>
     </div>
+
+    <button class="download-btn" id="downloadBtn" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span id="downloadBtnLabel">Baixar imagem</span>
+    </button>
   </div>
 
   <div class="legend">
@@ -336,3 +365,29 @@
     </div>
   </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+  document.getElementById('downloadBtn').addEventListener('click', async function () {
+    var btn = this;
+    var label = document.getElementById('downloadBtnLabel');
+    var originalLabel = label.textContent;
+    btn.disabled = true;
+    label.textContent = 'Gerando imagem...';
+    try {
+      var target = document.querySelector('.post');
+      var canvas = await html2canvas(target, { backgroundColor: null, scale: 2 });
+      var path = decodeURIComponent(location.pathname);
+      var base = (path.split('/').pop() || 'post').replace(/\.html?$/i, '');
+      var link = document.createElement('a');
+      link.download = base + '.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    } catch (err) {
+      alert('Não foi possível gerar a imagem: ' + err.message);
+    } finally {
+      btn.disabled = false;
+      label.textContent = originalLabel;
+    }
+  });
+</script>
