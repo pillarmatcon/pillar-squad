@@ -9,9 +9,9 @@
 ## Fontes usadas neste plano
 
 - `Operacional/clientes/construmais/CLIENTE.md` (budget de mídia, raio de entrega, bairros prioritários, ticket médio, tracking pendente, contrato)
-- `Operacional/clientes/construmais/outputs/2026-07-23-skus-ferramentas-kit-dia-dos-pais.md` (candidatos reais a kit, giro e margem por SKU)
-- `Operacional/clientes/construmais/outputs/2026-07-23-pesquisa-concorrentes-dia-dos-pais.md` (concorrência local e padrão nacional do nicho)
-- `Operacional/clientes/construmais/outputs/2026-07-estrategia-kits-e-vendas.md` (playbook comercial e nota de escopo do Pilar 3)
+- `Operacional/clientes/construmais/outputs/9 - Outros/2026-07-23-skus-ferramentas-kit-dia-dos-pais.md` (candidatos reais a kit, giro e margem por SKU)
+- `Operacional/clientes/construmais/outputs/9 - Outros/2026-07-23-pesquisa-concorrentes-dia-dos-pais.md` (concorrência local e padrão nacional do nicho)
+- `Operacional/clientes/construmais/outputs/9 - Outros/2026-07-estrategia-kits-e-vendas.md` (playbook comercial e nota de escopo do Pilar 3)
 - `_squad/01-gestor-trafego/benchmarks.md` e `estruturas-de-campanha.md`
 
 ## Nota de escopo, leia antes de tudo
@@ -164,7 +164,7 @@ Este agente não produz os criativos nem a copy final, só indica o que precisa 
 1. **2 a 3 headlines por kit** (Kit Reforma e Kit Ferramenta Manual), sem valor de desconto fechado, com placeholder claro até o Tony confirmar preço e condição
 2. **Texto primário do anúncio**, combinando gancho emocional (pai que constrói/cuida da casa) com CTA comercial claro, sem travessão, sem marketês (ver `_shared/regras-globais.md`)
 3. **Mensagem pré-preenchida do botão WhatsApp**, uma por anúncio/kit, para permitir que o vendedor identifique manualmente de qual anúncio veio a conversa (ex: "Olá, vim pelo anúncio do Kit Reforma de Dia dos Pais"), já que não há CRM nem UTM nativo dentro do WhatsApp
-4. **Reforço no playbook de atendimento (Pilar 4)** para a primeira resposta a quem chegar pelo anúncio de Dia dos Pais, reaproveitando a estrutura já existente em `outputs/2026-07-estrategia-kits-e-vendas.md`, seção 4
+4. **Reforço no playbook de atendimento (Pilar 4)** para a primeira resposta a quem chegar pelo anúncio de Dia dos Pais, reaproveitando a estrutura já existente em `outputs/9 - Outros/2026-07-estrategia-kits-e-vendas.md`, seção 4
 5. **Hook a testar primeiro:** camada emocional (pai que constrói) puxando para o produto. **Hook backup:** desconto direto no produto, sem moldura emocional, para comparar qual performa melhor no público frio, dado o prazo curto para aprender
 
 ### Para o `@designer-carrossel`
