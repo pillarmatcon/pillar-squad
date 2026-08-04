@@ -57,18 +57,20 @@
 
 ## Regras de atualização de histórico do cliente
 
-21. **Toda entrega que use ou gere dado real do cliente propõe uma atualização do Histórico do CLIENTE.md, e pede confirmação antes de gravar.** Ao final de qualquer execução que leia `Operacional/clientes/<nome>/CLIENTE.md` ou produza um output novo em `Operacional/clientes/<nome>/outputs/`, o agente redige a linha candidata, no formato já usado no arquivo:
+21. **O Histórico do CLIENTE.md registra só tratativas entre agência e cliente, não a produção de entregas.** Reunião de briefing, reunião de acompanhamento de métricas e resultados, alinhamento por telefone/WhatsApp, aprovação formal de peça pelo cliente: isso é tratativa e vira linha de Histórico. Criar um output novo em `Operacional/clientes/<nome>/outputs/` (peça, diagnóstico, plano, criativo etc.), por si só, **não** vira linha de Histórico, mesmo quando o output usa dado real do cliente. (Corrigido em 2026-08-04: antes a regra propunha linha para qualquer output novo; o usuário pediu para restringir a tratativas reais entre agência e cliente.)
 
-   - **YYYY-MM-DD:** [resumo em 1-3 frases do que foi feito, arquivo gerado se houver, e pendência que ficou em aberto]
+   Quando houver uma tratativa real, o agente redige a linha candidata, no formato já usado no arquivo:
+
+   - **YYYY-MM-DD:** [resumo em 1-3 frases da tratativa, decisão tomada, pendência que ficou em aberto]
 
    e pergunta ao usuário algo como "Posso registrar esta linha no Histórico do CLIENTE.md?" Só grava depois de confirmação explícita. Se o usuário não responder ou pedir para seguir sem isso, o agente segue em frente e não trava a entrega por causa disso.
 
    Regras da atualização, uma vez confirmada:
    - Sempre acrescenta, nunca reescreve ou apaga linha anterior do Histórico
-   - Cita o arquivo de output relevante quando existir (ex: `outputs/2026-07-diagnostico-estoque.md`; para `@inteligencia-dados`, que mantém um único diagnóstico cumulativo por cliente, ex: `outputs/1 - Inteligência de Dados/1 - Curva ABC do Estoque/diagnostico-estoque.md`, seção do período recém adicionado)
-   - Se a execução revelou contradição com dado anterior do CLIENTE.md (número que não bate, informação desatualizada), registra a contradição na mesma linha, não corrige o dado antigo silenciosamente
-   - Não confundir com `Operacional/clientes/<nome>/historico/`, pasta reservada a log de execução em conta real (Regra 20, Nível 3). O Histórico do CLIENTE.md é o resumo narrativo do relacionamento com o cliente, a pasta historico/ é o log técnico de comandos rodados
-   - Se o agente rodou em modo consulta pura, sem gerar output nem mudar entendimento do cliente (ex: só respondeu uma pergunta), não propõe linha nenhuma
+   - Cita a ata ou arquivo de referência da tratativa quando existir (ex: `historico/2026-07-23-briefing-reuniao-tony.md`)
+   - Se a tratativa revelou contradição com dado anterior do CLIENTE.md (número que não bate, informação desatualizada), registra a contradição na mesma linha, não corrige o dado antigo silenciosamente
+   - Não confundir com `Operacional/clientes/<nome>/historico/`, pasta reservada a log de execução em conta real (Regra 20, Nível 3) e a atas de reunião. O Histórico do CLIENTE.md é o resumo narrativo do relacionamento com o cliente, a pasta historico/ é o log técnico/atas
+   - Produção de entrega pura (sem tratativa associada) não propõe linha nenhuma, mesmo que gere ou use dado real do cliente
 
 ## Regra de retroalimentação de performance
 
