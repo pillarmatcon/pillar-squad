@@ -113,6 +113,6 @@
 - **ROAS meta:** [Xx, ou "não aplicável" se loja física sem e-commerce]
 
 ## Histórico
-> Uma linha por entrega/mudança de entendimento, sempre acrescentando, nunca reescrevendo linha anterior (Regra 21 de `_squad/_shared/regras-globais.md`). Citar o arquivo de output quando existir.
+> Uma linha por tratativa com o cliente (reunião, ligação, confirmação, aprovação), sempre acrescentando, nunca reescrevendo linha anterior (Regra 21 de `_squad/_shared/regras-globais.md`). Não registrar aqui a criação de outputs/entregas em si, só o que foi tratado com o cliente. Citar a ata ou arquivo de referência da tratativa quando existir.
 
-- **YYYY-MM-DD:** [resumo em 1-3 frases, arquivo gerado se houver, pendência em aberto]
+- **YYYY-MM-DD:** [resumo em 1-3 frases da tratativa, decisão tomada, pendência em aberto]
