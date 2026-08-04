@@ -5,7 +5,8 @@ Classificar cada produto pelo peso real que ele tem no negócio (faturamento e m
 ## Duas coisas diferentes: curva e leitura de estoque
 
 - **A curva ABC usa vendas, não estoque.** O critério de corte (A ≈80%, B ≈15%, C ≈5%) é sempre sobre faturamento e margem gerados no período, nunca sobre quantidade em estoque. Um item pode ter estoque baixo e ainda ser A (porque vende muito), ou estoque alto e ser C (porque não vende).
-- **O estoque é lido depois, à luz da curva.** Uma vez classificados os produtos por venda, aplicamos três leituras sobre o estoque físico de cada um: giro (velocidade com que o produto sai da prateleira), capital parado (R$ imobilizado em produto que não gira) e oportunidade de faturamento (item que vende bem mas está com estoque baixo ou em ruptura, faturamento que a loja está deixando na mesa).
+- **O estoque é lido depois, à luz da curva, mas em atividade própria.** Uma vez classificados os produtos por venda, giro, capital parado e risco de ruptura são calculados na atividade `2 - Giro de Estoque e Margem`, nunca aqui. Esta atividade entrega o "o que vende e quanto vale"; a leitura de estoque em cima disso é sempre da atividade seguinte.
+- **O relatório de Curva ABC já traz o "Grupo Z"** (ou nomenclatura equivalente do ERP do cliente): os SKUs sem nenhuma venda no período coberto. É matéria-prima pra giro parado e estoque parado, mas essa leitura em si é documentada em `2 - Giro de Estoque e Margem/`, não no diagnóstico desta atividade. Só cito a origem (relatório, período, Grupo Z) quando a atividade 2 usar esse dado.
 
 ## Por que importa pra performance
 
@@ -17,8 +18,8 @@ Loja de material de construção costuma ter centenas de SKUs, mas uma fração 
 2. Se a fonte for PDF do sistema Pontual Tecnologia, rodar antes o `SKILL.md` desta mesma pasta (script `pillar_padroniza_curva_abc.py`) pra converter em XLSX padronizado.
 3. `@inteligencia-dados` classifica os produtos em A (≈80% do faturamento), B (≈15%) e C (≈5% restante), usando sempre dado de venda, documentando o critério de corte usado.
 4. Cruzar a classificação por faturamento com a classificação por margem bruta, pois nem todo item A em faturamento é A em margem.
-5. Sobre essa classificação, ler o estoque físico de cada produto: calcular giro, apontar capital parado (R$ em itens de giro baixo, sobretudo C) e identificar oportunidade de faturamento (itens A ou B com estoque baixo ou em ruptura).
-6. Entregar o diagnóstico com a participação de cada categoria de produto (básico, elétrica, hidráulica, pintura, acabamento, ferramentas) na curva.
+5. Entregar o diagnóstico com a participação de cada categoria de produto (básico, elétrica, hidráulica, pintura, acabamento, ferramentas) na curva.
+6. Passar a classificação (e o Grupo Z, se o relatório trouxer) pra atividade `2 - Giro de Estoque e Margem`, que calcula giro, capital parado e risco de ruptura em cima dela.
 
 ## Cadência recomendada
 
@@ -27,9 +28,9 @@ Mensal para clientes com movimento intenso; trimestral é o mínimo aceitável p
 ## Indicadores de sucesso
 
 - % do faturamento concentrado nos itens A (referência de saúde: 70 a 85%)
-- Giro médio dos itens A, B e C (referência: giro cai de A pra C; se não cair, o critério de corte está errado)
-- R$ de capital parado identificado em itens C
-- Nº de itens A ou B com oportunidade de faturamento (estoque baixo ou ruptura) sinalizados pro cliente
+- Grupo A, B e C bem definidos e estáveis entre períodos (se o corte muda muito de um período pro outro sem motivo de negócio, vale revisar o critério)
+
+Indicadores de giro, capital parado e risco de ruptura ficam em `2 - Giro de Estoque e Margem/_atividade.md`, calculados sobre esta classificação.
 
 ## Squad responsável
 
@@ -44,7 +45,8 @@ Uma curva ABC bem feita substitui reunião de "achismo" sobre o que comprar. É 
 1. **Padronização do relatório de origem** (quando PDF Pontual): converter pra XLSX antes de qualquer leitura, script determinístico, zero custo de IA na conversão. Ferramenta pronta nesta pasta: `SKILL.md` + `pillar_padroniza_curva_abc.py`.
 2. **Classificação ABC por faturamento**: ordenar produtos por receita de venda, aplicar corte 80/15/5, documentar o critério.
 3. **Classificação ABC por margem**: repetir o corte usando margem bruta em vez de faturamento, e apontar onde as duas classificações divergem.
-4. **Leitura de estoque por giro, capital parado e oportunidade de faturamento**: aplicada sobre a classificação já feita, calcula giro por produto, aponta R$ parado em itens de giro baixo e sinaliza item A/B com risco de ruptura.
-5. **Leitura de participação por categoria**: consolidar a curva por categoria de produto, não só por SKU individual, pra virar leitura executiva pro dono da loja.
+4. **Leitura de participação por categoria**: consolidar a curva por categoria de produto, não só por SKU individual, pra virar leitura executiva pro dono da loja.
 
-As tarefas 2 a 5 ainda não têm arquivo `.md` de script pronto. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.
+Leitura de giro, capital parado, risco de ruptura e giro parado (a partir desta classificação e do Grupo Z do relatório, se houver) é tarefa de `2 - Giro de Estoque e Margem/_atividade.md`, não desta atividade.
+
+As tarefas 2 a 4 ainda não têm arquivo `.md` de script pronto. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.
