@@ -4,7 +4,9 @@
 
 **Nota de revisão (25/07/2026):** a versão anterior deste arquivo (mesma data) foi calculada com um bug no script de padronização, que descartava silenciosamente os 2 primeiros produtos de cada página do PDF nas partes 2, 3 e 4 (perda de ~15% do catálogo e ~12% do faturamento nesses períodos, a parte 1 não era afetada). O bug foi corrigido (`pillar_padroniza_curva_abc.py`, cobertura agora conferida automaticamente contra o "Total Geral" oficial impresso em cada relatório, 100% de cobertura nos 4 períodos) e as planilhas de origem foram regeradas. **Os números abaixo são os corretos.** Como efeito colateral bom: o faturamento e a margem agregada dos 14 meses agora batem exatamente com o diagnóstico anterior de 23/07 (`outputs/2026-07-diagnostico-estoque.md`), o que resolve a contradição registrada no Histórico do `CLIENTE.md`.
 
-**Nota de reconciliação do estoque parado (25/07/2026):** o "Estoque parado corrigido" na tabela abaixo, um valor por período, é o que dava pra calcular só com os 4 PDFs de Curva ABC, e tem uma limitação importante: os 4 relatórios foram todos gerados na mesma semana (27/06 a 03/07/2026), então o campo de estoque de cada um reflete o estoque de **quando o relatório foi emitido**, não do fim do período de venda que ele cobre. Ou seja, a "evolução" desse número entre períodos reflete principalmente quais produtos entram ou saem da lista conforme a janela de venda comparada muda, não uma trajetória real de estoque acumulando ao longo de 14 meses. Depois de receber `Estoque em 27-06-26.xls` (exportação original do sistema, com estoque de todos os 15.228 produtos numa única data certa), cruzei esse arquivo com a venda somada dos 4 relatórios de Curva ABC e cheguei no número correto de estoque parado real: **1.695 produtos sem nenhuma venda registrada nos 14 meses inteiros (mai/2025 a jun/2026), R$ 295.126,57 a custo** (já com a correção do colorante aplicada). Esse número bate próximo do R$ 320.903,02 do diagnóstico de 23/07 (diferença de ~8%, provavelmente porque aquela análise também corrigiu outros itens de custo além do colorante). **Use este valor de R$ 295.126,57 como referência de estoque parado do negócio, não os valores por período da tabela abaixo**, que ficam mantidos só pra referência histórica de quando cada período foi processado.
+**Nota de reconciliação do estoque parado (25/07/2026):** o "Estoque parado corrigido" na tabela abaixo, um valor por período, é o que dava pra calcular só com os 4 PDFs de Curva ABC, e tem uma limitação importante: os 4 relatórios foram todos gerados na mesma semana (27/06 a 03/07/2026), então o campo de estoque de cada um reflete o estoque de **quando o relatório foi emitido**, não do fim do período de venda que ele cobre. Ou seja, a "evolução" desse número entre períodos reflete principalmente quais produtos entram ou saem da lista conforme a janela de venda comparada muda, não uma trajetória real de estoque acumulando ao longo de 14 meses. Depois de receber `Estoque em 27-06-26.xls` (exportação original do sistema, com estoque de todos os 15.228 produtos numa única data certa), cruzei esse arquivo com a venda somada dos 4 relatórios de Curva ABC e cheguei no número correto de estoque parado real: **1.695 produtos sem nenhuma venda registrada nos 14 meses inteiros (mai/2025 a jun/2026), R$ 295.126,57 a custo** (já com a correção do colorante aplicada). Esse número bate próximo do R$ 320.903,02 do diagnóstico de 23/07 (diferença de ~8%, provavelmente porque aquela análise também corrigiu outros itens de custo além do colorante).
+
+**Nota de atualização de estoque (03/08/2026), substitui a referência acima:** novo snapshot de estoque (`Produto em 03-08-26.htm`, exportação direta do sistema Pontual, 15.369 SKUs) cruzado com a mesma venda somada dos 4 períodos de Curva ABC. Estoque parado real atualizado: **1.732 produtos, R$ 373.769,46 a custo** (alta de R$ 78.642,89 / +26,6% em valor frente ao R$ 295.126,57 de 25/07/2026, com apenas 37 SKUs a mais no grupo parado, +2,2%, ou seja o valor médio por item parado subiu mais que a quantidade de itens). Esse novo relatório trouxe também **2 outliers críticos de cadastro não vistos antes**, com quantidade ou custo em forte desacordo com os pares da própria linha de produto (`CABO FLEX 2.5MM AZ PC COBRECOM`, código 7153, quantidade 79.263,9 PC contra pares entre 0 e 635 MT/PC da mesma linha; `MANGUEIRA CORRUGADA 20MM AM - KRONA`, código 7874, quantidade e custo fora do padrão). Já excluídos do número acima, ver seção "Atualização de Estoque: 03/08/2026" abaixo para o detalhe completo. **Use R$ 373.769,46 como referência de estoque parado do negócio a partir de agora**, não os valores por período da tabela abaixo (mantidos só pra referência histórica) nem o R$ 295.126,57 de 25/07 (desatualizado, mas preservado acima por transparência do histórico).
 
 ## Visão geral acumulada (mai/2025 a jun/2026, 4 períodos processados)
 *(atualizar este bloco a cada novo período processado, não é seção fixa)*
@@ -15,17 +17,123 @@
 | 01/11/2025 a 31/12/2025 | 2 | R$ 454.844,56 | R$ 227.422,28 | 41,82% | 59,97% (35 SKUs) | R$ 467.599,36 |
 | 01/01/2026 a 31/03/2026 | 3 | R$ 598.882,79 | R$ 199.627,60 | 45,14% | 59,89% (63 SKUs) | R$ 491.900,30 |
 | 01/04/2026 a 30/06/2026 | 3 | R$ 650.821,13 | R$ 216.940,38 | 39,17% | 59,98% (48 SKUs) | R$ 469.329,89 |
-| **Total / média 14 meses** | 14 | **R$ 3.081.818,22** | **R$ 220.129,87** | **39,27%** | ~59,9% (estável) | **R$ 295.126,57 (real, 1.695 SKUs, ver nota)** |
+| **Total / média 14 meses** | 14 | **R$ 3.081.818,22** | **R$ 220.129,87** | **39,27%** | ~59,9% (estável) | **R$ 373.769,46 (real, 1.732 SKUs, snapshot 03/08/2026, ver nota)** |
 
-O total de 14 meses bate exato com o diagnóstico de 23/07 (R$ 3.081.818,22, margem 39,27%), única vez em que essa reconciliação foi possível porque os dois usaram a mesma fonte (os 4 PDFs originais), só que com scripts diferentes.
+O total de 14 meses bate exato com o diagnóstico de 23/07 (R$ 3.081.818,22, margem 39,27%), única vez em que essa reconciliação foi possível porque os dois usaram a mesma fonte (os 4 PDFs originais), só que com scripts diferentes. Faturamento, margem e giro não foram recalculados desde jun/2026: o relatório mais recente recebido (03/08/2026) é um snapshot de estoque, sem dado de venda, ver seção "Atualização de Estoque: 03/08/2026" abaixo.
 
-Cinco leituras que só aparecem quando os 4 períodos são vistos juntos:
+Seis leituras que só aparecem quando os períodos e snapshots são vistos juntos:
 
 1. **Faturamento mensal médio ficou estável entre o 1º e o 2º período** (R$ 229,5 mil → R$ 227,4 mil, -0,9%), **caiu de forma real só no 3º período** (R$ 227,4 mil → R$ 199,6 mil, -12,2%) **e recuperou no período mais recente** (R$ 199,6 mil → R$ 216,9 mil, +8,7%). Não é uma tendência de queda contínua, é um trimestre mais fraco isolado (jan-mar/2026) seguido de recuperação parcial.
 2. **Margem subiu período a período até o pico em jan-mar/2026** (35,93% → 41,82% → 45,14%) **e caiu 5,97 pontos no trimestre mais recente** (45,14% → 39,17%). É a maior queda de margem entre dois períodos de todo o histórico, vale investigar.
 3. **Grupo A concentra 59,87% a 59,98% do faturamento nos 4 períodos, uma estabilidade notável** (variação de menos de 0,2 ponto percentual entre o período mais alto e o mais baixo), sempre abaixo da faixa saudável de referência do método (70 a 85%). Não é oscilação, é um padrão estrutural muito consistente da loja: o negócio depende de uma base de produtos mais larga do que o ideal pra sustentar o faturamento.
-4. **Cimento Montes Claros e Cimento Poty são produto isca nos 4 períodos, sem exceção.** Nenhum outro item se repete como isca validado em todas as janelas. É a base mais sólida pro Kit Fundação e Alvenaria sugerido abaixo.
-5. **Estoque parado real (14 meses completos, ver nota de reconciliação acima): R$ 295.126,57 em 1.695 produtos.** Os valores "por período" na tabela acima não devem ser lidos como uma tendência de crescimento ou queda, pelo motivo explicado na nota.
+4. **Cimento Montes Claros e Cimento Poty são produto isca nos 4 períodos, sem exceção**, e seguem com custo/preço/margem cadastrados estáveis no snapshot de 03/08/2026 (ver seção mais recente). Nenhum outro item se repete como isca validado em todas as janelas. É a base mais sólida pro Kit Fundação e Alvenaria sugerido abaixo.
+5. **Estoque parado real atualizado em 03/08/2026: R$ 373.769,46 em 1.732 produtos** (era R$ 295.126,57 em 1.695 produtos em 25/07/2026, alta de 26,6% em valor com só 2,2% mais itens, ver nota de atualização acima). Os valores "por período" na tabela acima não devem ser lidos como uma tendência de crescimento ou queda, pelo motivo explicado na nota de reconciliação de 25/07.
+6. **2 itens do relatório de 03/08/2026 têm quantidade ou custo em forte desacordo com os pares da própria linha de produto** (cabo flex e mangueira corrugada, ver seção mais recente), somando R$ 17,46 milhões que já foram excluídos de todos os números acima. Pendente de confirmação do Tony antes de tratar como estoque real, ver auditoria completa abaixo.
+
+---
+
+## Atualização de Estoque: 03/08/2026 (snapshot, fora do ciclo de Curva ABC)
+**Fonte dos dados:** `Produto em 03-08-26.htm` (sistema Pontual Tecnologia, exportação HTML de tabela de produto), processado em 08-2026
+**Planilha:** `08-2026/estoque-auditado_2026-08-03.xlsx` (abas: Estoque padronizado, Estoque parado (ajustado), Outliers críticos)
+**Status:** v1, sujeito a refinamento
+**Tipo de relatório:** diferente dos 4 períodos abaixo. É um snapshot de produto/estoque (quantidade, custo, preço e margem cadastrados numa data única), não uma Curva ABC de vendas. Confirmado pela estrutura do arquivo (colunas Código, Dt. Compra, Produto, Fabricante, Unid. Estoque, Qtde., Custo inicial, % ICMS/IPI/ST/FRETE/OUTROS, Custo Final, % Margem, Preço, NCM, Código de Barras, Fornecedor, Qtde. última compra): não tem quantidade vendida nem faturamento, então **não atualiza giro nem participação por categoria de faturamento nesta rodada**. Formato HTML, não PDF, então não passa pela ferramenta de padronização de Curva ABC (`Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md`), que é específica pra PDF de Curva ABC; processado com parser próprio (regex determinístico, zero IA na extração).
+
+### Resumo executivo
+- Catálogo no relatório: **15.369 SKUs** (contra 15.254 SKUs distintos no histórico dos 4 períodos de Curva ABC, mai/2025 a jun/2026: 115 SKUs novos, sem histórico de venda pra avaliar)
+- Valor de estoque a custo, leitura bruta (direto do relatório, todos os itens com saldo positivo): **R$ 19.111.367,72** em 4.848 SKUs
+- **2 itens sozinhos respondem por R$ 17.456.023,32 (91,3%) desse valor bruto**, com quantidade/custo em forte desacordo com os pares da própria linha de produto. Somado a um terceiro item recorrente (colorante, já conhecido desde 23/07), os 3 outliers somam **R$ 18.176.265,52 (95,1%) do valor bruto total**
+- **Valor de estoque a custo, leitura ajustada (excluindo os 3 outliers): R$ 935.102,19**, crescimento de R$ 34.161,81 (+3,79%) frente aos R$ 900.940,38 registrados em 25/07/2026 (`Estoque em 27-06-26.xls`), variação plausível para 5 semanas de operação
+- Estoque parado atualizado (sem venda nos 4 períodos históricos, ajustado): **R$ 373.769,46 em 1.732 SKUs** (detalhe na seção própria abaixo)
+- Nenhum dado de faturamento, giro ou participação por categoria de venda foi recalculado nesta rodada, esse relatório não traz essa informação
+
+### Limitações da fonte de dados
+1. **Sem dado de venda/faturamento.** Este relatório só traz estoque, custo e preço cadastrados. Giro (quantidade vendida) e participação por categoria de faturamento continuam sendo os do período 01/04/2026 a 30/06/2026 (ver seção abaixo), não foram atualizados.
+2. **Sem coluna de categoria própria.** Ao contrário do `Estoque ETL.xlsx` usado em 23/07, este relatório não tem campo de categoria/grupo. Mapeei a categoria por cruzamento do `codigo` com o campo `grupo_produto` da Curva ABC mais recente (abr-jun/2026), cobrindo 15.217 dos 15.369 SKUs (99,0%). Os 152 SKUs sem categoria mapeada (0,99% dos itens, R$ 7.856,01 do valor bruto de estoque) são majoritariamente SKUs novos, criados depois de jun/2026.
+3. **Categoria corrompida no cadastro do cliente, mesmo problema já reportado em 25/07/2026.** Via o cruzamento acima, 5.254 SKUs do relatório atual mapeiam para a categoria corrompida "MD-MD-MD-MD-MD-...". Segue pendente de correção no ERP do cliente.
+4. **2 outliers críticos de cadastro identificados nesta rodada, não vistos nos relatórios anteriores** (ver auditoria abaixo). Excluídos de todos os totais "ajustados" deste diagnóstico até confirmação do Tony.
+
+### Auditoria de qualidade do cadastro (15.369 SKUs)
+| Achado | Quantidade | Observação |
+|---|---|---|
+| Fornecedor cadastrado como a própria loja | 59 | Era 57 em 23/07/2026 (`Estoque ETL.xlsx`) |
+| Quantidade em estoque negativa | 42 itens, R$ -18.713,82 a custo | Era 17 itens, R$ -139.191,14 em 23/07/2026. Maior caso: Tijolo c/8 furos, -11.320 un, R$ -9.056,00 |
+| Preço de venda zerado com estoque ativo (qtde > 0) | 4 | Mesmos 4 de 23/07/2026: itens de mobiliário/exposição de loja (gôndola, expositor), não mercadoria de revenda |
+| Custo final zerado com estoque ativo (qtde > 0) | 7 | Métrica nova (23/07 media "custo zerado com venda ativa", 1 item, critério diferente por falta de dado de venda) |
+| Margem (markup sobre custo) acima de 1.000% | 24 | Era 27 em 23/07/2026 |
+| Margem (markup sobre custo) negativa | 198 | Era 199 em 23/07/2026, estável |
+| Custo final menor que custo inicial | 956 | 91,8% (878 itens) com diferença ≤ 5%, plausível efeito de imposto/desconto sobre o custo. 29 itens com diferença > 30%, quase todos por custo final zerado (já contam na linha acima) |
+| Nome de produto duplicado em código diferente | 8 grupos, 20 códigos | Era 10 grupos, 24 códigos em 23/07/2026. Inclui 2 tipos de cimento cadastrados em 4 códigos cada (`CP II F 40 ZEBU`, `CP II-Z-32 CIMPOR`), provavelmente lotes/entradas diferentes do mesmo produto |
+| Inconsistência entre % Margem cadastrado e o recálculo (Preço-Custo Final)/Custo Final, tolerância 2 pontos percentuais | 387 | Métrica nova nesta rodada (tolerância não usada antes) |
+| Sem data de compra cadastrada | 5.979 | Métrica nova nesta rodada, 38,9% do catálogo |
+
+Nota sobre o campo "% Margem" deste relatório: é **markup sobre custo** ((Preço - Custo Final) / Custo Final × 100), cadastrado pelo próprio sistema Pontual. Não é o mesmo cálculo de "margem bruta % sobre venda" usado nas seções de Curva ABC abaixo (que é sobre faturamento real). Os dois não devem ser comparados diretamente.
+
+### Outliers críticos identificados (pendente de confirmação do cliente)
+| Código | Produto | Campo suspeito | Valor cadastrado | Benchmark de pares (mesma linha) | Estimativa | Impacto no valor de estoque |
+|---|---|---|---|---|---|---|
+| 7153 | CABO FLEX 2.5MM AZ PC COBRECOM | Quantidade | 79.263,90 PC | Outras cores da mesma linha "PC COBRECOM" (vermelho, verde, amarelo, preto): estoque entre 0 e 0,035 PC. Outras marcas de cabo flex 2,5mm no catálogo: estoque entre 0 e 635 MT | Quantidade real provavelmente entre 0 e poucas centenas de unidades, não 79 mil. Não estimo um número exato, é caso de erro de lançamento (unidade ou dígito a mais), não de custo errado | R$ 14.161.290,32 (74,1% do valor bruto de estoque) |
+| 7874 | MANGUEIRA CORRUGADA 20MM AM - KRONA | Quantidade e custo | 164.736.600 MT, custo R$ 0,02/MT | Mangueira corrugada 20mm de outras marcas: estoque entre 32 e 239 MT, custo entre R$ 0,91 e R$ 1,22/MT | Quantidade real provavelmente na mesma ordem de grandeza dos pares (dezenas a poucas centenas de MT), custo também provavelmente mais próximo de R$ 0,90 a R$ 1,20/MT | R$ 3.294.733,00 (17,2% do valor bruto de estoque) |
+| 11073 | COLORANTE ICORES BA AMARELO P0411 0.9L | Custo final | R$ 158,67/ML | Outros 9 colorantes da mesma linha (Icores BA, 0,9L, unidade ML): custo entre R$ 0,09 e R$ 0,23/ML, mediana R$ 0,13/ML | R$ 0,13 a R$ 0,18/ML (mesma faixa já usada nos 4 períodos de Curva ABC abaixo). **Mesmo item já reportado ao Tony em 23/07/2026 e confirmado como erro de cadastro, segue sem correção no ERP em 03/08/2026** | R$ 720.244,40 (3,8% do valor bruto de estoque) |
+
+Juntos, os 3 itens somam **R$ 18.176.265,52, 95,1% do valor de estoque bruto do relatório**. Nenhum dos 3 foi tratado como fato: os valores "ajustados" deste diagnóstico excluem os 3, e a estimativa de faixa correta é só isso, uma estimativa auditável, que o Tony precisa confirmar ou corrigir. Os itens 7153 e 7874 são achados novos desta rodada, nunca reportados antes.
+
+### Estoque atual (valor a custo)
+| Categoria | Valor de estoque (ajustado, exclui outliers) | % do total |
+|---|---|---|
+| Material Básico | R$ 295.474,92 | 31,9% |
+| (categoria corrompida "MD-MD-MD...") | R$ 108.384,93 | 11,7% |
+| Hidráulica | R$ 70.065,80 | 7,6% |
+| Ferragem | R$ 63.146,25 | 6,8% |
+| Material de Uso e Consumo | R$ 61.109,38 | 6,6% |
+| Pintura | R$ 59.404,22 | 6,4% |
+| Material Elétrico | R$ 53.433,61 | 5,8% |
+| Ferramentas | R$ 52.285,17 | 5,6% |
+| Utilidades e Jardim | R$ 29.065,59 | 3,1% |
+| Cobertura | R$ 28.826,79 | 3,1% |
+| Ativo Imobilizado | R$ 28.499,40 | 3,1% |
+| Demais categorias (11, cada uma abaixo de 2%) | R$ 49.598,12 | 5,3% |
+| Sem categoria mapeada | R$ 7.856,01 | 0,8% |
+
+Total ajustado: R$ 935.102,19. Valor potencial de venda (qtde × preço, mesmos itens, exclui os 3 outliers): não calculado nesta seção, pois herda a mesma distorção dos outliers e exigiria o mesmo tratamento, ver planilha `08-2026/estoque-auditado_2026-08-03.xlsx` para o dado bruto por SKU.
+
+### Estoque parado atualizado
+- Valor financeiro parado a custo, bruto (direto do relatório): R$ 15.255.302,32, em 1.734 SKUs
+- **Valor ajustado (excluindo os outliers 7153 e 11073, que respondem por R$ 14.881.532,87 do valor parado bruto): R$ 373.769,46, em 1.732 SKUs**
+- Comparação com 25/07/2026 (`Estoque em 27-06-26.xls`): R$ 295.126,57 em 1.695 SKUs → R$ 373.769,46 em 1.732 SKUs (alta de R$ 78.642,89, +26,6% em valor, com só +37 SKUs, +2,2%, ou seja o valor médio por item parado subiu bem mais que a quantidade de itens parados)
+- 68 SKUs novos (sem histórico de venda nos 4 períodos, criados depois de jun/2026) têm estoque positivo hoje e não entram no cálculo de parado por falta de janela de avaliação: R$ 7.254,58 a custo
+
+Maiores itens parados individuais, exceto os outliers já tratados à parte:
+| Produto | Qtde. | Custo final | Valor a custo | Categoria |
+|---|---|---|---|---|
+| Cumeeira Zincalum 0,43 | 2.998 un | R$ 26,00 | R$ 77.948,00 | Material Básico |
+| Vareta Solda Oxi 1,59mm Gerdau | 7.329 un | R$ 10,20 | R$ 74.755,80 | (categoria corrompida) |
+| Sacolas 30x40 Imp | 2.005 un | R$ 11,66 | R$ 23.378,30 | Material de Uso e Consumo |
+| Sacola Recicladas VD 60x80 | 1.015 kg | R$ 11,50 | R$ 11.672,50 | Material de Uso e Consumo |
+| Tubo PVC Rosca 1 pol Tigre | 999,83 pc | R$ 8,06 | R$ 8.058,63 | (categoria corrompida) |
+
+Vareta Solda Oxi e Cumeeira Zincalum já apareciam como maiores itens parados individuais nos períodos de nov-dez/2025 e jan-mar/2026 respectivamente (ver seções abaixo), confirma que são itens realmente parados de longa data, não erro de leitura pontual.
+
+Estoque parado por categoria (ajustado, exclui outliers): categoria corrompida "MD-MD-MD..." concentra 27,4% do valor parado ajustado (R$ 102.131,64), seguida de Material Básico (22,5%, R$ 83.968,25) e Material de Uso e Consumo (14,6%, R$ 54.545,54). Ver planilha para o detalhe completo por SKU.
+
+### Produtos isca / âncora, checagem de cadastro
+Sem dado de venda nesta rodada, não é possível reconfirmar giro. Checagem só de preço/custo/margem cadastrados:
+- **Cimento Montes Claros CPII F 32 50kg** (código 8992): 27,5 sc em estoque, custo R$ 37,90, preço R$ 51,00, markup cadastrado 34,56%
+- **Cimento Poty CPII Z 32 50kg** (código 7972): 174 sc em estoque, custo R$ 38,22, preço R$ 51,00, markup cadastrado 33,44%
+
+Preço e custo seguem na mesma faixa dos períodos anteriores, sem sinal de descontinuação (estoque positivo nos dois). O markup cadastrado (33-35%) não é diretamente comparável à margem sobre venda dos períodos de Curva ABC (21-22%, ver seções abaixo), são cálculos diferentes (markup sobre custo vs margem sobre faturamento real). Reconfirmação de giro depende de um novo export de Curva ABC (jul/ago 2026).
+
+### Comparação com o snapshot anterior (`Estoque em 27-06-26.xls`, 27/06/2026)
+- Valor de estoque a custo (ajustado): R$ 900.940,38 → R$ 935.102,19 (alta de 3,79% em 5 semanas)
+- Estoque parado (ajustado): R$ 295.126,57 em 1.695 SKUs → R$ 373.769,46 em 1.732 SKUs (alta de 26,6% em valor, 2,2% em SKUs, o valor médio por item parado cresceu mais que a contagem)
+- Catálogo: cresceu de 15.228 para 15.369 SKUs cadastrados (a base de comparação de "novos" usada nesta seção, 15.254 SKUs, vem da Curva ABC, não do `Estoque ETL.xlsx`, por isso os números não batem exatos entre si)
+- 2 outliers críticos novos identificados nesta rodada (cabo flex e mangueira), não presentes com essa magnitude nos relatórios anteriores
+
+### Próximos passos
+1. **Confirmar com o Tony os 2 outliers novos** (código 7153, Cabo Flex, quantidade 79.263,9 PC; código 7874, Mangueira Corrugada Krona, quantidade 164.736.600 MT e custo R$ 0,02/MT) antes de tratar como estoque real. Corrigir no ERP.
+2. **Cobrar novamente a correção do colorante** (código 11073, pendente desde 23/07/2026, ainda não corrigido em 03/08/2026)
+3. **Solicitar novo export de Curva ABC** (PDF, jul/ago 2026) pra atualizar giro, faturamento e participação por categoria de venda, este relatório não traz esse dado
+4. Reportar de novo a categoria corrompida no cadastro (5.254 SKUs "MD-MD-MD...", pendência desde 25/07/2026, segue sem correção)
+5. `@analista-dados` pode usar o estoque parado atualizado (R$ 373.769,46) como KPI de dashboard no lugar do valor de 25/07/2026
 
 ---
 
