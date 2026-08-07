@@ -1,6 +1,7 @@
 # Cliente: Construmais
 
 ## Identidade
+
 - **Agência responsável:** Pillar (ver `_squad/_shared/identidade-agencia.md`)
 - **Responsável pela conta (lado Pillar):** Murillo e Alex
 - **Contato principal (lado cliente, decisor):** Tony Carvalho Barbosa
@@ -8,6 +9,7 @@
 - **Cidade / região:** João Pessoa/PB
 - **CNPJ:** 13.796.094/0001-07
 - **Endereço:** Rua Elias Cavalcanti de Albuquerque, 750, Cristo Redentor, João Pessoa/PB, CEP 58070-400
+- **Horário de funcionamento:** Seg - Sex: 07:30 - 17:30 | Sab: 07:30 - 16:00 | Dom: Fechado
 - **Telefone fixo:** (83) 3223-1568
 - **WhatsApp comercial (principal, API oficial):** (83) 9 8855-5601
 - **WhatsApp secundário (em teste com agente de IA):** (83) 9 9847-1242
@@ -28,7 +30,9 @@
   - Substitui a suposição anterior de "Inter" (system font stack neutra, sem base real). Fonte exata do wordmark e da condensada ainda não confirmada, listada como pendência no brand kit.
 
 ## Contexto Operacional & Mercado (briefing de reunião, 23/07/2026)
+
 Ata completa em `historico/2026-07-23-briefing-reuniao-tony.md`.
+
 - **Gestão interna:** a esposa do Tony atua como gerente da loja.
 - **Logística:** retorno do motorista da loja previsto para 06/08/2026, com impacto direto no cronograma de operação/entrega.
 - **Posicionamento atual:** a loja vende proporcionalmente mais para fora do seu raio de atuação imediato do que para o próprio bairro. Objetivo central declarado pelo Tony: inverter essa dinâmica e dominar a demanda local antes de expandir.
@@ -36,6 +40,7 @@ Ata completa em `historico/2026-07-23-briefing-reuniao-tony.md`.
 - **Contexto macro de João Pessoa/PB:** mudança de perfil econômico da cidade, historicamente 80/20 dependente de funcionalismo público, dando lugar ao avanço de grandes empresas e forte expansão imobiliária/hoteleira. Abertura do que seria o maior polo turístico do Nordeste (resorts, redes hoteleiras) está impulsionando a construção civil na região — tese de mercado do Tony, não dado oficial verificado pela agência.
 
 ## Oferta atual
+
 - **O que está sendo promovido:** Materiais Básicos, Elétrica, Hidráulica e Pintura (linha completa de loja de material de construção)
 - **Sistema Tintométrico (linha de acabamento / alto ticket):** sistema de tinta capaz de manipular até 5.000 cores. Objetivo de mídia (Google e Meta Ads) é posicionar a Construmais como referência local em tintas e mistura personalizada dentro do bairro Cristo Redentor e arredores. (Fonte: briefing 23/07/2026)
 - **Material básico ensacado (linha de volume / alta margem):** venda de areia, brita e cascalho ensacados em sacos de 20 kg, com sacaria de ráfia personalizada da marca e máquina de costura própria para fechamento profissional. Margem por m³/unidade é bem mais alta que a venda a granel. Entrega de sacos de 20 kg é viável dentro do bairro; fora do bairro ou em maiores volumes fica inviável em pequenos lotes pelo custo de frete, exigindo frete dinâmico ou embutido no preço. Segmentação por bairros combina duas lógicas: áreas carentes de suprimento rápido de material básico e bairros de classe média/alta (público Z4, alto ticket). (Fonte: briefing 23/07/2026)
@@ -44,16 +49,19 @@ Ata completa em `historico/2026-07-23-briefing-reuniao-tony.md`.
 - **Meta de conversão:** Venda (via orçamento gerado por WhatsApp/formulário que converte em compra na loja ou entrega)
 
 ## Público
+
 - **Perfil:** Não detalhado explicitamente pelo cliente como persona, mas o formulário confirma o padrão B2C local + profissional autônomo já assumido no plano de julho de 2026: morador de João Pessoa fazendo reforma/construção e profissional (pedreiro, eletricista, encanador, pintor) comprando para obra de terceiros.
 - **Dor concreta:** Confirmada indiretamente pelas "maiores dificuldades enfrentadas nas vendas" relatadas pelo cliente: frete quando cobrado, desconto e preço são os principais pontos de atrito no fechamento.
 - **Frase verbatim do público:** Não temos a fala da dor pré-compra (o formulário de onboarding não capturou isso). Como aproximação, as 108 avaliações reais do Google Meu Negócio (`outputs/2 - Domínio Territorial/1 - Google Meu Negócio/2026-07-26-respostas-avaliacoes-google.md`) trazem fala real pós-compra, recorrente em: atendimento, preço justo/acessível, variedade, entrega pontual, ambiente familiar. Útil como prova social e reforço de copy, não substitui a frase de dor pré-compra ainda pendente.
 
 ## Tom da marca
+
 - **Voz:** Próxima e informal (usa "a gente" em vez de "nós", tratamento direto ao cliente). Varia em 3 modos conforme o tipo de post: educativo/prestativo com dicas e emojis temáticos (⚠️🔥🔎), acolhedor e mais poético em datas comemorativas (Dia das Mães, Páscoa, Dia do Construtor), confiante e institucional em posts de trajetória/aniversário (reforça os 15 anos de mercado).
 - **Personalidade:** Loja de bairro que resolve rápido, atendimento de confiança. Sempre fecha com CTA comercial claro (WhatsApp, endereço físico, "arrasta pro lado", "salva e compartilha").
   - Fonte: brand kit extraído em 2026-07-23 da análise do perfil, grid de posts e legendas do Instagram @construmaisjpa. **Substitui** a suposição anterior ("direta e prática, sem tecnicismo", marcada como não validada), agora com base em conteúdo real publicado pela marca.
 
 ## Identidade visual (brand kit @construmaisjpa, 2026-07-23)
+
 - **Logo:** círculo vermelho com casa amarela estilizada e "C" branco no centro (remete a "casa" + inicial da marca). Arquivo real em `Operacional/clientes/construmais/marca/logo-construmais.png`.
 - **Mascote:** operário 3D (capacete amarelo, colete amarelo, camisa vermelha com o logo estampado, calça jeans, botas laranjas, segurando colher de pedreiro), usado em datas comemorativas e promoções para humanizar a marca. Arquivo real em `Operacional/clientes/construmais/marca/mascote-construmais.png`.
 - **Ícones recorrentes:** capacete de segurança, ferramentas, tomadas elétricas, vergalhões
@@ -63,6 +71,7 @@ Ata completa em `historico/2026-07-23-briefing-reuniao-tony.md`.
 - Fonte: mesmo brand kit do Instagram @construmaisjpa. Nenhum destes elementos vinha do formulário de onboarding original. Pendência: formalizar isso como guideline de marca completo (regras de uso do mascote, hex exatos, arquivo de fonte) se o cliente confirmar que quer consolidar identidade visual própria em vez da paleta neutra usada antes.
 
 ## Contrato com a Pillar
+
 - **Início:** 16/07/2026. Contrato de 12 meses, vigência prevista até 16/07/2027.
 - **Valor:** R$ 2.200,00/mês, contrato de 12 meses. Distinto do orçamento de mídia (R$ 2.000,00/mês pago direto às plataformas pela Construmais).
 - **Escopo formal do Anexo I:** lista 4 itens explícitos (Curva ABC/giro de estoque, Pilar 1; Google Meu Negócio, Pilar 2; Tráfego Pago, Pilar 2; Treinamento Comercial, Pilar 4), reduzido de um detalhamento por 5 pilares por decisão de redução de risco jurídico da Pillar. **Importante:** essa redução é só uma proteção contratual da agência (o que está formalmente descrito e cobrado no Anexo I), não uma decisão de aplicar o método pela metade. O Método Viga Mestra é único e os 5 pilares são aplicados ao Tony por completo.
@@ -75,6 +84,7 @@ Ata completa em `historico/2026-07-23-briefing-reuniao-tony.md`.
 Respostas reais do cliente, organizadas pelos 5 pilares de `_squad/_shared/metodo-viga-mestra.md`. Substitui a nota anterior de "pendente de dado real".
 
 ### Pilar 1, Inteligência de Dados
+
 - Sistema de gestão / ERP: Pontual Tecnologia
 - Possui CRM: não
 - Dados de cliente cadastrados no sistema: nome, celular (WhatsApp), e-mail, endereço, CPF
@@ -87,6 +97,7 @@ Respostas reais do cliente, organizadas pelos 5 pilares de `_squad/_shared/metod
 - Este pilar já tem base analítica forte, mais forte inclusive que os demais, mas com pendência crítica de correção de dado antes de qualquer decisão de precificação ou kit basear-se nele.
 
 ### Pilar 2, Domínio Territorial
+
 - Raio de entrega considerado lucrativo hoje: 5km
 - **Raio de campanha de mídia paga (briefing 23/07/2026):** distinto do raio de entrega lucrativo acima. Definido inicialmente em até 10 km da loja, com foco no bairro Cristo Redentor (população estimada de ~40.000 pessoas), priorizando reconhecimento de marca e dominância de demanda local antes de expandir.
 - Regiões foco (maior ticket, marcadas pelo cliente): Manaíra, Tambaú, Cabo Branco, Camboinha, Poço, Intermares, João Agripino, Brisamar. Também citadas com volume: Jardim Cidade Universitária, Bancários, Geisel, José Américo, Cidade dos Colibris, Anatólia, Centro, Jaguaribe, Penha, Tambauzinho
@@ -104,6 +115,7 @@ Respostas reais do cliente, organizadas pelos 5 pilares de `_squad/_shared/metod
 - Orçamento mensal atual de marketing: R$ 2.000,00 (confirma o budget do briefing express de julho de 2026)
 
 ### Pilar 3, Combo de Produtos
+
 - Ticket médio geral atual: até R$ 300
 - Kits por fase de obra: não comercializa hoje, mas tem interesse em estruturar. Oportunidade direta de proposta.
 - Cross-sell natural já observado pelo próprio lojista: areia e cimento (oferecer vedalit), joelho e tubo (oferecer cola), cerâmica e argamassa (oferecer rejunte), tinta e rolo de pintura (oferecer lixa)
@@ -112,6 +124,7 @@ Respostas reais do cliente, organizadas pelos 5 pilares de `_squad/_shared/metod
 - **Nota de escopo:** ainda que o Pilar 3 não seja item formal do Anexo I assinado hoje, o Tony e a Pillar tratam os 5 pilares como parte de um método único, então o material de kits acima é produzido e entregue como entregável completo. O que falta é só formalizar o Pilar 3 como item explícito e faturável do contrato (upsell contratual) quando o Tony confirmar.
 
 ### Pilar 4, Vendedor de Elite
+
 - Volume diário estimado de orçamentos: até 15/dia
 - Taxa de conversão orçamento-venda: não monitorada ("não temos esta métrica")
 - Tempo médio de resposta declarado: até 15 minutos
@@ -122,47 +135,55 @@ Respostas reais do cliente, organizadas pelos 5 pilares de `_squad/_shared/metod
 - Nota: este é o pilar com maior lacuna de processo hoje (sem follow-up, sem métrica de conversão, script informal). Prioridade natural para o playbook de atendimento do `@copywriter`.
 
 ### Pilar 5, Plano Obra Integral
+
 - Parcerias ou benefícios para profissionais da construção (pedreiro, encanador etc.): não existe hoje
 - Acompanhamento de fase da obra do cliente para ofertar próxima etapa: não é feito
 - Mecanismo de fidelização do consumidor final: não existe, mas tem interesse
 - **Estratégia B2B e parcerias de campo (briefing 23/07/2026):** a Construmais atende no começo e no fim da obra. Plano de estruturação de programas formais de indicação e fornecimento para: administradoras de condomínios (material básico ensacado para reparos e manutenção predial), indústrias/fábricas/comércios locais (suprimento recorrente via contrato direto), e vendedores/instaladores de piscina de fibra (parceria pela demanda contínua de areia de assentamento/filtro). Já é homologada junto ao Grupo Aena (aeroportos), Sistema Loggi/Grupo MRV e Controll (setor elétrico). Para especificadores (arquitetos, engenheiros, mestres de obra, construtoras), o comportamento observado é que o cliente final B2B/residencial geralmente compra por indicação direta do profissional de campo, não por busca própria.
 
 ### Objetivos declarados pelo cliente
+
 - Meta para os próximos 12 meses: dobrar o faturamento
 - Expectativa com a assessoria da Pillar: ganhar visibilidade onde ainda não é conhecido, virar opção de compra com aumento de seguidores, e ajudar a atingir a meta de faturamento
 - Algo não perguntado que o cliente queira mencionar: não
 
 ## Presença Digital & Social Media (briefing 23/07/2026)
+
 - **Dor atual do cliente:** desejo claro de ganhar seguidores qualificados e construir autoridade local.
 - **Posicionamento pessoal:** humanizar a comunicação e transformar o Instagram no "rosto do Tony" (autoridade e presença do dono), reforçando o padrão institucional já identificado no brand kit.
 - **Alinhamento operacional:** o Tony está cotando uma agência parceira de Social Media para captação presencial de conteúdo na loja (fotos e vídeos), fora do escopo contratado com a Pillar.
 - **Ação pendente da Pillar:** solicitar ao Tony o acervo de vídeos e fotos brutas da estrutura física e do estoque da loja, para uso em campanhas de performance/resposta direta enquanto o banco de fotos formal não existe (pendência já registrada nos outputs de Google Meu Negócio e dos criativos de Dia dos Pais).
 
 ## Plano de Ação (reunião de briefing, 23/07/2026)
-| Ação | Prioridade | Responsável | Prazo |
-| :--- | :---: | :---: | :---: |
-| Configurar campanhas de tráfego local (Google Perfil / Meta) no raio de 10km (foco: Cristo Redentor) | Alta | Agência Pillar | A definir |
-| Estruturar oferta de Tintas / Sistema Tintométrico (até 5 mil cores) | Alta | Agência Pillar | A definir |
-| Criar campanha específica de Materiais Ensacados para condomínios e bairros alvo | Média | Agência Pillar | A definir |
-| Solicitar acervo de vídeos e fotos da loja ao Tony | Alta | Atendimento | Imediato |
-| Alinhar cronograma considerando o retorno do motorista | Média | Operacional | 06/08/2026 |
+
+| Ação                                                                                                | Prioridade |  Responsável  |   Prazo   |
+| :---------------------------------------------------------------------------------------------------- | :--------: | :-------------: | :--------: |
+| Configurar campanhas de tráfego local (Google Perfil / Meta) no raio de 10km (foco: Cristo Redentor) |    Alta    | Agência Pillar | A definir |
+| Estruturar oferta de Tintas / Sistema Tintométrico (até 5 mil cores)                                |    Alta    | Agência Pillar | A definir |
+| Criar campanha específica de Materiais Ensacados para condomínios e bairros alvo                    |   Média   | Agência Pillar | A definir |
+| Solicitar acervo de vídeos e fotos da loja ao Tony                                                   |    Alta    |   Atendimento   |  Imediato  |
+| Alinhar cronograma considerando o retorno do motorista                                                |   Média   |   Operacional   | 06/08/2026 |
 
 ## Compliance
+
 - **Restrições do nicho:** Nenhuma regulamentação setorial específica (não é saúde, direito ou financeiro). Aplica-se o Código de Defesa do Consumidor padrão: preço exibido em anúncio precisa ser real e vigente, prazo de entrega prometido precisa ser cumprível, garantia mencionada precisa ser a política real da loja.
 - **O que não pode ser dito:** Preço ou condição de parcelamento que não seja política real e vigente da loja. Prazo de entrega que a loja não consegue cumprir. Frete grátis, já que o cliente relatou frete cobrado como ponto de atrito, não como cortesia.
 
 ## Tracking
+
 - **Pixel Meta ID:** [PREENCHER - não veio no formulário de onboarding]
 - **GA4 ID:** [PREENCHER - não veio no formulário de onboarding]
 - **Domínio principal:** construmaisjp.com.br
 - **Ad Account ID Meta (act_...):** [PREENCHER - opcional, necessário só se for usar Meta Ads CLI Nível 2/3]
 
 ## Métricas-alvo
+
 - **CPL meta:** R$ 30-80 (benchmark adaptado de "Reforma/Construção" em `_squad/01-gestor-trafego/benchmarks.md`. O nicho "loja de material de construção" já está catalogado em `_shared/nichos.md`, mas `benchmarks.md` ainda não tem uma linha numérica dedicada, então a aproximação segue valendo até termos entrada própria lá)
 - **CPA meta:** R$ 60-150 (estimativa anterior). Agora que o ticket médio real é conhecido (até R$ 300, baixo ticket), este número deve ser recalculado pelo `@gestor-trafego` na próxima rodada. Falta ainda margem de lucro e taxa de fechamento real (o cliente não monitora "a cada 10 orçamentos, quantas vendas"), então o recálculo fica como estimativa até esses dois dados existirem.
 - **ROAS meta:** não aplicável neste momento (loja física sem e-commerce declarado). Se o cliente abrir venda online com catálogo, recalcular.
 
 ## Histórico
+
 > Registra só tratativas entre agência e cliente (reunião, ligação, confirmação, aprovação), não a criação de outputs/entregas (Regra 21 de `_squad/_shared/regras-globais.md`, ajustada em 2026-08-04 a pedido do usuário). O histórico anterior, mais longo e com log de cada entrega, continua recuperável via `git log -- "Operacional/clientes/construmais/CLIENTE.md"`.
 
 - **2026-07-23:** Formulário de onboarding do Método Viga Mestra recebido do Tony (diagnóstico dos 5 pilares, dados de contrato, ticket médio, contatos). Vermelho (`#EE2526`) e amarelo (`#F4D000`) da paleta de marca confirmados em hex exato direto com ele.

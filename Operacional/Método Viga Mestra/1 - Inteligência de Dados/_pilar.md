@@ -8,6 +8,6 @@
 
 ## Atividades
 
-1. [Curva ABC do Estoque](1%20-%20Curva%20ABC%20do%20Estoque/_atividade.md)
-2. [Giro de Estoque e Margem](2%20-%20Giro%20de%20Estoque%20e%20Margem/_atividade.md)
-3. [Produtos Isca](3%20-%20Produtos%20Isca/_atividade.md)
+1. [Curva ABC](<1%20-%20Curva%20ABC%20do%20Estoque/_atividade.md>)
+2. [Estoque](<2%20-%20Giro%20de%20Estoque%20e%20Margem/_atividade.md>)
+3. [Produtos Isca](<3%20-%20Produtos%20Isca/_atividade.md>)
