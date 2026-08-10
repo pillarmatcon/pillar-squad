@@ -19,6 +19,8 @@ Não existe nenhum RESUMO DE PERFORMANCE do `@analista-dados` salvo em `outputs/
 
 Uma ressalva importante antes de qualquer recomendação: o formulário de onboarding (21/07/2026) já registrava "já investe em anúncios atualmente: sim" antes do plano de julho existir. Não está confirmado se as campanhas rodando hoje seguem a estrutura proposta em julho (60% Meta, 40% Google) ou se são campanhas anteriores ao contrato com a Pillar. Confirmar isso com o Tony, ou com quem administra a conta no dia a dia, é o primeiro passo antes de qualquer mudança de budget.
 
+**Atualização (10/08/2026):** ressalva resolvida. As campanhas ativas hoje já são geridas pela Pillar, não são remanescentes de antes do contrato. O Alex reativou as campanhas que estavam performando melhor como solução temporária, enquanto o site novo e as novas estratégias (alocação 85% Google / 15% Meta abaixo) ainda estão em configuração.
+
 ### Meta Ads
 
 Testei a CLI antes de começar:
