@@ -112,7 +112,7 @@ Respostas reais do cliente, organizadas pelos 5 pilares de `_squad/_shared/metod
 - **Achado a investigar:** nos "Lugares também pesquisados" do próprio perfil aparece um segundo local também chamado "Construmais" (5,0★, 2 avaliações), distinto do perfil principal. Pode ser um perfil duplicado/órfão no Google ou um negócio homônimo sem relação. Recomendado confirmar com o Tony e, se for duplicata da própria loja, solicitar mesclagem ao Google antes que ela fragmente avaliações e SEO local.
 - Reviews do Google já existentes e positivos (bom atendimento, preços justos, variedade), mas é um ativo subutilizado hoje, não reforçado no site nem nas redes
 - Já investe em anúncios atualmente: sim, Google Ads e Meta Ads (Instagram/Facebook)
-- Orçamento mensal atual de marketing: R$ 2.000,00 (confirma o budget do briefing express de julho de 2026)
+- Orçamento mensal atual de marketing: R$ 2.000,00 (confirma o budget do briefing express de julho de 2026). Alocação confirmada em 10/08/2026: R$ 1.700/mês Google Ads (85%) e R$ 300/mês Meta/Instagram (15%), substituindo a divisão 60% Meta / 40% Google do plano de julho (`outputs/9 - Outros/2026-07-plano-trafego-e-copy.md`), agora desalinhada com a prioridade 80/20 em Google que o cliente confirmou.
 
 ### Pilar 3, Combo de Produtos
 
