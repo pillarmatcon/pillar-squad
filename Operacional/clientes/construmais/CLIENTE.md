@@ -175,10 +175,10 @@ Respostas reais do cliente, organizadas pelos 5 pilares de `_squad/_shared/metod
 - **GA4 ID:** ainda não existe. Será criado do zero após o lançamento do site novo (`@webdesigner`)
 - **Domínio principal:** construmaisjp.com.br
 - **Ad Account ID Meta (act_...):** 817561456848056
-- **Google Ads Customer ID:** [PREENCHER - conta já ativa hoje ("já investe em anúncios atualmente: sim, Google Ads", ver Pilar 2 acima), falta o ID no formato XXX-XXX-XXXX]
-- **Acesso da Pillar à conta Google Ads:** [PREENCHER - agência já tem acesso de gerenciamento (vinculada via MCC) ou precisa ser convidada como usuária?]
-- **Google Ads Conversion Action / tag de conversão:** [PREENCHER - independente do GA4, pode e deve ser configurado antes do GA4 existir, senão Google Ads roda sem rastrear conversão]
-- **Google Tag Manager (se usado):** [PREENCHER - opcional, só se o cliente/agência optar por GTM em vez de tag direta]
+- **Google Ads Customer ID:** 891-156-9115
+- **Acesso da Pillar à conta Google Ads:** sim, vinculada via MCC
+- **Google Ads Conversion Action / tag de conversão:** "Lead WhatsApp 2" (tipo: Contato) — ID Conversão 867725854, Rótulo `0vYmCIKljLMcEJ7k4Z0D`
+- **Google Tag Manager:** vai ter, [PREENCHER - Container ID pendente, provavelmente implementado junto com o site novo (`@webdesigner`)]
 - **Google Merchant Center:** não aplicável hoje (loja física sem e-commerce declarado, mesma lógica do ROAS meta abaixo)
 
 ## Métricas-alvo
