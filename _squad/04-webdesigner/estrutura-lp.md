@@ -15,6 +15,7 @@
 | Vendas alto-ticket | Captura para call de venda (mentoria, serviço B2B, imóvel) | R$ 2.000+ | Captura completa + call |
 | Obrigado / pós-conversão | Confirma ação + próximo passo + tracking | Qualquer | 2 a 3 seções |
 | Agendamento | Marca horário (consulta, avaliação, demonstração) | Qualquer | Hero + 4 a 5 seções |
+| Institucional single-page | Vitrine institucional de varejo físico, sem formulário, CTA de WhatsApp | Qualquer | Hero + 7 seções |
 
 ---
 
@@ -193,6 +194,42 @@ Se mesmo assim a venda for direta:
 - **Salão / estética:** lembrete de cuidados pré-procedimento, política de atraso
 - **B2B:** filtro de qualificação no formulário (porte, segmento) antes do calendário
 - **Restaurante (reserva):** mostrar foto do ambiente, política de no-show, valor da couvert
+
+---
+
+## 8. Institucional single-page (varejo físico, Hero + 7 seções)
+
+### Estrutura
+1. **Header fixo**
+   - Logo à esquerda, menu de navegação horizontal (4 itens), CTA de WhatsApp à direita
+   - Vira hambúrguer em mobile
+2. **Hero / carrossel**
+   - Múltiplos slides promocionais rotativos (autoplay + setas prev/next)
+   - Cada slide: headline de impacto + CTA de WhatsApp + imagem de produto/promoção
+3. **Departamentos/categorias** (grid de 5 cards: foto circular, nome, sublinhado curto, descrição de uma linha)
+4. **Sobre + Localização** (2 colunas: logo + mapa incorporado + foto de entrega/veículo | foto de fachada ou equipe)
+5. **Depoimentos** (3 cards, 1 destacado no centro, avaliação em estrelas)
+6. **Logos de parceiros/fornecedores** (faixa horizontal, opcional se o cliente não tiver)
+7. **FAQ** (5 perguntas em acordeão)
+8. **CTA final + rodapé** em bloco único (chamada + botão de orçamento, 3 colunas: marca | navegação | contato, identificação legal completa)
+
+### Quando usar
+- Loja de material de construção, ferragens, autopeças, pet shop, supermercado de bairro
+- Qualquer varejo físico com catálogo por categoria, sem venda direta online
+- Cliente quer presença institucional forte, não uma LP de campanha específica
+
+### Detalhes técnicos
+- Sem formulário: conversão é 100% via clique no CTA de WhatsApp (repetido no header, hero e CTA final)
+- Carrossel do hero precisa funcionar sem travar performance: poucas imagens, WebP, autoplay pausável
+- Mapa incorporado via `<iframe>` do Google Maps (embed URL do endereço real do cliente)
+- Paleta de referência do template é vermelho/amarelo/verde vibrante; adaptar à marca do cliente mantendo estrutura e papel de cada cor
+
+### Anti-padrões
+- Formulário de captura no meio da página (esse tipo não usa formulário, é CTA direto)
+- FAQ genérica não relacionada ao negócio do cliente
+- Carrossel com mais de 4 a 5 slides (cansa e pesa a página)
+
+**Template-base:** [templates-html/institucional.html](templates-html/institucional.html)
 
 ---
 

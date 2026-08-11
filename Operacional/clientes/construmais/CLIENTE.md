@@ -13,7 +13,6 @@
 - **Telefone fixo:** (83) 3223-1568
 - **WhatsApp comercial (principal, API oficial):** (83) 9 8855-5601
 - **WhatsApp secundário (em teste com agente de IA):** (83) 9 9847-1242
-  - Nota: confirmado direto com o Tony em 28/07/2026. Corrige o registro anterior, que tratava o 8855-5601 como número não confiável (só formulário de onboarding) e o 9847-1242 como WhatsApp comercial principal (fonte: site oficial). Ordem invertida: o principal com API oficial é o 8855-5601, e o 9847-1242 é o número secundário hoje em teste com agente de IA.
 - **E-mail comercial:** contato@construmaisjp.com.br
 - **Site:** construmaisjp.com.br (site institucional já existe, desenvolvido pela agência "Anova Agência" — simples, sem blog, sem catálogo de produtos, sem SEO. Foi replicado em HTML/CSS como base editável, incluindo logo, fachada, foto do Tony e galeria de fotos da loja. Útil como ponto de partida para o `@webdesigner`, não precisa construir do zero.)
 - **Google Meu Negócio:** https://share.google/CktkQ0DtvZQqD4KxD
@@ -22,10 +21,6 @@
 - **Tempo de mercado:** 15 anos (consistente com fundação em 2011 citada no depoimento institucional do site)
 - **Total de colaboradores:** 6 (2 vendedores)
 - **Cores da marca:** Vermelho principal #EE2526 (dominante, fundo, logo, camisa do mascote) / Amarelo #F4D000 (destaque, preço, CTA, capacete e colete do mascote) / Laranja #F7941D (uso pontual, só nas botas do mascote, ainda aproximado) / Branco (texto principal, contorno do logo) / Preto (sombra, contorno, fundo de vídeo)
-  - Fonte: brand kit extraído em 2026-07-23 a partir da análise do perfil, grid de posts e legendas do Instagram @construmaisjpa (não veio do formulário de onboarding). Vermelho e amarelo confirmados em hex exato pelo Tony/agência em 2026-07-23 (#EE2526 e #F4D000). **Substitui** a paleta laranja terracota/amarelo mostarda registrada antes, que era suposição baseada só no nicho, sem dado real de marca.
-  - Ajuste em 2026-07-23: a leitura inicial do grid do Instagram supunha o laranja como cor dominante do mascote (capacete e colete). O arquivo real do mascote (`marca/mascote-construmais.png`, registrado na sétima atualização do Histórico) mostra capacete e colete **amarelos**, com o laranja aparecendo só nas botas. Laranja deixa de ser cor de destaque do mascote e passa a detalhe secundário.
-  - Pendência remanescente: o laranja (#F7941D) ainda é aproximação visual do grid, não confirmado em hex exato. Vermelho e amarelo já estão travados.
-  - **Atenção:** os outputs de julho de 2026 (`2026-07-carrossel-oferta.html`, `2026-07-dashboard-metas.html`, `2026-07-landing-page-captura.html`) foram produzidos com a paleta antiga (laranja terracota) e, segundo a nona atualização do Histórico, regenerados com a paleta real. Porém esses 3 arquivos **não estão preservados neste workspace** (ver 25ª atualização do Histórico): se forem necessários, recuperar da conversa original no claude.ai ou regenerar do zero com a paleta confirmada.
 - **Fonte da marca:** wordmark "construmais" em fonte arredondada bold levemente itálica ("constru" em amarelo, "mais" em branco) / títulos de impacto em fonte condensada geométrica bold (tipo Poppins ExtraBold ou Montserrat Black, a confirmar) / datas comemorativas em script cursiva dourada (tipo Pacifico ou Lobster, a confirmar) / apoio e legenda em sans-serif simples
   - Substitui a suposição anterior de "Inter" (system font stack neutra, sem base real). Fonte exata do wordmark e da condensada ainda não confirmada, listada como pendência no brand kit.
 

@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!--
+  Template: Site Institucional Single-Page (varejo físico, tom vibrante/promocional)
+  Squad Pillar MatCon, Agente 04-Páginas — 5º tipo de página, ver SKILL.md
+  Referência de estrutura: página GreatPages usada como modelo visual (carrossel, mapa,
+  FAQ, logos de parceiros, CTA final em bloco único). Paleta abaixo é a referência do
+  modelo (vermelho/amarelo/verde); adaptar às cores de marca de cada cliente mantendo
+  a mesma estrutura de layout, proporção e componentes.
+  Trocar todos os {{PLACEHOLDER}} pelos dados reais do briefing antes de subir.
+  Departamentos/categorias: o grid é pensado para 5 itens. Menos que isso, redistribuir
+  o grid; mais que isso, considerar destacar só os 5 principais e linkar "ver tudo".
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="{{COR_PRIMARIA_HEX}}">
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- SEO -->
+<title>{{NOME_CLIENTE}} | {{OFERTA_PRINCIPAL_CURTA}}, {{CIDADE}}</title>
+<meta name="description" content="{{DESCRIPTION_150_160_CHARS}}">
+<meta name="keywords" content="{{NICHO}}, {{CIDADE}}, {{OFERTA_PRINCIPAL_CURTA}}">
+<meta name="author" content="{{NOME_CLIENTE}}">
+<link rel="canonical" href="{{URL_CANONICA}}">
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{NOME_CLIENTE}} | {{OFERTA_PRINCIPAL_CURTA}}">
+<meta property="og:description" content="{{DESCRIPTION_150_160_CHARS}}">
+<meta property="og:image" content="{{URL_ABSOLUTA_OG_IMAGE_1200x630}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ALT_OG_IMAGE}}">
+<meta property="og:url" content="{{URL_CANONICA}}">
+<meta property="og:site_name" content="{{NOME_CLIENTE}}">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{NOME_CLIENTE}} | {{OFERTA_PRINCIPAL_CURTA}}">
+<meta name="twitter:description" content="{{DESCRIPTION_150_160_CHARS}}">
+<meta name="twitter:image" content="{{URL_ABSOLUTA_OG_IMAGE_1200x630}}">
+
+<!-- Schema.org: trocar @type pelo mais específico do nicho (ver tabela em SKILL.md) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{SCHEMA_TYPE}}",
+  "name": "{{NOME_CLIENTE}}",
+  "image": "{{URL_LOGO}}",
+  "url": "{{URL_CANONICA}}",
+  "telephone": "{{TELEFONE_TEL}}",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ENDERECO_RUA_NUMERO}}",
+    "addressLocality": "{{CIDADE}}",
+    "addressRegion": "{{UF}}",
+    "postalCode": "{{CEP}}",
+    "addressCountry": "BR"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "{{HORARIO_ABERTURA_SEMANA}}",
+      "closes": "{{HORARIO_FECHAMENTO_SEMANA}}"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday"],
+      "opens": "{{HORARIO_ABERTURA_SABADO}}",
+      "closes": "{{HORARIO_FECHAMENTO_SABADO}}"
+    }
+  ],
+  "sameAs": [
+    "{{URL_INSTAGRAM}}",
+    "{{URL_FACEBOOK}}"
+  ]
+}
+</script>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="{{FAVICON_URL}}">
+<link rel="apple-touch-icon" href="{{FAVICON_URL}}">
+
+<!-- Fonte de título, só se o briefing exigir fonte de marca. Caso contrário, remover
+     este bloco e usar só --font-display do system stack abaixo. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="{{GOOGLE_FONTS_URL}}" rel="stylesheet">
+
+<style>
+:root {
+  /* Paleta de referência do modelo (vermelho/amarelo/verde vibrante, varejo físico).
+     Adaptar para a identidade de cada cliente mantendo o mesmo papel de cada cor:
+     primária em headers/hero/CTA final, accent em badges/destaques, cta em ação principal. */
+  --color-primary: {{COR_PRIMARIA_HEX}};       /* ex: #E30613, cor de marca dominante */
+  --color-primary-dark: {{COR_PRIMARIA_DARK_HEX}}; /* ex: #8C0F14, gradiente/sombra */
+  --color-accent: {{COR_ACCENT_HEX}};          /* ex: #F5C518, badges e destaques */
+  --color-accent-dark: {{COR_ACCENT_DARK_HEX}};
+  --color-cta: {{COR_CTA_HEX}};                /* ex: #25D366, ação principal tipo WhatsApp */
+  --color-cta-dark: {{COR_CTA_DARK_HEX}};
+  --color-text: #1A1A1A;
+  --color-text-soft: #4A4A4A;
+  --color-bg: #FFFFFF;
+  --color-bg-alt: {{COR_BG_ALT_HEX}};          /* ex: #F3EFE9, off-white/creme */
+  --color-border: #E5E5E5;
+  --font-display: {{FONTE_TITULO_STACK}};      /* ex: 'Poppins', system-ui, sans-serif */
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --max-width: 1200px;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+ul { list-style: none; }
+h1, h2, h3, p { overflow-wrap: break-word; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+.icon { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.icon--fill { fill: currentColor; stroke: none; }
+
+.skip-link {
+  position: absolute; top: -48px; left: 12px; background: var(--color-text); color: #fff;
+  padding: 10px 16px; border-radius: 6px; z-index: 200; transition: top .15s;
+}
+.skip-link:focus { top: 12px; }
+
+/* HEADER */
+.header { position: sticky; top: 0; z-index: 100; background: var(--color-primary); color: #fff; }
+.header__inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; }
+.header__logo { display: flex; align-items: center; gap: 8px; }
+.header__logo img { height: 34px; width: auto; }
+.header__toggle { display: none; }
+.header__menu { display: flex; flex-direction: column; background: var(--color-primary-dark); }
+.header__menu a {
+  padding: 14px 20px; font-weight: 600; font-size: 15px; color: #fff;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.header__cta {
+  margin: 12px 20px 16px; padding: 12px 18px; text-align: center;
+  background: var(--color-cta); color: #fff; font-weight: 700;
+  border-radius: 8px; border-top: none !important;
+}
+.header__cta:hover { background: var(--color-cta-dark); }
+
+html.js .header__toggle {
+  display: flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; color: #fff;
+}
+html.js .header__toggle .icon-close { display: none; }
+html.js .header__toggle[aria-expanded="true"] .icon-menu { display: none; }
+html.js .header__toggle[aria-expanded="true"] .icon-close { display: block; }
+html.js .header__menu {
+  position: absolute; top: 100%; left: 0; right: 0;
+  max-height: 0; overflow: hidden; transition: max-height .25s ease;
+}
+html.js .header__menu.open { max-height: 420px; }
+
+@media (min-width: 768px) {
+  html.js .header__toggle { display: none; }
+  html.js .header__menu {
+    position: static; max-height: none; overflow: visible;
+    flex-direction: row; align-items: center; background: transparent;
+  }
+  .header__menu a { border-top: none; padding: 8px 14px; font-size: 14px; }
+  .header__menu a:hover { opacity: 0.8; }
+  .header__cta { margin: 0 0 0 8px; padding: 10px 20px; border-radius: 24px; white-space: nowrap; }
+}
+
+/* HERO / CARROSSEL */
+.hero {
+  position: relative; overflow: hidden;
+  background: var(--color-primary); color: #fff;
+  padding: 48px 0 64px;
+}
+/* Formas diagonais + pontilhado decorativo em accent sobre fundo primário */
+.hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(circle, var(--color-accent) 2px, transparent 2px) 0 0 / 24px 24px,
+    linear-gradient(135deg, transparent 55%, var(--color-primary-dark) 55%);
+  opacity: 0.18;
+}
+.hero__track { position: relative; }
+.hero__slide {
+  display: none; text-align: center;
+}
+.hero__slide.active { display: grid; gap: 24px; }
+.hero__slide h1 {
+  font-size: 30px; font-weight: 800; color: #fff;
+  text-shadow: 2px 2px 0 var(--color-primary-dark), 4px 4px 8px rgba(0,0,0,0.25);
+  max-width: 640px; margin: 0 auto;
+}
+.hero__slide p { font-size: 17px; font-weight: 600; max-width: 480px; margin: 0 auto; opacity: 0.95; }
+.hero__slide img { max-width: 260px; margin: 0 auto; }
+.hero__cta {
+  display: inline-flex; align-items: center; gap: 8px; justify-self: center;
+  background: var(--color-accent); color: var(--color-text);
+  font-family: var(--font-display); font-weight: 800; font-size: 16px;
+  padding: 15px 28px; border-radius: 8px;
+}
+.hero__cta:hover { background: var(--color-accent-dark); }
+.hero__nav {
+  display: flex; justify-content: center; gap: 12px; margin-top: 24px;
+}
+.hero__arrow {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.15); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+}
+.hero__arrow:hover { background: rgba(255,255,255,0.28); }
+.hero__dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+.hero__dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.35); }
+.hero__dot.active { background: #fff; }
+
+@media (min-width: 768px) {
+  .hero { padding: 72px 0 96px; }
+  .hero__slide.active { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); text-align: left; align-items: center; }
+  .hero__slide h1 { font-size: 46px; margin: 0; }
+  .hero__slide p { margin: 0; }
+  .hero__slide img { max-width: 340px; margin: 0; }
+  .hero__cta { justify-self: start; }
+}
+
+/* SECTIONS shared */
+.section { padding: 56px 0; }
+.section--alt { background: var(--color-bg-alt); }
+.section__label {
+  display: block; text-align: center; font-size: 13px; font-weight: 800;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary);
+  margin-bottom: 8px;
+}
+.section__title { font-size: 26px; font-weight: 800; text-align: center; margin-bottom: 10px; color: var(--color-text); }
+.section__title--light { color: #fff; }
+.section__sub { font-size: 16.5px; text-align: center; color: var(--color-text-soft); max-width: 560px; margin: 0 auto 36px; }
+@media (min-width: 768px) {
+  .section { padding: 88px 0; }
+  .section__title { font-size: 34px; }
+  .section__sub { font-size: 18px; margin-bottom: 48px; }
+}
+
+/* DEPARTAMENTOS / CATEGORIAS (grid de 5) */
+.dept__grid { display: grid; gap: 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.dept-card { text-align: center; }
+.dept-card__photo {
+  width: 88px; height: 88px; border-radius: 50%; overflow: hidden;
+  margin: 0 auto 16px; border: 3px solid var(--color-bg-alt);
+}
+.dept-card__photo img { width: 100%; height: 100%; object-fit: cover; }
+.dept-card h3 { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
+.dept-card__underline { width: 32px; height: 3px; background: var(--color-primary); margin: 0 auto 10px; border-radius: 2px; }
+.dept-card p { font-size: 13.5px; color: var(--color-text-soft); }
+
+@media (min-width: 768px) {
+  .dept__grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+/* SOBRE / LOCALIZAÇÃO */
+.sobre { background: var(--color-primary); color: #fff; }
+.sobre__grid { display: grid; gap: 32px; grid-template-columns: minmax(0, 1fr); }
+.sobre__logo { height: 44px; width: auto; margin-bottom: 20px; filter: brightness(0) invert(1); }
+.sobre__map { border-radius: var(--radius); overflow: hidden; border: 0; width: 100%; height: 260px; margin-bottom: 20px; }
+.sobre__vehicle { border-radius: var(--radius); overflow: hidden; }
+.sobre__photo { border-radius: var(--radius); overflow: hidden; }
+.sobre__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (min-width: 768px) {
+  .sobre__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; }
+}
+
+/* DEPOIMENTOS */
+.depo__grid { display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr); }
+.depo {
+  background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius);
+  padding: 28px 24px; text-align: center;
+}
+.depo--featured { background: var(--color-primary); color: #fff; border-color: transparent; }
+.depo__logo { height: 28px; margin: 0 auto 16px; }
+.depo__quote-icon { color: var(--color-accent); font-size: 40px; font-family: Georgia, serif; line-height: 1; display: block; margin-bottom: 8px; }
+.depo p { font-size: 15.5px; line-height: 1.55; margin-bottom: 16px; }
+.depo__avatar { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; margin: 0 auto 10px; }
+.depo__avatar img { width: 100%; height: 100%; object-fit: cover; }
+.depo cite { font-style: normal; font-weight: 700; font-size: 14px; display: block; }
+.depo__role { font-size: 12.5px; opacity: 0.8; }
+.depo__stars { color: var(--color-accent); margin-top: 8px; font-size: 14px; }
+
+@media (min-width: 768px) {
+  .depo__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .depo--featured { transform: translateY(-12px); }
+}
+
+/* LOGOS DE PARCEIROS */
+.parceiros__track {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 32px 48px;
+}
+.parceiros__track img { max-height: 36px; width: auto; filter: grayscale(1); opacity: 0.6; }
+.parceiros__track img:hover { filter: none; opacity: 1; }
+
+/* FAQ */
+.faq__list { max-width: 720px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--color-border); }
+.faq-item__btn {
+  display: flex; width: 100%; justify-content: space-between; align-items: center;
+  padding: 20px 0; text-align: left; font-size: 17px; font-weight: 700; color: var(--color-text);
+}
+.faq-item__btn::after { content: "+"; font-size: 24px; font-weight: 400; transition: transform 0.2s; }
+.faq-item.open .faq-item__btn::after { transform: rotate(45deg); }
+.faq-item__answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-size: 15px; color: var(--color-text-soft); line-height: 1.6; }
+.faq-item.open .faq-item__answer { max-height: 500px; padding: 0 0 20px; }
+
+/* CTA FINAL + RODAPÉ (bloco único) */
+.final {
+  background: var(--color-primary); color: rgba(255,255,255,0.9);
+  padding: 56px 0 0;
+}
+.final__cta { text-align: center; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.18); }
+.final__cta h2 { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+.final__cta p { font-size: 16.5px; max-width: 480px; margin: 0 auto 24px; }
+.final__cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--color-cta); color: #fff; font-weight: 800; font-size: 16px;
+  padding: 15px 28px; border-radius: 8px;
+}
+.final__cta-btn:hover { background: var(--color-cta-dark); }
+
+.final__cols { display: grid; gap: 32px; padding: 40px 0; grid-template-columns: minmax(0, 1fr); }
+.final__brand-logo { height: 36px; filter: brightness(0) invert(1); margin-bottom: 10px; }
+.final__brand p { max-width: 260px; opacity: 0.85; }
+.final-heading { font-family: var(--font-display); font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 14px; letter-spacing: 0.03em; text-transform: uppercase; }
+.final__col a, .final__col p { display: block; margin-bottom: 10px; opacity: 0.85; }
+.final__col a:hover { color: var(--color-accent); opacity: 1; }
+.final__col-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.final__col-item .icon { width: 17px; height: 17px; margin-top: 2px; color: var(--color-accent); }
+
+.final__legal {
+  border-top: 1px solid rgba(255,255,255,0.18); padding: 20px 0;
+  display: flex; flex-direction: column; gap: 12px; font-size: 13px; opacity: 0.75;
+}
+.final__legal-links a { text-decoration: underline; margin-right: 16px; }
+
+@media (min-width: 768px) {
+  .final__cols { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr); }
+  .final__legal { flex-direction: row; justify-content: space-between; align-items: center; }
+}
+
+/* COOKIE BANNER */
+.cookie-banner {
+  position: fixed; bottom: 16px; left: 16px; right: 16px; max-width: 460px; margin: 0 auto;
+  background: var(--color-text); color: #fff; padding: 18px 20px; border-radius: var(--radius);
+  font-size: 13.5px; display: none; z-index: 150; box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+.cookie-banner.visible { display: block; }
+.cookie-banner a { text-decoration: underline; color: #fff; }
+.cookie-banner button {
+  background: var(--color-accent); color: var(--color-text); padding: 9px 18px; border-radius: 6px;
+  margin-top: 12px; font-weight: 700; font-size: 13.5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+</style>
+</head>
+
+<body>
+<a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+
+<!-- Sprite de ícones SVG, curados à mão (sem emoji). Escondido fora da tela em vez de
+     display:none, que em alguns navegadores impede o <use> de renderizar os símbolos. -->
+<svg style="position:absolute; width:0; height:0; overflow:hidden" aria-hidden="true">
+  <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+  <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path d="M8.7 8.4c.3-.6.9-.5 1.3-.1l.8 1.1c.2.3.2.6 0 .9l-.6.8c.4.9 1.7 2.2 2.6 2.6l.8-.6c.3-.2.6-.2.9 0l1.1.8c.5.4.5 1-.1 1.3-1.4.7-3.5-.1-5.1-1.7-1.6-1.6-2.4-3.7-1.7-5.1z"/></symbol>
+  <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none"/><circle cx="12" cy="12" r="4" fill="none"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M14 21v-7h2.4l.4-3H14V9c0-.9.2-1.5 1.6-1.5H17V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.7 1.4-3.7 3.9V11H8.5v3H11v7z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M5 4h3.2l1.3 3.8-2 1.6a12.5 12.5 0 0 0 6.1 6.1l1.6-2 3.8 1.3V18c0 1.1-.9 2-2 2h-.3A15.7 15.7 0 0 1 3.3 6.3V6c0-1.1.9-2 1.7-2z"/></symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5L12 13l8.5-6.5"/></symbol>
+  <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 21.5s7-7.4 7-12.7A7 7 0 0 0 5 8.8c0 5.3 7 12.7 7 12.7z"/><circle cx="12" cy="8.7" r="2.4"/></symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5l3.3 1.9"/></symbol>
+</svg>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="#inicio" class="header__logo">
+      <img src="{{URL_LOGO_HEADER}}" alt="Logo {{NOME_CLIENTE}}" width="140" height="34">
+    </a>
+    <button type="button" class="header__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menu de navegação">
+      <svg class="icon icon-menu" aria-hidden="true"><use href="#icon-menu"/></svg>
+      <svg class="icon icon-close" aria-hidden="true"><use href="#icon-close"/></svg>
+    </button>
+    <nav class="header__menu" id="navMenu" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#departamentos">{{NOME_SECAO_CATEGORIAS}}</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="{{URL_WHATSAPP_COM_MENSAGEM}}" class="header__cta" id="ctaNav" target="_blank" rel="noopener">Falar no WhatsApp →</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO / CARROSSEL -->
+  <section class="hero" id="inicio">
+    <div class="container hero__track" id="heroTrack">
+
+      <div class="hero__slide active">
+        <div>
+          <h1>{{HERO_SLIDE_1_TITULO}}</h1>
+          <p>{{HERO_SLIDE_1_SUBTITULO}}</p>
+          <a href="{{URL_WHATSAPP_COM_MENSAGEM}}" class="hero__cta" target="_blank" rel="noopener">{{HERO_SLIDE_1_CTA_TEXTO}} →</a>
+        </div>
+        <img src="{{HERO_SLIDE_1_IMAGEM}}" alt="{{HERO_SLIDE_1_IMAGEM_ALT}}" width="600" height="500" loading="eager">
+      </div>
+
+      <div class="hero__slide">
+        <div>
+          <h1>{{HERO_SLIDE_2_TITULO}}</h1>
+          <p>{{HERO_SLIDE_2_SUBTITULO}}</p>
+          <a href="{{URL_WHATSAPP_COM_MENSAGEM}}" class="hero__cta" target="_blank" rel="noopener">{{HERO_SLIDE_2_CTA_TEXTO}} →</a>
+        </div>
+        <img src="{{HERO_SLIDE_2_IMAGEM}}" alt="{{HERO_SLIDE_2_IMAGEM_ALT}}" width="600" height="500" loading="lazy">
+      </div>
+
+      <div class="hero__slide">
+        <div>
+          <h1>{{HERO_SLIDE_3_TITULO}}</h1>
+          <p>{{HERO_SLIDE_3_SUBTITULO}}</p>
+          <a href="{{URL_WHATSAPP_COM_MENSAGEM}}" class="hero__cta" target="_blank" rel="noopener">{{HERO_SLIDE_3_CTA_TEXTO}} →</a>
+        </div>
+        <img src="{{HERO_SLIDE_3_IMAGEM}}" alt="{{HERO_SLIDE_3_IMAGEM_ALT}}" width="600" height="500" loading="lazy">
+      </div>
+
+      <div class="hero__nav">
+        <button type="button" class="hero__arrow" id="heroPrev" aria-label="Slide anterior">
+          <svg class="icon" aria-hidden="true"><use href="#icon-arrow-left"/></svg>
+        </button>
+        <button type="button" class="hero__arrow" id="heroNext" aria-label="Próximo slide">
+          <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+        </button>
+      </div>
+      <div class="hero__dots" id="heroDots"></div>
+    </div>
+  </section>
+
+  <!-- DEPARTAMENTOS / CATEGORIAS -->
+  <section class="section" id="departamentos">
+    <div class="container">
+      <span class="section__label">{{CATEGORIAS_LABEL}}</span>
+      <h2 class="section__title">{{CATEGORIAS_HEADLINE}}</h2>
+      <p class="section__sub">{{CATEGORIAS_SUBTITULO}}</p>
+
+      <div class="dept__grid">
+        <article class="dept-card">
+          <div class="dept-card__photo"><img src="{{CATEGORIA_1_FOTO}}" alt="{{CATEGORIA_1_NOME}}" width="88" height="88" loading="lazy"></div>
+          <h3>{{CATEGORIA_1_NOME}}</h3>
+          <div class="dept-card__underline"></div>
+          <p>{{CATEGORIA_1_DESCRICAO}}</p>
+        </article>
+        <article class="dept-card">
+          <div class="dept-card__photo"><img src="{{CATEGORIA_2_FOTO}}" alt="{{CATEGORIA_2_NOME}}" width="88" height="88" loading="lazy"></div>
+          <h3>{{CATEGORIA_2_NOME}}</h3>
+          <div class="dept-card__underline"></div>
+          <p>{{CATEGORIA_2_DESCRICAO}}</p>
+        </article>
+        <article class="dept-card">
+          <div class="dept-card__photo"><img src="{{CATEGORIA_3_FOTO}}" alt="{{CATEGORIA_3_NOME}}" width="88" height="88" loading="lazy"></div>
+          <h3>{{CATEGORIA_3_NOME}}</h3>
+          <div class="dept-card__underline"></div>
+          <p>{{CATEGORIA_3_DESCRICAO}}</p>
+        </article>
+        <article class="dept-card">
+          <div class="dept-card__photo"><img src="{{CATEGORIA_4_FOTO}}" alt="{{CATEGORIA_4_NOME}}" width="88" height="88" loading="lazy"></div>
+          <h3>{{CATEGORIA_4_NOME}}</h3>
+          <div class="dept-card__underline"></div>
+          <p>{{CATEGORIA_4_DESCRICAO}}</p>
+        </article>
+        <article class="dept-card">
+          <div class="dept-card__photo"><img src="{{CATEGORIA_5_FOTO}}" alt="{{CATEGORIA_5_NOME}}" width="88" height="88" loading="lazy"></div>
+          <h3>{{CATEGORIA_5_NOME}}</h3>
+          <div class="dept-card__underline"></div>
+          <p>{{CATEGORIA_5_DESCRICAO}}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE / LOCALIZAÇÃO -->
+  <section class="section sobre" id="sobre">
+    <div class="container sobre__grid">
+      <div>
+        <img class="sobre__logo" src="{{URL_LOGO_HEADER}}" alt="Logo {{NOME_CLIENTE}}" width="140" height="44">
+        <iframe class="sobre__map" src="{{GOOGLE_MAPS_EMBED_URL}}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização de {{NOME_CLIENTE}} no mapa"></iframe>
+        <div class="sobre__vehicle">
+          <img src="{{IMAGEM_ENTREGA_VEICULO}}" alt="{{IMAGEM_ENTREGA_VEICULO_ALT}}" width="560" height="340" loading="lazy">
+        </div>
+      </div>
+      <div class="sobre__photo">
+        <img src="{{IMAGEM_FACHADA_OU_EQUIPE}}" alt="{{IMAGEM_FACHADA_OU_EQUIPE_ALT}}" width="560" height="620" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="section" id="depoimentos">
+    <div class="container">
+      <span class="section__label">{{DEPOIMENTOS_LABEL}}</span>
+      <h2 class="section__title">{{DEPOIMENTOS_HEADLINE}}</h2>
+
+      <div class="depo__grid">
+        <blockquote class="depo">
+          <span class="depo__quote-icon" aria-hidden="true">&ldquo;</span>
+          <p>{{DEPOIMENTO_1_TEXTO}}</p>
+          <div class="depo__avatar"><img src="{{DEPOIMENTO_1_AVATAR}}" alt="{{DEPOIMENTO_1_NOME}}" width="48" height="48" loading="lazy"></div>
+          <cite>{{DEPOIMENTO_1_NOME}}</cite>
+          <span class="depo__role">{{DEPOIMENTO_1_CARGO_EMPRESA}}</span>
+          <div class="depo__stars" aria-label="{{DEPOIMENTO_1_NOTA}} de 5 estrelas">★★★★★</div>
+        </blockquote>
+
+        <blockquote class="depo depo--featured">
+          <img class="depo__logo" src="{{URL_LOGO_HEADER}}" alt="Logo {{NOME_CLIENTE}}" width="100" height="28" style="filter: brightness(0) invert(1);">
+          <span class="depo__quote-icon" aria-hidden="true">&ldquo;</span>
+          <p>{{DEPOIMENTO_2_TEXTO}}</p>
+          <div class="depo__avatar"><img src="{{DEPOIMENTO_2_AVATAR}}" alt="{{DEPOIMENTO_2_NOME}}" width="48" height="48" loading="lazy"></div>
+          <cite>{{DEPOIMENTO_2_NOME}}</cite>
+          <span class="depo__role">{{DEPOIMENTO_2_CARGO_EMPRESA}}</span>
+          <div class="depo__stars" aria-label="{{DEPOIMENTO_2_NOTA}} de 5 estrelas">★★★★★</div>
+        </blockquote>
+
+        <blockquote class="depo">
+          <span class="depo__quote-icon" aria-hidden="true">&ldquo;</span>
+          <p>{{DEPOIMENTO_3_TEXTO}}</p>
+          <div class="depo__avatar"><img src="{{DEPOIMENTO_3_AVATAR}}" alt="{{DEPOIMENTO_3_NOME}}" width="48" height="48" loading="lazy"></div>
+          <cite>{{DEPOIMENTO_3_NOME}}</cite>
+          <span class="depo__role">{{DEPOIMENTO_3_CARGO_EMPRESA}}</span>
+          <div class="depo__stars" aria-label="{{DEPOIMENTO_3_NOTA}} de 5 estrelas">★★★★★</div>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGOS DE PARCEIROS / FORNECEDORES -->
+  <section class="section section--alt" id="parceiros">
+    <div class="container">
+      <p class="section__sub" style="margin-bottom: 32px;">{{PARCEIROS_TITULO}}</p>
+      <div class="parceiros__track">
+        <img src="{{PARCEIRO_1_LOGO}}" alt="{{PARCEIRO_1_NOME}}" width="120" height="36" loading="lazy">
+        <img src="{{PARCEIRO_2_LOGO}}" alt="{{PARCEIRO_2_NOME}}" width="120" height="36" loading="lazy">
+        <img src="{{PARCEIRO_3_LOGO}}" alt="{{PARCEIRO_3_NOME}}" width="120" height="36" loading="lazy">
+        <img src="{{PARCEIRO_4_LOGO}}" alt="{{PARCEIRO_4_NOME}}" width="120" height="36" loading="lazy">
+        <img src="{{PARCEIRO_5_LOGO}}" alt="{{PARCEIRO_5_NOME}}" width="120" height="36" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <span class="section__label">{{FAQ_LABEL}}</span>
+      <h2 class="section__title">{{FAQ_HEADLINE}}</h2>
+
+      <div class="faq__list">
+        <div class="faq-item">
+          <button class="faq-item__btn">{{FAQ_1_PERGUNTA}}</button>
+          <div class="faq-item__answer">{{FAQ_1_RESPOSTA}}</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__btn">{{FAQ_2_PERGUNTA}}</button>
+          <div class="faq-item__answer">{{FAQ_2_RESPOSTA}}</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__btn">{{FAQ_3_PERGUNTA}}</button>
+          <div class="faq-item__answer">{{FAQ_3_RESPOSTA}}</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__btn">{{FAQ_4_PERGUNTA}}</button>
+          <div class="faq-item__answer">{{FAQ_4_RESPOSTA}}</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__btn">{{FAQ_5_PERGUNTA}}</button>
+          <div class="faq-item__answer">{{FAQ_5_RESPOSTA}}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- CTA FINAL + RODAPÉ (bloco único) -->
+<footer class="final">
+  <div class="container final__cta">
+    <h2>{{CTA_FINAL_TITULO}}</h2>
+    <p>{{CTA_FINAL_SUBTITULO}}</p>
+    <a href="{{URL_WHATSAPP_COM_MENSAGEM}}" class="final__cta-btn" id="ctaFinal" target="_blank" rel="noopener">
+      <svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+      Solicitar Orçamento →
+    </a>
+  </div>
+
+  <div class="container final__cols">
+    <div class="final__brand">
+      <img class="final__brand-logo" src="{{URL_LOGO_HEADER}}" alt="Logo {{NOME_CLIENTE}}" width="120" height="36">
+      <p>{{SLOGAN_CURTO}}</p>
+      <div style="display:flex; gap:12px; margin-top:16px;">
+        <a href="{{URL_INSTAGRAM}}" target="_blank" rel="noopener" aria-label="Instagram de {{NOME_CLIENTE}}">
+          <svg class="icon" style="width:18px;height:18px" aria-hidden="true"><use href="#icon-instagram"/></svg>
+        </a>
+        <a href="{{URL_FACEBOOK}}" target="_blank" rel="noopener" aria-label="Facebook de {{NOME_CLIENTE}}">
+          <svg class="icon" style="width:18px;height:18px" aria-hidden="true"><use href="#icon-facebook"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="final__col">
+      <p class="final-heading">Navegação</p>
+      <a href="#inicio">Início</a>
+      <a href="#departamentos">{{NOME_SECAO_CATEGORIAS}}</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#faq">Dúvidas</a>
+    </div>
+
+    <div class="final__col">
+      <p class="final-heading">Contato</p>
+      <div class="final__col-item">
+        <svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+        <a href="{{URL_WHATSAPP_COM_MENSAGEM}}" target="_blank" rel="noopener">{{TELEFONE_WHATSAPP_FORMATADO}}</a>
+      </div>
+      <div class="final__col-item">
+        <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+        <a href="tel:{{TELEFONE_FIXO_TEL}}">{{TELEFONE_FIXO_FORMATADO}}</a>
+      </div>
+      <div class="final__col-item">
+        <svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>
+        <a href="mailto:{{EMAIL_CONTATO}}">{{EMAIL_CONTATO}}</a>
+      </div>
+      <div class="final__col-item">
+        <svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>
+        <p style="margin-bottom:0;">{{ENDERECO_RUA_NUMERO}}<br>{{BAIRRO_CIDADE_UF}}<br>CEP {{CEP}}</p>
+      </div>
+      <div class="final__col-item">
+        <svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg>
+        <p style="margin-bottom:0;">{{HORARIO_FUNCIONAMENTO_TEXTO}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container final__legal">
+    <div>CNPJ {{CNPJ}}</div>
+    <div class="final__legal-links">
+      <a href="/politica-de-privacidade">Política de Privacidade</a>
+      <a href="/termos-de-uso">Termos de Uso</a>
+      <a href="/cookies">Cookies</a>
+    </div>
+    <div>&copy; {{ANO}} {{NOME_CLIENTE}}. Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner">
+  <p>A gente usa cookies pra melhorar sua visita ao site. Ao continuar, você concorda com nossa <a href="/politica-de-privacidade">Política de Privacidade</a>.</p>
+  <button type="button" id="cookieAccept">Entendi</button>
+</div>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '{{META_PIXEL_ID}}');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{META_PIXEL_ID}}&ev=PageView&noscript=1"/></noscript>
+
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{GA4_ID}}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '{{GA4_ID}}');
+</script>
+
+<script>
+// Nav mobile toggle
+var navToggle = document.getElementById('navToggle');
+var navMenu = document.getElementById('navMenu');
+navToggle.addEventListener('click', function () {
+  var open = navMenu.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+navMenu.querySelectorAll('a').forEach(function (link) {
+  link.addEventListener('click', function () {
+    navMenu.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    navMenu.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
+// Carrossel do hero: autoplay + setas + dots, pausa ao interagir
+(function () {
+  var track = document.getElementById('heroTrack');
+  var slides = track.querySelectorAll('.hero__slide');
+  var dotsWrap = document.getElementById('heroDots');
+  var current = 0;
+  var timer;
+
+  slides.forEach(function (_, i) {
+    var dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'hero__dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Ir para slide ' + (i + 1));
+    dot.addEventListener('click', function () { goTo(i); restart(); });
+    dotsWrap.appendChild(dot);
+  });
+  var dots = dotsWrap.querySelectorAll('.hero__dot');
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  function restart() {
+    clearInterval(timer);
+    timer = setInterval(function () { goTo(current + 1); }, 6000);
+  }
+
+  document.getElementById('heroPrev').addEventListener('click', function () { goTo(current - 1); restart(); });
+  document.getElementById('heroNext').addEventListener('click', function () { goTo(current + 1); restart(); });
+  restart();
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item__btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    btn.parentElement.classList.toggle('open');
+  });
+});
+
+// Tracking de clique nos CTAs de WhatsApp (evento de contato)
+['ctaNav', 'ctaFinal'].forEach(function (id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('click', function () {
+    if (typeof fbq !== 'undefined') fbq('track', 'Contact');
+    if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'whatsapp', event_label: id });
+  });
+});
+
+// Cookie banner
+var cookieBanner = document.getElementById('cookieBanner');
+var cookieAccept = document.getElementById('cookieAccept');
+if (!localStorage.getItem('cookieAccepted')) {
+  cookieBanner.classList.add('visible');
+}
+cookieAccept.addEventListener('click', function () {
+  localStorage.setItem('cookieAccepted', '1');
+  cookieBanner.classList.remove('visible');
+});
+</script>
+
+</body>
+</html>
