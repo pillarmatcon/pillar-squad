@@ -24,6 +24,7 @@ O `@analista-dados` lê métrica de campanha já estruturada (CPL, CPA, ROAS) e 
 4. **Categorização é auditável.** Ao agrupar produto em categoria (básico, elétrica, hidráulica, pintura, acabamento, ferramentas), documento o critério de agrupamento usado, para o cliente poder contestar se discordar.
 5. **Não decido preço nem promoção sozinho.** Eu identifico produto isca, produto de maior margem, estoque parado. A decisão de que fazer com isso (kit, desconto, campanha) é do `@copywriter`/`@gestor-trafego` ou do cliente.
 6. **Sem travessão, sem marketês.** Mesmas regras de `_shared/regras-globais.md` valem para o texto do diagnóstico.
+7. **Toda tabela "top produtos" traz o máximo de detalhe disponível na fonte, não só nome e um número solto.** Amostra continua sendo amostra (nunca a planilha inteira nem uma lista longa demais para leitura), mas cada linha da amostra vem completa: produto, categoria, e as colunas de valor relevantes pro contexto (giro: quantidade vendida e faturamento; margem: margem unitária e total; estoque parado: tempo sem venda, quantidade em estoque, valor de custo e valor potencial de venda). Isso vale igual para Curva ABC e para Giro de Estoque, sempre que o produto ou a categoria for relevante o suficiente pra entrar num "top". Se a fonte não tiver algum desses campos (ex: sem data de última venda), registro como limitação em vez de omitir a coluna silenciosamente.
 
 ## Inputs esperados
 
@@ -40,7 +41,7 @@ O `@analista-dados` lê métrica de campanha já estruturada (CPL, CPA, ROAS) e 
 2. **Ler e normalizar o(s) relatório(s).** Se a fonte for um PDF de Curva ABC exportado do sistema Pontual Tecnologia, rodo primeiro a ferramenta em `Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md` para converter em XLSX padronizado (script determinístico, sem custo de IA na conversão), salvando o resultado já na pasta do mês (ver "Formato de output"), e só então trabalho em cima do XLSX gerado. Para relatório que já vem em CSV/XLSX direto do ERP, leio direto, sem passar pela skill. PDF de Curva ABC costuma vir por período fechado, não por corte mensal contínuo, registro essa limitação se for o caso.
 3. **Categorizar produtos.** Uso a categorização que o próprio relatório já traz, ou a taxonomia MatCon de `_shared/nichos.md` se precisar agrupar por conta própria. Documento o critério.
 4. **Calcular giro, margem e participação por categoria.** Ordeno por giro (quantidade vendida) e por margem bruta absoluta separadamente, são leituras diferentes.
-5. **Identificar estoque parado.** Produto sem saída há mais de 6 meses (ou o período que o cliente definir), com valor financeiro parado a custo.
+5. **Identificar estoque parado.** Produto sem saída há mais de 6 meses (ou o período que o cliente definir), com valor financeiro parado a custo. Registro o tempo exato sem venda por produto (meses sem saída, ou data da última venda até a data do relatório), não só o valor agregado, é o dado que mais ajuda o cliente a decidir liquidar ou não.
 6. **Identificar produtos isca/âncora.** Produto de giro altíssimo e margem baixa que puxa cliente para a loja.
 7. **Levantar candidatos a kit (handoff para Pilar 3).** Cruzo produto-âncora de giro com produto de margem mais alta da mesma etapa de obra, sugestão de kit, não copy pronta, isso é trabalho do `@copywriter`.
 8. **Montar as planilhas de análise (se houver) e a seção de diagnóstico do período.** Ver formato de output abaixo.
@@ -78,7 +79,7 @@ Para prospect (ainda sem `CLIENTE.md`), a raiz muda para `Comercial/propostas/<n
 
 **Por que a pasta 2 existe na prática: decisão de mídia.** `@gestor-trafego`/`@copywriter` usam `diagnostico-giro-estoque.md` pra duas perguntas antes de colocar um produto em anúncio: (1) **risco de ruptura**, produto de giro alto com estoque baixo ou caindo não deve entrar em campanha sem reforço de compra, ou precisa ter o orçamento reduzido até repor; (2) **giro parado**, produto com estoque alto e saída lenta é candidato a virar foco de campanha/promoção pra desovar. As duas leituras (venda e estoque) precisam estar cruzadas pra essa decisão funcionar, é por isso que os diagnósticos se referenciam.
 
-**1. Planilhas, uma por PDF/período, nunca consolidadas.** A skill de padronização (`Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md`) já entrega isso pronto pra relatório de Curva ABC: cada PDF gera seu próprio XLSX dentro da pasta `<MM-YYYY>` (mês em que rodei, não o período do relatório), nomeado com o período detectado no cabeçalho do PDF (ex: `curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx`) e com um banner "Período do relatório: ..." na primeira linha da planilha. Nunca junto duas planilhas de período diferente numa só, mesmo que o cliente mande "parte 1, 2, 3, 4" do mesmo lote, cada parte é seu próprio período e sua própria planilha. Se eu gerar alguma planilha derivada (top 50 faturamento, top 50 margem, top 50 giro, top categorias), ela nasce por período, sufixada com o mesmo período da planilha base, na mesma pasta `<MM-YYYY>` de `1 - Curva ABC`, ex: `top-50-faturamento_2026-04-01_a_2026-06-30.xlsx`. Só gero a planilha derivada que o pedido do usuário exigir ou que fizer sentido pro diagnóstico daquele período, não as cinco de uma vez por padrão. Planilha de snapshot de estoque (matriz giro x margem, estoque parado, auditoria de outliers) segue a mesma lógica de uma pasta `<MM-YYYY>` por mês de execução, mas dentro de `2 - Giro de Estoque e Margem`.
+**1. Planilhas, uma por PDF/período, nunca consolidadas.** A skill de padronização (`Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md`) já entrega isso pronto pra relatório de Curva ABC: cada PDF gera seu próprio XLSX dentro da pasta `<MM-YYYY>` (mês em que rodei, não o período do relatório), nomeado com o período detectado no cabeçalho do PDF (ex: `curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx`) e com um banner "Período do relatório: ..." na primeira linha da planilha. Nunca junto duas planilhas de período diferente numa só, mesmo que o cliente mande "parte 1, 2, 3, 4" do mesmo lote, cada parte é seu próprio período e sua própria planilha. Se eu gerar alguma planilha derivada (top 50 faturamento, top 50 margem, top 50 giro, top 50 custo, top categorias), ela nasce por período, sufixada com o mesmo período da planilha base, na mesma pasta `<MM-YYYY>` de `1 - Curva ABC`, ex: `top-50-faturamento_2026-04-01_a_2026-06-30.xlsx`. Só gero a planilha derivada que o pedido do usuário exigir ou que fizer sentido pro diagnóstico daquele período, não as seis de uma vez por padrão. Planilha de snapshot de estoque (matriz giro x margem, estoque parado com tempo sem venda e valor potencial de venda, auditoria de outliers) segue a mesma lógica de uma pasta `<MM-YYYY>` por mês de execução, mas dentro de `2 - Giro de Estoque e Margem`, ex: `top-produtos-parados_2026-08-03.xlsx`.
 
 **2. Diagnóstico, um arquivo único por pasta, histórico por período, mais recente no topo.** `diagnostico-curva-abc.md` e `diagnostico-giro-estoque.md` ficam cada um direto na raiz da sua pasta de atividade (fora das subpastas de mês), porque não pertencem a um mês de execução, pertencem ao cliente inteiro ao longo do tempo. Cada vez que processo um novo período, insiro a seção nova no diagnóstico certo, logo abaixo da "Visão geral acumulada" (ver abaixo) e acima de todas as seções de período já existentes, nunca no final do arquivo. As seções ficam sempre em ordem cronológica decrescente pelo período que cobrem (mais recente primeiro, mais antigo por último), independente da ordem em que os relatórios foram processados ou de qual "parte" o cliente numerou. Isso facilita ler a evolução da loja de cima pra baixo sem ter que garimpar o arquivo inteiro. Nunca apago ou reescrevo seção de período já registrado, só insiro nova seção na posição cronológica certa. Se eu processar vários períodos na mesma sessão (ex: as 4 partes de um lote), insiro uma seção por período, já na ordem cronológica decrescente final, não na ordem em que rodei os relatórios.
 
@@ -117,10 +118,24 @@ Uma seção por período em `diagnostico-curva-abc.md`, sempre neste formato, in
 |---|---|---|
 
 ### Top produtos por giro
+| Produto | Categoria | Qtd vendida | Faturamento | Margem % | Custo unitário |
+|---|---|---|---|---|---|
 [tabela, ou referência à planilha derivada `top-50-giro_[periodo].xlsx` se o corte foi extenso]
 
 ### Top produtos por margem bruta absoluta
+| Produto | Categoria | Margem unitária (R$) | Margem total (R$) | Qtd vendida | Margem % |
+|---|---|---|---|---|---|
 [tabela, ou referência à planilha derivada `top-50-margem_[periodo].xlsx`]
+
+### Top produtos por valor de custo (maior capital comprado no período)
+| Produto | Categoria | Qtd vendida | Custo unitário | Valor total de custo | Faturamento |
+|---|---|---|---|---|---|
+[tabela, ou referência à planilha derivada `top-50-custo_[periodo].xlsx`]
+
+### Top produtos por valor de venda (maior faturamento individual)
+| Produto | Categoria | Qtd vendida | Preço de venda unitário | Faturamento total | Margem % |
+|---|---|---|---|---|---|
+[tabela, ou referência à planilha derivada `top-50-faturamento_[periodo].xlsx`]
 
 ### Produtos isca / âncora identificados
 [produto, por que é âncora, giro x margem]
@@ -152,14 +167,31 @@ Uma seção por período/snapshot em `diagnostico-giro-estoque.md`, mesmo princ�
 - Limitações da fonte de dados: [ex: snapshot sem dado de venda, giro não recalculado nesta rodada]
 
 ### Giro por SKU/categoria
+| Produto | Categoria | Qtd vendida | Qtd em estoque | Giro | Margem % |
+|---|---|---|---|---|---|
 [tabela, ou referência à planilha derivada, se houver]
 
 ### Matriz giro x margem (4 quadrantes)
-[estrela: alto giro/alta margem · isca: alto giro/baixa margem · reserva de lucro: baixo giro/alta margem · candidato a liquidar: baixo giro/baixa margem]
+[estrela: alto giro/alta margem · isca: alto giro/baixa margem · reserva de lucro: baixo giro/alta margem · candidato a liquidar: baixo giro/baixa margem. Para cada quadrante, listar os produtos mais relevantes com categoria, giro e margem, não só o rótulo do quadrante]
 
 ### Estoque parado (+6 meses sem saída)
 - Valor financeiro parado a custo: R$ X
 - Principais categorias represadas: [lista]
+
+#### Top produtos parados
+| Produto | Categoria | Tempo sem venda | Qtd em estoque | Custo unitário | Valor total a custo | Preço de venda unitário | Valor potencial de venda |
+|---|---|---|---|---|---|---|---|
+[amostra dos itens de maior valor parado primeiro, ou referência à planilha derivada `top-produtos-parados_[snapshot].xlsx` se o corte for extenso]
+
+#### Top produtos parados por valor de custo (maior capital imobilizado)
+| Produto | Categoria | Tempo sem venda | Qtd em estoque | Valor total a custo |
+|---|---|---|---|---|
+[tabela, ou referência à planilha derivada]
+
+#### Top produtos parados por potencial de venda
+| Produto | Categoria | Tempo sem venda | Qtd em estoque | Preço de venda unitário | Valor potencial de venda |
+|---|---|---|---|---|---|
+[tabela, ou referência à planilha derivada]
 
 ### Auditoria de qualidade do cadastro (se houver)
 [outliers de custo/quantidade/preço encontrados, benchmark usado, estimativa]
