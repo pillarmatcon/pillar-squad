@@ -34,7 +34,7 @@ Seis leituras que só aparecem quando os períodos e snapshots são vistos junto
 
 ## Atualização de Estoque: 03/08/2026 (snapshot, fora do ciclo de Curva ABC)
 **Fonte dos dados:** `Produto em 03-08-26.htm` (sistema Pontual Tecnologia, exportação HTML de tabela de produto), processado em 08-2026
-**Planilha:** `08-2026/estoque-auditado_2026-08-03.xlsx` (abas: Estoque padronizado, Estoque parado (ajustado), Outliers críticos)
+**Planilha:** `08-2026/estoque-auditado_2026-08-03.xlsx` (abas: Estoque padronizado, Estoque parado (ajustado), Outliers críticos) + `08-2026/top-relevantes-parados_2026-08-03.xlsx` (abas: Top por valor de custo, Top por potencial de venda, listas completas por concentração de valor, ver critério na seção "Estoque parado atualizado" abaixo)
 **Status:** v1, sujeito a refinamento
 **Tipo de relatório:** diferente dos 4 períodos abaixo. É um snapshot de produto/estoque (quantidade, custo, preço e margem cadastrados numa data única), não uma Curva ABC de vendas. Confirmado pela estrutura do arquivo (colunas Código, Dt. Compra, Produto, Fabricante, Unid. Estoque, Qtde., Custo inicial, % ICMS/IPI/ST/FRETE/OUTROS, Custo Final, % Margem, Preço, NCM, Código de Barras, Fornecedor, Qtde. última compra): não tem quantidade vendida nem faturamento, então **não atualiza giro nem participação por categoria de faturamento nesta rodada**. Formato HTML, não PDF, então não passa pela ferramenta de padronização de Curva ABC (`Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md`), que é específica pra PDF de Curva ABC; processado com parser próprio (regex determinístico, zero IA na extração).
 
@@ -46,11 +46,20 @@ Seis leituras que só aparecem quando os períodos e snapshots são vistos junto
 - Estoque parado atualizado (sem venda nos 4 períodos históricos, ajustado): **R$ 373.769,46 em 1.732 SKUs** (detalhe na seção própria abaixo)
 - Nenhum dado de faturamento, giro ou participação por categoria de venda foi recalculado nesta rodada, esse relatório não traz essa informação
 
+**Principais achados (o que muda decisão):**
+1. **O estoque parado é fortemente concentrado.** 103 produtos, 5,9% dos 1.732 itens parados, respondem por 70% do valor a custo parado (R$ 261.795,55 de R$ 373.769,46). Os 1.629 produtos restantes (cauda longa) somam só R$ 111.973,91, pouco relevantes um a um pra decisão de liquidar.
+2. **O maior item parado em valor não é "estoque velho".** Cumeeira Zincalum 0,43 (R$ 77.948,00 a custo, 20,9% de todo o valor parado ajustado) só entrou no catálogo em jan/2026, cruzando com os 4 relatórios de Curva ABC. Está parado há cerca de 7 meses, não 14 meses ou mais como a maioria da lista. Vale checar com o Tony se é item recém comprado que não girou, ou erro de lançamento de entrada.
+3. **O potencial de venda do estoque parado, se tudo fosse vendido ao preço cadastrado, é R$ 729.454,20, quase o dobro do valor a custo (R$ 373.769,46).** Mas o segundo maior item desse ranking, Tubo PVC Rosca 1 Pol Tigre (R$ 95.983,68 de potencial), tem markup cadastrado de 1.091% sobre o custo, um dos 24 itens já sinalizados na auditoria com margem acima de 1.000%. Esse valor específico deve ser tratado com reserva até confirmação de cadastro, não como fato.
+4. **A maioria dos itens parados não tem como saber o tempo exato sem venda, só um piso.** 1.720 dos 1.732 produtos (99,3%) já existiam no primeiro relatório de Curva ABC (mai/2025) e nunca tiveram venda registrada nos 14 meses seguintes, então o "tempo sem venda" real pode ser maior que 14 meses, mas não dá pra confirmar por quanto. Só 12 produtos (0,7%) entraram no catálogo depois (jan/2026), esses têm piso mais curto, cerca de 7 meses.
+
 ### Limitações da fonte de dados
 1. **Sem dado de venda/faturamento.** Este relatório só traz estoque, custo e preço cadastrados. Giro (quantidade vendida) e participação por categoria de faturamento continuam sendo os do período 01/04/2026 a 30/06/2026 (ver seção abaixo), não foram atualizados.
 2. **Sem coluna de categoria própria.** Ao contrário do `Estoque ETL.xlsx` usado em 23/07, este relatório não tem campo de categoria/grupo. Mapeei a categoria por cruzamento do `codigo` com o campo `grupo_produto` da Curva ABC mais recente (abr-jun/2026), cobrindo 15.217 dos 15.369 SKUs (99,0%). Os 152 SKUs sem categoria mapeada (0,99% dos itens, R$ 7.856,01 do valor bruto de estoque) são majoritariamente SKUs novos, criados depois de jun/2026.
 3. **Categoria corrompida no cadastro do cliente, mesmo problema já reportado em 25/07/2026.** Via o cruzamento acima, 5.254 SKUs do relatório atual mapeiam para a categoria corrompida "MD-MD-MD-MD-MD-...". Segue pendente de correção no ERP do cliente.
 4. **2 outliers críticos de cadastro identificados nesta rodada, não vistos nos relatórios anteriores** (ver auditoria abaixo). Excluídos de todos os totais "ajustados" deste diagnóstico até confirmação do Tony.
+5. **Tempo sem venda por SKU parado é um piso, não uma data exata, e varia entre os itens.** O sistema do cliente não tem campo de data de última venda, só ausência de venda nos relatórios de Curva ABC (limitação já registrada nas atualizações anteriores). Nesta rodada, cruzei o código de cada um dos 1.732 produtos parados com os 4 arquivos originais de Curva ABC (não só o flag agregado da planilha de estoque) pra identificar em qual período cada SKU aparece pela primeira vez. 1.720 SKUs já existiam desde o primeiro período (mai-out/2025), então cobrem os 14 meses inteiros da série sem nenhuma venda, mas sem dado de venda anterior a mai/2025 nem posterior a jun/2026 (o piso real pode ser maior). 12 SKUs só aparecem a partir do período jan-mar/2026 (mesmo conjunto dos 26 SKUs novos identificados no catálogo geral), esses têm piso mais curto, cerca de 7 meses, e não devem ser somados ao grupo de 14+ meses.
+
+*As seções abaixo são o detalhamento analítico, produto a produto, para consulta durante a reunião. O resumo acima já traz o que muda a decisão.*
 
 ### Auditoria de qualidade do cadastro (15.369 SKUs)
 | Achado | Quantidade | Observação |
@@ -99,19 +108,80 @@ Total ajustado: R$ 935.102,19. Valor potencial de venda (qtde × preço, mesmos 
 ### Estoque parado atualizado
 - Valor financeiro parado a custo, bruto (direto do relatório): R$ 15.255.302,32, em 1.734 SKUs
 - **Valor ajustado (excluindo os outliers 7153 e 11073, que respondem por R$ 14.881.532,87 do valor parado bruto): R$ 373.769,46, em 1.732 SKUs**
+- **Valor potencial de venda do estoque parado ajustado (qtde × preço cadastrado, mesmos 1.732 SKUs): R$ 729.454,20** (dado novo desta rodada, não calculado nas atualizações anteriores). Ver ressalva do item Tubo PVC Rosca 1 Pol Tigre na tabela "por potencial de venda" abaixo antes de tratar esse total como confirmado.
 - Comparação com 25/07/2026 (`Estoque em 27-06-26.xls`): R$ 295.126,57 em 1.695 SKUs → R$ 373.769,46 em 1.732 SKUs (alta de R$ 78.642,89, +26,6% em valor, com só +37 SKUs, +2,2%, ou seja o valor médio por item parado subiu bem mais que a quantidade de itens parados)
 - 68 SKUs novos (sem histórico de venda nos 4 períodos, criados depois de jun/2026) têm estoque positivo hoje e não entram no cálculo de parado por falta de janela de avaliação: R$ 7.254,58 a custo
 
-Maiores itens parados individuais, exceto os outliers já tratados à parte:
-| Produto | Qtde. | Custo final | Valor a custo | Categoria |
-|---|---|---|---|---|
-| Cumeeira Zincalum 0,43 | 2.998 un | R$ 26,00 | R$ 77.948,00 | Material Básico |
-| Vareta Solda Oxi 1,59mm Gerdau | 7.329 un | R$ 10,20 | R$ 74.755,80 | (categoria corrompida) |
-| Sacolas 30x40 Imp | 2.005 un | R$ 11,66 | R$ 23.378,30 | Material de Uso e Consumo |
-| Sacola Recicladas VD 60x80 | 1.015 kg | R$ 11,50 | R$ 11.672,50 | Material de Uso e Consumo |
-| Tubo PVC Rosca 1 pol Tigre | 999,83 pc | R$ 8,06 | R$ 8.058,63 | (categoria corrompida) |
+**Correção a um apontamento da rodada anterior:** a nota de 25/07/2026 dizia que "Vareta Solda Oxi e Cumeeira Zincalum já apareciam como maiores itens parados individuais nos períodos de nov-dez/2025 e jan-mar/2026 respectivamente, confirma que são itens realmente parados de longa data". Isso segue verdadeiro pra Vareta Solda Oxi (código 3746, presente desde o primeiro relatório de Curva ABC, mai-out/2025, sem venda há 14+ meses). Não é verdade pra Cumeeira Zincalum (código 1986): o cruzamento desta rodada mostra que esse código só passou a existir no catálogo a partir do relatório de jan-mar/2026, então está parado há cerca de 7 meses, não 14+. O fato de ele aparecer como "maior item individual" já no período jan-mar/2026 (primeira vez que existe no catálogo) e não em nov-dez/2025 é consistente com essa conclusão, não uma contradição, mas a leitura de "parado de longa data" estava errada pra esse item específico. Ver "Principais achados" no topo desta seção.
 
-Vareta Solda Oxi e Cumeeira Zincalum já apareciam como maiores itens parados individuais nos períodos de nov-dez/2025 e jan-mar/2026 respectivamente (ver seções abaixo), confirma que são itens realmente parados de longa data, não erro de leitura pontual.
+**Cobertura das listas abaixo (critério de concentração de valor, princípio 8 do SKILL.md):** a tabela "Top produtos parados" e a "por valor de custo" cobrem 103 produtos = 70,0% do valor a custo parado (R$ 261.795,55 de R$ 373.769,46). Os 1.629 SKUs restantes (cauda longa) somam R$ 111.973,91 (30,0%), consolidados sem detalhamento linha a linha por não mudarem a decisão individualmente. A tabela "por potencial de venda" usa o mesmo critério aplicado à dimensão de valor potencial: 76 produtos = 70,0% (R$ 510.879,96 de R$ 729.454,20), cauda longa de 1.656 SKUs somando R$ 218.574,24 (30,0%). Listas completas nas duas abas de `08-2026/top-relevantes-parados_2026-08-03.xlsx`.
+
+#### Top produtos parados
+Amostra dos 20 maiores itens por valor a custo, ordenados do maior pro menor (lista completa de 103 produtos, 70% do valor a custo parado, na aba "Top por valor de custo" da planilha derivada):
+
+| Produto | Categoria | Tempo sem venda | Qtd em estoque | Custo unitário | Valor total a custo | Preço de venda unitário | Valor potencial de venda |
+|---|---|---|---|---|---|---|---|
+| Cumeeira Zincalum 0,43 | Material Básico | ~7 meses | 2.998 UN | R$ 26,00 | R$ 77.948,00 | R$ 41,00 | R$ 122.918,00 |
+| Vareta Solda Oxi 1,59mm Gerdau | (categoria corrompida) | ≥14 meses | 7.329 UN | R$ 10,20 | R$ 74.755,80 | R$ 25,00 | R$ 183.225,00 |
+| Sacolas 30x40 Imp | Material de Uso e Consumo | ≥14 meses | 2.005 UN | R$ 11,66 | R$ 23.378,30 | R$ 0,20 | R$ 401,00 |
+| Sacola Recicladas VD 60x80 | Material de Uso e Consumo | ≥14 meses | 1.015 KG | R$ 11,50 | R$ 11.672,50 | R$ 20,00 | R$ 20.300,00 |
+| Tubo PVC Rosca 1 pol Tigre | (categoria corrompida) | ≥14 meses | 999,83 PC | R$ 8,06 | R$ 8.058,63 | R$ 96,00 | R$ 95.983,68 |
+| Metalon Galv 30mm x 20mm 1.25mm Ch 18 | Material Básico | ≥14 meses | 47,20 PC | R$ 62,36 | R$ 2.943,39 | R$ 95,00 | R$ 4.484,00 |
+| Torneira Met Filtro Abs BM 2172 C40 CR Imperatriz Metais | (categoria corrompida) | ≥14 meses | 27 UN | R$ 96,28 | R$ 2.599,56 | R$ 160,00 | R$ 4.320,00 |
+| Tela Alambrado Practica Fio 2.400mm 5x15 Alt 1.57mt Belgo | Material Básico | ≥14 meses | 50 MT | R$ 42,60 | R$ 2.130,00 | R$ 80,00 | R$ 4.000,00 |
+| Bob. Termica 80 x 40 mts Personalizada | Material de Uso e Consumo | ≥14 meses | 630 UN | R$ 2,83 | R$ 1.782,90 | R$ 2,85 | R$ 1.795,50 |
+| Bacia p/Caixa Acopl Izy Conforto BR Deca | Louças Sanitárias | ≥14 meses | 3 UN | R$ 527,27 | R$ 1.581,81 | R$ 770,00 | R$ 2.310,00 |
+| Colorante Icores BA Az Intenso P0441 0.9L | Pintura | ≥14 meses | 6.708,31 MLS | R$ 0,23 | R$ 1.542,91 | R$ 0,37 | R$ 2.482,07 |
+| Porcelanato Bali Polido 61x61 CX 1.88M2 Tipo A Cercamp | Cerâmica | ≥14 meses | 30,08 M2 | R$ 48,84 | R$ 1.469,11 | R$ 70,00 | R$ 2.105,60 |
+| Kit Aço Cacau 40 Cozimax | Armários, Gabinetes | ≥14 meses | 4 UN | R$ 342,51 | R$ 1.370,04 | R$ 400,00 | R$ 1.600,00 |
+| Boné Personalizado Construmais | Material de Uso e Consumo | ≥14 meses | 50 UN | R$ 25,00 | R$ 1.250,00 | R$ 42,50 | R$ 2.125,00 |
+| Papel Report Pr.A4 500F GR75 | Utilidades e Jardim | ≥14 meses | 46 UN | R$ 27,05 | R$ 1.244,30 | R$ 34,00 | R$ 1.564,00 |
+| Sacola Camiseta Impresso/Alta 70x90x0,03 | Material de Uso e Consumo | ≥14 meses | 2.000 UN | R$ 0,57 | R$ 1.140,00 | R$ 0,30 | R$ 600,00 |
+| Porta Semi Oca Mogno 2.10x0.60x30mm Alpha | Esquadrias | ≥14 meses | 10 UN | R$ 99,90 | R$ 999,00 | R$ 170,00 | R$ 1.700,00 |
+| Icores Delanil Fosco Base P 16L | Pintura | ≥14 meses | 4 UN | R$ 245,59 | R$ 982,36 | R$ 370,00 | R$ 1.480,00 |
+| Sacola Camiseta Impresso/Alta 50x70x0,03 | Material de Uso e Consumo | ≥14 meses | 3.000 UN | R$ 0,32 | R$ 960,00 | R$ 0,11 | R$ 330,00 |
+| Saco Reciclado Impresso Transparente 43x70 KG | Material de Uso e Consumo | ≥14 meses | 50 KG | R$ 18,00 | R$ 900,00 | R$ 23,40 | R$ 1.170,00 |
+
+Legenda de "Tempo sem venda": "≥14 meses" = SKU já existia no primeiro relatório de Curva ABC (mai-out/2025) e não teve nenhuma venda registrada nos 4 períodos seguintes (piso, não data exata). "~7 meses" = SKU só passou a existir no catálogo a partir do relatório de jan-mar/2026, sem venda desde então.
+
+#### Top produtos parados por valor de custo (maior capital imobilizado)
+Mesmo critério de ordenação da tabela acima (valor a custo, a pergunta "onde está o capital parado"), versão compacta com 10 linhas pra consulta rápida. A lista completa de 103 produtos (mesma cobertura de 70%) está na aba "Top por valor de custo" de `top-relevantes-parados_2026-08-03.xlsx`, idêntica à base da tabela "Top produtos parados" acima.
+
+| Produto | Categoria | Tempo sem venda | Qtd em estoque | Valor total a custo |
+|---|---|---|---|---|
+| Cumeeira Zincalum 0,43 | Material Básico | ~7 meses | 2.998 UN | R$ 77.948,00 |
+| Vareta Solda Oxi 1,59mm Gerdau | (categoria corrompida) | ≥14 meses | 7.329 UN | R$ 74.755,80 |
+| Sacolas 30x40 Imp | Material de Uso e Consumo | ≥14 meses | 2.005 UN | R$ 23.378,30 |
+| Sacola Recicladas VD 60x80 | Material de Uso e Consumo | ≥14 meses | 1.015 KG | R$ 11.672,50 |
+| Tubo PVC Rosca 1 pol Tigre | (categoria corrompida) | ≥14 meses | 999,83 PC | R$ 8.058,63 |
+| Metalon Galv 30mm x 20mm 1.25mm Ch 18 | Material Básico | ≥14 meses | 47,20 PC | R$ 2.943,39 |
+| Torneira Met Filtro Abs BM 2172 C40 CR Imperatriz Metais | (categoria corrompida) | ≥14 meses | 27 UN | R$ 2.599,56 |
+| Tela Alambrado Practica Fio 2.400mm 5x15 Alt 1.57mt Belgo | Material Básico | ≥14 meses | 50 MT | R$ 2.130,00 |
+| Bob. Termica 80 x 40 mts Personalizada | Material de Uso e Consumo | ≥14 meses | 630 UN | R$ 1.782,90 |
+| Bacia p/Caixa Acopl Izy Conforto BR Deca | Louças Sanitárias | ≥14 meses | 3 UN | R$ 1.581,81 |
+
+#### Top produtos parados por potencial de venda
+Ordenado por valor potencial de venda (qtde × preço cadastrado), critério diferente do custo, muda a ordem porque markup varia por item. Amostra de 15 (lista completa de 76 produtos, 70% do valor potencial de venda, na aba "Top por potencial de venda" da planilha derivada):
+
+| Produto | Categoria | Tempo sem venda | Qtd em estoque | Preço de venda unitário | Valor potencial de venda |
+|---|---|---|---|---|---|
+| Vareta Solda Oxi 1,59mm Gerdau | (categoria corrompida) | ≥14 meses | 7.329 UN | R$ 25,00 | R$ 183.225,00 |
+| Cumeeira Zincalum 0,43 | Material Básico | ~7 meses | 2.998 UN | R$ 41,00 | R$ 122.918,00 |
+| Tubo PVC Rosca 1 pol Tigre | (categoria corrompida) | ≥14 meses | 999,83 PC | R$ 96,00 | R$ 95.983,68 |
+| Sacola Recicladas VD 60x80 | Material de Uso e Consumo | ≥14 meses | 1.015 KG | R$ 20,00 | R$ 20.300,00 |
+| Metalon Galv 30mm x 20mm 1.25mm Ch 18 | Material Básico | ≥14 meses | 47,20 PC | R$ 95,00 | R$ 4.484,00 |
+| Torneira Met Filtro Abs BM 2172 C40 CR Imperatriz Metais | (categoria corrompida) | ≥14 meses | 27 UN | R$ 160,00 | R$ 4.320,00 |
+| Tela Alambrado Practica Fio 2.400mm 5x15 Alt 1.57mt Belgo | Material Básico | ≥14 meses | 50 MT | R$ 80,00 | R$ 4.000,00 |
+| Colorante Icores BA Az Intenso P0441 0.9L | Pintura | ≥14 meses | 6.708,31 MLS | R$ 0,37 | R$ 2.482,07 |
+| Bacia p/Caixa Acopl Izy Conforto BR Deca | Louças Sanitárias | ≥14 meses | 3 UN | R$ 770,00 | R$ 2.310,00 |
+| Boné Personalizado Construmais | Material de Uso e Consumo | ≥14 meses | 50 UN | R$ 42,50 | R$ 2.125,00 |
+| Porcelanato Bali Polido 61x61 CX 1.88M2 Tipo A Cercamp | Cerâmica | ≥14 meses | 30,08 M2 | R$ 70,00 | R$ 2.105,60 |
+| Sacolas 40x50 Imp. | Material de Uso e Consumo | ≥14 meses | 5.000 UN | R$ 0,40 | R$ 2.000,00 |
+| Bob. Termica 80 x 40 mts Personalizada | Material de Uso e Consumo | ≥14 meses | 630 UN | R$ 2,85 | R$ 1.795,50 |
+| Porta Semi Oca Mogno 2.10x0.60x30mm Alpha | Esquadrias | ≥14 meses | 10 UN | R$ 170,00 | R$ 1.700,00 |
+| Kit Aço Cacau 40 Cozimax | Armários, Gabinetes | ≥14 meses | 4 UN | R$ 400,00 | R$ 1.600,00 |
+
+**Ressalva sobre o 3º colocado (Tubo PVC Rosca 1 pol Tigre):** markup cadastrado de 1.091% sobre o custo (custo R$ 8,06, preço R$ 96,00), um dos 24 itens já sinalizados na "Auditoria de qualidade do cadastro" acima com margem acima de 1.000%. Não é um dos 3 outliers críticos já excluídos (não teve benchmark de linha feito ainda), mas o valor de potencial de venda desse item específico (R$ 95.983,68, 13,2% do potencial total da lista de 70%) deve ser tratado com reserva até o Tony confirmar se o preço ou o custo cadastrado estão corretos.
 
 Estoque parado por categoria (ajustado, exclui outliers): categoria corrompida "MD-MD-MD..." concentra 27,4% do valor parado ajustado (R$ 102.131,64), seguida de Material Básico (22,5%, R$ 83.968,25) e Material de Uso e Consumo (14,6%, R$ 54.545,54). Ver planilha para o detalhe completo por SKU.
 
@@ -134,6 +204,8 @@ Preço e custo seguem na mesma faixa dos períodos anteriores, sem sinal de desc
 3. **Solicitar novo export de Curva ABC** (PDF, jul/ago 2026) pra atualizar giro, faturamento e participação por categoria de venda, este relatório não traz esse dado
 4. Reportar de novo a categoria corrompida no cadastro (5.254 SKUs "MD-MD-MD...", pendência desde 25/07/2026, segue sem correção)
 5. `@analista-dados` pode usar o estoque parado atualizado (R$ 373.769,46) como KPI de dashboard no lugar do valor de 25/07/2026
+6. **Confirmar com o Tony o caso da Cumeeira Zincalum 0,43** (código 1986, maior item parado em valor, R$ 77.948,00): item entrou no catálogo em jan/2026 e nunca vendeu, checar se é excesso de compra recente ou erro de lançamento de entrada, antes de tratar como candidato padrão de liquidação de "estoque velho"
+7. **Confirmar cadastro do Tubo PVC Rosca 1 Pol Tigre** (código 3214, markup cadastrado 1.091% sobre o custo): checar se o preço de R$ 96,00 ou o custo de R$ 8,06 estão corretos antes de usar o valor potencial de venda desse item (R$ 95.983,68) em qualquer decisão
 
 ---
 
