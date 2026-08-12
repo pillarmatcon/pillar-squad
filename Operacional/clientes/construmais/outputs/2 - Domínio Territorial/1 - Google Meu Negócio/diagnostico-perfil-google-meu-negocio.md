@@ -4,7 +4,7 @@
 **Pilar do Método Viga Mestra:** Pilar 2, Domínio Territorial (item contratado no Anexo I, "Google Meu Negócio")
 **Link do perfil:** https://maps.app.goo.gl/FYE7puaYUxLaP3hu9
 **Formato deste arquivo:** log cumulativo, uma rodada por semana, mais recente no topo. Complementa (não substitui) `2026-07-otimizacao-google-meu-negocio.md`, que é o playbook de referência com o detalhe completo de descrição, categorias, produtos e Q&A.
-**Fontes usadas:** leitura direta do perfil público no Google Maps (não é o painel de gestão do Business Profile, que exige login do Tony) + `outputs/1 - Inteligência de Dados/1 - Curva ABC do Estoque/diagnostico-estoque.md` (Curva ABC e produtos isca).
+**Fontes usadas:** leitura direta do perfil público no Google Maps (não é o painel de gestão do Business Profile, que exige login do Tony) + `outputs/1 - Inteligência de Dados/1 - Curva ABC do Estoque/diagnostico-curva-abc.md` (Curva ABC e produtos isca).
 
 ---
 
