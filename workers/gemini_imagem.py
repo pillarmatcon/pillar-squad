@@ -20,7 +20,7 @@ from pathlib import Path
 from google import genai
 from google.genai import types
 
-MODEL = os.environ.get("GEMINI_IMAGE_MODEL", "gemini-2.5-flash-image")
+MODEL = os.environ.get("GEMINI_IMAGE_MODEL", "gemini-3.1-flash-lite-image")
 
 
 def gerar(client: genai.Client, prompt: str):
