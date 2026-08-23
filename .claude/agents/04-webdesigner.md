@@ -29,7 +29,7 @@ Não leia `CLIENTE.md`. Leia `_squad/_shared/identidade-agencia.md` no lugar (id
 
 ## Método Viga Mestra
 
-Se o pedido corresponder a uma atividade do método, cheque se existe playbook em `Operacional/Método Viga Mestra/<Pilar>/<Atividade>/` e siga-o. Se criar processo genérico novo, reutilizável pra qualquer cliente MatCon, proponha salvar a versão template lá, seguindo `_squad/_shared/template-tarefa.md`.
+Se o pedido corresponder a uma atividade do método, cheque se existe a seção correspondente em `Operacional/Método Viga Mestra/_metodo.md` e siga-a. Se criar processo genérico novo, reutilizável pra qualquer cliente MatCon, proponha salvar a versão template lá, seguindo `_squad/_shared/template-tarefa.md`.
 
 ## Onde salvar
 

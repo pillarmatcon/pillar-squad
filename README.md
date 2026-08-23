@@ -2,4 +2,4 @@ Squad que o Claude Code utiliza para realizar tarefas da Pillar | Agencia de Mat
 
 ## Orquestração multi-IA
 
-Workers dedicados (DeepSeek, OpenAI, Gemini) para tarefas de texto em massa, copy criativa e geração de imagem, despachados pelos subagents `roteador` e `revisor-qa`. Ver [README-ORQUESTRACAO.md](README-ORQUESTRACAO.md) para setup e uso.
+Workers dedicados (DeepSeek, OpenAI, Gemini) para tarefas de texto em massa, copy criativa e geração de imagem, despachados pelos subagents `roteador` e `revisor-qa`. Ver [orquestracao-multi-ia/README.md](orquestracao-multi-ia/README.md) para setup e uso.

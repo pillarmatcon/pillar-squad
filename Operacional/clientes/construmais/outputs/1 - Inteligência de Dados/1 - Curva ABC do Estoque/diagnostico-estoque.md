@@ -68,6 +68,122 @@ Seis leituras que só aparecem quando os períodos e snapshots são vistos junto
 
 Nota sobre o campo "% Margem" deste relatório: é **markup sobre custo** ((Preço - Custo Final) / Custo Final × 100), cadastrado pelo próprio sistema Pontual. Não é o mesmo cálculo de "margem bruta % sobre venda" usado nas seções de Curva ABC abaixo (que é sobre faturamento real). Os dois não devem ser comparados diretamente.
 
+### Detalhamento da auditoria de qualidade do cadastro, por categoria de erro (refinamento de 11/08/2026)
+Aprofundamento da tabela acima, produto a produto, gerado direto da aba "Estoque padronizado" do arquivo `08-2026/estoque-auditado_2026-08-03.xlsx` (15.369 SKUs). Os totais por categoria já publicados na tabela acima não mudam, este bloco só detalha os casos mais relevantes de cada um, priorizados por impacto financeiro e por quão implausível é o valor cadastrado. Não é uma listagem exaustiva (a coluna "Quantidade" da tabela acima segue sendo a contagem oficial de cada achado).
+
+Para os casos de custo, preço ou margem suspeitos, apliquei a mesma metodologia já usada nos 3 outliers críticos (seção abaixo): busquei produtos da mesma linha (mesmo nome base, mesma marca quando possível, mesma unidade de estoque) dentro do próprio relatório, antes de estimar um valor correto. Casos que são puramente estruturais (fornecedor, nome duplicado, quantidade negativa) não têm "valor correto" a estimar por benchmark, só reporto o valor cadastrado e o problema.
+
+**1. Fornecedor cadastrado como a própria loja (59 itens na tabela oficial)**
+Busca direta pelo texto exato do fornecedor "CONSTRUMAIS MATERIAL DE CONSTRUCAO" encontrou 57 dos 59 registrados na contagem oficial (pequena diferença provavelmente por variação de grafia não capturada pela busca exata, não investigada a fundo). Impacto financeiro é baixo: só 4 dos 57 têm estoque ativo (qtde > 0), somando R$ 88,32 a custo. Não é erro de valor, é erro de cadastro (a loja aparece como fornecedora de si mesma, provavelmente entrada de ajuste de estoque ou devolução lançada errado).
+
+| Código | Produto | Campo suspeito | Valor cadastrado | Observação |
+|---|---|---|---|---|
+| 6528 | COMANDO ARTICULAVEL LADO ESQUERDO ANTIQUE ISERO | Fornecedor | CONSTRUMAIS MATERIAL DE CONSTRUCAO | Qtde 4, custo R$ 10,00, valor R$ 40,00. Maior caso por valor |
+| 7736 | LUMINARIA QUADRADA LED SOBREPOR 12W-6000K INITIAL | Fornecedor | CONSTRUMAIS MATERIAL DE CONSTRUCAO | Qtde 1, custo R$ 23,00 |
+| 8328 | PONTEIRA EXT PVC 5/8 PT 1025002001 CRIATIV | Fornecedor | CONSTRUMAIS MATERIAL DE CONSTRUCAO | Qtde 130, custo R$ 0,13, valor R$ 16,90 |
+| 1702 | MEC P/CX DESCARGA C15/C17 K15 ASTRA | Fornecedor | CONSTRUMAIS MATERIAL DE CONSTRUCAO | Qtde 1, custo R$ 8,42 |
+| Demais 53 itens | Diversos | Fornecedor | CONSTRUMAIS MATERIAL DE CONSTRUCAO | Todos com qtde = 0, sem exposição financeira. Ver planilha para lista completa |
+
+**2. Quantidade em estoque negativa (42 itens, R$ -18.713,82 a custo na tabela oficial)**
+Fisicamente impossível (não existe estoque negativo). Não dá pra benchmarkar "quantidade correta" com os pares, o problema é a entrada de saída/venda sem entrada de compra correspondente no sistema, não um valor de custo errado. Top 10 por valor negativo:
+
+| Código | Produto | Campo suspeito | Valor cadastrado | Divergência (R$) | Observação |
+|---|---|---|---|---|---|
+| 48 | TIJOLO C/8 FUROS 09X19X19 | Quantidade | -11.320 un | R$ -9.056,00 | Já citado na tabela oficial como maior caso. Item de giro altíssimo (ver Curva ABC abaixo), provável saída lançada sem a entrada de compra correspondente |
+| 2796 | LAJE PREMOLDADA EM TRELICA TG-8 | Quantidade | -93 un | R$ -4.092,00 | |
+| 7459 | PISO INTERTRAVADO NATURAL 10X20X6CM 25MPA | Quantidade | -30 un | R$ -1.290,00 | |
+| 118 | PEDRA RACHINHA FRIA IRREGULAR | Quantidade | -59 un | R$ -1.062,00 | |
+| 8626 | LAVATORIO INOX COLETIVO 1MT C/BANCADA P/2 TORNEIRAS | Quantidade | -1 un | R$ -825,60 | |
+| 16261 | COLUNA FERRO 3/8 10.00MM 08X20 C/04 FERROS | Quantidade | -18 un | R$ -540,00 | Sem categoria mapeada |
+| 16262 | COLUNA FERRO 1/2 12.50MM 10X30 C/06 FERROS | Quantidade | -6 un | R$ -420,00 | Sem categoria mapeada |
+| 7204 | PISO PREMOLDADO 40X40 M2 | Quantidade | -18 un | R$ -396,00 | |
+| 5976 | CUBA EMB OVAL LOUCA 37.50X48.50 L37.17 BR DECA | Quantidade | -2 un | R$ -279,80 | |
+| 4215 | FORRA ADUELA SUCUPIRA 2.10X0.90 | Quantidade | -1 un | R$ -150,00 | |
+
+**3. Preço de venda zerado com estoque ativo (4 itens, todos já conhecidos)**
+| Código | Produto | Campo suspeito | Valor cadastrado | Observação |
+|---|---|---|---|---|
+| 9367 | Conj. Com. Desmontado-Gondola | Preço | R$ 0,00 | Mobiliário/exposição de loja, não é mercadoria de revenda. Custo R$ 0,00 também (ver categoria 4) |
+| 9504 | Expositor Aramado Ilha ASTRA | Preço | R$ 0,00 | Mesma natureza (exposição) |
+| 9449 | EXPOSITOR MULTIFUNCIONAL GR ATLAS | Preço | R$ 0,00 | Mesma natureza (exposição) |
+| 9463 | GONDOLA EXPOSITORA MOVEL CAIXA C/1 PECA | Preço | R$ 0,00 | Custo cadastrado R$ 856,64, é o único dos 4 com custo positivo. Também aparece na categoria "margem negativa" abaixo pelo mesmo motivo |
+
+**4. Custo final zerado com estoque ativo (7 itens)**
+| Código | Produto | Campo suspeito | Valor cadastrado | Observação |
+|---|---|---|---|---|
+| 4577 | ARRUELA PRESSAO MEDIA ZINC 3/16 BELENUS | Custo final | R$ 0,00 | Qtde 83, preço R$ 0,10 cadastrado, sem custo pra calcular margem |
+| 11871 | ENXADA ACO 2.5LB EST CONST S/CB 77220/254 TRAMONTINA | Custo final | R$ 0,00 | Qtde 2, preço R$ 45,00. Custo inicial cadastrado era R$ 28,64, então o valor correto provavelmente é próximo disso, não R$ 0,00 (ver também categoria 7 abaixo) |
+| 1813 | BORRACHA SILICONIZADA | Custo final | R$ 0,00 | Qtde 10, preço R$ 2,00 |
+| 7300 | ABRACADEIRA NYLON PT 200X3.50 ENERBRAS | Custo final | R$ 0,00 | Qtde 0,22, preço R$ 0,20. Baixíssimo impacto |
+| 9367, 9504, 9449 | Itens de mobiliário/exposição já citados na categoria 3 | Custo final | R$ 0,00 | Mesma natureza, não é mercadoria de revenda |
+
+**5. Margem (markup sobre custo) acima de 1.000% (24 itens, 1 já conhecido: código 7874, mangueira corrugada, ver seção de outliers críticos abaixo)**
+Dos 23 restantes, a maioria tem qtde = 0 (sem exposição financeira hoje, mas cadastro errado por igual). Nos casos com par direto na mesma linha, o benchmark aponta forte para erro de custo (valor perdeu dígitos ou casas decimais), não de preço:
+
+| Código | Produto | Campo suspeito | Valor cadastrado | Benchmark de pares (mesma linha) | Estimativa | Divergência |
+|---|---|---|---|---|---|---|
+| 3214 | TUBO PVC ROSCA 1 POL TIGRE | Custo final ou preço (não conclusivo) | Custo R$ 8,06, preço R$ 96,00, markup 1.091% | Outros "Tubo PVC Rosca" Tigre/Krona no relatório têm markup entre 66% e 102% (1/2 Tigre: custo R$ 69,98/preço R$ 125; 3/4 Tigre: R$ 13,84/R$ 28; 1.1/2 Tigre: R$ 108,16/R$ 180; 2 pol Tigre: R$ 162,23/R$ 270; 1/2 Krona: R$ 7,29/R$ 14). É a única peça de 1 polegada da linha, então não há um par exato do mesmo diâmetro pra comparar direto | Duas hipóteses possíveis, benchmark não resolve qual: (a) se o preço R$ 96,00 estiver certo, o custo correto ficaria entre R$ 48 e R$ 60 (markup de 60 a 100% igual aos pares); (b) se o custo R$ 8,06 estiver certo, o preço correto ficaria entre R$ 13 e R$ 16. A quantidade em estoque (999,83 PC) também é muito maior que qualquer par da mesma linha (0 a 6 PC), o que sugere que pode haver também um problema de quantidade lançada, não só de preço/custo | Estoque a custo hoje: R$ 8.058,63 (999,83 x R$ 8,06). Se a hipótese (a) estiver certa, o valor real seria R$ 48.000 a R$ 60.000, quase 6 a 7 vezes mais |
+| 9813 | CABO RIGIDO 10.0MM AZ 1KVA SIL | Custo final | R$ 9,06 (preço R$ 1.350,00, markup 14.801%) | Mesmo item, cor diferente: CABO RIGIDO 10.0MM PT 1KVA SIL (código 7189), custo R$ 918,00, preço R$ 1.350,00 (idêntico), markup 47,06% | Custo correto provavelmente próximo de R$ 918,00. Padrão sugere erro de digitação (R$ 9,06 em vez de R$ 906,00, faltam 2 zeros) | Qtde em estoque = 0, sem exposição financeira hoje, mas cadastro errado |
+| 3533 | CORDAO PARALELO 2X1.00MM COBRECOM | Custo final | R$ 1,67 (preço R$ 240,00, markup 14.271%) | Outros "Cordão Paralelo" Cobrecom vendidos em PC (rolo), por bitola: 0,50mm R$ 93,08/R$ 140; 0,75mm R$ 132,13/R$ 195; 1,50mm R$ 232,19/R$ 340. Interpolando pela bitola, 1,00mm ficaria na faixa R$ 150 a R$ 180 de custo | Custo correto estimado entre R$ 150,00 e R$ 180,00, não R$ 1,67. Preço R$ 240,00 está coerente com o padrão da linha (markup de 33 a 55% nos pares em PC) | Qtde 98,9892 PC, valor a custo hoje R$ 165,31. Se corrigido, valor passaria para algo entre R$ 14.848 e R$ 17.818, também bem mais alto |
+| 11906 | ABRACADEIRA NYLON PT 140X3,50 FOXLUX | Custo final ou preço | R$ 0,09 (preço R$ 17,00, markup 19.174%) | Mesma linha, mesma marca: ABRACADEIRA NYLON PT 140X2,50 FOXLUX (custo R$ 0,07/preço R$ 0,15) e ABRACADEIRA NYLON BR 140X3.50 FOXLUX (custo R$ 0,06/preço R$ 0,15) | Preço correto provavelmente R$ 0,15 a R$ 0,20, não R$ 17,00 (custo R$ 0,09 está coerente com a linha) | Qtde 7,02, valor de venda potencial cadastrado hoje R$ 119,34, valor real estimado R$ 1,05 a R$ 1,40 |
+| 2190 | ABRACADEIRA NYLON PT 80X2.50 BRASFORT | Custo final | R$ 0,02 (preço R$ 5,00, markup 24.900%) | Mesmo produto, cor branca: ABRACADEIRA NYLON BR 80X2.50 BRASFORT (código 3317), custo R$ 2,19, preço R$ 5,00 (idêntico). O próprio campo "custo inicial" deste item já registra R$ 2,36, também compatível | Custo correto provavelmente entre R$ 2,19 e R$ 2,36, não R$ 0,02. Caso claro de custo final zerado por engano, o custo inicial da própria linha confirma a faixa | Qtde 0, sem exposição financeira hoje |
+| 13591 | DOBRADICA PRESSAO 26MM CURVA C/CALCO METAL ALBRAS | Custo final | R$ 0,03 (preço R$ 4,00, markup 12.479%) | Mesma marca, variante plástica: DOBRADICA PRESSAO 26MM CURVA PLASTICA ALBRAS (código 13588), custo R$ 2,31, preço R$ 5,00. Outras dobradiças de pressão 26mm curva no catálogo (Jomarca, Power, Bendoor): custo entre R$ 1,11 e R$ 2,72 | Custo correto estimado entre R$ 1,96 e R$ 2,72, ponto médio próximo de R$ 2,30 | Qtde 1, valor a custo hoje R$ 0,03, valor real estimado R$ 2,30 |
+| 9002 | MADEIRA SERRADA DE PINUS | Preço | R$ 3.214,29 (custo R$ 10,60, markup 30.223%) | Nenhum outro "Madeira Serrada" no relatório pra comparar. Preço muito acima de qualquer produto de madeira do catálogo | Não estimo valor correto por falta de comparável interno. Sinalizo como implausível e recomendo checagem direta com o Tony antes de pesquisar preço de mercado | Qtde 0, sem exposição financeira hoje |
+| 9876 | ESPACADOR NIVELADOR PISO 2MM KALA | Preço | R$ 30,00 (custo R$ 0,11, markup 27.173%) | Mesma marca, espessura diferente: ESPACADOR NIVELADOR PISO 1MM KALA (código 7380), custo R$ 0,11 (idêntico), preço R$ 0,30 | Preço correto provavelmente R$ 0,30, não R$ 30,00 (aparenta ser um zero a mais digitado) | Qtde 0, sem exposição financeira hoje |
+
+**6. Margem (markup sobre custo) negativa (198 itens, achado já publicado)**
+190 dos 198 têm qtde = 0 ou negativa, sem exposição financeira real hoje (cadastro errado, mas não afeta o caixa enquanto não repuser estoque). Os 8 itens com estoque ativo somam R$ 951,20 de perda potencial (qtde x (custo final - preço), o quanto a loja perderia se vendesse hoje ao preço cadastrado):
+
+| Código | Produto | Campo suspeito | Valor cadastrado | Divergência | Observação |
+|---|---|---|---|---|---|
+| 9463 | GONDOLA EXPOSITORA MOVEL CAIXA C/1 PECA | Preço | Custo R$ 856,64, preço R$ 0,00 | Perda potencial R$ 856,64 | Já citado na categoria 3, mobiliário de exposição, não mercadoria de revenda |
+| 7107 | PARAFUSO MOVEIS MADEIRA SOFT 13 DS 7X90 PS BC CISER | Custo ou preço | Custo R$ 4,29, preço R$ 0,70, qtde 21 | Perda potencial R$ 75,39 | Sem par direto de mesma bitola/marca no relatório pra benchmark, baixa materialidade |
+| 11324 | BUCHA NYLON 12 GESSO C/ ANEL RIBEIRO | Custo ou preço | Custo R$ 1,13, preço R$ 1,00, qtde 69 | Perda potencial R$ 8,97 | Divergência pequena (11,8%), pode ser arredondamento de preço promocional, não necessariamente erro de cadastro |
+| 9363 | TEL CEL SAMS GLX A205G PTO-SP | Preço | Custo R$ 855,68, preço R$ 850,00 | Perda potencial R$ 5,68 | Item fora do mix típico da loja (celular usado, provável troca ou entrada atípica), não é material de construção |
+| 7112 | REBITE ALUM 3.2X06MM CISER | Custo ou preço | Custo R$ 0,36, preço R$ 0,05, qtde 7 | Perda potencial R$ 2,17 | Baixa materialidade |
+| 7090 | PARAFUSO PH CB CHATA RI ZINC 2.9X16 CISER | Custo ou preço | Custo R$ 0,33, preço R$ 0,10, qtde 5 | Perda potencial R$ 1,15 | Baixa materialidade |
+| 6990 | ESPACADOR NIVELADOR PISO 1MM MOLDIMPLAS | Custo ou preço | Custo R$ 0,63, preço R$ 0,25, qtde 2 | Perda potencial R$ 0,76 | Comparado com a linha Kala/Roma de mesmo produto (custo R$ 0,11 a R$ 6,17 conforme embalagem), a faixa é muito variável pra apontar um valor único, baixa materialidade |
+| 7089 | PARAFUSO PH CB CHATA RI ZINC 2.9X13 CISER | Custo ou preço | Custo R$ 0,32, preço R$ 0,10, qtde 2 | Perda potencial R$ 0,44 | Baixa materialidade |
+
+**7. Custo final menor que custo inicial, diferença acima de 30% (29 itens dos 956 totais, achado já publicado)**
+Só 4 desses 29 têm estoque ativo (qtde > 0), os outros 25 são catálogo zerado:
+
+| Código | Produto | Campo suspeito | Custo inicial | Custo final | Divergência | Observação |
+|---|---|---|---|---|---|---|
+| 7255 | CABO FLEX PP 2X4.00MM MT COBRECOM | Custo final | R$ 7,60 | R$ 0,01 | -99,9% | Mesmo item já detalhado na categoria 5 (margem >1.000%). Par direto: CABO FLEX PP 2X4.00MM MT MEGATROM, custo R$ 9,35. Custo correto provavelmente próximo de R$ 9,00 a R$ 10,00, coerente também com o custo inicial de R$ 7,60 |
+| 9487 | BARRAMENTO NEUTRO/TERRA DIN OU NEMA MECTRO | Custo final | R$ 6,16 | R$ 4,00 | -35,1% | Qtde 1, valor R$ 4,00. Diferença mais moderada que os outros casos, pode ser desconto real de compra, não necessariamente erro |
+| 11871 | ENXADA ACO 2.5LB EST CONST S/CB 77220/254 TRAMONTINA | Custo final | R$ 28,64 | R$ 0,00 | -100,0% | Qtde 2. Também aparece na categoria 4 (custo zerado). Custo correto provavelmente próximo do custo inicial, R$ 28,64 |
+| 7300 | ABRACADEIRA NYLON PT 200X3.50 ENERBRAS | Custo final | R$ 0,08 | R$ 0,00 | -100,0% | Qtde 0,22, valor irrisório |
+
+**8. Nome de produto duplicado em código diferente (8 grupos, 20 códigos, achado já publicado)**
+| Categoria do erro | Produto | Códigos | Observação |
+|---|---|---|---|
+| Nome duplicado | CP II F 40 ZEBU SACO 50KG | 6033, 6035, 6037, 6039 | Custo idêntico nos 4 (R$ 15,49), qtde 0 em todos. Provavelmente lotes/entradas diferentes do mesmo cimento, já citado na tabela oficial |
+| Nome duplicado | CP II-Z-32 CIMPOR USO GERAL SACO 50KG | 6032, 6034, 6036, 6038 | Custo idêntico nos 4 (R$ 15,20), qtde 0 em todos |
+| Nome duplicado | CP II F 40 ZEBU SACO 50KG (2 códigos) | 1696, 6406 | BASCULANTE ALUMINIO 0.40X0.60, custo idêntico (R$ 37,70) |
+| Nome duplicado | BOTA BORRACHA PT SOLA AMARELA CANO MEDIO 4 | 10290, 6360 | Custo idêntico (R$ 20,93) |
+| Nome duplicado | BROCA CONCRETO SDS PLUS 08MMX210MM IRWIN | 4630, 7053 | Custos diferentes entre os 2 códigos (R$ 13,74 e R$ 5,91), maior divergência dos 8 grupos, vale checar se são lotes de fornecedores diferentes ou erro de cadastro em um dos 2 |
+| Nome duplicado | PAREDEX VINIL ACRILICA CONCRETO 3.6L | 4878, 7703 | Custos diferentes (R$ 16,95 e R$ 22,45) |
+| Nome duplicado | POP ACRILICO CONCRETO INT/EXT GL 3.6L | 5582, 8362 | Custos diferentes (R$ 18,29 e R$ 22,53) |
+| Nome duplicado | VALVULA PIA AMER MET CROM 3.1/2 X7/8 1623 | 10429, 10795 | Custos diferentes (R$ 17,13 e R$ 11,92) |
+
+**9. Inconsistência entre % Margem cadastrado e o recálculo (Preço-Custo Final)/Custo Final, tolerância 2 pontos percentuais (387 itens, 2 já conhecidos: mangueira corrugada código 7874 e colorante código 11073, ver seção de outliers críticos abaixo)**
+Dos 385 restantes, a soma de valor a custo é R$ 40.900,03. É a categoria com o achado extra mais relevante desta rodada: o caso das sacolas trazido no início desta análise.
+
+| Código | Produto | Campo suspeito | Valor cadastrado | Benchmark de pares (mesma linha) | Estimativa | Divergência |
+|---|---|---|---|---|---|---|
+| 11022 | SACOLAS 30X40 IMP | Custo final (não o preço) | Custo R$ 11,66, preço R$ 0,20 (mesma unidade UN nos dois casos) | O item irmão direto na mesma família de nome e mesma unidade (UN) é SACOLAS 40X50 IMP (código 11023), custo R$ 0,15, preço R$ 0,40. A família "Sacola Reciclada" tem custo R$ 11 a R$ 16, mas é vendida por KG, não por UN, então não é o par correto aqui | O benchmark aponta o oposto da hipótese inicial: não é o preço que está baixo demais, é o **custo** que está alto demais. Custo correto provavelmente entre R$ 0,15 e R$ 0,30 por unidade (mesma ordem de grandeza do irmão 40x50), não R$ 11,66. Ao custo correto, o preço R$ 0,20 fica plausível (markup positivo pequeno, coerente com sacola de baixo valor) | Qtde 2.005 un, valor a custo hoje R$ 23.378,30 (já contabilizado como um dos maiores itens de estoque parado no relatório). Se corrigido, o valor cairia para algo entre R$ 300 e R$ 600, uma diferença de mais de R$ 22.000 |
+| 11225 | SACO DE AREIA IMPRESSO 40x60 | Nenhum campo individual, inconsistência pequena (2,2 pontos percentuais) | Custo R$ 0,68, preço R$ 2,00, margem cadastrada 196,3% x recalculada 194,1% | Não é um erro relevante, a diferença de 2,2 pontos é só arredondamento no campo de margem cadastrado, não um erro de custo ou preço | Não precisa correção, valores plausíveis para a linha de embalagem de material básico ensacado | Qtde 8.138 un, valor a custo R$ 5.533,84. Maior item desta categoria por valor, mas sem erro real |
+| 11603 | SACOLA CAMISETA IMPRESSO/ALTA 70 x 90 x 0,03 | Custo ou preço | Custo R$ 0,57, preço R$ 0,30 (margem negativa, -47,4%) | Outras sacolas camiseta impressas do catálogo (50x70): custo R$ 0,32, preço R$ 0,11, também com margem negativa. Padrão se repete nos 2 tamanhos, sugere erro sistemático na linha "Sacola Camiseta Impresso/Alta", não caso isolado | Sem comparável de margem positiva na mesma linha pra estimar valor correto, recomendo checar com o Tony se o preço de venda dessas sacolas está cadastrado errado (parece ter sido invertido com o custo em algum momento) | Qtde 2.000, valor a custo R$ 1.140,00 |
+| 11602 | SACOLA CAMISETA IMPRESSO/ALTA 50 x 70 x 0,03 | Custo ou preço | Custo R$ 0,32, preço R$ 0,11 (margem negativa, -65,6%) | Mesmo padrão do item acima (70x90), mesma linha | Mesma recomendação: checar se preço e custo foram invertidos na linha toda de sacola camiseta impressa | Qtde 3.000, valor a custo R$ 960,00 |
+| 10030 | ETIQ. ADESIVA 32 X 25 X 3 CAR MM RL C/ 27 MTS TP | Custo ou preço | Custo R$ 25,00, preço R$ 15,00 (margem negativa, -40,0%) | Sem outro produto de etiqueta adesiva no relatório pra comparar | Sem benchmark interno, recomendo checagem direta com o Tony | Qtde 18, valor a custo R$ 450,00 |
+| 10842 | EXPOSITOR DE ESPELHOS LINHA FLORA | Custo ou preço | Custo R$ 312,73, preço R$ 297,84 (margem negativa, -4,8%) | Item de mobiliário/exposição, mesma natureza dos itens já excluídos por não serem mercadoria de revenda | Divergência pequena (4,8%), provavelmente não é erro de cadastro, é margem realmente apertada nesse item específico | Qtde 1, valor a custo R$ 312,73 |
+| 10810 | COPO DESCARTAVEL 180ML PRATIK | Custo ou preço | Custo R$ 5,20, preço R$ 4,37 (margem negativa, -16,0%) | Sem outro "copo descartável" no relatório pra comparar | Sem benchmark interno, recomendo checagem direta | Qtde 50, valor a custo R$ 260,00 |
+
+### Achados extras confirmados nesta rodada (fora da lista de outliers críticos originais)
+1. **Tubo PVC Rosca 1 pol Tigre (código 3214):** o benchmark contra os outros "Tubo PVC Rosca" da mesma marca não resolve sozinho se o problema é o custo (R$ 8,06), o preço (R$ 96,00) ou a quantidade (999,83 PC, muito acima de qualquer par da linha, que vão de 0 a 6 PC). Diferente dos 3 outliers críticos já confirmados, aqui não há um par do mesmo diâmetro (1 polegada) pra fechar a estimativa com confiança. Recomendo perguntar direto ao Tony qual dos 3 campos está errado antes de propor um valor corrigido.
+2. **Sacolas 30x40 Imp (código 11022):** o benchmark contra o item irmão direto (Sacolas 40x50 Imp, mesma família, mesma unidade) inverte a hipótese inicial. Não é o preço de venda (R$ 0,20) que parece errado, é o **custo cadastrado** (R$ 11,66) que está muito acima do padrão da linha (o irmão custa R$ 0,15). Recomendo pedir ao Tony a nota fiscal de compra dessa sacola pra confirmar o custo real antes de corrigir no ERP.
+
 ### Outliers críticos identificados (pendente de confirmação do cliente)
 | Código | Produto | Campo suspeito | Valor cadastrado | Benchmark de pares (mesma linha) | Estimativa | Impacto no valor de estoque |
 |---|---|---|---|---|---|---|

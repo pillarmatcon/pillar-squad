@@ -33,7 +33,7 @@ Ler um PDF de Curva ABC com centenas ou milhares de produtos direto no chat cust
 
 ## O script
 
-Arquivo: `pillar_padroniza_curva_abc.py`, nesta mesma pasta.
+Arquivo: `pillar_padroniza_curva_abc.py`, nesta mesma pasta (`Operacional/Método Viga Mestra/Ferramenta Curva ABC/`).
 
 Detecta sozinho qual dos dois layouts do relatório está recebendo:
 
@@ -57,7 +57,7 @@ O relatório da Pontual Tecnologia declara o período coberto no cabeçalho ("Pe
 
 2. **Rodar o script apontando pro PDF do cliente e pra pasta do mês em `outputs/` (não um nome de arquivo fixo):**
    ```bash
-   python "Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/pillar_padroniza_curva_abc.py" "<caminho do PDF recebido>" "Operacional/clientes/<nome-cliente>/outputs/1 - Inteligência de Dados/1 - Curva ABC do Estoque/<MM-YYYY>"
+   python "Operacional/Método Viga Mestra/Ferramenta Curva ABC/pillar_padroniza_curva_abc.py" "<caminho do PDF recebido>" "Operacional/clientes/<nome-cliente>/outputs/1 - Inteligência de Dados/1 - Curva ABC do Estoque/<MM-YYYY>"
    ```
    Passando uma pasta (sem `.xlsx` no final) como segundo argumento, o script monta o nome do arquivo sozinho a partir do período detectado no PDF, ex: `curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx`. Cada PDF novo (mesmo que seja "parte 2" de um mesmo lote) gera seu próprio arquivo dentro da mesma pasta, sem sobrescrever os anteriores, porque o nome já muda com o período. `<MM-YYYY>` é o mês em que a conversão está sendo rodada (ex: `07-2026`), não o período que o PDF cobre. Se for prospect (ainda sem `CLIENTE.md`), trocar a raiz para `Comercial/propostas/<nome-prospect>/`, mantendo a mesma estrutura de subpastas.
 

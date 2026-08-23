@@ -1,15 +1,16 @@
-# Orquestração multi-IA — pillar-squad
+# Orquestração multi-IA
 
-Claude Code orquestra; os workers executam. Copie estas pastas para a raiz do repositório `calillegit/pillar-squad` (mesclando `.claude/` com a existente).
+Claude Code orquestra; os workers executam. Tudo isolado nesta pasta (`orquestracao-multi-ia/`) pra não misturar com o conteúdo do squad.
 
 **Status atual: só DeepSeek está ativo.** GPT (OpenAI) e Gemini foram pausados por custo — ver nota em `.claude/agents/roteador.md`. O roteador só despacha trabalho pesado em massa pro DeepSeek; texto criativo e imagem seguem pelos agents `copywriter`/`designer` do squad normalmente, sem custo de API externa.
+
+Comandos abaixo assumem que você está na raiz do workspace (`Pillar/`), não dentro desta pasta.
 
 ## Setup (uma vez)
 
 ```bash
-pip install openai google-genai
-cp .env.example .env   # preencha DEEPSEEK_API_KEY (GPT e Gemini ficam em branco por enquanto)
-echo ".env" >> .gitignore
+pip install -r orquestracao-multi-ia/requirements.txt
+cp orquestracao-multi-ia/.env.example orquestracao-multi-ia/.env   # preencha DEEPSEEK_API_KEY (GPT e Gemini ficam em branco por enquanto)
 ```
 
 Chave: DeepSeek em platform.deepseek.com (5M tokens grátis no cadastro). Gemini (aistudio.google.com) e OpenAI (platform.openai.com) ficam disponíveis pra reativar depois, se o custo fizer sentido.
@@ -18,8 +19,8 @@ Chave: DeepSeek em platform.deepseek.com (5M tokens grátis no cadastro). Gemini
 
 ```bash
 # Bulk — único worker ativo hoje
-python workers/deepseek_bulk.py --entrada tasks/teste.txt \
-  --system prompts/tom_de_voz_pillar.txt --saida outputs/teste/bulk.jsonl
+python orquestracao-multi-ia/workers/deepseek_bulk.py --entrada orquestracao-multi-ia/tasks/teste.txt \
+  --system orquestracao-multi-ia/prompts/tom_de_voz_pillar.txt --saida orquestracao-multi-ia/outputs/teste/bulk.jsonl
 ```
 
 Já validado: 3 itens, custo real US$ 0,0046. Ver `tasks/teste.txt` / `outputs/teste/bulk.jsonl`.
@@ -28,18 +29,18 @@ Os testes de texto (GPT) e imagem (Gemini) abaixo só valem se/quando esses work
 
 ```bash
 # Texto (pausado)
-python workers/openai_texto.py --prompt "Legenda para post de cimento CP-II em promoção, CTA WhatsApp" \
-  --system prompts/tom_de_voz_pillar.txt --n 2 --saida outputs/teste/legendas.md
+python orquestracao-multi-ia/workers/openai_texto.py --prompt "Legenda para post de cimento CP-II em promoção, CTA WhatsApp" \
+  --system orquestracao-multi-ia/prompts/tom_de_voz_pillar.txt --n 2 --saida orquestracao-multi-ia/outputs/teste/legendas.md
 
 # Imagem (pausado)
-python workers/gemini_imagem.py --prompt "Foto publicitária de sacos de cimento empilhados em loja de material de construção brasileira, iluminação natural" \
-  --saida outputs/teste/ --n 1
+python orquestracao-multi-ia/workers/gemini_imagem.py --prompt "Foto publicitária de sacos de cimento empilhados em loja de material de construção brasileira, iluminação natural" \
+  --saida orquestracao-multi-ia/outputs/teste/ --n 1
 ```
 
 ## Uso via Claude Code (fluxo real)
 
-1. Crie a tarefa: um `.md` em `tasks/` (modelo em `tasks/exemplo-post-construmais.md`).
-2. No Claude Code: "processe a tarefa tasks/exemplo-post-construmais.md" — o subagent **roteador** despacha para os workers e o **revisor-qa** valida e abre o PR.
+1. Crie a tarefa: um `.md` em `orquestracao-multi-ia/tasks/` (modelo em `tasks/exemplo-post-construmais.md`).
+2. No Claude Code: "processe a tarefa orquestracao-multi-ia/tasks/exemplo-post-construmais.md" — o subagent **roteador** despacha para os workers e o **revisor-qa** valida e abre o PR.
 3. Você revisa e aprova o PR. Ponto final humano preservado.
 
 ## Regras de custo embutidas

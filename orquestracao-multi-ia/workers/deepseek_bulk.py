@@ -3,10 +3,10 @@
 Worker DeepSeek — trabalho pesado em massa (classificação, extração, resumo).
 
 Uso:
-  python workers/deepseek_bulk.py \
-    --entrada tasks/produtos.jsonl \
-    --system prompts/classificar_produto.txt \
-    --saida outputs/produtos_classificados.jsonl
+  python orquestracao-multi-ia/workers/deepseek_bulk.py \
+    --entrada orquestracao-multi-ia/tasks/produtos.jsonl \
+    --system orquestracao-multi-ia/prompts/classificar_produto.txt \
+    --saida orquestracao-multi-ia/outputs/produtos_classificados.jsonl
 
 Regras de economia:
   - O system prompt fica em arquivo e é enviado IDÊNTICO em toda chamada

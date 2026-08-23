@@ -3,11 +3,11 @@
 Worker OpenAI (GPT) — copy criativa: legendas, e-mails, variações de texto.
 
 Uso:
-  python workers/openai_texto.py \
-    --prompt-arquivo prompts/legenda_post.txt \
-    --system prompts/tom_de_voz_pillar.txt \
+  python orquestracao-multi-ia/workers/openai_texto.py \
+    --prompt-arquivo orquestracao-multi-ia/prompts/legenda_post.txt \
+    --system orquestracao-multi-ia/prompts/tom_de_voz_pillar.txt \
     --n 3 \
-    --saida outputs/construmais/post_012/legendas.md
+    --saida orquestracao-multi-ia/outputs/construmais/post_012/legendas.md
 """
 import argparse
 import os

@@ -6,8 +6,8 @@ node_modules/
 **/.claude/settings.local.json
 
 # Orquestração multi-IA
-.env
+orquestracao-multi-ia/.env
 __pycache__/
 *.pyc
-outputs/**
-!outputs/.gitkeep
+orquestracao-multi-ia/outputs/**
+!orquestracao-multi-ia/outputs/.gitkeep

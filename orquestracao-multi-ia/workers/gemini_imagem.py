@@ -3,9 +3,9 @@
 Worker Gemini (Nano Banana) — geração de imagens 3:4 para posts.
 
 Uso:
-  python workers/gemini_imagem.py \
-    --prompt-arquivo prompts/post_cimento.txt \
-    --saida outputs/construmais/post_012/ \
+  python orquestracao-multi-ia/workers/gemini_imagem.py \
+    --prompt-arquivo orquestracao-multi-ia/prompts/post_cimento.txt \
+    --saida orquestracao-multi-ia/outputs/construmais/post_012/ \
     --n 2
 
 Cada execução salva imagem_01.png, imagem_02.png... na pasta de saída,
