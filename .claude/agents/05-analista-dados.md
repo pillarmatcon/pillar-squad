@@ -28,16 +28,15 @@ Se o pedido corresponder a uma atividade do método, cheque se existe a seção 
 
 ## Onde salvar
 
-Entrega pontual:
+Estrutura por mês de execução, não por pilar:
 ```
-Operacional/clientes/<nome-do-cliente>/outputs/<YYYY-MM>-<descritor>.<ext>
+Operacional/clientes/<nome-do-cliente>/outputs/<MM-YYYY>/<DD>-<pilar>-<descritor>.<ext>
 ```
-
-Entrega ligada a uma atividade do Método Viga Mestra (espelha a biblioteca):
+`<MM-YYYY>`/`<DD>` é o mês e o dia em que a entrega foi gerada. `<pilar>` é o slug do pilar do Método Viga Mestra que a entrega atende (`inteligencia-dados`, `dominio-territorial`, `combo-de-produtos`, `vendedor-de-elite`, `plano-obra-integral`), omitido pra entrega pontual fora do método:
 ```
-Operacional/clientes/<nome-do-cliente>/outputs/<Pilar>/<Atividade>/<YYYY-MM-DD>-<descritor>.<ext>
+Operacional/clientes/<nome-do-cliente>/outputs/<MM-YYYY>/<DD>-<descritor>.<ext>
 ```
-Arquivo cumulativo (diagnóstico que cresce por rodada) fica na raiz da atividade, sem prefixo de data.
+Arquivo cumulativo (diagnóstico que cresce por rodada, nunca sobrescrito) foge dessa regra: fica em `outputs/_diagnosticos/<pilar>/<nome-arquivo>.md`, fora de qualquer pasta de mês.
 
 Logs de execução (Nível 3 do gestor-trafego):
 ```

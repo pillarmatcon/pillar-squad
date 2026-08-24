@@ -2,7 +2,7 @@
 
 **Cliente:** Construmais (Tony Carvalho Barbosa), João Pessoa/PB
 **Base usada:** script de variações em `Operacional/Método Viga Mestra/2 - Domínio Territorial/1 - Google Meu Negócio/script-respostas-avaliacoes-google.md`
-**Amostra coletada:** 10 de 108 avaliações do perfil público (ver limitação na seção 5 de `diagnostico-perfil-google-meu-negocio.md`), nenhuma delas tinha resposta do proprietário até 25/07/2026.
+**Amostra coletada:** 10 de 108 avaliações do perfil público (ver limitação na seção 5 de `_diagnosticos/dominio-territorial/diagnostico-perfil-google-meu-negocio.md`), nenhuma delas tinha resposta do proprietário até 25/07/2026.
 **Como usar:** os textos abaixo são rascunho pronto pra colar. Quem tiver acesso ao painel do Business Profile (o Tony ou quem ele autorizar) precisa publicar manualmente, esta sessão não tem login pra postar direto no perfil.
 **Prioridade de resposta:** primeiro as notas 1★ e 3★ (únicas com crítica concreta na amostra), depois as 5★ e 4★, seguindo qualquer ordem dentro desse grupo.
 

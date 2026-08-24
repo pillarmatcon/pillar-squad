@@ -6,7 +6,7 @@ Arquivo único do Canva com 10 templates de post de produto, um por página, seg
 
 ## Páginas
 
-1. **Produto em Destaque** — selo circular com categoria/nome/medida, mesmo espírito do [template-tem-na-construmais.html](template-tem-na-construmais.html)
+1. **Produto em Destaque** — selo circular com categoria/nome/medida, mesmo espírito do [template-tem-na-construmais.html](01-dominio-territorial-template-tem-na-construmais.html)
 2. **Promoção / Preço** — bloco "de/por" com preço em destaque
 3. **Novidade / Chegou** — anúncio de produto novo no mix
 4. **Comunicado / Aviso Importante** — faixas diagonais amarelas, estilo sinalização de obra, para avisos (reposição de estoque, mudança de horário etc.)

@@ -3,8 +3,8 @@
 **Cliente:** Construmais (Tony Carvalho Barbosa), João Pessoa/PB
 **Pilar do Método Viga Mestra:** Pilar 2, Domínio Territorial (item contratado no Anexo I, "Google Meu Negócio")
 **Link do perfil:** https://maps.app.goo.gl/FYE7puaYUxLaP3hu9
-**Formato deste arquivo:** log cumulativo, uma rodada por semana, mais recente no topo. Complementa (não substitui) `2026-07-otimizacao-google-meu-negocio.md`, que é o playbook de referência com o detalhe completo de descrição, categorias, produtos e Q&A.
-**Fontes usadas:** leitura direta do perfil público no Google Maps (não é o painel de gestão do Business Profile, que exige login do Tony) + `outputs/1 - Inteligência de Dados/1 - Curva ABC do Estoque/diagnostico-estoque.md` (Curva ABC e produtos isca).
+**Formato deste arquivo:** log cumulativo, uma rodada por semana, mais recente no topo. Complementa (não substitui) `07-2026/24-dominio-territorial-otimizacao-google-meu-negocio.md`, que é o playbook de referência com o detalhe completo de descrição, categorias, produtos e Q&A.
+**Fontes usadas:** leitura direta do perfil público no Google Maps (não é o painel de gestão do Business Profile, que exige login do Tony) + `outputs/_diagnosticos/inteligencia-dados/diagnostico-estoque.md` (Curva ABC e produtos isca).
 
 ---
 
@@ -47,7 +47,7 @@ Ordem de prioridade aplicando a regra de `Operacional/Método Viga Mestra/2 - Do
 | 7 | Sistema Tintométrico (ângulo diferente, ex: mostruário de cores) | Reforço do pedido do cliente, alternando com os itens de giro |
 | 8 | Telha Canal Tipo Carnaúba 1ª | Giro alto e margem no limite do corte de isca (24,17%), observar se o padrão se confirma nas próximas rodadas do diagnóstico de estoque |
 
-**Pendência que trava a execução real desta fila:** segue faltando o banco de fotos de produto (fachada, prateleira, produto specific) que já está registrado como pendência desde `2026-07-otimizacao-google-meu-negocio.md` e no Plano de Ação do CLIENTE.md ("Solicitar acervo de vídeos e fotos da loja ao Tony", prioridade alta). Sem foto real do produto, nenhum item desta fila pode virar post de Produto, só post de Novidade sem imagem própria.
+**Pendência que trava a execução real desta fila:** segue faltando o banco de fotos de produto (fachada, prateleira, produto specific) que já está registrado como pendência desde `07-2026/24-dominio-territorial-otimizacao-google-meu-negocio.md` e no Plano de Ação do CLIENTE.md ("Solicitar acervo de vídeos e fotos da loja ao Tony", prioridade alta). Sem foto real do produto, nenhum item desta fila pode virar post de Produto, só post de Novidade sem imagem própria.
 
 ### 5. Limitação desta rodada
 

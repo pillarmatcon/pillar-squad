@@ -2,7 +2,7 @@
 **Metodologia:** Pilar 1, Inteligência de Dados, Método Viga Mestra
 **Como ler este arquivo:** histórico cumulativo, uma seção por período coberto por relatório do cliente, do mais recente (topo) para o mais antigo (final), independente da ordem em que os relatórios foram processados.
 
-**Nota de revisão (25/07/2026):** a versão anterior deste arquivo (mesma data) foi calculada com um bug no script de padronização, que descartava silenciosamente os 2 primeiros produtos de cada página do PDF nas partes 2, 3 e 4 (perda de ~15% do catálogo e ~12% do faturamento nesses períodos, a parte 1 não era afetada). O bug foi corrigido (`pillar_padroniza_curva_abc.py`, cobertura agora conferida automaticamente contra o "Total Geral" oficial impresso em cada relatório, 100% de cobertura nos 4 períodos) e as planilhas de origem foram regeradas. **Os números abaixo são os corretos.** Como efeito colateral bom: o faturamento e a margem agregada dos 14 meses agora batem exatamente com o diagnóstico anterior de 23/07 (`outputs/2026-07-diagnostico-estoque.md`), o que resolve a contradição registrada no Histórico do `CLIENTE.md`.
+**Nota de revisão (25/07/2026):** a versão anterior deste arquivo (mesma data) foi calculada com um bug no script de padronização, que descartava silenciosamente os 2 primeiros produtos de cada página do PDF nas partes 2, 3 e 4 (perda de ~15% do catálogo e ~12% do faturamento nesses períodos, a parte 1 não era afetada). O bug foi corrigido (`pillar_padroniza_curva_abc.py`, cobertura agora conferida automaticamente contra o "Total Geral" oficial impresso em cada relatório, 100% de cobertura nos 4 períodos) e as planilhas de origem foram regeradas. **Os números abaixo são os corretos.** Como efeito colateral bom: o faturamento e a margem agregada dos 14 meses agora batem exatamente com o diagnóstico anterior de 23/07 (`outputs/07-2026/23-diagnostico-estoque.md`), o que resolve a contradição registrada no Histórico do `CLIENTE.md`.
 
 **Nota de reconciliação do estoque parado (25/07/2026):** o "Estoque parado corrigido" na tabela abaixo, um valor por período, é o que dava pra calcular só com os 4 PDFs de Curva ABC, e tem uma limitação importante: os 4 relatórios foram todos gerados na mesma semana (27/06 a 03/07/2026), então o campo de estoque de cada um reflete o estoque de **quando o relatório foi emitido**, não do fim do período de venda que ele cobre. Ou seja, a "evolução" desse número entre períodos reflete principalmente quais produtos entram ou saem da lista conforme a janela de venda comparada muda, não uma trajetória real de estoque acumulando ao longo de 14 meses. Depois de receber `Estoque em 27-06-26.xls` (exportação original do sistema, com estoque de todos os 15.228 produtos numa única data certa), cruzei esse arquivo com a venda somada dos 4 relatórios de Curva ABC e cheguei no número correto de estoque parado real: **1.695 produtos sem nenhuma venda registrada nos 14 meses inteiros (mai/2025 a jun/2026), R$ 295.126,57 a custo** (já com a correção do colorante aplicada). Esse número bate próximo do R$ 320.903,02 do diagnóstico de 23/07 (diferença de ~8%, provavelmente porque aquela análise também corrigiu outros itens de custo além do colorante).
 
@@ -34,7 +34,7 @@ Seis leituras que só aparecem quando os períodos e snapshots são vistos junto
 
 ## Atualização de Estoque: 03/08/2026 (snapshot, fora do ciclo de Curva ABC)
 **Fonte dos dados:** `Produto em 03-08-26.htm` (sistema Pontual Tecnologia, exportação HTML de tabela de produto), processado em 08-2026
-**Planilha:** `08-2026/estoque-auditado_2026-08-03.xlsx` (abas: Estoque padronizado, Estoque parado (ajustado), Outliers críticos)
+**Planilha:** `08-2026/03-inteligencia-dados-estoque-auditado_2026-08-03.xlsx` (abas: Estoque padronizado, Estoque parado (ajustado), Outliers críticos)
 **Status:** v1, sujeito a refinamento
 **Tipo de relatório:** diferente dos 4 períodos abaixo. É um snapshot de produto/estoque (quantidade, custo, preço e margem cadastrados numa data única), não uma Curva ABC de vendas. Confirmado pela estrutura do arquivo (colunas Código, Dt. Compra, Produto, Fabricante, Unid. Estoque, Qtde., Custo inicial, % ICMS/IPI/ST/FRETE/OUTROS, Custo Final, % Margem, Preço, NCM, Código de Barras, Fornecedor, Qtde. última compra): não tem quantidade vendida nem faturamento, então **não atualiza giro nem participação por categoria de faturamento nesta rodada**. Formato HTML, não PDF, então não passa pela ferramenta de padronização de Curva ABC (`Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md`), que é específica pra PDF de Curva ABC; processado com parser próprio (regex determinístico, zero IA na extração).
 
@@ -69,7 +69,7 @@ Seis leituras que só aparecem quando os períodos e snapshots são vistos junto
 Nota sobre o campo "% Margem" deste relatório: é **markup sobre custo** ((Preço - Custo Final) / Custo Final × 100), cadastrado pelo próprio sistema Pontual. Não é o mesmo cálculo de "margem bruta % sobre venda" usado nas seções de Curva ABC abaixo (que é sobre faturamento real). Os dois não devem ser comparados diretamente.
 
 ### Detalhamento da auditoria de qualidade do cadastro, por categoria de erro (refinamento de 11/08/2026)
-Aprofundamento da tabela acima, produto a produto, gerado direto da aba "Estoque padronizado" do arquivo `08-2026/estoque-auditado_2026-08-03.xlsx` (15.369 SKUs). Os totais por categoria já publicados na tabela acima não mudam, este bloco só detalha os casos mais relevantes de cada um, priorizados por impacto financeiro e por quão implausível é o valor cadastrado. Não é uma listagem exaustiva (a coluna "Quantidade" da tabela acima segue sendo a contagem oficial de cada achado).
+Aprofundamento da tabela acima, produto a produto, gerado direto da aba "Estoque padronizado" do arquivo `08-2026/03-inteligencia-dados-estoque-auditado_2026-08-03.xlsx` (15.369 SKUs). Os totais por categoria já publicados na tabela acima não mudam, este bloco só detalha os casos mais relevantes de cada um, priorizados por impacto financeiro e por quão implausível é o valor cadastrado. Não é uma listagem exaustiva (a coluna "Quantidade" da tabela acima segue sendo a contagem oficial de cada achado).
 
 Para os casos de custo, preço ou margem suspeitos, apliquei a mesma metodologia já usada nos 3 outliers críticos (seção abaixo): busquei produtos da mesma linha (mesmo nome base, mesma marca quando possível, mesma unidade de estoque) dentro do próprio relatório, antes de estimar um valor correto. Casos que são puramente estruturais (fornecedor, nome duplicado, quantidade negativa) não têm "valor correto" a estimar por benchmark, só reporto o valor cadastrado e o problema.
 
@@ -210,7 +210,7 @@ Juntos, os 3 itens somam **R$ 18.176.265,52, 95,1% do valor de estoque bruto do 
 | Demais categorias (11, cada uma abaixo de 2%) | R$ 49.598,12 | 5,3% |
 | Sem categoria mapeada | R$ 7.856,01 | 0,8% |
 
-Total ajustado: R$ 935.102,19. Valor potencial de venda (qtde × preço, mesmos itens, exclui os 3 outliers): não calculado nesta seção, pois herda a mesma distorção dos outliers e exigiria o mesmo tratamento, ver planilha `08-2026/estoque-auditado_2026-08-03.xlsx` para o dado bruto por SKU.
+Total ajustado: R$ 935.102,19. Valor potencial de venda (qtde × preço, mesmos itens, exclui os 3 outliers): não calculado nesta seção, pois herda a mesma distorção dos outliers e exigiria o mesmo tratamento, ver planilha `08-2026/03-inteligencia-dados-estoque-auditado_2026-08-03.xlsx` para o dado bruto por SKU.
 
 ### Estoque parado atualizado
 - Valor financeiro parado a custo, bruto (direto do relatório): R$ 15.255.302,32, em 1.734 SKUs
@@ -255,7 +255,7 @@ Preço e custo seguem na mesma faixa dos períodos anteriores, sem sinal de desc
 
 ## Período: 01/04/2026 a 30/06/2026
 **Fonte dos dados:** `Curva ABC parte 4.pdf` (sistema Pontual Tecnologia), processado em 07-2026
-**Planilha:** `07-2026/curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx`
+**Planilha:** `07-2026/25-inteligencia-dados-curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx`
 **Status:** v1, sujeito a refinamento
 
 ### Resumo executivo
@@ -348,7 +348,7 @@ Padrão claro: agregados (areia, pedra, brita) têm margem % alta (50 a 55%) mas
 
 ## Período: 01/01/2026 a 31/03/2026
 **Fonte dos dados:** `Curva ABC parte 3.pdf` (sistema Pontual Tecnologia), processado em 07-2026
-**Planilha:** `07-2026/curva-abc-padronizada_2026-01-01_a_2026-03-31.xlsx`
+**Planilha:** `07-2026/25-inteligencia-dados-curva-abc-padronizada_2026-01-01_a_2026-03-31.xlsx`
 **Status:** v1, sujeito a refinamento
 
 ### Resumo executivo
@@ -420,7 +420,7 @@ Padrão claro: agregados (areia, pedra, brita) têm margem % alta (50 a 55%) mas
 
 ## Período: 01/11/2025 a 31/12/2025
 **Fonte dos dados:** `Curva ABC parte 2.pdf` (sistema Pontual Tecnologia), processado em 07-2026
-**Planilha:** `07-2026/curva-abc-padronizada_2025-11-01_a_2025-12-31.xlsx`
+**Planilha:** `07-2026/25-inteligencia-dados-curva-abc-padronizada_2025-11-01_a_2025-12-31.xlsx`
 **Status:** v1, sujeito a refinamento
 
 ### Resumo executivo
@@ -491,7 +491,7 @@ Padrão claro: agregados (areia, pedra, brita) têm margem % alta (50 a 55%) mas
 
 ## Período: 01/05/2025 a 31/10/2025
 **Fonte dos dados:** `Curva ABC parte 1.pdf` (sistema Pontual Tecnologia), processado em 07-2026
-**Planilha:** `07-2026/curva-abc-padronizada_2025-05-01_a_2025-10-31.xlsx`
+**Planilha:** `07-2026/25-inteligencia-dados-curva-abc-padronizada_2025-05-01_a_2025-10-31.xlsx`
 **Status:** v1, sujeito a refinamento
 
 ### Resumo executivo

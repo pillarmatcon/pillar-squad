@@ -28,13 +28,15 @@ Preciso de pelo menos um relatório real do cliente (estoque, Curva ABC, vendas 
 
 ## Onde salvar
 
-Usando o nome do pilar e da atividade como aparecem em `Operacional/Método Viga Mestra/_metodo.md` (ver "Formato de output" em `_squad/06-inteligencia-dados/SKILL.md`):
+Usando o slug do pilar (`inteligencia-dados`) e o nome do diagnóstico como aparecem em `Operacional/Método Viga Mestra/_metodo.md` (ver "Formato de output" em `_squad/06-inteligencia-dados/SKILL.md`):
 
 ```
-Operacional/clientes/<nome-do-cliente>/outputs/1 - Inteligência de Dados/<Atividade>/
-├── diagnostico-estoque.md     ← um arquivo só, cumulativo, cresce por período (nunca sobrescreve)
-└── <MM-YYYY>/                 ← mês em que a análise rodou
-    └── curva-abc-padronizada_<periodo>.xlsx (+ planilhas derivadas do mesmo período)
+Operacional/clientes/<nome-do-cliente>/outputs/
+├── _diagnosticos/inteligencia-dados/
+│   ├── diagnostico-curva-abc.md      ← um arquivo só, cumulativo, cresce por período (nunca sobrescreve)
+│   └── diagnostico-giro-estoque.md   ← idem, atividade separada
+└── <MM-YYYY>/                        ← mês em que a análise rodou
+    └── <DD>-inteligencia-dados-curva-abc-padronizada_<periodo>.xlsx (+ planilhas derivadas do mesmo período)
 ```
 
 Para prospect (sem `CLIENTE.md`), a raiz muda pra `Comercial/propostas/<nome-prospect>/`, mesma estrutura por dentro.

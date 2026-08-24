@@ -356,7 +356,7 @@ Ordem de prioridade pra decidir qual foto/produto entra na fila antes do outro, 
 4. Produtos "isca" identificados no diagnóstico de estoque (Pilar 1, atividade 1.3). Item de giro alto e ticket baixo que atrai fluxo de gente pra loja, mesmo sem ser o de maior margem.
 5. Institucional/reforço de marca (fachada, equipe, tempo de mercado, bastidor da loja), pra intercalar entre os posts de produto e não deixar o perfil parecer catálogo puro.
 
-Fonte do dado: diagnóstico de estoque e Curva ABC do cliente (`outputs/1 - Inteligência de Dados/1 - Curva ABC do Estoque/diagnostico-estoque.md` ou equivalente). Nunca estimar giro, faturamento ou margem de cabeça, sempre puxar do diagnóstico real mais recente daquele cliente.
+Fonte do dado: diagnóstico de estoque e Curva ABC do cliente (`outputs/_diagnosticos/inteligencia-dados/diagnostico-curva-abc.md` e `diagnostico-giro-estoque.md`, ou equivalente). Nunca estimar giro, faturamento ou margem de cabeça, sempre puxar do diagnóstico real mais recente daquele cliente.
 
 Regra de mistura: numa fila de 8 fotos, por exemplo, uma distribuição saudável é algo como 2 produtos pedidos pelo cliente, 3 Classe A/giro alto, 1 de margem, 1 isca, 1 institucional. Ajustar a proporção conforme o que o diagnóstico de estoque daquele cliente específico mostrar como prioridade real.
 

@@ -4,7 +4,7 @@
 
 **Status:** v1, sujeito a refinamento. Depende de decisões de preço e desconto do Tony antes de virar peça de divulgação (ver "Pendências" ao final). Nenhum valor de desconto, comissão ou benefício abaixo é definitivo, são hipóteses de trabalho a validar.
 
-**Nota de escopo:** o Pilar 5 (Plano Obra Integral) não é item formal do Anexo I assinado hoje. Isso é só uma decisão de risco jurídico da Pillar sobre o que fica formalmente descrito e cobrado no contrato, não uma decisão de aplicar o método pela metade: o Método Viga Mestra é único e os 5 pilares são aplicados ao Tony por completo. Este documento é produzido como entregável completo, seguindo o mesmo critério já aplicado à estratégia de kits (`outputs/2026-07-estrategia-kits-e-vendas.md`), o que falta é só a confirmação do Tony pra incluir o Pilar 5 como item explícito e faturável do contrato (upsell contratual).
+**Nota de escopo:** o Pilar 5 (Plano Obra Integral) não é item formal do Anexo I assinado hoje. Isso é só uma decisão de risco jurídico da Pillar sobre o que fica formalmente descrito e cobrado no contrato, não uma decisão de aplicar o método pela metade: o Método Viga Mestra é único e os 5 pilares são aplicados ao Tony por completo. Este documento é produzido como entregável completo, seguindo o mesmo critério já aplicado à estratégia de kits (`outputs/07-2026/24-estrategia-kits-e-vendas.md`), o que falta é só a confirmação do Tony pra incluir o Pilar 5 como item explícito e faturável do contrato (upsell contratual).
 
 ---
 

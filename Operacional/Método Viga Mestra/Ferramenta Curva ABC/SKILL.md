@@ -57,11 +57,13 @@ O relatório da Pontual Tecnologia declara o período coberto no cabeçalho ("Pe
 
 2. **Rodar o script apontando pro PDF do cliente e pra pasta do mês em `outputs/` (não um nome de arquivo fixo):**
    ```bash
-   python "Operacional/Método Viga Mestra/Ferramenta Curva ABC/pillar_padroniza_curva_abc.py" "<caminho do PDF recebido>" "Operacional/clientes/<nome-cliente>/outputs/1 - Inteligência de Dados/1 - Curva ABC do Estoque/<MM-YYYY>"
+   python "Operacional/Método Viga Mestra/Ferramenta Curva ABC/pillar_padroniza_curva_abc.py" "<caminho do PDF recebido>" "Operacional/clientes/<nome-cliente>/outputs/<MM-YYYY>"
    ```
    Passando uma pasta (sem `.xlsx` no final) como segundo argumento, o script monta o nome do arquivo sozinho a partir do período detectado no PDF, ex: `curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx`. Cada PDF novo (mesmo que seja "parte 2" de um mesmo lote) gera seu próprio arquivo dentro da mesma pasta, sem sobrescrever os anteriores, porque o nome já muda com o período. `<MM-YYYY>` é o mês em que a conversão está sendo rodada (ex: `07-2026`), não o período que o PDF cobre. Se for prospect (ainda sem `CLIENTE.md`), trocar a raiz para `Comercial/propostas/<nome-prospect>/`, mantendo a mesma estrutura de subpastas.
 
-   Se o script imprimir "Período do relatório: não detectado automaticamente", o arquivo sai como `curva-abc-padronizada_periodo-nao-detectado.xlsx` e o agente deve perguntar ao usuário qual período aquele PDF cobre, depois renomear o arquivo manualmente e corrigir o banner da linha 1 da planilha à mão.
+   O script não sabe o dia da rodada nem o pilar, só o período do PDF, então depois de gerado o agente renomeia o arquivo prefixando `<DD>-inteligencia-dados-` (dia da conversão), seguindo a convenção de `outputs/` em `_squad/06-inteligencia-dados/SKILL.md`: `curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx` vira `25-inteligencia-dados-curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx`.
+
+   Se o script imprimir "Período do relatório: não detectado automaticamente", o arquivo sai como `curva-abc-padronizada_periodo-nao-detectado.xlsx` e o agente deve perguntar ao usuário qual período aquele PDF cobre, depois renomear o arquivo manualmente (aplicando também o prefixo `<DD>-inteligencia-dados-`) e corrigir o banner da linha 1 da planilha à mão.
 
 3. **Ler o resumo impresso no terminal** (formato detectado, período do relatório, produtos padronizados, grupos encontrados, linhas com falha de parsing). Reportar esse resumo ao usuário em 2-3 linhas.
 
