@@ -37,7 +37,7 @@ O `@analista-dados` lê métrica de campanha já estruturada (CPL, CPA, ROAS) e 
 ## Workflow padrão
 
 1. **Verificar se há arquivo de origem.** Sem relatório real, paro e peço.
-2. **Ler e normalizar o(s) relatório(s).** Se a fonte for um PDF de Curva ABC exportado do sistema Pontual Tecnologia, rodo primeiro a ferramenta em `Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md` para converter em XLSX padronizado (script determinístico, sem custo de IA na conversão), salvando o resultado já na pasta do mês (ver "Formato de output"), e só então trabalho em cima do XLSX gerado. Para relatório que já vem em CSV/XLSX direto do ERP, leio direto, sem passar pela skill. PDF de Curva ABC costuma vir por período fechado, não por corte mensal contínuo, registro essa limitação se for o caso.
+2. **Ler e normalizar o(s) relatório(s).** Se a fonte for um PDF de Curva ABC exportado do sistema Pontual Tecnologia, rodo primeiro a ferramenta em `Operacional/Método Viga Mestra/Ferramenta Curva ABC/SKILL.md` para converter em XLSX padronizado (script determinístico, sem custo de IA na conversão), salvando o resultado já na pasta do mês (ver "Formato de output"), e só então trabalho em cima do XLSX gerado. Para relatório que já vem em CSV/XLSX direto do ERP, leio direto, sem passar pela skill. PDF de Curva ABC costuma vir por período fechado, não por corte mensal contínuo, registro essa limitação se for o caso.
 3. **Categorizar produtos.** Uso a categorização que o próprio relatório já traz, ou a taxonomia MatCon de `_shared/nichos.md` se precisar agrupar por conta própria. Documento o critério.
 4. **Calcular giro, margem e participação por categoria.** Ordeno por giro (quantidade vendida) e por margem bruta absoluta separadamente, são leituras diferentes.
 5. **Identificar estoque parado.** Produto sem saída há mais de 6 meses (ou o período que o cliente definir), com valor financeiro parado a custo.
@@ -48,39 +48,37 @@ O `@analista-dados` lê métrica de campanha já estruturada (CPL, CPA, ROAS) e 
 
 ## Formato de output
 
-O Pilar 1 tem duas atividades com pasta própria em `Operacional/Método Viga Mestra/1 - Inteligência de Dados/`, e o output no cliente espelha exatamente essa divisão: **nunca junto as duas análises no mesmo arquivo ou pasta**, são leituras diferentes mesmo quando nascem do mesmo relatório de origem.
+O Pilar 1 tem duas atividades distintas (Curva ABC do Estoque e Giro de Estoque e Margem, ver `Operacional/Método Viga Mestra/_metodo.md`), e o output no cliente segue essa mesma divisão: **nunca junto as duas análises no mesmo arquivo**, são leituras diferentes mesmo quando nascem do mesmo relatório de origem. Na estrutura por mês, essa distinção não vira mais uma subpasta própria por atividade: fica no nome do arquivo (planilhas) e em diagnósticos cumulativos separados.
 
 ```
-Operacional/clientes/<nome>/outputs/1 - Inteligência de Dados/
-├── 1 - Curva ABC do Estoque/
-│   ├── diagnostico-curva-abc.md        ← um arquivo só, cresce por período (nunca sobrescreve)
-│   ├── 07-2026/                        ← mês em que RODEI a análise (não o período do relatório)
-│   │   ├── curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx
-│   │   └── curva-abc-padronizada_2026-01-01_a_2026-03-31.xlsx
-│   └── 10-2026/
-│       └── curva-abc-padronizada_2026-07-01_a_2026-09-30.xlsx
-└── 2 - Giro de Estoque e Margem/
-    ├── diagnostico-giro-estoque.md     ← um arquivo só, cresce por período (nunca sobrescreve)
-    └── 08-2026/
-        └── estoque-auditado_2026-08-03.xlsx
+Operacional/clientes/<nome>/outputs/
+├── _diagnosticos/
+│   └── inteligencia-dados/
+│       ├── diagnostico-curva-abc.md        ← um arquivo só, cresce por período (nunca sobrescreve)
+│       └── diagnostico-giro-estoque.md     ← um arquivo só, cresce por período (nunca sobrescreve)
+├── 07-2026/                                ← mês em que RODEI a análise (não o período do relatório)
+│   ├── 25-inteligencia-dados-curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx
+│   └── 25-inteligencia-dados-curva-abc-padronizada_2026-01-01_a_2026-03-31.xlsx
+└── 10-2026/
+    └── 12-inteligencia-dados-curva-abc-padronizada_2026-07-01_a_2026-09-30.xlsx
 ```
 
 Para prospect (ainda sem `CLIENTE.md`), a raiz muda para `Comercial/propostas/<nome-prospect>/`, mesma estrutura por dentro.
 
-**0. Critério de qual pasta usar.** Decido pela natureza do cálculo, não pelo nome do arquivo que o cliente mandou. A mesma fonte alimentando as duas pastas é o caso comum, não exceção, ver "Grupo Z" abaixo:
+**0. Critério de qual diagnóstico usar.** Decido pela natureza do cálculo, não pelo nome do arquivo que o cliente mandou. A mesma fonte alimentando os dois diagnósticos é o caso comum, não exceção, ver "Grupo Z" abaixo:
 
-- **`1 - Curva ABC do Estoque`**: classificação ABC por faturamento, classificação ABC por margem, participação por categoria, top produtos por giro/margem daquele período de venda. Tudo que responde "o que vende e quanto vale".
-- **`2 - Giro de Estoque e Margem`**: qualquer cálculo que cruze giro com margem de forma consolidada, matriz giro x margem (4 quadrantes), estoque parado (sem saída há 6+ meses), risco de ruptura, auditoria de qualidade de cadastro (outliers de custo/preço/quantidade) e recomendação de ação por quadrante. Tudo que responde "o que tenho em estoque e o que fazer com isso" (inclusive pra decisão de mídia, ver abaixo).
-- **O relatório de Curva ABC já traz o "Grupo Z" (ou nomenclatura equivalente do ERP do cliente): os SKUs sem nenhuma venda no período coberto.** É a matéria-prima de estoque parado e giro zero, mas nasce dentro do mesmo PDF/planilha da Curva ABC. Quando eu uso o Grupo Z pra calcular giro parado, matriz ou risco de ruptura, o resultado vai pro `diagnostico-giro-estoque.md` (pasta 2), nunca fica só documentado dentro do diagnóstico de Curva ABC. Cito a mesma fonte (nome do relatório, Grupo Z) nos dois diagnósticos quando fizer sentido.
+- **`diagnostico-curva-abc.md`**: classificação ABC por faturamento, classificação ABC por margem, participação por categoria, top produtos por giro/margem daquele período de venda. Tudo que responde "o que vende e quanto vale".
+- **`diagnostico-giro-estoque.md`**: qualquer cálculo que cruze giro com margem de forma consolidada, matriz giro x margem (4 quadrantes), estoque parado (sem saída há 6+ meses), risco de ruptura, auditoria de qualidade de cadastro (outliers de custo/preço/quantidade) e recomendação de ação por quadrante. Tudo que responde "o que tenho em estoque e o que fazer com isso" (inclusive pra decisão de mídia, ver abaixo).
+- **O relatório de Curva ABC já traz o "Grupo Z" (ou nomenclatura equivalente do ERP do cliente): os SKUs sem nenhuma venda no período coberto.** É a matéria-prima de estoque parado e giro zero, mas nasce dentro do mesmo PDF/planilha da Curva ABC. Quando eu uso o Grupo Z pra calcular giro parado, matriz ou risco de ruptura, o resultado vai pro `diagnostico-giro-estoque.md`, nunca fica só documentado dentro do diagnóstico de Curva ABC. Cito a mesma fonte (nome do relatório, Grupo Z) nos dois diagnósticos quando fizer sentido.
 - Se um snapshot de estoque separado (sem dado de venda, ex: exportação `Estoque`/`Produto` direto do ERP) chegar depois, ele refina a leitura de giro parado e estoque com quantidade/custo/preço mais atuais, mas não substitui o Grupo Z como fonte de "quem não vendeu no período", os dois se complementam.
 
 **Cruzamento entre os dois diagnósticos é esperado e bem-vindo, não uma exceção a evitar.** Uma leitura mais robusta cita o outro arquivo sempre que fizer sentido: no `diagnostico-curva-abc.md`, referencio o `diagnostico-giro-estoque.md` quando um item A/B tiver risco de ruptura sinalizado lá; no `diagnostico-giro-estoque.md`, referencio o período de Curva ABC de onde veio o Grupo Z ou a classificação do item. O que não faço é copiar a seção inteira de um arquivo pro outro, só a referência (nome do arquivo + período/seção).
 
-**Por que a pasta 2 existe na prática: decisão de mídia.** `@gestor-trafego`/`@copywriter` usam `diagnostico-giro-estoque.md` pra duas perguntas antes de colocar um produto em anúncio: (1) **risco de ruptura**, produto de giro alto com estoque baixo ou caindo não deve entrar em campanha sem reforço de compra, ou precisa ter o orçamento reduzido até repor; (2) **giro parado**, produto com estoque alto e saída lenta é candidato a virar foco de campanha/promoção pra desovar. As duas leituras (venda e estoque) precisam estar cruzadas pra essa decisão funcionar, é por isso que os diagnósticos se referenciam.
+**Por que os dois diagnósticos existem na prática: decisão de mídia.** `@gestor-trafego`/`@copywriter` usam `diagnostico-giro-estoque.md` pra duas perguntas antes de colocar um produto em anúncio: (1) **risco de ruptura**, produto de giro alto com estoque baixo ou caindo não deve entrar em campanha sem reforço de compra, ou precisa ter o orçamento reduzido até repor; (2) **giro parado**, produto com estoque alto e saída lenta é candidato a virar foco de campanha/promoção pra desovar. As duas leituras (venda e estoque) precisam estar cruzadas pra essa decisão funcionar, é por isso que os diagnósticos se referenciam.
 
-**1. Planilhas, uma por PDF/período, nunca consolidadas.** A skill de padronização (`Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md`) já entrega isso pronto pra relatório de Curva ABC: cada PDF gera seu próprio XLSX dentro da pasta `<MM-YYYY>` (mês em que rodei, não o período do relatório), nomeado com o período detectado no cabeçalho do PDF (ex: `curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx`) e com um banner "Período do relatório: ..." na primeira linha da planilha. Nunca junto duas planilhas de período diferente numa só, mesmo que o cliente mande "parte 1, 2, 3, 4" do mesmo lote, cada parte é seu próprio período e sua própria planilha. Se eu gerar alguma planilha derivada (top 50 faturamento, top 50 margem, top 50 giro, top categorias), ela nasce por período, sufixada com o mesmo período da planilha base, na mesma pasta `<MM-YYYY>` de `1 - Curva ABC`, ex: `top-50-faturamento_2026-04-01_a_2026-06-30.xlsx`. Só gero a planilha derivada que o pedido do usuário exigir ou que fizer sentido pro diagnóstico daquele período, não as cinco de uma vez por padrão. Planilha de snapshot de estoque (matriz giro x margem, estoque parado, auditoria de outliers) segue a mesma lógica de uma pasta `<MM-YYYY>` por mês de execução, mas dentro de `2 - Giro de Estoque e Margem`.
+**1. Planilhas, uma por PDF/período, nunca consolidadas, nomeada `<DD>-inteligencia-dados-<descritor>[_periodo].xlsx`.** A skill de padronização (`Operacional/Método Viga Mestra/Ferramenta Curva ABC/SKILL.md`) já entrega isso pronto pra relatório de Curva ABC: cada PDF gera seu próprio XLSX dentro da pasta `<MM-YYYY>` (mês em que rodei, não o período do relatório), nomeado `<DD>-inteligencia-dados-curva-abc-padronizada_<periodo>.xlsx` com o dia em que rodei e o período detectado no cabeçalho do PDF (ex: `25-inteligencia-dados-curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx`) e com um banner "Período do relatório: ..." na primeira linha da planilha. Nunca junto duas planilhas de período diferente numa só, mesmo que o cliente mande "parte 1, 2, 3, 4" do mesmo lote, cada parte é seu próprio período e sua própria planilha. Se eu gerar alguma planilha derivada (top 50 faturamento, top 50 margem, top 50 giro, top categorias), ela nasce por período, sufixada com o mesmo período da planilha base, na mesma pasta `<MM-YYYY>`, ex: `<DD>-inteligencia-dados-top-50-faturamento_2026-04-01_a_2026-06-30.xlsx`. Só gero a planilha derivada que o pedido do usuário exigir ou que fizer sentido pro diagnóstico daquele período, não as cinco de uma vez por padrão. Planilha de snapshot de estoque (matriz giro x margem, estoque parado, auditoria de outliers) segue a mesma lógica de uma pasta `<MM-YYYY>` por mês de execução, mesmo formato de nome, e alimenta o `diagnostico-giro-estoque.md`.
 
-**2. Diagnóstico, um arquivo único por pasta, histórico por período, mais recente no topo.** `diagnostico-curva-abc.md` e `diagnostico-giro-estoque.md` ficam cada um direto na raiz da sua pasta de atividade (fora das subpastas de mês), porque não pertencem a um mês de execução, pertencem ao cliente inteiro ao longo do tempo. Cada vez que processo um novo período, insiro a seção nova no diagnóstico certo, logo abaixo da "Visão geral acumulada" (ver abaixo) e acima de todas as seções de período já existentes, nunca no final do arquivo. As seções ficam sempre em ordem cronológica decrescente pelo período que cobrem (mais recente primeiro, mais antigo por último), independente da ordem em que os relatórios foram processados ou de qual "parte" o cliente numerou. Isso facilita ler a evolução da loja de cima pra baixo sem ter que garimpar o arquivo inteiro. Nunca apago ou reescrevo seção de período já registrado, só insiro nova seção na posição cronológica certa. Se eu processar vários períodos na mesma sessão (ex: as 4 partes de um lote), insiro uma seção por período, já na ordem cronológica decrescente final, não na ordem em que rodei os relatórios.
+**2. Diagnóstico, um arquivo único por atividade, histórico por período, mais recente no topo.** `diagnostico-curva-abc.md` e `diagnostico-giro-estoque.md` ficam cada um em `outputs/_diagnosticos/inteligencia-dados/`, fora de qualquer pasta de mês, porque não pertencem a uma execução pontual, pertencem ao cliente inteiro ao longo do tempo. Cada vez que processo um novo período, insiro a seção nova no diagnóstico certo, logo abaixo da "Visão geral acumulada" (ver abaixo) e acima de todas as seções de período já existentes, nunca no final do arquivo. As seções ficam sempre em ordem cronológica decrescente pelo período que cobrem (mais recente primeiro, mais antigo por último), independente da ordem em que os relatórios foram processados ou de qual "parte" o cliente numerou. Isso facilita ler a evolução da loja de cima pra baixo sem ter que garimpar o arquivo inteiro. Nunca apago ou reescrevo seção de período já registrado, só insiro nova seção na posição cronológica certa. Se eu processar vários períodos na mesma sessão (ex: as 4 partes de um lote), insiro uma seção por período, já na ordem cronológica decrescente final, não na ordem em que rodei os relatórios.
 
 **3. Visão geral acumulada, no topo de cada arquivo, atualizada a cada novo período.** Um bloco curto entre o cabeçalho e a primeira seção de período, cada diagnóstico com os campos que lhe cabem: em `diagnostico-curva-abc.md`, tabela com 1 linha por período (faturamento, média mensal, margem %, concentração do grupo A) e leituras que só aparecem comparando períodos (tendência de faturamento, de margem, de concentração, produto isca recorrente); em `diagnostico-giro-estoque.md`, tabela com 1 linha por período/snapshot (estoque parado corrigido, giro médio, quadrante predominante) e leituras próprias (estoque parado subindo ou caindo, itens que mudaram de quadrante, novos riscos de ruptura). Reescrevo o bloco inteiro do arquivo correspondente toda vez que processo um novo período nele, ele não é histórico cumulativo como as seções abaixo, é sempre a leitura mais atual daquele conjunto.
 
@@ -105,7 +103,7 @@ Uma seção por período em `diagnostico-curva-abc.md`, sempre neste formato, in
 
 ## Período: [DD/MM/AAAA a DD/MM/AAAA]
 **Fonte dos dados:** [nome do PDF original], processado em [MM-YYYY]
-**Planilha(s):** `[MM-YYYY]/curva-abc-padronizada_[periodo].xlsx` [+ planilhas derivadas geradas, se houver]
+**Planilha(s):** `[MM-YYYY]/[DD]-inteligencia-dados-curva-abc-padronizada_[periodo].xlsx` [+ planilhas derivadas geradas, se houver]
 **Status:** v1, sujeito a refinamento
 
 ### Resumo executivo
@@ -117,10 +115,10 @@ Uma seção por período em `diagnostico-curva-abc.md`, sempre neste formato, in
 |---|---|---|
 
 ### Top produtos por giro
-[tabela, ou referência à planilha derivada `top-50-giro_[periodo].xlsx` se o corte foi extenso]
+[tabela, ou referência à planilha derivada `[DD]-inteligencia-dados-top-50-giro_[periodo].xlsx` se o corte foi extenso]
 
 ### Top produtos por margem bruta absoluta
-[tabela, ou referência à planilha derivada `top-50-margem_[periodo].xlsx`]
+[tabela, ou referência à planilha derivada `[DD]-inteligencia-dados-top-50-margem_[periodo].xlsx`]
 
 ### Produtos isca / âncora identificados
 [produto, por que é âncora, giro x margem]
@@ -144,7 +142,7 @@ Uma seção por período/snapshot em `diagnostico-giro-estoque.md`, mesmo princ�
 
 ## Período/Snapshot: [DD/MM/AAAA a DD/MM/AAAA, ou data única se for snapshot de estoque]
 **Fonte dos dados:** [nome do relatório original], processado em [MM-YYYY]
-**Planilha(s):** `[MM-YYYY]/[nome-planilha].xlsx`
+**Planilha(s):** `[MM-YYYY]/[DD]-inteligencia-dados-[nome-planilha].xlsx`
 **Status:** v1, sujeito a refinamento
 
 ### Resumo executivo

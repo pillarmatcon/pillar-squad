@@ -1,7 +1,7 @@
 # Template de Tarefa (Método Viga Mestra)
 
-> **Quando usar:** toda vez que uma nova tarefa for adicionada dentro de uma atividade em `Operacional/Método Viga Mestra/`. Modelo extraído de `Operacional/Método Viga Mestra/2 - Domínio Territorial/1 - Google Meu Negócio/script-respostas-avaliacoes-google.md`, a primeira tarefa documentada nesse formato.
-> **Regra:** tarefa dentro de `Operacional/Método Viga Mestra/` é sempre genérica, com `[placeholders]` no lugar de qualquer dado de cliente (nome da loja, WhatsApp, telefone, nome de vendedor). A versão real e preenchida para um cliente específico vai em `Operacional/clientes/<nome>/outputs/`, nunca aqui.
+> **Quando usar:** toda vez que uma nova tarefa com passo a passo pronto for documentada dentro de uma atividade. Vira uma subseção nova em `Operacional/Método Viga Mestra/_metodo.md`, dentro da atividade correspondente (ex: seção "2.1.1 — Script de respostas a avaliações do Google", a primeira tarefa documentada nesse formato).
+> **Regra:** tarefa dentro de `Operacional/Método Viga Mestra/_metodo.md` é sempre genérica, com `[placeholders]` no lugar de qualquer dado de cliente (nome da loja, WhatsApp, telefone, nome de vendedor). A versão real e preenchida para um cliente específico vai em `Operacional/clientes/<nome>/outputs/`, nunca aqui.
 
 ---
 
@@ -44,6 +44,6 @@
 5. **Placeholders sempre entre colchetes** (`[nome]`, `[whatsapp]`, `[nome da loja]`), nunca dado real de cliente.
 6. **Fechar com boas práticas gerais**, se houver regras que valem pra tarefa inteira e não só pra um cenário.
 
-## Nomeação do arquivo
+## Onde entra no arquivo
 
-`nome-descritivo-da-tarefa.md`, minúsculo, com hífen, sem prefixo de data (data é só para outputs reais em `Operacional/clientes/<nome>/outputs/`).
+Como subseção `###` dentro da atividade correspondente em `_metodo.md`, numerada `<Pilar>.<Atividade>.<Tarefa>` (ex: `2.1.1`), logo após a lista "Tarefas desta atividade". Sem prefixo de data (data é só para outputs reais em `Operacional/clientes/<nome>/outputs/`).

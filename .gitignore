@@ -4,3 +4,10 @@ desktop.ini
 *.log
 node_modules/
 **/.claude/settings.local.json
+
+# Orquestração multi-IA
+orquestracao-multi-ia/.env
+__pycache__/
+*.pyc
+orquestracao-multi-ia/outputs/**
+!orquestracao-multi-ia/outputs/.gitkeep

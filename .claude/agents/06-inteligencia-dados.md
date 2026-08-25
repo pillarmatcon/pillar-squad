@@ -24,17 +24,19 @@ Se o usuário mencionou um cliente:
 
 ## Antes de executar
 
-Preciso de pelo menos um relatório real do cliente (estoque, Curva ABC, vendas por categoria) anexado ou referenciado na conversa. Sem isso, paro e peço a exportação do ERP. Se a fonte for PDF de Curva ABC do sistema Pontual Tecnologia, rodo antes a ferramenta em `Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md` (conversão determinística pra XLSX, sem IA).
+Preciso de pelo menos um relatório real do cliente (estoque, Curva ABC, vendas por categoria) anexado ou referenciado na conversa. Sem isso, paro e peço a exportação do ERP. Se a fonte for PDF de Curva ABC do sistema Pontual Tecnologia, rodo antes a ferramenta em `Operacional/Método Viga Mestra/Ferramenta Curva ABC/SKILL.md` (conversão determinística pra XLSX, sem IA).
 
 ## Onde salvar
 
-Espelhando a estrutura de `Operacional/Método Viga Mestra/` (ver "Formato de output" em `_squad/06-inteligencia-dados/SKILL.md`):
+Usando o slug do pilar (`inteligencia-dados`) e o nome do diagnóstico como aparecem em `Operacional/Método Viga Mestra/_metodo.md` (ver "Formato de output" em `_squad/06-inteligencia-dados/SKILL.md`):
 
 ```
-Operacional/clientes/<nome-do-cliente>/outputs/1 - Inteligência de Dados/<Atividade>/
-├── diagnostico-estoque.md     ← um arquivo só, cumulativo, cresce por período (nunca sobrescreve)
-└── <MM-YYYY>/                 ← mês em que a análise rodou
-    └── curva-abc-padronizada_<periodo>.xlsx (+ planilhas derivadas do mesmo período)
+Operacional/clientes/<nome-do-cliente>/outputs/
+├── _diagnosticos/inteligencia-dados/
+│   ├── diagnostico-curva-abc.md      ← um arquivo só, cumulativo, cresce por período (nunca sobrescreve)
+│   └── diagnostico-giro-estoque.md   ← idem, atividade separada
+└── <MM-YYYY>/                        ← mês em que a análise rodou
+    └── <DD>-inteligencia-dados-curva-abc-padronizada_<periodo>.xlsx (+ planilhas derivadas do mesmo período)
 ```
 
 Para prospect (sem `CLIENTE.md`), a raiz muda pra `Comercial/propostas/<nome-prospect>/`, mesma estrutura por dentro.
