@@ -4,13 +4,13 @@
 
 **Arquivos desta entrega:**
 ```
-outputs/07-2026/31-site-institucional-construmais.html   (o site)
-outputs/07-2026/31-site-institucional-construmais-README.md   (este arquivo)
-outputs/07-2026/assets/logo-construmais.png       (logo real, cópia integral)
-outputs/07-2026/assets/logo-construmais.webp      (logo, versão otimizada 800x450 usada no hero)
-outputs/07-2026/assets/mascote-construmais.png    (mascote real, cópia integral)
-outputs/07-2026/assets/mascote-construmais.webp   (mascote, versão otimizada 900x1593 usada na seção Sobre)
-outputs/07-2026/assets/og-image-construmais.png   (imagem 1200x630 gerada a partir do logo real, para Open Graph)
+outputs/07-2026/Arquivos/31-site-institucional-construmais.html   (o site)
+outputs/07-2026/Analises/31-site-institucional-construmais-README.md   (este arquivo)
+outputs/07-2026/Arquivos/assets/logo-construmais.png       (logo real, cópia integral)
+outputs/07-2026/Arquivos/assets/logo-construmais.webp      (logo, versão otimizada 800x450 usada no hero)
+outputs/07-2026/Arquivos/assets/mascote-construmais.png    (mascote real, cópia integral)
+outputs/07-2026/Arquivos/assets/mascote-construmais.webp   (mascote, versão otimizada 900x1593 usada na seção Sobre)
+outputs/07-2026/Arquivos/assets/og-image-construmais.png   (imagem 1200x630 gerada a partir do logo real, para Open Graph)
 ```
 O HTML é autocontido (CSS inline no `<head>`, JS vanilla no rodapé) e só depende da pasta `assets/` ao lado dele. Abra o `.html` direto no navegador para conferir.
 
@@ -55,7 +55,7 @@ O HTML é autocontido (CSS inline no `<head>`, JS vanilla no rodapé) e só depe
 **Cloudflare Pages**, gratuita, sem cartão, arrastar e soltar, no ar em 60 segundos.
 1. Criar conta em [cloudflare.com](https://cloudflare.com)
 2. Workers & Pages → Create application → Pages → Upload assets
-3. Arrastar o `.html` e a subpasta `assets/` juntos (mesma pasta de mes em `outputs/`), mantendo a estrutura
+3. Arrastar o `.html` e a subpasta `assets/` juntos (ambos dentro de `Arquivos/` do mês), mantendo a estrutura
 4. O site fica no ar com URL `*.pages.dev`
 5. Pra domínio próprio (`construmaisjp.com.br`): aba Custom Domains, seguir instruções de DNS
 

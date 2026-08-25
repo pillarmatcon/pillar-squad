@@ -2,7 +2,7 @@
 
 **Fonte dos dados:** os mesmos 5 arquivos originais do diagnóstico de estoque de 2026-07-23, localizados em `Diagnóstico Tony - Construmais/Arquivos/` fora da pasta do workspace: `Curva ABC parte 1.pdf` (01/05/2025 a 31/10/2025), `Curva ABC parte 2.pdf` (01/11/2025 a 31/12/2025), `Curva ABC parte 3.pdf` (01/01/2026 a 31/03/2026), `Curva ABC parte 4.pdf` (01/04/2026 a 30/06/2026) e `Estoque ETL.xlsx` (aba "Estoque", 15.228 linhas).
 
-**Metodologia:** Pilar 1, Inteligência de Dados, Método Viga Mestra. Este arquivo é um recorte de aprofundamento do `outputs/07-2026/23-diagnostico-estoque.md` (que já traz giro/margem agregados de Ferramentas: 5,17% do faturamento, margem bruta média 46,20%), agora aberto em nível de SKU individual para dar suporte à campanha de Dia dos Pais com kits com ferramentas.
+**Metodologia:** Pilar 1, Inteligência de Dados, Método Viga Mestra. Este arquivo é um recorte de aprofundamento do `outputs/07-2026/Analises/23-diagnostico-estoque.md` (que já traz giro/margem agregados de Ferramentas: 5,17% do faturamento, margem bruta média 46,20%), agora aberto em nível de SKU individual para dar suporte à campanha de Dia dos Pais com kits com ferramentas.
 
 **Status:** v1, sujeito a refinamento.
 
@@ -123,4 +123,4 @@ Fica de fora, por falta de dado que sustente, qualquer composição ancorada em 
 1. `@copywriter` pode usar as duas composições acima (Kit Reforma e Kit Ferramenta Manual) como ponto de partida para copy de oferta de Dia dos Pais, decidindo preço, desconto e nome final do kit.
 2. Se a Pillar decidir seguir com o ângulo de furadeira/parafusadeira mesmo com giro baixo, recomendo tratar como teste controlado (poucas unidades, sem grande investimento de mídia), já que não há histórico de venda que sustente a demanda.
 3. Confirmar com o Tony se algum modelo de ferramenta manual (trena, martelo, alicate) tem código duplicado por lote de compra, como aconteceu com o cimento no diagnóstico original. Não verifiquei isso especificamente para Ferramentas nesta rodada.
-4. Este arquivo não altera nenhum número do diagnóstico original (`outputs/07-2026/23-diagnostico-estoque.md`) nem do `CLIENTE.md`, é um aprofundamento pontual da categoria Ferramentas para viabilizar o pedido de campanha.
+4. Este arquivo não altera nenhum número do diagnóstico original (`outputs/07-2026/Analises/23-diagnostico-estoque.md`) nem do `CLIENTE.md`, é um aprofundamento pontual da categoria Ferramentas para viabilizar o pedido de campanha.

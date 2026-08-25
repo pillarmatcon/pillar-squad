@@ -3,7 +3,7 @@
 **Cliente:** Construmais (Tony Carvalho Barbosa), João Pessoa/PB
 **Nicho:** Loja de material de construção, B2C local + profissional autônomo, ticket médio até R$ 300 (`_squad/_shared/nichos.md`)
 **Objetivo desta entrega:** transformar estoque parado em caixa, com handoff do Pilar 1 (Inteligência de Dados) para o Pilar 3 (Combo de Produtos, decisão do `@copywriter`) e o Pilar 2 (Domínio Territorial, tráfego pago, decisão do `@gestor-trafego`)
-**Fonte dos dados:** `outputs/_diagnosticos/inteligencia-dados/diagnostico-estoque.md`, seção "Atualização de Estoque: 03/08/2026", e extração direta de `08-2026/03-inteligencia-dados-estoque-auditado_2026-08-03.xlsx` (aba "Estoque parado (ajustado)")
+**Fonte dos dados:** `outputs/_diagnosticos/inteligencia-dados/diagnostico-estoque.md`, seção "Atualização de Estoque: 03/08/2026", e extração direta de `08-2026/Arquivos/03-inteligencia-dados-estoque-auditado_2026-08-03.xlsx` (aba "Estoque parado (ajustado)")
 **Status:** v1, sujeito a refinamento e validação do Tony
 **Nível do `@gestor-trafego` nesta entrega:** Nível 1 (padrão). O `CLIENTE.md` ainda não tem Ad Account ID nem Pixel Meta preenchidos, então o plano de mídia abaixo é para execução manual no Gerenciador de Anúncios, não para rodar via Meta Ads CLI.
 
@@ -78,7 +78,7 @@ Os três já saem juntos na prática: quem constrói cerca ou portão precisa da
 
 ### Kit Cobertura Completa
 
-**Composição:** Cumeeira Zincalum 0,43 (parado) + Telha Canal Russa (giro alto, âncora já validada na Fase 4 da estratégia de kits por fase de obra, `outputs/07-2026/24-estrategia-kits-e-vendas.md`)
+**Composição:** Cumeeira Zincalum 0,43 (parado) + Telha Canal Russa (giro alto, âncora já validada na Fase 4 da estratégia de kits por fase de obra, `outputs/07-2026/Analises/24-estrategia-kits-e-vendas.md`)
 
 Quem compra telha de cobertura via de regra também precisa da cumeeira pra fechar o cume do telhado. Amarrar a cumeeira parada ao produto que já vende bem é a versão mais direta de "empurrar o que não sai sozinho junto com o que já sai".
 
@@ -94,7 +94,7 @@ Combo natural de reforma de banheiro, área externa ou substituição de torneir
 
 ### Como o combo aparece no ponto de venda
 
-Segue o mesmo modelo já validado em `outputs/07-2026/24-estrategia-kits-e-vendas.md` (seção 4, Playbook de execução comercial):
+Segue o mesmo modelo já validado em `outputs/07-2026/Analises/24-estrategia-kits-e-vendas.md` (seção 4, Playbook de execução comercial):
 
 - **Balcão:** quando o vendedor bate Metalon, Tela Alambrado ou Cumeeira no PDV, o sistema (ou uma folha impressa no caixa) sugere o complemento antes de fechar a venda.
 - **Orçamento de obra/cerca:** o kit já entra montado na proposta, não como sugestão depois de fechado.
@@ -171,7 +171,7 @@ SEMANA 4: decisão, se performance for igual ou melhor, propor ao Tony orçament
 
 ### BENCHMARKS ESPERADOS
 
-O CPL de referência de R$ 30-80 do `CLIENTE.md` foi calibrado pra geração de orçamento geral da loja, não pra um SKU específico de ticket mais baixo (Cumeeira R$ 41, Metalon R$ 95, Tela R$ 80/un). Pra este teste, a métrica mais honesta não é CPL isolado, é a **taxa de anexo no PDV** (das vendas do item âncora, quantas saíram com o complemento), a mesma métrica já usada nos outros kits (`outputs/07-2026/24-estrategia-kits-e-vendas.md`, seção 4.4). Comparar CPL dos criativos novos contra os atuais da campanha serve como sinal de custo, mas a decisão de continuar ou não depende do PDV, não só do Gerenciador de Anúncios.
+O CPL de referência de R$ 30-80 do `CLIENTE.md` foi calibrado pra geração de orçamento geral da loja, não pra um SKU específico de ticket mais baixo (Cumeeira R$ 41, Metalon R$ 95, Tela R$ 80/un). Pra este teste, a métrica mais honesta não é CPL isolado, é a **taxa de anexo no PDV** (das vendas do item âncora, quantas saíram com o complemento), a mesma métrica já usada nos outros kits (`outputs/07-2026/Analises/24-estrategia-kits-e-vendas.md`, seção 4.4). Comparar CPL dos criativos novos contra os atuais da campanha serve como sinal de custo, mas a decisão de continuar ou não depende do PDV, não só do Gerenciador de Anúncios.
 
 ---
 
@@ -214,13 +214,13 @@ Pra a cauda de Ferragem, Ferramentas, Material Elétrico e Hidráulica que não 
 **Texto sugerido pro post/story orgânico:**
 Comunicado Construmais: chegou parafuso, bucha, disco de corte e mais um monte de item parado no estoque com preço pra sair rápido. Passa na loja ou chama no WhatsApp pra saber o que tem disponível.
 
-Usar o template já existente "Tem na Construmais" (`outputs/08-2026/01-dominio-territorial-template-tem-na-construmais.html`), que já segue a identidade visual da marca.
+Usar o template já existente "Tem na Construmais" (`outputs/08-2026/Arquivos/01-dominio-territorial-template-tem-na-construmais.html`), que já segue a identidade visual da marca.
 
 ---
 
 ## 5. Ações complementares fora de mídia paga
 
-1. **Checklist de balcão para a cauda longa.** Ferragem, Ferramentas e Material Elétrico têm valor médio por item baixo demais pra campanha paga (R$ 81,17 no caso de Ferragem), mas o vendedor pode empurrar isso no PDV com um checklist simples, seguindo o mesmo modelo do Playbook de Vendas já existente (`outputs/07-2026/24-estrategia-kits-e-vendas.md`, seção 4).
+1. **Checklist de balcão para a cauda longa.** Ferragem, Ferramentas e Material Elétrico têm valor médio por item baixo demais pra campanha paga (R$ 81,17 no caso de Ferragem), mas o vendedor pode empurrar isso no PDV com um checklist simples, seguindo o mesmo modelo do Playbook de Vendas já existente (`outputs/07-2026/Analises/24-estrategia-kits-e-vendas.md`, seção 4).
 2. **Posts orgânicos usando o template "Tem na Construmais"** pra dar visibilidade aos itens parados de menor ticket, sem custo de mídia.
 3. **Correção de cadastro antes de qualquer coisa em 3 frentes:** o preço do Tubo PVC Rosca (item com markup fora do padrão), a categoria corrompida "MD-MD-MD..." que esconde R$ 102 mil de estoque parado sem identificação, e o preço das Sacolas 30x40 (venda abaixo do custo). Nenhuma dessas três correções depende de campanha, dependem do Tony mexer no Pontual Tecnologia.
 4. **Decisão operacional sobre Material de Uso e Consumo** (R$ 54.545,54 parados em sacola, embalagem e itens de uso interno da loja): não é pauta de marketing, é decisão do Tony sobre repor menos, usar o estoque internamente ou negociar devolução com fornecedor.

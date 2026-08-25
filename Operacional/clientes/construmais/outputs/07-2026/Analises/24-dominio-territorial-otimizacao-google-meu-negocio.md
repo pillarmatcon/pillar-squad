@@ -3,7 +3,7 @@
 **Cliente:** Construmais (Tony Carvalho Barbosa), João Pessoa/PB
 **Responsável Pillar:** Murillo e Alex
 **Pilar do Método Viga Mestra:** Pilar 2, Domínio Territorial (item contratado no Anexo I, "Google Meu Negócio")
-**Briefing usado:** `Operacional/clientes/construmais/CLIENTE.md` (perfil, contrato, diagnóstico dos 5 pilares) + `outputs/07-2026/23-diagnostico-estoque.md` (Curva ABC e produtos de maior giro) + `outputs/07-2026/24-estrategia-kits-e-vendas.md` (fases de obra, só como inspiração de tema de conteúdo)
+**Briefing usado:** `Operacional/clientes/construmais/CLIENTE.md` (perfil, contrato, diagnóstico dos 5 pilares) + `outputs/07-2026/Analises/23-diagnostico-estoque.md` (Curva ABC e produtos de maior giro) + `outputs/07-2026/Analises/24-estrategia-kits-e-vendas.md` (fases de obra, só como inspiração de tema de conteúdo)
 **Status:** v1, pronta para o Tony revisar e aprovar antes de colar no painel do Google. Não é para publicar sem passar pelos itens da seção "Pendências" no fim.
 
 **Decisão já registrada nesta conta:** nenhuma avaliação simulada de cliente entra neste material. O pedido anterior de gerar texto de review fake foi recusado por violar a política do Google e o Código de Defesa do Consumidor. A seção 6 trata só de como pedir avaliação real, nunca do texto da avaliação em si.
@@ -147,7 +147,7 @@ O perfil já tem reviews positivas, mas hoje é ativo parado, sem reforço. A es
 
 **Recurso técnico que facilita:** o Google Business Profile gera um link curto de avaliação (em "Peça avaliações" no painel), que pode virar QR code impresso no balcão ou na nota de entrega. Isso reduz o atrito de o cliente ter que procurar o perfil manualmente.
 
-**Treinamento da equipe:** os 6 colaboradores (2 vendedores no atendimento direto) precisam saber o script verbal acima. Vale amarrar isso ao playbook de atendimento do Pilar 4 já mapeado em `outputs/07-2026/24-estrategia-kits-e-vendas.md`, seção 4, que já cobre os pontos de contato de balcão, orçamento e entrega.
+**Treinamento da equipe:** os 6 colaboradores (2 vendedores no atendimento direto) precisam saber o script verbal acima. Vale amarrar isso ao playbook de atendimento do Pilar 4 já mapeado em `outputs/07-2026/Analises/24-estrategia-kits-e-vendas.md`, seção 4, que já cobre os pontos de contato de balcão, orçamento e entrega.
 
 **O que não fazer:** não oferecer desconto ou brinde em troca de avaliação (o Google proíbe incentivo condicionado a review), não escrever a avaliação pelo cliente, não pedir para familiar ou funcionário avaliar como se fosse cliente.
 

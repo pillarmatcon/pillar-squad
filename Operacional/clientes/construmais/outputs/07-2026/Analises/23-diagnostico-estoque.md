@@ -205,7 +205,7 @@ Nos três primeiros casos (Sikasil, Motobomba, Fechadura), a explicação mais p
 
 ## Candidatos a kit (handoff para @copywriter, Pilar 3)
 
-**Correção (2026-07-23):** a linha "Alvenaria" abaixo tinha um erro de domínio técnico identificado depois desta versão: Argamassa Cola Forte AC-II 15kg é argamassa colante para assentar piso/cerâmica (norma ABNT NBR 14081), não serve para assentar tijolo. O pareamento correto do Kit Alvenaria é Tijolo + Areia Fina (traço de cimento e areia), e a Argamassa AC-II vai para o Kit Revestimento, pareada com piso cerâmico. Ver a versão corrigida e expandida (10 kits por fase de obra) em `outputs/07-2026/24-estrategia-kits-e-vendas.md`, que substitui a tabela abaixo como referência de composição de kit. Margem combinada do kit Alvenaria recalculada abaixo com Areia Fina no lugar da AC-II.
+**Correção (2026-07-23):** a linha "Alvenaria" abaixo tinha um erro de domínio técnico identificado depois desta versão: Argamassa Cola Forte AC-II 15kg é argamassa colante para assentar piso/cerâmica (norma ABNT NBR 14081), não serve para assentar tijolo. O pareamento correto do Kit Alvenaria é Tijolo + Areia Fina (traço de cimento e areia), e a Argamassa AC-II vai para o Kit Revestimento, pareada com piso cerâmico. Ver a versão corrigida e expandida (10 kits por fase de obra) em `outputs/07-2026/Analises/24-estrategia-kits-e-vendas.md`, que substitui a tabela abaixo como referência de composição de kit. Margem combinada do kit Alvenaria recalculada abaixo com Areia Fina no lugar da AC-II.
 
 Efeito de margem calculado diretamente a partir dos números confirmados acima (soma da margem em R$ dos produtos do kit dividida pela soma do faturamento dos mesmos produtos), não estimado.
 

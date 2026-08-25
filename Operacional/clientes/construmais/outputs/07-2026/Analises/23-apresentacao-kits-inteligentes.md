@@ -1,5 +1,5 @@
 # Copy para Construmais
-**Briefing:** `outputs/07-2026/24-estrategia-kits-e-vendas.md` e `outputs/07-2026/23-diagnostico-estoque.md`, produzidos em 23/07/2026 a partir dos relatórios de Curva ABC do ERP Pontual Tecnologia (14 meses, 01/05/2025 a 30/06/2026)
+**Briefing:** `outputs/07-2026/Analises/24-estrategia-kits-e-vendas.md` e `outputs/07-2026/Analises/23-diagnostico-estoque.md`, produzidos em 23/07/2026 a partir dos relatórios de Curva ABC do ERP Pontual Tecnologia (14 meses, 01/05/2025 a 30/06/2026)
 **Nicho:** Loja de material de construção (MatCon), perfil de `_shared/nichos.md`
 **Objetivo desta peça:** Apresentação para o Tony decidir se quer formalizar o Pilar 3 (Combo de Produtos) como item explícito e faturável do contrato (o trabalho de kits em si já é entregue como parte do método único, independente dessa formalização)
 **Status:** v1, pendente de validação do Tony
@@ -50,7 +50,7 @@ Um ponto que precisa ficar claro: a margem combinada dos dois produtos é 31,38%
 
 ## Roadmap dos outros kits mapeados
 
-Além dos três acima, o diagnóstico já mapeou mais nove combinações, uma para cada fase de obra restante e uma transversal. Aqui vai só o essencial de cada uma, o detalhe técnico completo está em `outputs/07-2026/24-estrategia-kits-e-vendas.md`.
+Além dos três acima, o diagnóstico já mapeou mais nove combinações, uma para cada fase de obra restante e uma transversal. Aqui vai só o essencial de cada uma, o detalhe técnico completo está em `outputs/07-2026/Analises/24-estrategia-kits-e-vendas.md`.
 
 - **Fundação/Concretagem:** cimento como âncora, complementado por areia média, pedra britada, vergalhão e malha soldada.
 - **Estrutura de Laje:** bloco para laje com treliça pré-moldada e canaleta.
