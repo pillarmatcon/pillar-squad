@@ -94,6 +94,8 @@ Não criar os criativos, já que não há agente dedicado a isso no momento. Mas
 - Qual copy de anúncio usar (puxar do Agente 02 se já tiver; orientar se não tiver)
 - Qual hook testar primeiro e qual é o backup
 
+**Exceção: campanha de aquisição da própria Pillar.** Se o plano não é para um cliente da agência, mas para a Pillar captar dono de loja de MatCon como lead (ex: campanha "tráfego pago" institucional), o criativo segue `_shared/estilo-criativos-trafego.md` e é produzido pelo Agente 03 (Designer), não pelo cliente. Nesse caso, indicar isso explicitamente no plano. Para campanha de cliente real, o criativo segue sempre a identidade do `CLIENTE.md` daquele cliente, nunca o guia da Pillar.
+
 ### Passo 6: Definir rastreamento
 Todo plano de tráfego inclui obrigatoriamente:
 - Meta Pixel instalado na LP (ou GHL/Typebot/GreatPages)
