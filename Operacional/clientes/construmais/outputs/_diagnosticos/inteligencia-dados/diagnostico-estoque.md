@@ -8,6 +8,15 @@
 
 **Nota de atualização de estoque (03/08/2026), substitui a referência acima:** novo snapshot de estoque (`Produto em 03-08-26.htm`, exportação direta do sistema Pontual, 15.369 SKUs) cruzado com a mesma venda somada dos 4 períodos de Curva ABC. Estoque parado real atualizado: **1.732 produtos, R$ 373.769,46 a custo** (alta de R$ 78.642,89 / +26,6% em valor frente ao R$ 295.126,57 de 25/07/2026, com apenas 37 SKUs a mais no grupo parado, +2,2%, ou seja o valor médio por item parado subiu mais que a quantidade de itens). Esse novo relatório trouxe também **2 outliers críticos de cadastro não vistos antes**, com quantidade ou custo em forte desacordo com os pares da própria linha de produto (`CABO FLEX 2.5MM AZ PC COBRECOM`, código 7153, quantidade 79.263,9 PC contra pares entre 0 e 635 MT/PC da mesma linha; `MANGUEIRA CORRUGADA 20MM AM - KRONA`, código 7874, quantidade e custo fora do padrão). Já excluídos do número acima, ver seção "Atualização de Estoque: 03/08/2026" abaixo para o detalhe completo. **Use R$ 373.769,46 como referência de estoque parado do negócio a partir de agora**, não os valores por período da tabela abaixo (mantidos só pra referência histórica) nem o R$ 295.126,57 de 25/07 (desatualizado, mas preservado acima por transparência do histórico).
 
+**Nota de confirmação do Tony (26/08/2026):** o Tony confirmou verbalmente a natureza de 7 itens que apareciam nas listas de estoque parado ou de achados pendentes de confirmação (ver detalhe cruzado nas seções "Maiores itens parados individuais" e "Achados extras confirmados nesta rodada" abaixo). Ainda não houve reprocessamento de dado, só registro da confirmação qualitativa:
+- **Cumeeira:** vendida por encomenda, não é estoque parado real (item não deveria ser lido como giro zero problemático)
+- **Vareta (Solda Oxi):** gira muito pouco, confirma que é slow-mover genuíno, não erro de leitura
+- **Sacolas:** usadas para ensacar areia e brita (uso interno/operacional da loja, não item de revenda com markup normal)
+- **Tubo (PVC Rosca):** produto de giro baixo, confirmado pelo Tony. Removido da lista de pendências de confirmação (ver "Achados extras confirmados nesta rodada" abaixo)
+- **Metalon 30x20:** estoque zerado, é furo de estoque (perda/discrepância, não erro de cadastro) — item novo, ainda sem código/valor cruzado neste diagnóstico
+- **Torneira:** é furo de estoque (mesma natureza do Metalon) — item novo, ainda sem código/valor cruzado neste diagnóstico
+- **Tela:** temos em estoque, material de baixo giro — item novo, ainda sem código/valor cruzado neste diagnóstico
+
 ## Visão geral acumulada (mai/2025 a jun/2026, 4 períodos processados)
 *(atualizar este bloco a cada novo período processado, não é seção fixa)*
 
@@ -181,8 +190,8 @@ Dos 385 restantes, a soma de valor a custo é R$ 40.900,03. É a categoria com o
 | 10810 | COPO DESCARTAVEL 180ML PRATIK | Custo ou preço | Custo R$ 5,20, preço R$ 4,37 (margem negativa, -16,0%) | Sem outro "copo descartável" no relatório pra comparar | Sem benchmark interno, recomendo checagem direta | Qtde 50, valor a custo R$ 260,00 |
 
 ### Achados extras confirmados nesta rodada (fora da lista de outliers críticos originais)
-1. **Tubo PVC Rosca 1 pol Tigre (código 3214):** o benchmark contra os outros "Tubo PVC Rosca" da mesma marca não resolve sozinho se o problema é o custo (R$ 8,06), o preço (R$ 96,00) ou a quantidade (999,83 PC, muito acima de qualquer par da linha, que vão de 0 a 6 PC). Diferente dos 3 outliers críticos já confirmados, aqui não há um par do mesmo diâmetro (1 polegada) pra fechar a estimativa com confiança. Recomendo perguntar direto ao Tony qual dos 3 campos está errado antes de propor um valor corrigido.
-2. **Sacolas 30x40 Imp (código 11022):** o benchmark contra o item irmão direto (Sacolas 40x50 Imp, mesma família, mesma unidade) inverte a hipótese inicial. Não é o preço de venda (R$ 0,20) que parece errado, é o **custo cadastrado** (R$ 11,66) que está muito acima do padrão da linha (o irmão custa R$ 0,15). Recomendo pedir ao Tony a nota fiscal de compra dessa sacola pra confirmar o custo real antes de corrigir no ERP.
+1. **Tubo PVC Rosca 1 pol Tigre (código 3214):** o benchmark contra os outros "Tubo PVC Rosca" da mesma marca não resolvia sozinho se o problema era o custo (R$ 8,06), o preço (R$ 96,00) ou a quantidade (999,83 PC, muito acima de qualquer par da linha, que vão de 0 a 6 PC). **Confirmado pelo Tony em 26/08/2026: é um produto de giro baixo**, consistente com pouca movimentação. Removido da lista de pendências de confirmação.
+2. **Sacolas 30x40 Imp (código 11022):** o benchmark contra o item irmão direto (Sacolas 40x50 Imp, mesma família, mesma unidade) invertia a hipótese inicial, apontando o custo cadastrado (R$ 11,66) como muito acima do padrão da linha (o irmão custa R$ 0,15). **Confirmado pelo Tony em 26/08/2026: essas sacolas são usadas para ensacar areia e brita** (uso interno/operacional da loja, não item de revenda padrão), o que explica a linha de preço/margem fora do padrão de sacola de revenda. Removido da lista de pendências de confirmação.
 
 ### Outliers críticos identificados (pendente de confirmação do cliente)
 | Código | Produto | Campo suspeito | Valor cadastrado | Benchmark de pares (mesma linha) | Estimativa | Impacto no valor de estoque |
@@ -227,7 +236,7 @@ Maiores itens parados individuais, exceto os outliers já tratados à parte:
 | Sacola Recicladas VD 60x80 | 1.015 kg | R$ 11,50 | R$ 11.672,50 | Material de Uso e Consumo |
 | Tubo PVC Rosca 1 pol Tigre | 999,83 pc | R$ 8,06 | R$ 8.058,63 | (categoria corrompida) |
 
-Vareta Solda Oxi e Cumeeira Zincalum já apareciam como maiores itens parados individuais nos períodos de nov-dez/2025 e jan-mar/2026 respectivamente (ver seções abaixo), confirma que são itens realmente parados de longa data, não erro de leitura pontual.
+Vareta Solda Oxi e Cumeeira Zincalum já apareciam como maiores itens parados individuais nos períodos de nov-dez/2025 e jan-mar/2026 respectivamente (ver seções abaixo), confirma que são itens realmente parados de longa data, não erro de leitura pontual. **Confirmado pelo Tony em 26/08/2026:** Cumeeira é vendida por encomenda (não deveria ser lida como estoque morto real, giro zero é esperado pra esse tipo de venda); Vareta gira muito pouco (slow-mover genuíno, não erro de leitura).
 
 Estoque parado por categoria (ajustado, exclui outliers): categoria corrompida "MD-MD-MD..." concentra 27,4% do valor parado ajustado (R$ 102.131,64), seguida de Material Básico (22,5%, R$ 83.968,25) e Material de Uso e Consumo (14,6%, R$ 54.545,54). Ver planilha para o detalhe completo por SKU.
 
