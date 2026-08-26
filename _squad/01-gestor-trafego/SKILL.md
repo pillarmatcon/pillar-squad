@@ -88,7 +88,7 @@ Usar os templates em `estruturas-de-campanha.md`. Adaptar para o nicho, orçamen
 - **Retargeting:** sempre criar audiência de visitantes do site + engajamento Instagram/Facebook
 
 ### Passo 5: Indicar criativos
-Não criar os criativos — não há agente dedicado a isso no momento. Mas indicar:
+Não criar os criativos, já que não há agente dedicado a isso no momento. Mas indicar:
 - Quantos criativos são necessários no lançamento
 - Qual formato por conjunto de anúncios (o padrão da Pillar é imagem única em Story + Post; vídeo quando fizer sentido; carrossel só como exceção pedida explicitamente)
 - Qual copy de anúncio usar (puxar do Agente 02 se já tiver; orientar se não tiver)

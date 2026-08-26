@@ -92,7 +92,7 @@ Voltando à sua pergunta original: você queria {RESUMO DO QUE PEDIU}
 pra {CLIENTE}. Posso seguir agora com dados reais da conta?
 ```
 
-Aguarde a confirmação e retome a task original, agora com acesso a comandos read-only da CLI (ver `_skills/meta-ads-cli-setup/references/comandos-cheatsheet.md`).
+Aguarde a confirmação e retome a task original, agora com acesso a comandos read-only da CLI (ver `_squad/_skills/meta-ads-cli-setup/references/comandos-cheatsheet.md`).
 
 ---
 

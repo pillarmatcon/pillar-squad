@@ -32,7 +32,7 @@ Também é possível chamar cada agente individualmente para tarefas pontuais.
 | 00 | **Orquestrador** | Recebe o briefing e executa os agentes especialistas em sequência | Squad completo entregue numa única conversa |
 | 01 | **Tráfego** | Estrutura campanha Meta + Google, audita contas, define budget e UTMs | Plano de campanha + benchmarks + UTMs + cronograma |
 | 02 | **Copy** | Escreve anúncios, headlines, emails, scripts, sequências de follow-up e playbook de atendimento/orçamento | 10 headlines + 3 anúncios (direta/PAS/prova) + email + script + playbook de vendedor |
-| 03 | **Designer (Prospecção)** | Gera a peça de aquisição de cliente da própria Pillar (Story + Post), captando dono de loja MatCon como lead — chamado à parte, não roda no pipeline do `@orquestrador` | Criativo HTML de prospecção (Story + Post) |
+| 03 | **Designer (Prospecção)** | Gera a peça de aquisição de cliente da própria Pillar (Story + Post), captando dono de loja MatCon como lead, chamado à parte, não roda no pipeline do `@orquestrador` | Criativo HTML de prospecção (Story + Post) |
 | 04 | **Páginas** | Cria landing page HTML completa, captura, vendas, obrigado, agendamento, e proposta comercial para prospect | LP responsiva com Pixel, GA4, SEO, Open Graph, ou proposta HTML com a marca da Pillar |
 | 05 | **Relatório/Dashboard** | Gera relatório semanal e dashboard HTML com KPIs visuais de campanha | Dashboard HTML com análise + próximas ações + ROI |
 | 06 | **Inteligência de Dados** | Lê relatório de ERP (Curva ABC, estoque, vendas) e produz diagnóstico de giro, margem, estoque parado e produtos isca | Diagnóstico estruturado, insumo para copy (kits), dashboard (KPI de estoque) e proposta |

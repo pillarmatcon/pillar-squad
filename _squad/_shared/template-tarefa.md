@@ -1,6 +1,6 @@
 # Template de Tarefa (Método Viga Mestra)
 
-> **Quando usar:** toda vez que uma nova tarefa com passo a passo pronto for documentada dentro de uma atividade. Vira uma subseção nova em `Operacional/Método Viga Mestra/_metodo.md`, dentro da atividade correspondente (ex: seção "2.1.1 — Script de respostas a avaliações do Google", a primeira tarefa documentada nesse formato).
+> **Quando usar:** toda vez que uma nova tarefa com passo a passo pronto for documentada dentro de uma atividade. Vira uma subseção nova em `Operacional/Método Viga Mestra/_metodo.md`, dentro da atividade correspondente (ex: seção "2.1.1: Script de respostas a avaliações do Google", a primeira tarefa documentada nesse formato).
 > **Regra:** tarefa dentro de `Operacional/Método Viga Mestra/_metodo.md` é sempre genérica, com `[placeholders]` no lugar de qualquer dado de cliente (nome da loja, WhatsApp, telefone, nome de vendedor). A versão real e preenchida para um cliente específico vai em `Operacional/clientes/<nome>/outputs/`, nunca aqui.
 
 ---

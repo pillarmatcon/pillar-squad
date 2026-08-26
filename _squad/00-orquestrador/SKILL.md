@@ -35,7 +35,7 @@ Ao receber o briefing, o orquestrador:
 
 1. **Lê o briefing** e identifica o nicho, oferta, objetivo e budget
 2. **Se o cliente já tem execução anterior** (existe RESUMO DE PERFORMANCE em `Operacional/clientes/<nome>/outputs/`, não é a primeira vez), lê o resumo mais recente e o Histórico do `CLIENTE.md` antes de seguir (Regra 22 de `_shared/regras-globais.md`). Se for cliente novo, pula esta etapa.
-3. **Se houver relatório de ERP anexado ou referenciado** (Curva ABC, estoque, vendas por categoria), **executa o Agente 06** primeiro e usa o diagnóstico de giro/margem/produtos isca para orientar oferta e segmentação nas etapas seguintes. Sem relatório de ERP, pula esta etapa — não pede o relatório proativamente, só usa se o cliente já forneceu.
+3. **Se houver relatório de ERP anexado ou referenciado** (Curva ABC, estoque, vendas por categoria), **executa o Agente 06** primeiro e usa o diagnóstico de giro/margem/produtos isca para orientar oferta e segmentação nas etapas seguintes. Sem relatório de ERP, pula esta etapa: não pede o relatório proativamente, só usa se o cliente já forneceu.
 4. **Executa o Agente 01** internamente, monta o plano de tráfego completo
 5. **Passa o plano para o Agente 02:** escreve a copy dos anúncios usando o plano
 6. **Passa o briefing técnico para o Agente 04:** constrói a LP com tracking e compliance

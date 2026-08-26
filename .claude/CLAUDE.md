@@ -5,7 +5,7 @@ Esta pasta é o **workspace permanente** de uma agência de marketing digital qu
 ## Estrutura
 
 - `.claude/` - esta pasta. Instruções globais (este arquivo) + 7 agentes registrados. Fica sempre na raiz de `Pillar/`: é daqui que o Claude Code carrega o CLAUDE.md e os agentes ao iniciar uma sessão na raiz do workspace. Mover essa pasta quebraria o carregamento automático.
-- `orquestracao-multi-ia/` - infraestrutura dos workers externos (DeepSeek ativo; OpenAI e Gemini pausados por custo) usados pelos subagents `roteador`/`revisor-qa` pra trabalho pesado em massa. Não é conteúdo do squad nem entrega de cliente. Ver `orquestracao-multi-ia/README.md`.
+- `orquestracao-multi-ia/` - infraestrutura do worker externo DeepSeek, usado pelos subagents `roteador`/`revisor-qa` pra trabalho pesado em massa. Não é conteúdo do squad nem entrega de cliente. Ver `orquestracao-multi-ia/README.md`.
 - `_squad/` - arquivos de referência do squad (SKILLs, templates HTML, regras compartilhadas, **Humanizer**, **skill embutida de Meta Ads CLI em modo guiado total**, **identidade da própria agência** em `_squad/_shared/identidade-agencia.md`, **logo da Pillar** em `_squad/_shared/marca-pillar/`, **Método Viga Mestra** (metodologia proprietária, 5 pilares, racional completo) em `_squad/_shared/metodo-viga-mestra.md`, **template de tarefa reutilizável** em `_squad/_shared/template-tarefa.md`).
 
 ### `Operacional/` - execução com cliente já fechado
