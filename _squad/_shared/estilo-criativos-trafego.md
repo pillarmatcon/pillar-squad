@@ -4,6 +4,8 @@ Referência visual pra gerar criativos de aquisição de cliente da própria Pil
 
 Não confundir com identidade de cliente: essas peças carregam a marca da Pillar (`_shared/identidade-agencia.md`), não a do cliente final. Pra criativo de campanha de um cliente real (ex: Construmais), a marca usada é a do cliente, não este guia.
 
+Versão viva deste guia (junto com paleta, logo e templates de referência) publicada no Claude Design: https://claude.ai/design/p/3b6e7535-1e38-45f7-b2b1-4628f018d5e0
+
 ## Padrão identificado (baseado nas peças que já performaram)
 
 - **Logo Pillar** sempre visível, canto superior (esquerdo ou direito), nunca escondido atrás de elemento.
