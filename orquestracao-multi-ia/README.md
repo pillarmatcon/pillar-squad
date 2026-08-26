@@ -10,10 +10,11 @@ Comandos abaixo assumem que você está na raiz do workspace (`Pillar/`), não d
 
 ```bash
 pip install -r orquestracao-multi-ia/requirements.txt
-cp orquestracao-multi-ia/.env.example orquestracao-multi-ia/.env   # preencha DEEPSEEK_API_KEY (GPT e Gemini ficam em branco por enquanto)
 ```
 
-Chave: DeepSeek em platform.deepseek.com (5M tokens grátis no cadastro). Gemini (aistudio.google.com) e OpenAI (platform.openai.com) ficam disponíveis pra reativar depois, se o custo fizer sentido.
+Os workers leem as chaves só via variável de ambiente do sistema (`os.environ`) — não existe `.env` de fato, nenhum script carrega esse arquivo (sem `python-dotenv` instalado). Defina `DEEPSEEK_API_KEY` como variável de ambiente do Windows (escopo User) e ela fica disponível pra qualquer sessão nova neste computador, sem precisar tocar em arquivo nenhum. `.env.example` serve só de referência dos nomes de variável esperados por cada worker, não é pra copiar/preencher.
+
+Chave: DeepSeek em platform.deepseek.com (5M tokens grátis no cadastro). Gemini (aistudio.google.com) e OpenAI (platform.openai.com) ficam disponíveis pra reativar depois, se o custo fizer sentido — nesse caso, mesma lógica: variável de ambiente, não `.env`.
 
 ## Teste de fumaça (sem Claude, direto no terminal)
 
@@ -52,6 +53,6 @@ python orquestracao-multi-ia/workers/gemini_imagem.py --prompt "Foto publicitár
 
 ## Verifique antes de reativar GPT/Gemini
 
-- Nome do modelo de imagem: `gemini-2.5-flash-image` (Nano Banana) é legado — a Google recomenda migrar. Padrão atualizado pra `gemini-3.1-flash-lite-image` (mais barato, 1K, suporta 3:4 nativamente). Existem também `gemini-3.1-flash-image` (mais versátil, até 4K) e `gemini-3-pro-image` (qualidade premium), se a Lite não bastar — troque em `GEMINI_IMAGE_MODEL` no `.env`.
-- Modelo de texto OpenAI: padrão `gpt-5-mini`; troque em `OPENAI_MODEL` se quiser outro.
+- Nome do modelo de imagem: `gemini-2.5-flash-image` (Nano Banana) é legado — a Google recomenda migrar. Padrão atualizado pra `gemini-3.1-flash-lite-image` (mais barato, 1K, suporta 3:4 nativamente). Existem também `gemini-3.1-flash-image` (mais versátil, até 4K) e `gemini-3-pro-image` (qualidade premium), se a Lite não bastar — troque definindo `GEMINI_IMAGE_MODEL` como variável de ambiente.
+- Modelo de texto OpenAI: padrão `gpt-5-mini`; troque via variável de ambiente `OPENAI_MODEL` se quiser outro.
 - Preços no topo de `deepseek_bulk.py` (usados só na estimativa impressa).

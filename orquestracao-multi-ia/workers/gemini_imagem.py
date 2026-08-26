@@ -51,7 +51,7 @@ def main():
 
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        sys.exit("ERRO: defina GEMINI_API_KEY no .env / ambiente")
+        sys.exit("ERRO: defina GEMINI_API_KEY como variável de ambiente")
     if not (args.prompt or args.prompt_arquivo):
         sys.exit("ERRO: informe --prompt ou --prompt-arquivo")
 

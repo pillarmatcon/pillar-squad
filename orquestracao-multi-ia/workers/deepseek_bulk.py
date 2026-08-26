@@ -60,7 +60,7 @@ def main():
 
     api_key = os.environ.get("DEEPSEEK_API_KEY")
     if not api_key:
-        sys.exit("ERRO: defina DEEPSEEK_API_KEY no .env / ambiente")
+        sys.exit("ERRO: defina DEEPSEEK_API_KEY como variável de ambiente")
 
     client = OpenAI(api_key=api_key, base_url=BASE_URL)
     system_prompt = Path(args.system).read_text(encoding="utf-8")
