@@ -56,10 +56,10 @@ Operacional/clientes/<nome>/outputs/
 │   └── inteligencia-dados/
 │       ├── diagnostico-curva-abc.md        ← um arquivo só, cresce por período (nunca sobrescreve)
 │       └── diagnostico-giro-estoque.md     ← um arquivo só, cresce por período (nunca sobrescreve)
-├── 07-2026/                                ← mês em que RODEI a análise (não o período do relatório)
+├── 07-2026/Arquivos/                       ← mês em que RODEI a análise (não o período do relatório); planilha é dado, vai em Arquivos, não Analises
 │   ├── 25-inteligencia-dados-curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx
 │   └── 25-inteligencia-dados-curva-abc-padronizada_2026-01-01_a_2026-03-31.xlsx
-└── 10-2026/
+└── 10-2026/Arquivos/
     └── 12-inteligencia-dados-curva-abc-padronizada_2026-07-01_a_2026-09-30.xlsx
 ```
 
@@ -76,7 +76,7 @@ Para prospect (ainda sem `CLIENTE.md`), a raiz muda para `Comercial/propostas/<n
 
 **Por que os dois diagnósticos existem na prática: decisão de mídia.** `@gestor-trafego`/`@copywriter` usam `diagnostico-giro-estoque.md` pra duas perguntas antes de colocar um produto em anúncio: (1) **risco de ruptura**, produto de giro alto com estoque baixo ou caindo não deve entrar em campanha sem reforço de compra, ou precisa ter o orçamento reduzido até repor; (2) **giro parado**, produto com estoque alto e saída lenta é candidato a virar foco de campanha/promoção pra desovar. As duas leituras (venda e estoque) precisam estar cruzadas pra essa decisão funcionar, é por isso que os diagnósticos se referenciam.
 
-**1. Planilhas, uma por PDF/período, nunca consolidadas, nomeada `<DD>-inteligencia-dados-<descritor>[_periodo].xlsx`.** A skill de padronização (`Operacional/Método Viga Mestra/Ferramenta Curva ABC/SKILL.md`) já entrega isso pronto pra relatório de Curva ABC: cada PDF gera seu próprio XLSX dentro da pasta `<MM-YYYY>` (mês em que rodei, não o período do relatório), nomeado `<DD>-inteligencia-dados-curva-abc-padronizada_<periodo>.xlsx` com o dia em que rodei e o período detectado no cabeçalho do PDF (ex: `25-inteligencia-dados-curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx`) e com um banner "Período do relatório: ..." na primeira linha da planilha. Nunca junto duas planilhas de período diferente numa só, mesmo que o cliente mande "parte 1, 2, 3, 4" do mesmo lote, cada parte é seu próprio período e sua própria planilha. Se eu gerar alguma planilha derivada (top 50 faturamento, top 50 margem, top 50 giro, top categorias), ela nasce por período, sufixada com o mesmo período da planilha base, na mesma pasta `<MM-YYYY>`, ex: `<DD>-inteligencia-dados-top-50-faturamento_2026-04-01_a_2026-06-30.xlsx`. Só gero a planilha derivada que o pedido do usuário exigir ou que fizer sentido pro diagnóstico daquele período, não as cinco de uma vez por padrão. Planilha de snapshot de estoque (matriz giro x margem, estoque parado, auditoria de outliers) segue a mesma lógica de uma pasta `<MM-YYYY>` por mês de execução, mesmo formato de nome, e alimenta o `diagnostico-giro-estoque.md`.
+**1. Planilhas, uma por PDF/período, nunca consolidadas, nomeada `<DD>-inteligencia-dados-<descritor>[_periodo].xlsx`, dentro de `Arquivos/`.** A skill de padronização (`Operacional/Método Viga Mestra/Ferramenta Curva ABC/SKILL.md`) já entrega isso pronto pra relatório de Curva ABC: cada PDF gera seu próprio XLSX dentro da pasta `<MM-YYYY>/Arquivos/` (mês em que rodei, não o período do relatório; planilha é dado tratado, não vai em `Analises/`), nomeado `<DD>-inteligencia-dados-curva-abc-padronizada_<periodo>.xlsx` com o dia em que rodei e o período detectado no cabeçalho do PDF (ex: `25-inteligencia-dados-curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx`) e com um banner "Período do relatório: ..." na primeira linha da planilha. Nunca junto duas planilhas de período diferente numa só, mesmo que o cliente mande "parte 1, 2, 3, 4" do mesmo lote, cada parte é seu próprio período e sua própria planilha. Se eu gerar alguma planilha derivada (top 50 faturamento, top 50 margem, top 50 giro, top categorias), ela nasce por período, sufixada com o mesmo período da planilha base, na mesma pasta `<MM-YYYY>/Arquivos/`, ex: `<DD>-inteligencia-dados-top-50-faturamento_2026-04-01_a_2026-06-30.xlsx`. Só gero a planilha derivada que o pedido do usuário exigir ou que fizer sentido pro diagnóstico daquele período, não as cinco de uma vez por padrão. Planilha de snapshot de estoque (matriz giro x margem, estoque parado, auditoria de outliers) segue a mesma lógica de uma pasta `<MM-YYYY>/Arquivos/` por mês de execução, mesmo formato de nome, e alimenta o `diagnostico-giro-estoque.md`.
 
 **2. Diagnóstico, um arquivo único por atividade, histórico por período, mais recente no topo.** `diagnostico-curva-abc.md` e `diagnostico-giro-estoque.md` ficam cada um em `outputs/_diagnosticos/inteligencia-dados/`, fora de qualquer pasta de mês, porque não pertencem a uma execução pontual, pertencem ao cliente inteiro ao longo do tempo. Cada vez que processo um novo período, insiro a seção nova no diagnóstico certo, logo abaixo da "Visão geral acumulada" (ver abaixo) e acima de todas as seções de período já existentes, nunca no final do arquivo. As seções ficam sempre em ordem cronológica decrescente pelo período que cobrem (mais recente primeiro, mais antigo por último), independente da ordem em que os relatórios foram processados ou de qual "parte" o cliente numerou. Isso facilita ler a evolução da loja de cima pra baixo sem ter que garimpar o arquivo inteiro. Nunca apago ou reescrevo seção de período já registrado, só insiro nova seção na posição cronológica certa. Se eu processar vários períodos na mesma sessão (ex: as 4 partes de um lote), insiro uma seção por período, já na ordem cronológica decrescente final, não na ordem em que rodei os relatórios.
 
@@ -103,7 +103,7 @@ Uma seção por período em `diagnostico-curva-abc.md`, sempre neste formato, in
 
 ## Período: [DD/MM/AAAA a DD/MM/AAAA]
 **Fonte dos dados:** [nome do PDF original], processado em [MM-YYYY]
-**Planilha(s):** `[MM-YYYY]/[DD]-inteligencia-dados-curva-abc-padronizada_[periodo].xlsx` [+ planilhas derivadas geradas, se houver]
+**Planilha(s):** `[MM-YYYY]/Arquivos/[DD]-inteligencia-dados-curva-abc-padronizada_[periodo].xlsx` [+ planilhas derivadas geradas, se houver]
 **Status:** v1, sujeito a refinamento
 
 ### Resumo executivo
@@ -142,7 +142,7 @@ Uma seção por período/snapshot em `diagnostico-giro-estoque.md`, mesmo princ�
 
 ## Período/Snapshot: [DD/MM/AAAA a DD/MM/AAAA, ou data única se for snapshot de estoque]
 **Fonte dos dados:** [nome do relatório original], processado em [MM-YYYY]
-**Planilha(s):** `[MM-YYYY]/[DD]-inteligencia-dados-[nome-planilha].xlsx`
+**Planilha(s):** `[MM-YYYY]/Arquivos/[DD]-inteligencia-dados-[nome-planilha].xlsx`
 **Status:** v1, sujeito a refinamento
 
 ### Resumo executivo

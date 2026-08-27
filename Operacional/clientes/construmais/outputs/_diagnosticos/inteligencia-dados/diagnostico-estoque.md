@@ -2,11 +2,20 @@
 **Metodologia:** Pilar 1, Inteligência de Dados, Método Viga Mestra
 **Como ler este arquivo:** histórico cumulativo, uma seção por período coberto por relatório do cliente, do mais recente (topo) para o mais antigo (final), independente da ordem em que os relatórios foram processados.
 
-**Nota de revisão (25/07/2026):** a versão anterior deste arquivo (mesma data) foi calculada com um bug no script de padronização, que descartava silenciosamente os 2 primeiros produtos de cada página do PDF nas partes 2, 3 e 4 (perda de ~15% do catálogo e ~12% do faturamento nesses períodos, a parte 1 não era afetada). O bug foi corrigido (`pillar_padroniza_curva_abc.py`, cobertura agora conferida automaticamente contra o "Total Geral" oficial impresso em cada relatório, 100% de cobertura nos 4 períodos) e as planilhas de origem foram regeradas. **Os números abaixo são os corretos.** Como efeito colateral bom: o faturamento e a margem agregada dos 14 meses agora batem exatamente com o diagnóstico anterior de 23/07 (`outputs/07-2026/23-diagnostico-estoque.md`), o que resolve a contradição registrada no Histórico do `CLIENTE.md`.
+**Nota de revisão (25/07/2026):** a versão anterior deste arquivo (mesma data) foi calculada com um bug no script de padronização, que descartava silenciosamente os 2 primeiros produtos de cada página do PDF nas partes 2, 3 e 4 (perda de ~15% do catálogo e ~12% do faturamento nesses períodos, a parte 1 não era afetada). O bug foi corrigido (`pillar_padroniza_curva_abc.py`, cobertura agora conferida automaticamente contra o "Total Geral" oficial impresso em cada relatório, 100% de cobertura nos 4 períodos) e as planilhas de origem foram regeradas. **Os números abaixo são os corretos.** Como efeito colateral bom: o faturamento e a margem agregada dos 14 meses agora batem exatamente com o diagnóstico anterior de 23/07 (`outputs/07-2026/Analises/23-diagnostico-estoque.md`), o que resolve a contradição registrada no Histórico do `CLIENTE.md`.
 
 **Nota de reconciliação do estoque parado (25/07/2026):** o "Estoque parado corrigido" na tabela abaixo, um valor por período, é o que dava pra calcular só com os 4 PDFs de Curva ABC, e tem uma limitação importante: os 4 relatórios foram todos gerados na mesma semana (27/06 a 03/07/2026), então o campo de estoque de cada um reflete o estoque de **quando o relatório foi emitido**, não do fim do período de venda que ele cobre. Ou seja, a "evolução" desse número entre períodos reflete principalmente quais produtos entram ou saem da lista conforme a janela de venda comparada muda, não uma trajetória real de estoque acumulando ao longo de 14 meses. Depois de receber `Estoque em 27-06-26.xls` (exportação original do sistema, com estoque de todos os 15.228 produtos numa única data certa), cruzei esse arquivo com a venda somada dos 4 relatórios de Curva ABC e cheguei no número correto de estoque parado real: **1.695 produtos sem nenhuma venda registrada nos 14 meses inteiros (mai/2025 a jun/2026), R$ 295.126,57 a custo** (já com a correção do colorante aplicada). Esse número bate próximo do R$ 320.903,02 do diagnóstico de 23/07 (diferença de ~8%, provavelmente porque aquela análise também corrigiu outros itens de custo além do colorante).
 
 **Nota de atualização de estoque (03/08/2026), substitui a referência acima:** novo snapshot de estoque (`Produto em 03-08-26.htm`, exportação direta do sistema Pontual, 15.369 SKUs) cruzado com a mesma venda somada dos 4 períodos de Curva ABC. Estoque parado real atualizado: **1.732 produtos, R$ 373.769,46 a custo** (alta de R$ 78.642,89 / +26,6% em valor frente ao R$ 295.126,57 de 25/07/2026, com apenas 37 SKUs a mais no grupo parado, +2,2%, ou seja o valor médio por item parado subiu mais que a quantidade de itens). Esse novo relatório trouxe também **2 outliers críticos de cadastro não vistos antes**, com quantidade ou custo em forte desacordo com os pares da própria linha de produto (`CABO FLEX 2.5MM AZ PC COBRECOM`, código 7153, quantidade 79.263,9 PC contra pares entre 0 e 635 MT/PC da mesma linha; `MANGUEIRA CORRUGADA 20MM AM - KRONA`, código 7874, quantidade e custo fora do padrão). Já excluídos do número acima, ver seção "Atualização de Estoque: 03/08/2026" abaixo para o detalhe completo. **Use R$ 373.769,46 como referência de estoque parado do negócio a partir de agora**, não os valores por período da tabela abaixo (mantidos só pra referência histórica) nem o R$ 295.126,57 de 25/07 (desatualizado, mas preservado acima por transparência do histórico).
+
+**Nota de confirmação do Tony (26/08/2026):** o Tony confirmou verbalmente a natureza de 7 itens que apareciam nas listas de estoque parado ou de achados pendentes de confirmação (ver detalhe cruzado nas seções "Maiores itens parados individuais" e "Achados extras confirmados nesta rodada" abaixo). Ainda não houve reprocessamento de dado, só registro da confirmação qualitativa:
+- **Cumeeira:** vendida por encomenda, não é estoque parado real (item não deveria ser lido como giro zero problemático)
+- **Vareta (Solda Oxi):** gira muito pouco, confirma que é slow-mover genuíno, não erro de leitura
+- **Sacolas:** usadas para ensacar areia e brita (uso interno/operacional da loja, não item de revenda com markup normal)
+- **Tubo (PVC Rosca):** produto de giro baixo, confirmado pelo Tony. Removido da lista de pendências de confirmação (ver "Achados extras confirmados nesta rodada" abaixo)
+- **Metalon 30x20:** estoque zerado, é furo de estoque (perda/discrepância, não erro de cadastro) — item novo, ainda sem código/valor cruzado neste diagnóstico
+- **Torneira:** é furo de estoque (mesma natureza do Metalon) — item novo, ainda sem código/valor cruzado neste diagnóstico
+- **Tela:** temos em estoque, material de baixo giro — item novo, ainda sem código/valor cruzado neste diagnóstico
 
 ## Visão geral acumulada (mai/2025 a jun/2026, 4 períodos processados)
 *(atualizar este bloco a cada novo período processado, não é seção fixa)*
@@ -34,7 +43,7 @@ Seis leituras que só aparecem quando os períodos e snapshots são vistos junto
 
 ## Atualização de Estoque: 03/08/2026 (snapshot, fora do ciclo de Curva ABC)
 **Fonte dos dados:** `Produto em 03-08-26.htm` (sistema Pontual Tecnologia, exportação HTML de tabela de produto), processado em 08-2026
-**Planilha:** `08-2026/03-inteligencia-dados-estoque-auditado_2026-08-03.xlsx` (abas: Estoque padronizado, Estoque parado (ajustado), Outliers críticos)
+**Planilha:** `08-2026/Arquivos/03-inteligencia-dados-estoque-auditado_2026-08-03.xlsx` (abas: Estoque padronizado, Estoque parado (ajustado), Outliers críticos)
 **Status:** v1, sujeito a refinamento
 **Tipo de relatório:** diferente dos 4 períodos abaixo. É um snapshot de produto/estoque (quantidade, custo, preço e margem cadastrados numa data única), não uma Curva ABC de vendas. Confirmado pela estrutura do arquivo (colunas Código, Dt. Compra, Produto, Fabricante, Unid. Estoque, Qtde., Custo inicial, % ICMS/IPI/ST/FRETE/OUTROS, Custo Final, % Margem, Preço, NCM, Código de Barras, Fornecedor, Qtde. última compra): não tem quantidade vendida nem faturamento, então **não atualiza giro nem participação por categoria de faturamento nesta rodada**. Formato HTML, não PDF, então não passa pela ferramenta de padronização de Curva ABC (`Operacional/Método Viga Mestra/1 - Inteligência de Dados/1 - Curva ABC do Estoque/SKILL.md`), que é específica pra PDF de Curva ABC; processado com parser próprio (regex determinístico, zero IA na extração).
 
@@ -69,7 +78,7 @@ Seis leituras que só aparecem quando os períodos e snapshots são vistos junto
 Nota sobre o campo "% Margem" deste relatório: é **markup sobre custo** ((Preço - Custo Final) / Custo Final × 100), cadastrado pelo próprio sistema Pontual. Não é o mesmo cálculo de "margem bruta % sobre venda" usado nas seções de Curva ABC abaixo (que é sobre faturamento real). Os dois não devem ser comparados diretamente.
 
 ### Detalhamento da auditoria de qualidade do cadastro, por categoria de erro (refinamento de 11/08/2026)
-Aprofundamento da tabela acima, produto a produto, gerado direto da aba "Estoque padronizado" do arquivo `08-2026/03-inteligencia-dados-estoque-auditado_2026-08-03.xlsx` (15.369 SKUs). Os totais por categoria já publicados na tabela acima não mudam, este bloco só detalha os casos mais relevantes de cada um, priorizados por impacto financeiro e por quão implausível é o valor cadastrado. Não é uma listagem exaustiva (a coluna "Quantidade" da tabela acima segue sendo a contagem oficial de cada achado).
+Aprofundamento da tabela acima, produto a produto, gerado direto da aba "Estoque padronizado" do arquivo `08-2026/Arquivos/03-inteligencia-dados-estoque-auditado_2026-08-03.xlsx` (15.369 SKUs). Os totais por categoria já publicados na tabela acima não mudam, este bloco só detalha os casos mais relevantes de cada um, priorizados por impacto financeiro e por quão implausível é o valor cadastrado. Não é uma listagem exaustiva (a coluna "Quantidade" da tabela acima segue sendo a contagem oficial de cada achado).
 
 Para os casos de custo, preço ou margem suspeitos, apliquei a mesma metodologia já usada nos 3 outliers críticos (seção abaixo): busquei produtos da mesma linha (mesmo nome base, mesma marca quando possível, mesma unidade de estoque) dentro do próprio relatório, antes de estimar um valor correto. Casos que são puramente estruturais (fornecedor, nome duplicado, quantidade negativa) não têm "valor correto" a estimar por benchmark, só reporto o valor cadastrado e o problema.
 
@@ -181,8 +190,8 @@ Dos 385 restantes, a soma de valor a custo é R$ 40.900,03. É a categoria com o
 | 10810 | COPO DESCARTAVEL 180ML PRATIK | Custo ou preço | Custo R$ 5,20, preço R$ 4,37 (margem negativa, -16,0%) | Sem outro "copo descartável" no relatório pra comparar | Sem benchmark interno, recomendo checagem direta | Qtde 50, valor a custo R$ 260,00 |
 
 ### Achados extras confirmados nesta rodada (fora da lista de outliers críticos originais)
-1. **Tubo PVC Rosca 1 pol Tigre (código 3214):** o benchmark contra os outros "Tubo PVC Rosca" da mesma marca não resolve sozinho se o problema é o custo (R$ 8,06), o preço (R$ 96,00) ou a quantidade (999,83 PC, muito acima de qualquer par da linha, que vão de 0 a 6 PC). Diferente dos 3 outliers críticos já confirmados, aqui não há um par do mesmo diâmetro (1 polegada) pra fechar a estimativa com confiança. Recomendo perguntar direto ao Tony qual dos 3 campos está errado antes de propor um valor corrigido.
-2. **Sacolas 30x40 Imp (código 11022):** o benchmark contra o item irmão direto (Sacolas 40x50 Imp, mesma família, mesma unidade) inverte a hipótese inicial. Não é o preço de venda (R$ 0,20) que parece errado, é o **custo cadastrado** (R$ 11,66) que está muito acima do padrão da linha (o irmão custa R$ 0,15). Recomendo pedir ao Tony a nota fiscal de compra dessa sacola pra confirmar o custo real antes de corrigir no ERP.
+1. **Tubo PVC Rosca 1 pol Tigre (código 3214):** o benchmark contra os outros "Tubo PVC Rosca" da mesma marca não resolvia sozinho se o problema era o custo (R$ 8,06), o preço (R$ 96,00) ou a quantidade (999,83 PC, muito acima de qualquer par da linha, que vão de 0 a 6 PC). **Confirmado pelo Tony em 26/08/2026: é um produto de giro baixo**, consistente com pouca movimentação. Removido da lista de pendências de confirmação.
+2. **Sacolas 30x40 Imp (código 11022):** o benchmark contra o item irmão direto (Sacolas 40x50 Imp, mesma família, mesma unidade) invertia a hipótese inicial, apontando o custo cadastrado (R$ 11,66) como muito acima do padrão da linha (o irmão custa R$ 0,15). **Confirmado pelo Tony em 26/08/2026: essas sacolas são usadas para ensacar areia e brita** (uso interno/operacional da loja, não item de revenda padrão), o que explica a linha de preço/margem fora do padrão de sacola de revenda. Removido da lista de pendências de confirmação.
 
 ### Outliers críticos identificados (pendente de confirmação do cliente)
 | Código | Produto | Campo suspeito | Valor cadastrado | Benchmark de pares (mesma linha) | Estimativa | Impacto no valor de estoque |
@@ -210,7 +219,7 @@ Juntos, os 3 itens somam **R$ 18.176.265,52, 95,1% do valor de estoque bruto do 
 | Demais categorias (11, cada uma abaixo de 2%) | R$ 49.598,12 | 5,3% |
 | Sem categoria mapeada | R$ 7.856,01 | 0,8% |
 
-Total ajustado: R$ 935.102,19. Valor potencial de venda (qtde × preço, mesmos itens, exclui os 3 outliers): não calculado nesta seção, pois herda a mesma distorção dos outliers e exigiria o mesmo tratamento, ver planilha `08-2026/03-inteligencia-dados-estoque-auditado_2026-08-03.xlsx` para o dado bruto por SKU.
+Total ajustado: R$ 935.102,19. Valor potencial de venda (qtde × preço, mesmos itens, exclui os 3 outliers): não calculado nesta seção, pois herda a mesma distorção dos outliers e exigiria o mesmo tratamento, ver planilha `08-2026/Arquivos/03-inteligencia-dados-estoque-auditado_2026-08-03.xlsx` para o dado bruto por SKU.
 
 ### Estoque parado atualizado
 - Valor financeiro parado a custo, bruto (direto do relatório): R$ 15.255.302,32, em 1.734 SKUs
@@ -227,7 +236,7 @@ Maiores itens parados individuais, exceto os outliers já tratados à parte:
 | Sacola Recicladas VD 60x80 | 1.015 kg | R$ 11,50 | R$ 11.672,50 | Material de Uso e Consumo |
 | Tubo PVC Rosca 1 pol Tigre | 999,83 pc | R$ 8,06 | R$ 8.058,63 | (categoria corrompida) |
 
-Vareta Solda Oxi e Cumeeira Zincalum já apareciam como maiores itens parados individuais nos períodos de nov-dez/2025 e jan-mar/2026 respectivamente (ver seções abaixo), confirma que são itens realmente parados de longa data, não erro de leitura pontual.
+Vareta Solda Oxi e Cumeeira Zincalum já apareciam como maiores itens parados individuais nos períodos de nov-dez/2025 e jan-mar/2026 respectivamente (ver seções abaixo), confirma que são itens realmente parados de longa data, não erro de leitura pontual. **Confirmado pelo Tony em 26/08/2026:** Cumeeira é vendida por encomenda (não deveria ser lida como estoque morto real, giro zero é esperado pra esse tipo de venda); Vareta gira muito pouco (slow-mover genuíno, não erro de leitura).
 
 Estoque parado por categoria (ajustado, exclui outliers): categoria corrompida "MD-MD-MD..." concentra 27,4% do valor parado ajustado (R$ 102.131,64), seguida de Material Básico (22,5%, R$ 83.968,25) e Material de Uso e Consumo (14,6%, R$ 54.545,54). Ver planilha para o detalhe completo por SKU.
 
@@ -255,7 +264,7 @@ Preço e custo seguem na mesma faixa dos períodos anteriores, sem sinal de desc
 
 ## Período: 01/04/2026 a 30/06/2026
 **Fonte dos dados:** `Curva ABC parte 4.pdf` (sistema Pontual Tecnologia), processado em 07-2026
-**Planilha:** `07-2026/25-inteligencia-dados-curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx`
+**Planilha:** `07-2026/Arquivos/25-inteligencia-dados-curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx`
 **Status:** v1, sujeito a refinamento
 
 ### Resumo executivo
@@ -348,7 +357,7 @@ Padrão claro: agregados (areia, pedra, brita) têm margem % alta (50 a 55%) mas
 
 ## Período: 01/01/2026 a 31/03/2026
 **Fonte dos dados:** `Curva ABC parte 3.pdf` (sistema Pontual Tecnologia), processado em 07-2026
-**Planilha:** `07-2026/25-inteligencia-dados-curva-abc-padronizada_2026-01-01_a_2026-03-31.xlsx`
+**Planilha:** `07-2026/Arquivos/25-inteligencia-dados-curva-abc-padronizada_2026-01-01_a_2026-03-31.xlsx`
 **Status:** v1, sujeito a refinamento
 
 ### Resumo executivo
@@ -420,7 +429,7 @@ Padrão claro: agregados (areia, pedra, brita) têm margem % alta (50 a 55%) mas
 
 ## Período: 01/11/2025 a 31/12/2025
 **Fonte dos dados:** `Curva ABC parte 2.pdf` (sistema Pontual Tecnologia), processado em 07-2026
-**Planilha:** `07-2026/25-inteligencia-dados-curva-abc-padronizada_2025-11-01_a_2025-12-31.xlsx`
+**Planilha:** `07-2026/Arquivos/25-inteligencia-dados-curva-abc-padronizada_2025-11-01_a_2025-12-31.xlsx`
 **Status:** v1, sujeito a refinamento
 
 ### Resumo executivo
@@ -491,7 +500,7 @@ Padrão claro: agregados (areia, pedra, brita) têm margem % alta (50 a 55%) mas
 
 ## Período: 01/05/2025 a 31/10/2025
 **Fonte dos dados:** `Curva ABC parte 1.pdf` (sistema Pontual Tecnologia), processado em 07-2026
-**Planilha:** `07-2026/25-inteligencia-dados-curva-abc-padronizada_2025-05-01_a_2025-10-31.xlsx`
+**Planilha:** `07-2026/Arquivos/25-inteligencia-dados-curva-abc-padronizada_2025-05-01_a_2025-10-31.xlsx`
 **Status:** v1, sujeito a refinamento
 
 ### Resumo executivo

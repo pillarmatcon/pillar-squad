@@ -1,7 +1,7 @@
 # Estratégia de Kits por Fase de Obra e Playbook de Vendas, Construmais
 
 **Cliente:** Construmais (Tony Carvalho Barbosa)
-**Fonte dos dados:** os mesmos 4 relatórios de Curva ABC do ERP Pontual Tecnologia usados em `outputs/07-2026/23-diagnostico-estoque.md` (01/05/2025 a 30/06/2026, 14 meses). Faturamento total, custo, margem agregada e Curva ABC já confirmados naquele diagnóstico, não repetidos aqui em detalhe.
+**Fonte dos dados:** os mesmos 4 relatórios de Curva ABC do ERP Pontual Tecnologia usados em `outputs/07-2026/Analises/23-diagnostico-estoque.md` (01/05/2025 a 30/06/2026, 14 meses). Faturamento total, custo, margem agregada e Curva ABC já confirmados naquele diagnóstico, não repetidos aqui em detalhe.
 **Metodologia:** Pilar 3 (Combo de Produtos) e Pilar 4 (Vendedor de Elite) do Método Viga Mestra.
 **Status:** v1, sujeito a refinamento.
 
@@ -15,11 +15,11 @@ Duas correções importantes em cima do que já tinha sido levantado antes:
 
 1. **Giro (quantidade vendida) e margem/faturamento em R$ são coisas diferentes e não devem ser confundidas na escolha de âncora de kit.** Produtos como Areia Fina, Pedra Britada e Pedra Calcária aparecem no topo de margem bruta em R$ por causa do preço unitário alto (venda por m³), mas não têm giro alto em quantidade. Eles servem como produto de margem/complemento no kit, nunca como âncora.
 
-2. **Erro de pareamento técnico no Kit Alvenaria já registrado em `outputs/07-2026/23-diagnostico-estoque.md`.** Aquele arquivo tem "Tijolo C/8 Furos + Argamassa Cola Forte AC-II 15kg" como composição do Kit Alvenaria. Isso está tecnicamente errado: a classificação AC-I/AC-II/AC-III (norma ABNT NBR 14081) identifica argamassa colante para assentar piso ou cerâmica, não para assentar tijolo. Assentamento de alvenaria usa traço de cimento e areia, não argamassa colante industrializada. A composição correta:
+2. **Erro de pareamento técnico no Kit Alvenaria já registrado em `outputs/07-2026/Analises/23-diagnostico-estoque.md`.** Aquele arquivo tem "Tijolo C/8 Furos + Argamassa Cola Forte AC-II 15kg" como composição do Kit Alvenaria. Isso está tecnicamente errado: a classificação AC-I/AC-II/AC-III (norma ABNT NBR 14081) identifica argamassa colante para assentar piso ou cerâmica, não para assentar tijolo. Assentamento de alvenaria usa traço de cimento e areia, não argamassa colante industrializada. A composição correta:
    - **Kit Alvenaria:** Tijolo C/8 Furos + Areia Fina (para o traço de assentamento, junto com o cimento já coberto no Kit Estrutura/Fundação)
    - **Argamassa Cola Forte AC-II** passa para o Kit Revestimento/Acabamento, pareada com piso cerâmico, onde ela realmente se aplica
 
-A tabela "Candidatos a kit" de `outputs/07-2026/23-diagnostico-estoque.md` deve ser lida com essa correção. A versão completa e corrigida está na seção 3 abaixo.
+A tabela "Candidatos a kit" de `outputs/07-2026/Analises/23-diagnostico-estoque.md` deve ser lida com essa correção. A versão completa e corrigida está na seção 3 abaixo.
 
 ---
 
@@ -34,7 +34,7 @@ Material Básico domina com 65,66% da própria Curva A (39,34% do faturamento to
 Perfil diferente da Curva A: aqui quem lidera é Pintura (16,22% da Curva B) e Hidráulica (13,99%), seguidos de Material Elétrico (12,02%) e só depois Material Básico (11,76%). A Curva B puxa mais para acabamento e instalação do que para material de obra bruta.
 
 ### Curva C (R$ 462.597,63, 15,01% do total)
-Cauda longa clássica: Ferramentas (19,15% da Curva C), Hidráulica (17,62%), Ferragem (14,52%) e Material Elétrico (13,46%) lideram, com Material Básico caindo para só 1,54% da Curva C. É a faixa mais fragmentada, candidata natural para revisão de mix e desova de estoque parado (ver `outputs/07-2026/23-diagnostico-estoque.md`, seção Estoque).
+Cauda longa clássica: Ferramentas (19,15% da Curva C), Hidráulica (17,62%), Ferragem (14,52%) e Material Elétrico (13,46%) lideram, com Material Básico caindo para só 1,54% da Curva C. É a faixa mais fragmentada, candidata natural para revisão de mix e desova de estoque parado (ver `outputs/07-2026/Analises/23-diagnostico-estoque.md`, seção Estoque).
 
 ---
 

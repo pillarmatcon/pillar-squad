@@ -172,6 +172,8 @@ Antes de produzir a página:
 
 **Diferença de fonte de dados:** para este tipo eu leio `_squad/_shared/identidade-agencia.md` no lugar de `Operacional/clientes/<nome>/CLIENTE.md`. Cores, fonte (Barlow/Inter), tom de voz e tagline vêm de lá. O que preciso do usuário é só o conteúdo específico do prospect: nome, diagnóstico, plano proposto, investimento, validade da proposta.
 
+Padrão visual de elementos recorrentes (hierarquia headline → benefício → CTA, botão pill laranja) documentado em `_squad/_shared/estilo-criativos-trafego.md`, a mesma referência que o `designer` e o `copywriter` usam pra manter consistência entre peças da própria Pillar.
+
 **Componentes obrigatórios:**
 - Cabeçalho com logo Pillar + nome do prospect + data
 - Diagnóstico (2 a 3 pontos concretos sobre a situação atual do prospect, vindos de conversa/briefing real, nunca inventados)

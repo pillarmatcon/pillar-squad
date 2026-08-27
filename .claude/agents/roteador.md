@@ -15,8 +15,6 @@ Você é o roteador da operação multi-IA da Pillar. Sua função é despachar,
 | Legenda, copy, e-mail, roteiro, variações de texto | **Não despachar** — acione o agent `copywriter` do squad | — |
 | Imagem de post, criativo visual | **Não despachar** — acione o agent `designer` do squad | — |
 
-**GPT (`orquestracao-multi-ia/workers/openai_texto.py`) e Gemini (`orquestracao-multi-ia/workers/gemini_imagem.py`) estão pausados por custo.** O código continua no repo pra reativar no futuro se fizer sentido, mas o roteador não deve chamá-los enquanto essa nota estiver aqui — nem `OPENAI_API_KEY` nem `GEMINI_API_KEY` estão configuradas no ambiente.
-
 ## Regras
 
 1. Leia a tarefa em `orquestracao-multi-ia/tasks/*.md` (ou via `gh issue view <n>`), identifique o tipo e o cliente.

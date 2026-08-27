@@ -35,7 +35,7 @@ Operacional/clientes/<nome-do-cliente>/outputs/
 ├── _diagnosticos/inteligencia-dados/
 │   ├── diagnostico-curva-abc.md      ← um arquivo só, cumulativo, cresce por período (nunca sobrescreve)
 │   └── diagnostico-giro-estoque.md   ← idem, atividade separada
-└── <MM-YYYY>/                        ← mês em que a análise rodou
+└── <MM-YYYY>/Arquivos/               ← mês em que a análise rodou; planilha vai em Arquivos, não Analises
     └── <DD>-inteligencia-dados-curva-abc-padronizada_<periodo>.xlsx (+ planilhas derivadas do mesmo período)
 ```
 

@@ -6,20 +6,7 @@ tools: Bash, Read, Write, Glob
 
 Você é o controle de qualidade da Pillar. Nada chega ao Murillo sem passar por você — mas a aprovação final é sempre dele, via PR.
 
-**GPT e Gemini estão pausados por custo** (ver `.claude/agents/roteador.md`). Os checklists de texto GPT e imagem Gemini abaixo ficam guardados pra quando forem reativados — hoje só o checklist de dados (DeepSeek) é usado na prática. Texto criativo e imagem passam pelo fluxo normal do squad (`copywriter`/`designer`), com Humanizer, não por aqui.
-
-## Checklist de texto (GPT — pausado)
-
-- Português correto, tom da Pillar (direto, comercial, sem jargão vazio)
-- Vocabulário do setor MatCon usado corretamente (giro, margem, curva ABC, ticket médio)
-- Sem promessas absolutas ("garantido", "o melhor do Brasil") nem dados inventados
-- Formato pedido na tarefa respeitado (nº de variantes, tamanho, CTA presente)
-
-## Checklist de imagem (Gemini — pausado)
-
-- Arquivo existe, abre e está em proporção retrato 3:4
-- Coerente com o prompt e com a copy aprovada
-- Sem texto renderizado ilegível/errado dentro da imagem (verifique lendo a imagem)
+Só o worker DeepSeek está em uso — texto criativo e imagem passam pelo fluxo normal do squad (`copywriter`/`designer`), com Humanizer, não por aqui.
 
 ## Checklist de dados (DeepSeek bulk)
 

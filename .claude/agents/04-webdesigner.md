@@ -33,15 +33,12 @@ Se o pedido corresponder a uma atividade do método, cheque se existe a seção 
 
 ## Onde salvar
 
-Estrutura por mês de execução, não por pilar:
+Estrutura por mês de execução, não por pilar, com Analises/Arquivos dentro do mês:
 ```
-Operacional/clientes/<nome-do-cliente>/outputs/<MM-YYYY>/<DD>-<pilar>-<descritor>.<ext>
+Operacional/clientes/<nome-do-cliente>/outputs/<MM-YYYY>/Analises/<DD>-<pilar>-<descritor>.md
+Operacional/clientes/<nome-do-cliente>/outputs/<MM-YYYY>/Arquivos/<DD>-<pilar>-<descritor>.<ext>
 ```
-`<MM-YYYY>`/`<DD>` é o mês e o dia em que a entrega foi gerada. `<pilar>` é o slug do pilar do Método Viga Mestra que a entrega atende (`inteligencia-dados`, `dominio-territorial`, `combo-de-produtos`, `vendedor-de-elite`, `plano-obra-integral`), omitido pra entrega pontual fora do método:
-```
-Operacional/clientes/<nome-do-cliente>/outputs/<MM-YYYY>/<DD>-<descritor>.<ext>
-```
-Arquivo cumulativo (diagnóstico que cresce por rodada, nunca sobrescrito) foge dessa regra: fica em `outputs/_diagnosticos/<pilar>/<nome-arquivo>.md`, fora de qualquer pasta de mês.
+`<MM-YYYY>`/`<DD>` é o mês e o dia em que a entrega foi gerada. `<pilar>` é o slug do pilar do Método Viga Mestra que a entrega atende (`inteligencia-dados`, `dominio-territorial`, `combo-de-produtos`, `vendedor-de-elite`, `plano-obra-integral`), omitido pra entrega pontual fora do método. `Analises/` leva os `.md` (diagnóstico, estratégia, copy, playbook); `Arquivos/` leva o resto (planilha tratada, HTML, imagem), inclusive landing page/proposta pronta pra visualizar. Arquivo cumulativo (diagnóstico que cresce por rodada, nunca sobrescrito) foge dessa regra: fica em `outputs/_diagnosticos/<pilar>/<nome-arquivo>.md`, fora de qualquer pasta de mês e sem divisão Analises/Arquivos.
 
 Proposta comercial para prospect:
 ```

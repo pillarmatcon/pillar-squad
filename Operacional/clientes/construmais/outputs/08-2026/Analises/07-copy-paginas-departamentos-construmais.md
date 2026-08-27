@@ -1,6 +1,6 @@
 # Copy para Construmais — Páginas de Departamento (Great Pages)
 
-**Briefing:** `CLIENTE.md` completo (nicho, tom de voz, compliance, sistema tintométrico) + entrega anterior `2026-08-07-copy-site-greatpages-construmais.md` (copy da home, mesmo site) + cruzamento de dados real entre `outputs/07-2026/25-inteligencia-dados-curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx` e `.../08-2026/03-inteligencia-dados-estoque-auditado_2026-08-03.xlsx`, trimestre abr-jun/2026, fornecido pelo usuário já filtrado (exclui SKUs classe Z sinalizados como anomalia de cadastro)
+**Briefing:** `CLIENTE.md` completo (nicho, tom de voz, compliance, sistema tintométrico) + entrega anterior `07-copy-site-greatpages-construmais.md` (mesma pasta) (copy da home, mesmo site) + cruzamento de dados real entre `outputs/07-2026/Arquivos/25-inteligencia-dados-curva-abc-padronizada_2026-04-01_a_2026-06-30.xlsx` e `.../08-2026/Arquivos/03-inteligencia-dados-estoque-auditado_2026-08-03.xlsx`, trimestre abr-jun/2026, fornecido pelo usuário já filtrado (exclui SKUs classe Z sinalizados como anomalia de cadastro)
 **Nicho:** Loja de material de construção (perfil em `_squad/_shared/nichos.md`)
 **Objetivo desta peça:** Escrever o conteúdo das 4 páginas de departamento acessadas pelos cards da home (Material Básico, Telha, Material Elétrico, Tintas), pronto pra colar no editor da Great Pages
 **Status:** v1, pronta pra colar. Pendências de validação do cliente listadas no final
