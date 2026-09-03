@@ -2,389 +2,816 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pillar | Marketing para Lojas de Material de Construção</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pillar — Marketing exclusivo para lojas de material de construção</title>
+<meta name="description" content="A Pillar é a assessoria de marketing que só atende lojas de material de construção. Método Viga Mestra: 5 pilares para sua loja vender mais, girar estoque e crescer margem.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700;800;900&family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="pillar-logo-mark.png">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!--
+  Site institucional Pillar (single-page). Identidade da propria agencia: _squad/_shared/identidade-agencia.md
+  Rodada de ajustes pedida pelo socio (2026-09-03):
+   1. Hero com menos texto: fora o rotulo de topo e o paragrafo de apoio
+   2. Divisoria virou faixa de tijolo (SVG) no lugar da viga tracejada
+   3. Bloco de dores com nova copy ("Sua loja passa por esses problemas?") e textos curtos
+   4. Removida a placa de obra (numeros 5 / 1 / 15min / 0)
+   5. Comparativo: intro reforca assessoria especialista e "skin in the game", tabela mantida
+   6. Metodo Viga Mestra sem o padrao rotulo + subtexto + legenda repetido em toda secao
+   7. Processo virou secao interativa de clicar e abrir (acordeao)
+  Status: v2, sujeito a refinamento
+  Humanizer aplicado no texto alterado nesta rodada
+-->
+<style>
+  :root{
+    --concrete:#F8FAFC;
+    --concrete-dark:#ECEFF4;
+    --charcoal:#0F172A;
+    --charcoal-2:#17223D;
+    --orange:#F97316;
+    --orange-dark:#DC5F0A;
+    --blueprint:#0F172A;
+    --blueprint-light:#17223D;
+    --green:#F97316;
+    --steel:#64748B;
+    --steel-light:#9BAAC0;
+    --white:#F8FAFC;
+    --line:rgba(15,23,42,0.14);
+    --line-light:rgba(248,250,252,0.16);
+    --radius:2px;
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--concrete);
+    color:var(--charcoal);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Barlow',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:0.94;
+    margin:0;
+  }
+
+  .mono{
+    font-family:'Inter',sans-serif;
+  }
+
+  .eyebrow{
+    font-family:'Inter',sans-serif;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    font-weight:500;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--orange-dark);
+    margin:0 0 16px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;
+    height:2px;
+    background:var(--orange);
+    display:inline-block;
+  }
+  .on-dark .eyebrow{ color:var(--orange); }
+
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  section{ padding:96px 0; }
+  @media (max-width:720px){ section{ padding:64px 0; } }
+
+  /* ---------- brick divider (faixa de tijolo, troca a viga tracejada) ---------- */
+  .brick-rule{
+    height:104px;
+    width:100%;
+    background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='96' viewBox='0 0 120 96'><rect width='120' height='96' fill='%23d7d1c4'/><rect x='2' y='2' width='56' height='20' rx='1' fill='%23a9432f'/><rect x='62' y='2' width='56' height='20' rx='1' fill='%23983c29'/><rect x='-28' y='26' width='56' height='20' rx='1' fill='%23b5503a'/><rect x='32' y='26' width='56' height='20' rx='1' fill='%238c3826'/><rect x='92' y='26' width='56' height='20' rx='1' fill='%23a04730'/><rect x='2' y='50' width='56' height='20' rx='1' fill='%238c3826'/><rect x='62' y='50' width='56' height='20' rx='1' fill='%23b34b34'/><rect x='-28' y='74' width='56' height='20' rx='1' fill='%23a04730'/><rect x='32' y='74' width='56' height='20' rx='1' fill='%23a9432f'/><rect x='92' y='74' width='56' height='20' rx='1' fill='%23983c29'/></svg>");
+    background-size:auto 104px;
+    background-repeat:repeat-x;
+    background-position:center;
+    border-top:3px solid var(--charcoal);
+    border-bottom:3px solid var(--charcoal);
+    box-shadow:inset 0 10px 18px -10px rgba(0,0,0,.5), inset 0 -10px 18px -10px rgba(0,0,0,.5);
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(248,250,252,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    max-width:var(--maxw); margin:0 auto;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+  }
+  .logo img{ height:34px; width:auto; display:block; }
+  .navlinks{ display:flex; gap:32px; align-items:center; }
+  .navlinks a{
+    font-size:14px; font-weight:600; text-decoration:none; color:var(--charcoal);
+    position:relative; padding:4px 0;
+  }
+  .navlinks a::after{
+    content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--orange);
+    transition:width .2s ease;
+  }
+  .navlinks a:hover::after{ width:100%; }
+  .navlinks{ align-items:center; }
+  @media (max-width:860px){ .navlinks a:not(.btn){ display:none; } }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--orange); color:var(--white);
+    font-weight:700; font-size:14px;
+    padding:13px 22px;
+    border:none; border-radius:var(--radius);
+    text-decoration:none;
+    cursor:pointer;
+    letter-spacing:0.01em;
+    transition:background .18s ease, transform .18s ease;
+  }
+  .btn:hover{ background:var(--orange-dark); transform:translateY(-1px); }
+  .btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible{
+    outline:3px solid var(--blueprint); outline-offset:2px;
+  }
+  .btn-outline{
+    background:transparent; border:1.5px solid var(--charcoal); color:var(--charcoal);
+  }
+  .btn-outline:hover{ background:var(--charcoal); color:var(--white); }
+  .btn-outline.on-dark{ border-color:var(--white); color:var(--white); }
+  .btn-outline.on-dark:hover{ background:var(--white); color:var(--charcoal); }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:84px 0 0;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center;
+  }
+  @media (max-width:940px){ .hero-grid{ grid-template-columns:1fr; } }
+
+  .hero h1{
+    font-size:clamp(38px,5.6vw,68px);
+    font-weight:800;
+  }
+  .hero h1 em{
+    font-style:normal; color:var(--orange);
+  }
+  .hero-sub{
+    font-size:19px; color:var(--charcoal-2); max-width:52ch; margin:22px 0 32px;
+  }
+  .hero-cta-row{ display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin:38px 0 26px; }
+  .hero-trust{
+    display:flex; align-items:center; gap:10px; font-size:13px; color:var(--steel); font-weight:600;
+  }
+  .hero-trust .dot{ width:7px; height:7px; border-radius:50%; background:var(--green); flex:none; }
+
+  .founder-art{ position:relative; }
+  .founder-photo-wrap{
+    position:relative;
+    aspect-ratio:1/1.05;
+    background:var(--charcoal);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .founder-photo{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover; object-position:50% 12%;
+  }
+  .founder-caption{
+    position:absolute; left:0; right:0; bottom:0;
+    background:var(--orange); color:var(--charcoal);
+    padding:14px 22px 16px;
+    display:flex; flex-direction:column; gap:2px;
+  }
+  .founder-caption strong{
+    font-family:'Barlow',sans-serif; text-transform:uppercase; font-weight:800;
+    font-size:19px; letter-spacing:0.02em; line-height:1;
+  }
+  .founder-caption span{ font-size:12.5px; font-weight:600; }
+
+  .bolt{
+    position:absolute; width:12px; height:12px; border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, var(--steel-light), var(--steel) 60%, #202b45);
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,0.4);
+  }
+  .bolt.tl{ top:14px; left:14px; } .bolt.tr{ top:14px; right:14px; }
+  .bolt.bl{ bottom:14px; left:14px; } .bolt.br{ bottom:14px; right:14px; }
+
+  /* ---------- pain / problem cards ---------- */
+  .pain{ background:var(--concrete-dark); }
+  .section-head{ max-width:640px; margin-bottom:52px; }
+  .section-head h2{ font-size:clamp(28px,4vw,44px); font-weight:800; }
+  .section-head p{ font-size:17px; color:var(--charcoal-2); margin-top:16px; max-width:56ch; }
+
+  .pain-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  @media (max-width:860px){ .pain-grid{ grid-template-columns:1fr; } }
+  .pain-card{
+    background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
+    padding:30px 26px; position:relative;
+  }
+  .pain-card .tag{
+    font-family:'Inter',sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--white); background:var(--charcoal); display:inline-block; padding:4px 8px; margin-bottom:18px;
+  }
+  .pain-card h3{ font-size:22px; font-weight:700; text-transform:none; line-height:1.2; margin-bottom:10px; letter-spacing:0; }
+  .pain-card p{ font-size:14.5px; color:var(--charcoal-2); margin:0; }
+
+  /* ---------- comparison table ---------- */
+  .compare-table{
+    width:100%; border-collapse:collapse; margin-top:8px;
+    background:var(--white); border:1px solid var(--line);
+  }
+  .compare-table th, .compare-table td{
+    padding:16px 20px; text-align:left; font-size:14.5px; border-bottom:1px solid var(--line);
+  }
+  .compare-table thead th{
+    font-family:'Barlow',sans-serif; text-transform:uppercase; font-weight:700; font-size:16px;
+    letter-spacing:0.02em; padding-top:22px; padding-bottom:22px;
+  }
+  .compare-table thead th:first-child{ background:transparent; }
+  .compare-table thead th.col-generic{ color:var(--steel); background:var(--concrete-dark); }
+  .compare-table thead th.col-pillar{ color:var(--white); background:var(--charcoal); }
+  .compare-table td.col-generic, .compare-table td.col-pillar{ text-align:center; width:150px; font-weight:700; }
+  .compare-table td.col-pillar{ background:rgba(249,115,22,0.07); }
+  .mark-no{ color:var(--steel); }
+  .mark-yes{ color:var(--green); }
+  .compare-table tbody tr:last-child td{ border-bottom:none; }
+  .compare-scroll{ overflow-x:auto; }
+  @media (max-width:640px){ .compare-table{ font-size:13px; } .compare-table th,.compare-table td{ padding:12px 12px; } }
+
+  /* ---------- metodo viga mestra (signature) ---------- */
+  .method{ background:var(--concrete-dark); }
+  .method-intro{ max-width:680px; margin-bottom:8px; }
+
+  .structure{
+    margin-top:64px;
+  }
+  .roof{
+    background:var(--orange); color:var(--charcoal);
+    border-radius:var(--radius);
+    padding:26px 30px;
+    text-align:center;
+    position:relative;
+    box-shadow:0 10px 0 -4px rgba(15,23,42,0.18);
+  }
+  .roof h3{ font-size:clamp(20px,2.6vw,30px); font-weight:800; text-transform:none; letter-spacing:0; line-height:1.15; }
+
+  .pillars-row{
+    display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-top:22px;
+    align-items:stretch;
+  }
+  @media (max-width:940px){ .pillars-row{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:520px){ .pillars-row{ grid-template-columns:1fr; } }
+
+  .pillar-col{
+    background:var(--white); border:1px solid var(--line);
+    display:flex; flex-direction:column;
+    min-height:250px;
+    position:relative;
+    cursor:pointer;
+    transition:box-shadow .2s ease, border-color .2s ease;
+  }
+  .pillar-col:hover, .pillar-col:focus-within{
+    border-color:var(--orange); box-shadow:0 8px 22px rgba(30,28,25,0.12);
+  }
+  .pillar-flange{
+    height:8px; background:var(--charcoal); flex:none;
+  }
+  .pillar-col .pillar-body{
+    padding:22px 18px; flex:1; display:flex; flex-direction:column;
+  }
+  .pillar-num{
+    font-family:'Inter',sans-serif; font-size:12px; color:var(--orange-dark); font-weight:700; letter-spacing:0.06em;
+  }
+  .pillar-col h4{
+    font-family:'Barlow',sans-serif; font-weight:800; text-transform:uppercase;
+    font-size:19px; line-height:1.08; margin:10px 0 12px; letter-spacing:0.01em;
+  }
+  .pillar-col p{
+    font-size:13.5px; color:var(--charcoal-2); margin:0; flex:1;
+  }
+  .pillar-web{
+    width:2px; background:var(--line); margin:0 auto; flex:none; height:20px;
+  }
+  @media (max-width:520px){ .pillar-web{ display:none; } }
+
+  .foundation{
+    margin-top:0; background:var(--charcoal); color:var(--white);
+    text-align:center; padding:16px; letter-spacing:0.14em; text-transform:uppercase;
+    font-family:'Inter',sans-serif; font-size:12.5px; font-weight:600;
+  }
+  .foundation b{ color:var(--orange); font-family:'Inter',sans-serif; }
+
+  /* ---------- process: clica e mostra (acordeao) ---------- */
+  .steps{ margin-top:44px; border-top:1px solid var(--line); }
+  .step-row{ border-bottom:1px solid var(--line); }
+  .step-head{
+    display:grid; grid-template-columns:64px 1fr 32px; align-items:center; gap:20px;
+    width:100%; text-align:left; background:transparent; border:0;
+    padding:24px 4px; cursor:pointer; font-family:inherit; color:inherit;
+  }
+  .step-head .pnum{
+    font-family:'Barlow',sans-serif; font-weight:800; font-size:30px; color:var(--steel-light); line-height:1;
+  }
+  .step-head .step-title{
+    font-family:'Barlow',sans-serif; font-weight:700; text-transform:uppercase; font-size:19px;
+    letter-spacing:0.01em; line-height:1.1;
+  }
+  .step-head .step-toggle{
+    font-size:26px; color:var(--orange); text-align:center; line-height:1; transition:transform .22s ease;
+  }
+  .step-head[aria-expanded="true"] .step-toggle{ transform:rotate(45deg); }
+  .step-head:hover .step-title{ color:var(--orange-dark); }
+  .step-detail{ overflow:hidden; max-height:0; opacity:0; transition:max-height .3s ease, opacity .2s ease; }
+  .step-detail p{ margin:0 4px 24px 84px; font-size:14.5px; color:var(--charcoal-2); max-width:60ch; }
+  .step-row[data-open="true"] .step-detail{ max-height:260px; opacity:1; }
+  @media (max-width:520px){
+    .step-head{ grid-template-columns:40px 1fr 24px; gap:12px; }
+    .step-head .pnum{ font-size:22px; }
+    .step-head .step-title{ font-size:15px; }
+    .step-detail p{ margin-left:52px; }
+  }
+
+  /* ---------- form: ficha de orcamento ---------- */
+  .quote{ background:var(--charcoal); color:var(--white); }
+  .quote .eyebrow{ color:var(--orange); }
+  .quote-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+  @media (max-width:900px){ .quote-grid{ grid-template-columns:1fr; gap:40px; } }
+  .quote h2{ font-size:clamp(28px,4vw,42px); font-weight:800; }
+  .quote-sub{ color:var(--steel-light); font-size:16px; margin-top:16px; max-width:48ch; }
+
+  .quote-points{ margin-top:32px; display:flex; flex-direction:column; gap:16px; }
+  .quote-point{ display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:#DAD5C9; }
+  .quote-point .chk{
+    flex:none; width:20px; height:20px; border:1.5px solid var(--orange); display:flex; align-items:center; justify-content:center;
+    font-size:12px; color:var(--orange); font-weight:800; margin-top:1px;
+  }
+
+  .form-card{
+    background:var(--white); color:var(--charcoal); border-radius:var(--radius); padding:32px;
+    position:relative;
+  }
+  .form-card::before{
+    content:"FICHA DE ORCAMENTO"; position:absolute; top:-13px; left:28px;
+    background:var(--orange); color:var(--white); font-family:'Inter',sans-serif;
+    font-size:11px; letter-spacing:0.1em; padding:5px 10px;
+  }
+  .field{ margin-bottom:18px; }
+  .field label{ display:block; font-size:12.5px; font-weight:700; margin-bottom:7px; letter-spacing:0.02em; }
+  .field input, .field select{
+    width:100%; padding:12px 13px; border:1.5px solid var(--line); border-radius:var(--radius);
+    font-family:'Inter',sans-serif; font-size:14.5px; background:var(--concrete-dark); color:var(--charcoal);
+  }
+  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:520px){ .field-row{ grid-template-columns:1fr; } }
+  .form-note{ font-size:12px; color:var(--steel); margin-top:6px; }
+  .form-submit{ width:100%; justify-content:center; margin-top:6px; font-size:15px; padding:15px; }
+  .form-success{
+    display:none; text-align:center; padding:26px 10px;
+  }
+  .form-success.show{ display:block; }
+  .form-success .chk-big{
+    width:46px; height:46px; border-radius:50%; background:var(--green); color:var(--white);
+    display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:22px; font-weight:800;
+  }
+  .form-success h3{ text-transform:none; letter-spacing:0; font-size:20px; font-weight:700; margin-bottom:8px; }
+  .form-success p{ font-size:14px; color:var(--charcoal-2); }
+
+  /* ---------- footer ---------- */
+  footer{ background:var(--charcoal-2); color:var(--steel-light); padding:52px 0 28px; }
+  .footer-grid{ display:flex; justify-content:space-between; align-items:flex-start; gap:32px; flex-wrap:wrap; }
+  .footer-logo-img{ height:46px; width:auto; }
+  .footer-tag{ font-size:13px; margin-top:12px; max-width:32ch; color:var(--steel-light); }
+  .footer-links{ display:flex; gap:40px; flex-wrap:wrap; }
+  .footer-col h5{ font-family:'Inter',sans-serif; font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--steel); margin:0 0 12px; font-weight:600; }
+  .footer-col a{ display:block; font-size:13.5px; color:var(--steel-light); text-decoration:none; margin-bottom:9px; }
+  .footer-col a:hover{ color:var(--orange); }
+  .footer-bottom{ margin-top:40px; padding-top:20px; border-top:1px solid var(--line-light); font-size:12px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+
+  /* reveal on scroll */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+</style>
 </head>
 <body>
 
-<header class="header" id="header">
-  <div class="container header__inner">
-    <a href="#" class="logo">PILLAR<span>.</span></a>
-    <nav class="nav" id="nav">
-      <a href="#o-que-fazemos">O que fazemos</a>
-      <a href="#diferenciais">Diferenciais</a>
-      <a href="#comparativo">Comparativo</a>
-      <a href="#processo">Processo</a>
-      <a href="#depoimento">Depoimentos</a>
-      <a href="#contato" class="nav__cta">Falar com a Pillar</a>
+<header>
+  <div class="nav">
+    <a href="#" class="logo"><img src="pillar-logo-mark.png" alt="Pillar" height="34"></a>
+    <nav class="navlinks">
+      <a href="#metodo">Método</a>
+      <a href="#comparativo">Diferença</a>
+      <a href="#processo">Como funciona</a>
+      <a href="#contato" class="btn">Falar com especialista</a>
     </nav>
-    <button class="hamburger" id="hamburger" aria-label="Abrir menu">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </header>
 
 <main>
-  <!-- 1. HERO -->
-  <section class="hero blueprint" id="hero">
-    <div class="container hero__inner">
-      <div class="hero__content">
-        <div class="kicker">
-          <span class="sheet-tag sheet-tag--on-dark">Folha 01/09</span>
-          <span class="eyebrow">Agência especializada em MatCon</span>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Sua loja não precisa<br>de <em>mais uma agência</em><br>de marketing.</h1>
+        <div class="hero-cta-row">
+          <a href="#contato" class="btn">Quero meu diagnóstico grátis</a>
+          <a href="#metodo" class="btn btn-outline">Conhecer o Método Viga Mestra</a>
         </div>
-        <h1>Mais vendas para a sua loja de material de construção, todos os meses.</h1>
-        <p class="hero__subtitle">A Pillar é a única agência de marketing digital do Brasil 100% focada em lojas de material de construção. Levamos clientes até a sua loja — não apenas curtidas.</p>
-        <ul class="hero__bullets">
-          <li>Estratégia validada em dezenas de MatCon pelo Brasil</li>
-          <li>Foco em orçamento, ticket médio e recompra</li>
-          <li>Sem contrato de fidelidade, sem enrolação</li>
-        </ul>
+        <div class="hero-trust"><span class="dot"></span> Atendimento 100% dedicado ao varejo de material de construção</div>
+      </div>
+      <div class="founder-art">
+        <div class="founder-photo-wrap">
+          <div class="bolt tl"></div><div class="bolt tr"></div><div class="bolt bl"></div><div class="bolt br"></div>
+          <img src="Fundadores-Pillar.png" alt="Murillo e Alex, sócios da Pillar" class="founder-photo">
+          <div class="founder-caption">
+            <strong>Murillo &amp; Alex</strong>
+            <span>Sócios-fundadores da Pillar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="brick-rule" role="presentation"></div>
+
+  <!-- PAIN -->
+  <section class="pain">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Sua loja passa por esses problemas?</h2>
+        <p>Se passa, a assessoria da Pillar é pra você.</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card reveal">
+          <span class="tag">Dor 01</span>
+          <h3>Estoque parado, caixa apertado</h3>
+          <p>Capital preso em curva C enquanto o que gira e dá margem fica em segundo plano.</p>
+        </div>
+        <div class="pain-card reveal">
+          <span class="tag">Dor 02</span>
+          <h3>Cliente pesquisa preço e some</h3>
+          <p>O orçamento demora, a loja do bairro responde antes e fecha a venda.</p>
+        </div>
+        <div class="pain-card reveal">
+          <span class="tag">Dor 03</span>
+          <h3>Agência não entende de obra</h3>
+          <p>Relatório de alcance e engajamento que não explica por que o faturamento não sobe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARATIVO -->
+  <section class="compare" id="comparativo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Compare você mesmo</h2>
+        <p>A vantagem de uma assessoria que só vive de material de construção: fala a sua língua, conhece os seus problemas e tem skin in the game no seu setor.</p>
+      </div>
+      <div class="compare-scroll reveal">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="col-generic">Agência genérica</th>
+              <th class="col-pillar">Pillar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Sabe o que é curva ABC e giro de estoque</td><td class="col-generic mark-no">Não</td><td class="col-pillar mark-yes">Sim</td></tr>
+            <tr><td>Fala a língua do balcão: pedreiro, empreiteiro, obra</td><td class="col-generic mark-no">Raramente</td><td class="col-pillar mark-yes">Sim</td></tr>
+            <tr><td>Mede resultado em margem e ticket médio, não só engajamento</td><td class="col-generic mark-no">Não</td><td class="col-pillar mark-yes">Sim</td></tr>
+            <tr><td>Tem um método próprio para o setor</td><td class="col-generic mark-no">Não</td><td class="col-pillar mark-yes">Método Viga Mestra</td></tr>
+            <tr><td>Atende academia, clínica e loja de material no mesmo mês</td><td class="col-generic mark-yes" style="color:var(--charcoal-2)">Sim</td><td class="col-pillar mark-no" style="color:var(--charcoal-2)">Não, só MatCon</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <div class="brick-rule" role="presentation"></div>
+
+  <!-- MÉTODO VIGA MESTRA -->
+  <section class="method" id="metodo">
+    <div class="wrap">
+      <div class="section-head method-intro reveal">
+        <h2>Método Viga Mestra</h2>
+        <p>Cinco pilares, uma viga: mais vendas, mais margem, mais caixa previsível. Clique em cada pilar para ver o que a gente faz.</p>
       </div>
 
-      <div class="hero__form-wrapper">
-        <form class="lead-form order-slip" id="leadForm">
-          <div class="order-slip__head">
-            <div>
-              <span class="order-slip__label">Ficha de pedido</span>
-              <h3>Diagnóstico gratuito</h3>
+      <div class="structure reveal">
+        <div class="roof">
+          <h3>Mais vendas, mais margem, mais previsibilidade de caixa</h3>
+        </div>
+
+        <div class="pillars-row">
+          <button class="pillar-col" type="button" aria-expanded="false" data-desc="Curva ABC, giro e margem mapeados produto a produto. A gente transforma estoque parado em produto isca de alta conversão.">
+            <div class="pillar-flange"></div>
+            <div class="pillar-web"></div>
+            <div class="pillar-body">
+              <span class="pillar-num">Pilar 01</span>
+              <h4>Inteligência de Dados</h4>
+              <p>Curva ABC, giro e margem: sabemos o que vender primeiro.</p>
             </div>
-            <span class="order-slip__no">Nº <span id="orderNo">000482</span></span>
-          </div>
-          <p class="lead-form__desc">Preencha os dados e nossa equipe entra em contato em até 24h.</p>
+          </button>
 
-          <div class="field">
-            <label for="nome">Nome completo</label>
-            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
-          </div>
+          <button class="pillar-col" type="button" aria-expanded="false" data-desc="Otimização do perfil no Google, anúncios geolocalizados e captura de busca de alta intenção dentro do raio lucrativo de entrega da sua loja.">
+            <div class="pillar-flange"></div>
+            <div class="pillar-web"></div>
+            <div class="pillar-body">
+              <span class="pillar-num">Pilar 02</span>
+              <h4>Domínio Territorial</h4>
+              <p>Referência no seu raio de entrega, presente quando o cliente mais precisa.</p>
+            </div>
+          </button>
 
-          <div class="field">
-            <label for="telefone">Telefone / WhatsApp</label>
-            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
-          </div>
+          <button class="pillar-col" type="button" aria-expanded="false" data-desc="Kits por etapa de obra, checklist de upsell e produtos isca para elevar o ticket médio em cada orçamento fechado.">
+            <div class="pillar-flange"></div>
+            <div class="pillar-web"></div>
+            <div class="pillar-body">
+              <span class="pillar-num">Pilar 03</span>
+              <h4>Combo de Produtos</h4>
+              <p>Kits por fase da obra que aumentam o ticket médio de cada venda.</p>
+            </div>
+          </button>
 
+          <button class="pillar-col" type="button" aria-expanded="false" data-desc="Padronização do atendimento, resposta em até 15 minutos, script de vendas e follow-up sistemático até o orçamento virar pedido.">
+            <div class="pillar-flange"></div>
+            <div class="pillar-web"></div>
+            <div class="pillar-body">
+              <span class="pillar-num">Pilar 04</span>
+              <h4>Vendedor de Elite</h4>
+              <p>Resposta rápida e follow-up até o orçamento virar pedido fechado.</p>
+            </div>
+          </button>
+
+          <button class="pillar-col" type="button" aria-expanded="false" data-desc="Acompanhamento da jornada completa do cliente, da fundação ao acabamento, com cashback e ofertas previsíveis para maximizar o valor do cliente ao longo da obra.">
+            <div class="pillar-flange"></div>
+            <div class="pillar-web"></div>
+            <div class="pillar-body">
+              <span class="pillar-num">Pilar 05</span>
+              <h4>Plano Obra Integral</h4>
+              <p>Acompanhamos o cliente da fundação ao acabamento, maximizando o valor da obra.</p>
+            </div>
+          </button>
+        </div>
+
+        <div class="foundation">Fundação: <b>Pillar</b>, assessoria 100% dedicada a material de construção</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSO (clica e mostra) -->
+  <section class="process" id="processo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Do diagnóstico ao resultado no balcão</h2>
+      </div>
+      <div class="steps reveal">
+        <div class="step-row" data-open="true">
+          <button class="step-head" type="button" aria-expanded="true" aria-controls="stp-1">
+            <span class="pnum">01</span>
+            <span class="step-title">Diagnóstico Viga Mestra</span>
+            <span class="step-toggle" aria-hidden="true">+</span>
+          </button>
+          <div class="step-detail" id="stp-1"><p>Mapeamos giro, margem, ticket médio e presença digital da sua loja frente à concorrência do seu raio de entrega.</p></div>
+        </div>
+        <div class="step-row" data-open="false">
+          <button class="step-head" type="button" aria-expanded="false" aria-controls="stp-2">
+            <span class="pnum">02</span>
+            <span class="step-title">Plano sob medida</span>
+            <span class="step-toggle" aria-hidden="true">+</span>
+          </button>
+          <div class="step-detail" id="stp-2"><p>Definimos, entre os 5 pilares, onde está o maior ganho de curto prazo para o seu caixa.</p></div>
+        </div>
+        <div class="step-row" data-open="false">
+          <button class="step-head" type="button" aria-expanded="false" aria-controls="stp-3">
+            <span class="pnum">03</span>
+            <span class="step-title">Execução contínua</span>
+            <span class="step-toggle" aria-hidden="true">+</span>
+          </button>
+          <div class="step-detail" id="stp-3"><p>Time dedicado executa campanhas, conteúdo e processo comercial, sempre falando a língua da obra.</p></div>
+        </div>
+        <div class="step-row" data-open="false">
+          <button class="step-head" type="button" aria-expanded="false" aria-controls="stp-4">
+            <span class="pnum">04</span>
+            <span class="step-title">Acompanhamento de indicadores</span>
+            <span class="step-toggle" aria-hidden="true">+</span>
+          </button>
+          <div class="step-detail" id="stp-4"><p>Você acompanha giro, margem e ticket médio evoluindo, não só métricas de rede social.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="quote" id="contato">
+    <div class="wrap quote-grid">
+      <div class="reveal">
+        <h2>Peça o diagnóstico Viga Mestra da sua loja</h2>
+        <p class="quote-sub">Preencha a ficha ao lado. Um especialista Pillar analisa o momento da sua loja e retorna com as ações que fazem diferença primeiro.</p>
+        <div class="quote-points">
+          <div class="quote-point"><span class="chk">✓</span> Diagnóstico gratuito, sem compromisso</div>
+          <div class="quote-point"><span class="chk">✓</span> Time que só atende o setor de material de construção</div>
+          <div class="quote-point"><span class="chk">✓</span> Foco em giro, margem e ticket médio, não só engajamento</div>
+        </div>
+      </div>
+
+      <form class="form-card reveal" id="leadForm">
+        <div id="formFields">
           <div class="field">
-            <label for="investimento">Faixa de investimento em marketing</label>
-            <select id="investimento" name="investimento" required>
+            <label for="nome">Nome do responsável</label>
+            <input id="nome" name="nome" type="text" required placeholder="Seu nome">
+          </div>
+          <div class="field">
+            <label for="loja">Nome da loja</label>
+            <input id="loja" name="loja" type="text" required placeholder="Ex: Material de Construção Central">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="cidade">Cidade / UF</label>
+              <input id="cidade" name="cidade" type="text" required placeholder="Ex: Formosa/GO">
+            </div>
+            <div class="field">
+              <label for="whats">WhatsApp</label>
+              <input id="whats" name="whats" type="tel" required placeholder="(00) 00000-0000">
+            </div>
+          </div>
+          <div class="field">
+            <label for="faturamento">Faturamento mensal aproximado</label>
+            <select id="faturamento" name="faturamento" required>
               <option value="" disabled selected>Selecione uma faixa</option>
-              <option value="ainda-nao-invisto">Ainda não invisto</option>
-              <option value="ate-2000">Até R$ 2.000/mês</option>
-              <option value="2000-5000">R$ 2.000 a R$ 5.000/mês</option>
-              <option value="5000-10000">R$ 5.000 a R$ 10.000/mês</option>
-              <option value="acima-10000">Acima de R$ 10.000/mês</option>
+              <option>Até R$ 100 mil</option>
+              <option>De R$ 100 mil a R$ 300 mil</option>
+              <option>De R$ 300 mil a R$ 700 mil</option>
+              <option>De R$ 700 mil a R$ 1,5 milhão</option>
+              <option>Acima de R$ 1,5 milhão</option>
             </select>
           </div>
-
-          <button type="submit" class="btn btn--primary btn--block">Quero vender mais</button>
-          <p class="lead-form__note">Seus dados estão seguros e não serão compartilhados.</p>
-          <p class="lead-form__success" id="formSuccess">Recebemos seus dados! Em breve nossa equipe vai te chamar no WhatsApp.</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- 2. O QUE FAZEMOS -->
-  <section class="what-we-do" id="o-que-fazemos">
-    <div class="container what-we-do__inner">
-      <div class="what-we-do__text">
-        <div class="kicker">
-          <span class="sheet-tag">Folha 02/09</span>
-          <span class="eyebrow eyebrow--light">O que fazemos</span>
-        </div>
-        <h2>Transformamos o marketing da sua loja em uma máquina de vendas previsível.</h2>
-        <p>Cuidamos de tudo: tráfego pago, redes sociais, catálogo digital, ofertas sazonais e relacionamento com o cliente que já comprou. Você foca na loja, a Pillar foca em encher o seu caixa.</p>
-        <a href="#contato" class="btn btn--outline">Quero um diagnóstico gratuito</a>
-      </div>
-      <div class="what-we-do__cards">
-        <div class="mini-card">
-          <strong>+300</strong>
-          <span>campanhas ativas para o setor de construção</span>
-        </div>
-        <div class="mini-card">
-          <strong>4.8x</strong>
-          <span>retorno médio sobre investimento em anúncios</span>
-        </div>
-        <div class="mini-card">
-          <strong>24h</strong>
-          <span>tempo médio de resposta da nossa equipe</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. DIFERENCIAIS -->
-  <section class="differentials" id="diferenciais">
-    <div class="container">
-      <div class="section-heading">
-        <div class="kicker">
-          <span class="sheet-tag">Folha 03/09</span>
-          <span class="eyebrow">Diferenciais</span>
-        </div>
-        <h2>Por que lojas de material de construção escolhem a Pillar</h2>
-      </div>
-
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card__icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 11h.01M15 11h.01M9 15h.01M15 15h.01" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="field">
+            <label for="gargalo">Maior gargalo hoje</label>
+            <select id="gargalo" name="gargalo" required>
+              <option value="" disabled selected>Selecione uma opção</option>
+              <option>Giro de mercadoria parado</option>
+              <option>Ticket médio baixo</option>
+              <option>Time de vendas sem processo</option>
+              <option>Pouca visibilidade digital na região</option>
+              <option>Não sei, quero o diagnóstico</option>
+            </select>
           </div>
-          <h3>Especialistas em MatCon</h3>
-          <p>Não somos generalistas. Entendemos de giro de estoque, sazonalidade de obra e comportamento do consumidor de construção.</p>
+          <button type="submit" class="btn form-submit">Quero meu diagnóstico Viga Mestra</button>
+          <p class="form-note">Seus dados são enviados diretamente para o time Pillar.</p>
         </div>
 
-        <div class="card">
-          <div class="card__icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18M7 15l4-5 3 3 5-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Foco em resultado, não em curtida</h3>
-          <p>Métricas que importam para o seu bolso: orçamentos gerados, visitas à loja e vendas fechadas.</p>
+        <div class="form-success" id="formSuccess">
+          <div class="chk-big">✓</div>
+          <h3>Ficha recebida.</h3>
+          <p>Um especialista Pillar entra em contato para agendar o diagnóstico da sua loja.</p>
         </div>
-
-        <div class="card">
-          <div class="card__icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 6.5L21 11l-6.6 2.5L12 20l-2.4-6.5L3 11l6.6-2.5L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Campanhas sazonais prontas</h3>
-          <p>Black Friday da construção, volta às aulas, verão, reforma de fim de ano — calendário pronto para o seu setor.</p>
-        </div>
-
-        <div class="card">
-          <div class="card__icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m5-8.13a4 4 0 110 8 4 4 0 010-8zm6 3a4 4 0 010 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Time dedicado ao seu setor</h3>
-          <p>Gestores de tráfego, designers e redatores que só trabalham com clientes de material de construção.</p>
-        </div>
-
-        <div class="card">
-          <div class="card__icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v4H4zM4 12h10v8H4zM16 12h4v8h-4z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Catálogo digital sempre atualizado</h3>
-          <p>Seus produtos e ofertas visíveis no Google, Instagram e WhatsApp, prontos para gerar pedido de orçamento.</p>
-        </div>
-
-        <div class="card">
-          <div class="card__icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h4l3 8 4-16 3 8h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Relatórios simples e claros</h3>
-          <p>Sem planilha complicada. Você recebe um relatório fácil de entender, com o que realmente importa.</p>
-        </div>
-      </div>
+      </form>
     </div>
   </section>
 
-  <!-- 4. COMPARATIVO -->
-  <section class="comparison blueprint" id="comparativo">
-    <div class="container">
-      <div class="section-heading section-heading--center">
-        <div class="kicker kicker--center">
-          <span class="sheet-tag sheet-tag--on-dark">Folha 04/09</span>
-          <span class="eyebrow">Comparativo</span>
-        </div>
-        <h2>Agência tradicional vs. modelo Pillar</h2>
-      </div>
-
-      <div class="comparison__grid">
-        <div class="comparison__col comparison__col--bad">
-          <span class="stamp stamp--bad">Descontinuado</span>
-          <h3>Agência tradicional</h3>
-          <ul>
-            <li><span class="icon icon--bad">✕</span>Atende qualquer segmento, sem especialização</li>
-            <li><span class="icon icon--bad">✕</span>Relatórios genéricos, cheios de métricas de vaidade</li>
-            <li><span class="icon icon--bad">✕</span>Contrato de fidelidade longo e engessado</li>
-            <li><span class="icon icon--bad">✕</span>Sem entender a sazonalidade da obra</li>
-            <li><span class="icon icon--bad">✕</span>Atendimento lento e impessoal</li>
-            <li><span class="icon icon--bad">✕</span>Foco em campanha, não em venda</li>
-          </ul>
-        </div>
-
-        <div class="comparison__col comparison__col--good">
-          <span class="stamp stamp--good">Recomendado</span>
-          <h3>Nosso modelo</h3>
-          <ul>
-            <li><span class="icon icon--good">✓</span>100% especializada em material de construção</li>
-            <li><span class="icon icon--good">✓</span>Relatórios objetivos com foco em venda e orçamento</li>
-            <li><span class="icon icon--good">✓</span>Sem fidelidade: você fica porque quer, não porque assinou</li>
-            <li><span class="icon icon--good">✓</span>Calendário sazonal pronto para o seu setor</li>
-            <li><span class="icon icon--good">✓</span>Atendimento direto pelo WhatsApp com o time</li>
-            <li><span class="icon icon--good">✓</span>Foco total em gerar receita para a sua loja</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. PROCESSO -->
-  <section class="process" id="processo">
-    <div class="container">
-      <div class="section-heading section-heading--center">
-        <div class="kicker kicker--center">
-          <span class="sheet-tag">Folha 05/09</span>
-          <span class="eyebrow">Como trabalhamos</span>
-        </div>
-        <h2>Nosso processo em 6 etapas</h2>
-      </div>
-
-      <div class="process__grid">
-        <div class="step">
-          <span class="step__number">Passo 01</span>
-          <h3>Diagnóstico da loja</h3>
-          <p>Entendemos seu mix de produtos, ticket médio, praça de atuação e concorrência local.</p>
-        </div>
-        <div class="step">
-          <span class="step__number">Passo 02</span>
-          <h3>Plano de marketing</h3>
-          <p>Montamos uma estratégia sob medida com metas claras de orçamentos e vendas.</p>
-        </div>
-        <div class="step">
-          <span class="step__number">Passo 03</span>
-          <h3>Produção de conteúdo</h3>
-          <p>Criamos anúncios, fotos, vídeos e ofertas que fazem sentido para o seu público.</p>
-        </div>
-        <div class="step">
-          <span class="step__number">Passo 04</span>
-          <h3>Ativação de tráfego</h3>
-          <p>Colocamos suas campanhas no ar em Google, Meta e WhatsApp com verba otimizada.</p>
-        </div>
-        <div class="step">
-          <span class="step__number">Passo 05</span>
-          <h3>Acompanhamento semanal</h3>
-          <p>Ajustamos campanhas toda semana com base em dados reais de vendas e orçamento.</p>
-        </div>
-        <div class="step">
-          <span class="step__number">Passo 06</span>
-          <h3>Relatório de resultado</h3>
-          <p>Você recebe um relatório simples mostrando quanto o marketing trouxe de retorno.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. DEPOIMENTO -->
-  <section class="testimonial" id="depoimento">
-    <div class="container testimonial__inner">
-      <div class="kicker kicker--center">
-        <span class="sheet-tag">Folha 06/09</span>
-        <span class="eyebrow">Depoimento</span>
-      </div>
-      <div class="testimonial__card">
-        <svg class="testimonial__quote" viewBox="0 0 32 24" fill="none"><path d="M0 24V14.4C0 6.4 5.2 1.2 12.4 0l1.6 3.6c-4.4 1.2-6.8 4-7.2 7.6h6.8V24H0zm18 0V14.4c0-8 5.2-13.2 12.4-14.4L32 3.6c-4.4 1.2-6.8 4-7.2 7.6H32V24H18z" fill="currentColor"/></svg>
-        <p class="testimonial__text">"Texto de depoimento placeholder. Aqui entrará a fala de um cliente satisfeito contando como a Pillar ajudou a aumentar as vendas da loja de material de construção, o retorno sobre o investimento e a qualidade do atendimento recebido."</p>
-        <div class="testimonial__author">
-          <div class="testimonial__avatar"></div>
-          <div>
-            <strong>Nome do Cliente</strong>
-            <span>Proprietário(a) — Loja de Material de Construção, Cidade/UF</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. PROVA SOCIAL -->
-  <section class="social-proof">
-    <div class="container">
-      <div class="section-heading section-heading--center">
-        <div class="kicker kicker--center">
-          <span class="sheet-tag">Folha 07/09</span>
-          <span class="eyebrow">Alcance</span>
-        </div>
-        <h2>Presença que já fala a linguagem do setor de construção</h2>
-      </div>
-      <div class="stats-grid">
-        <div class="stat">
-          <span class="stat__number">50+</span>
-          <span class="stat__label">lojas de material de construção atendidas</span>
-        </div>
-        <div class="stat">
-          <span class="stat__number">12</span>
-          <span class="stat__label">estados atendidos em todo o Brasil</span>
-        </div>
-        <div class="stat">
-          <span class="stat__number">R$ 8M+</span>
-          <span class="stat__label">em verba de mídia gerenciada</span>
-        </div>
-        <div class="stat">
-          <span class="stat__number">4.9/5</span>
-          <span class="stat__label">avaliação média dos clientes</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. CTA FINAL -->
-  <section class="final-cta blueprint" id="contato">
-    <div class="container final-cta__inner">
-      <div class="kicker kicker--center">
-        <span class="sheet-tag sheet-tag--on-dark">Folha 08/09</span>
-        <span class="eyebrow">Fale com a gente</span>
-      </div>
-      <h2>Pronto para vender mais material de construção?</h2>
-      <p>Fale agora com a nossa equipe e receba um diagnóstico gratuito para a sua loja.</p>
-      <a href="#hero" class="btn btn--primary btn--large">Quero meu diagnóstico gratuito</a>
-    </div>
-  </section>
 </main>
 
-<footer class="footer">
-  <div class="container footer__inner">
-    <div class="footer__col footer__brand">
-      <a href="#" class="logo">PILLAR<span>.</span></a>
-      <p>Marketing digital feito exclusivamente para lojas de material de construção.</p>
-      <div class="footer__social">
-        <a href="#" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-        </a>
-        <a href="#" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M15 8h2V4h-2a4 4 0 00-4 4v2H9v4h2v8h4v-8h2.5l.5-4H15V8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="#" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M7 10v7M7 7v.01M11 17v-4.5a2.5 2.5 0 015 0V17M11 12.5V17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        </a>
-        <a href="#" aria-label="WhatsApp">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M4 20l1.4-4.1A8 8 0 1112 20a8 8 0 01-4-1.1L4 20z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-        </a>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img src="pillar-logo-full.png" alt="Pillar, marketing com resultado concreto" class="footer-logo-img">
+        <p class="footer-tag">Assessoria de marketing exclusiva para lojas de material de construção.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Site</h5>
+          <a href="#metodo">Método Viga Mestra</a>
+          <a href="#comparativo">Diferença</a>
+          <a href="#processo">Como funciona</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contato</h5>
+          <a href="#contato">Falar com especialista</a>
+          <a href="mailto:agencia@pillarmatcon.com.br">agencia@pillarmatcon.com.br</a>
+          <a href="tel:+5561995742802">(61) 99574-2802</a>
+        </div>
       </div>
     </div>
-
-    <div class="footer__col">
-      <h4>Navegação</h4>
-      <a href="#o-que-fazemos">O que fazemos</a>
-      <a href="#diferenciais">Diferenciais</a>
-      <a href="#processo">Processo</a>
-      <a href="#depoimento">Depoimentos</a>
-    </div>
-
-    <div class="footer__col">
-      <h4>Contato</h4>
-      <span>contato@pillaragencia.com.br</span>
-      <span>(00) 00000-0000</span>
-      <span>Av. Placeholder, 1000 — Sala 000<br>Bairro Placeholder — Cidade/UF</span>
-    </div>
-  </div>
-
-  <div class="footer__titleblock">
-    <div class="container footer__titleblock-inner">
-      <div><span>Projeto</span><strong>Site institucional Pillar</strong></div>
-      <div><span>Cliente</span><strong>Lojas de material de construção</strong></div>
-      <div><span>Escala</span><strong>1:1</strong></div>
-      <div><span>Folha</span><strong>09/09</strong></div>
-    </div>
-  </div>
-
-  <div class="footer__bottom">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Pillar Agência de Marketing. Todos os direitos reservados.</p>
+    <div class="footer-bottom">
+      <span>© 2026 Pillar. Todos os direitos reservados.</span>
+      <span>Feito sob medida para quem vive de obra.</span>
     </div>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+  // reveal on scroll
+  var els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // pillar expand (Método Viga Mestra)
+  document.querySelectorAll('.pillar-col').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var body = btn.querySelector('.pillar-body p');
+      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+      if(!btn.dataset.short){ btn.dataset.short = body.textContent; }
+      if(isOpen){
+        body.textContent = btn.dataset.short;
+        btn.setAttribute('aria-expanded','false');
+      } else {
+        body.textContent = btn.getAttribute('data-desc');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+
+  // processo: acordeao "clica e mostra"
+  document.querySelectorAll('.step-head').forEach(function(head){
+    head.addEventListener('click', function(){
+      var row = head.parentElement;
+      var willOpen = row.getAttribute('data-open') !== 'true';
+      document.querySelectorAll('.step-row').forEach(function(r){
+        r.setAttribute('data-open','false');
+        r.querySelector('.step-head').setAttribute('aria-expanded','false');
+      });
+      if(willOpen){
+        row.setAttribute('data-open','true');
+        head.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+
+  // envio real para o Google Forms (Site Pillar)
+  var GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSe28yC7hrAY7DDqDIRXVSsHxWeWWcnkPZMzy80-alk2tnl2bA/formResponse';
+  var GOOGLE_FORM_FIELDS = {
+    nome: 'entry.1007035001',
+    loja: 'entry.532948830',
+    cidade: 'entry.450049588',
+    whats: 'entry.1105862823',
+    faturamento: 'entry.932410277',
+    gargalo: 'entry.524539631'
+  };
+
+  var form = document.getElementById('leadForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+
+    var data = new FormData();
+    Object.keys(GOOGLE_FORM_FIELDS).forEach(function(fieldName){
+      var el = form.elements[fieldName];
+      if(el){ data.append(GOOGLE_FORM_FIELDS[fieldName], el.value); }
+    });
+
+    // no-cors: o Google nao deixa ler a resposta, entao nao da pra confirmar
+    // o status real, por isso mostramos sucesso assim que o envio e disparado.
+    fetch(GOOGLE_FORM_ACTION, { method: 'POST', mode: 'no-cors', body: data });
+
+    document.getElementById('formFields').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  });
+</script>
+
 </body>
 </html>
