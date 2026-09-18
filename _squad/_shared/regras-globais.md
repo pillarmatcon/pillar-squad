@@ -81,6 +81,14 @@
    - Se o cliente não tiver relatório anterior (primeira campanha, primeira copy), a regra não se aplica, segue o fluxo normal
    - Não vale para pedido pontual sem intenção de ajuste (ex: "só me dá 3 headlines novas pra testar", sem relação com resultado passado). Nesse caso, mencionar o resumo é bônus, não obrigação
 
+## Regra de documento de apoio para reunião
+
+23. **Análise que classifica, agrupa ou rankeia produtos/SKUs sempre vem com documento de apoio produto a produto, não só exemplo.** Registrada em 21/09/2026, a partir do diagnóstico da Hora Z (Pilar 1, `@inteligencia-dados`), mas vale pra qualquer agente que produza esse tipo de análise pra qualquer cliente. Se a entrega cita outliers, top produtos por faturamento, top produtos por giro, produtos parados em estoque, matriz/quadrante de classificação, auditoria de cadastro ou equivalente, o agente entrega também a lista completa (até 15 itens por análise, ou o grupo inteiro quando ele for menor que isso, ex: os SKUs de um quadrante fechado), não só 3-5 exemplos ilustrativos. O usuário leva isso pra reunião com o cliente e precisa poder responder "quais são esses produtos" na hora. Cada classificação ou métrica calculada vem com a metodologia explicada (que dado foi cruzado com o quê, qual critério/limiar, se envolveu média, mediana ou outro cálculo), pra o usuário poder validar ou aprofundar depois. Detalhe de formato específico de Pilar 1 em `_squad/06-inteligencia-dados/SKILL.md`, item 4 do "Formato de output".
+
+## Regra de apresentação visual
+
+24. **Toda entrega em formato de apresentação (deck de diagnóstico, apresentação de proposta, material visual multi-página/slide) usa a skill `/design`.** Registrada em 21/09/2026. Não produzir apresentação como HTML solto fora desse fluxo. A identidade visual usada segue a regra de sempre (agência Pillar para material institucional ou de diagnóstico que carrega a marca de quem produziu, marca do cliente para entrega que representa o cliente perante o público dele, nunca as duas misturadas). Uma apresentação nunca substitui o documento de apoio da Regra 23, os dois são entregas complementares: a apresentação é o resumo executivo/visual, o documento de apoio é o detalhe produto a produto por trás dela.
+
 ---
 
 ## O que acontece quando uma regra é quebrada
