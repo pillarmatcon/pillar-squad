@@ -67,8 +67,8 @@
   ul.perguntas li::before { content: ""; position: absolute; left: 0; top: 4.6mm; width: 4px; height: 4px; background: var(--laranja); }
   .pergunta-central { text-align: center; font-family: 'Barlow', sans-serif; font-size: 13pt; line-height: 1.4; font-weight: 500; margin: 6mm 4mm; }
 
-  .whats { display: flex; align-items: center; gap: 6mm; border: 1px solid var(--linha); background: var(--fundo); padding: 5mm; margin-top: 6mm; }
-  .qr { width: 28mm; height: 28mm; flex: none; } .qr svg { width: 100%; height: 100%; display: block; }
+  .whats { display: flex; align-items: center; gap: 6mm; border: 1px solid var(--linha); background: var(--fundo); padding: 4mm 5mm; margin-top: 2mm; }
+  .qr { width: 30mm; height: 30mm; flex: none; background: #fff; border: 1px solid var(--linha); padding: 1.5mm; } .qr img { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
   .whats small { display: block; font-size: 7.5pt; letter-spacing: .2em; text-transform: uppercase; color: var(--ardosia); font-weight: 500; }
   .whats strong { display: block; font-family: 'Barlow', sans-serif; font-size: 19pt; font-weight: 600; margin: 1mm 0; }
   .whats span { font-size: 8.5pt; color: var(--ardosia); }
@@ -180,8 +180,8 @@
   <p>A loja não precisa começar do zero. Em vários pontos, já saiu na frente. Temos algumas ideias de como estruturar o próximo passo, mas faria mais sentido mostrar pessoalmente. Se fizer sentido para você, adoraríamos conversar.</p>
 
   <div class="whats">
-    <div class="qr"><svg width="124" height="124" class="segno"><path transform="scale(4)" class="qrline" stroke="#0f172a" d="M1 1.5h7m1 0h1m2 0h3m2 0h1m1 0h3m1 0h7m-29 1h1m5 0h1m1 0h2m1 0h3m1 0h3m4 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m1 0h3m3 0h2m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h2m3 0h1m1 0h1m2 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m2 0h1m1 0h1m3 0h2m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m3 0h1m2 0h2m3 0h1m1 0h1m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-19 1h1m1 0h1m1 0h1m1 0h1m1 0h1m-18 1h1m4 0h3m3 0h1m3 0h1m1 0h1m1 0h2m5 0h2m-29 1h1m1 0h1m1 0h1m2 0h1m1 0h1m1 0h1m3 0h7m2 0h1m1 0h2m-28 1h1m1 0h10m2 0h2m5 0h3m1 0h1m-24 1h1m2 0h1m1 0h4m2 0h1m2 0h1m5 0h3m-25 1h7m2 0h1m1 0h3m5 0h4m4 0h1m-28 1h1m1 0h1m7 0h1m6 0h4m1 0h1m1 0h2m1 0h2m-29 1h5m1 0h1m1 0h2m5 0h3m2 0h1m2 0h1m3 0h1m-28 1h3m1 0h1m3 0h5m1 0h1m1 0h4m2 0h1m1 0h3m-23 1h1m1 0h2m3 0h4m1 0h1m3 0h2m1 0h1m1 0h2m-27 1h1m1 0h4m1 0h1m1 0h2m2 0h1m4 0h2m1 0h2m1 0h1m1 0h1m1 0h1m-29 1h3m1 0h3m2 0h1m5 0h1m1 0h1m1 0h2m3 0h1m1 0h1m1 0h1m-29 1h1m4 0h1m2 0h1m1 0h1m1 0h3m6 0h4m2 0h2m-29 1h1m1 0h2m1 0h3m3 0h2m1 0h15m-21 1h6m1 0h2m1 0h3m3 0h4m-28 1h7m1 0h1m1 0h7m1 0h3m1 0h1m1 0h1m2 0h1m-28 1h1m5 0h1m3 0h2m2 0h1m1 0h1m2 0h2m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m3 0h1m4 0h10m3 0h1m-29 1h1m1 0h3m1 0h1m2 0h2m1 0h3m1 0h2m1 0h2m2 0h1m2 0h2m-28 1h1m1 0h3m1 0h1m2 0h2m3 0h1m2 0h1m1 0h7m1 0h1m-28 1h1m5 0h1m1 0h2m1 0h5m3 0h1m2 0h1m1 0h1m1 0h1m1 0h1m-29 1h7m2 0h2m1 0h1m3 0h3m2 0h2m1 0h3"/></svg></div>
-    <div><small>WhatsApp</small><strong>(61) 99574-2802</strong><span>Aponte a câmera para o QR code e mande um oi no WhatsApp da Pillar.</span></div>
+    <div class="qr"><img src="assets/qr-whatsapp-pillar.png" alt="QR code do WhatsApp da Pillar"></div>
+    <div><small>WhatsApp</small><strong>(61) 99574-2802</strong><span>Aponte a câmera para o QR code. A mensagem já vem pronta, é só enviar.</span></div>
   </div>
 
   <div class="assinatura">
