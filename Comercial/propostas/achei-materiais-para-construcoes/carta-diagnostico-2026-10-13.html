@@ -79,6 +79,17 @@
   .stat { border: 1px solid var(--linha); background: var(--fundo); padding: 5mm 4mm; text-align: center; }
   .stat strong { display: block; font-family: 'Barlow', sans-serif; font-size: 26pt; font-weight: 600; color: var(--laranja-escuro); line-height: 1.1; }
   .stat span { display: block; font-size: 8.5pt; color: #334155; line-height: 1.4; margin-top: 2mm; }
+
+  .duo { display: grid; grid-template-columns: 1fr auto; gap: 8mm; align-items: start; margin-top: 4mm; }
+  .duo .rotulo { margin-top: 0; }
+  .duo .mapa { width: 100%; height: auto; aspect-ratio: 1 / 1; }
+  .duo .legenda { text-align: left; font-size: 7.5pt; }
+  .duo .col-ig { width: 49mm; }
+  .duo .foto { display: block; width: 49mm; height: auto; border: 1px solid var(--linha); border-radius: 3mm; }
+  .gduo { display: grid; grid-template-columns: 1fr 52mm; gap: 6mm; align-items: start; }
+  .gduo .stats { grid-template-columns: 1fr; margin-top: 0; }
+  .gduo .stat { padding: 4mm; }
+  .gduo .foto { display: block; width: 52mm; height: auto; border: 1px solid var(--linha); border-radius: 3mm; }
 </style>
 </head>
 <body>
@@ -128,9 +139,18 @@
   <p>Quem vê um post pode estar só passando o tempo. Quem pesquisa "materiais de construção perto de mim" está com obra rolando, precisa de preço e quer saber quem entrega hoje. É por isso que a posição pesa: ele liga ou chama no WhatsApp da primeira loja que parecer confiável, e raramente desce até a sétima.</p>
   <p class="destaque">A loja lidera a região, mas ainda fica fora das 3 primeiras opções em 17 dos 25 pontos.</p>
 
-  <div class="rotulo">Onde a loja aparece no Google Maps hoje</div>
-  <img class="mapa" src="assets/mapa-local-falcon.png" alt="Mapa de visibilidade da loja no Google Maps">
-  <div class="legenda">Cada ponto é a posição da loja na busca "materiais de construção perto de mim" feita a partir daquele local: verde escuro, topo da busca; vermelho, longe do topo. Pontos a 500 m um do outro. Varredura de 8 de outubro de 2026 (Local Falcon).</div>
+  <div class="duo">
+    <div>
+      <div class="rotulo">Onde a loja aparece no Google Maps hoje</div>
+      <img class="mapa" src="assets/mapa-local-falcon.png" alt="Mapa de visibilidade da loja no Google Maps">
+      <div class="legenda">Cada ponto é a posição da loja na busca "materiais de construção perto de mim" feita a partir daquele local: verde escuro, topo da busca; vermelho, longe do topo. Pontos a 500 m um do outro. Varredura de 8 de outubro de 2026 (Local Falcon).</div>
+    </div>
+    <div class="col-ig">
+      <div class="rotulo">O Instagram da loja</div>
+      <img class="foto" src="assets/print-instagram.jpg" alt="Perfil @acheimateriaisparaconstrucoes no Instagram">
+      <div class="legenda">@acheimateriaisparaconstrucoes: 74 publicações e 1.158 seguidores, com ofertas de preço no feed e destaque para Entrega Rápida.</div>
+    </div>
+  </div>
 
   <footer class="rodape"><span>Achei Materiais para Construções · Diagnóstico de presença digital</span><span>03 / 05</span></footer>
 </section>
@@ -148,12 +168,15 @@
   <div class="eixo"><span>material de construção no Sol Nascente, Brasília</span><b>→</b><span><b>Achei Materiais para Construções</b></span></div>
 
   <div class="rotulo">A presença da loja hoje no Google</div>
-  <div class="stats">
+  <div class="gduo">
+    <div class="stats">
     <div class="stat"><strong>32%</strong><span>dos pontos com a loja entre as 3 primeiras opções</span></div>
     <div class="stat"><strong>103</strong><span>avaliações no Google (nota 4,4)</span></div>
     <div class="stat"><strong>109</strong><span>lojas de material de construção na mesma busca</span></div>
   </div>
-  <div class="legenda">Fonte: Local Falcon, varredura de 8 de outubro de 2026, grade de 5 x 5 pontos num raio de 1 km, busca "materiais de construção perto de mim". Uma base que ainda pode render mais visibilidade do que rende hoje.</div>
+    <img class="foto" src="assets/print-google.jpg" alt="Ficha da Achei no Google">
+  </div>
+  <div class="legenda">Números: Local Falcon, varredura de 8 de outubro de 2026, grade de 5 x 5 pontos num raio de 1 km. À direita, a ficha da loja no Google, com nota 4,4 e 103 avaliações. Uma base que ainda pode render mais visibilidade do que rende hoje.</div>
 
   <footer class="rodape"><span>Achei Materiais para Construções · Diagnóstico de presença digital</span><span>04 / 05</span></footer>
 </section>
