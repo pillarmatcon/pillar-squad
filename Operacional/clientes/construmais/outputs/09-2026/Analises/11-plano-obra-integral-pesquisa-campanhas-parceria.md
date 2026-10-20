@@ -68,9 +68,3 @@ Fora do nicho de MatCon, o padrão mais citado pra parceria entre empresas locai
 1. Validar com o Tony se quer priorizar uma das quatro frentes (profissionais, condomínio, indústria/comércio, piscineiro) pra rodar primeiro, dado que a equipe é pequena (2 vendedores) pra tocar todas ao mesmo tempo.
 2. Se condomínio ou indústria/comércio for priorizada, listar com o Tony quais contas específicas na região (nome de condomínio, empresa) valem abordagem direta, pesquisa de mercado não substitui prospecção real.
 3. Piscineiro segue como frente de exploração, sem cronograma até existir um primeiro contato de teste.
-
----
-
-Posso registrar uma linha no Histórico do `CLIENTE.md` resumindo esta entrega? Sugestão de texto:
-
-> **2026-09-11:** Criada `outputs/09-2026/Analises/11-plano-obra-integral-pesquisa-campanhas-parceria.md`, pesquisa complementar ao Pilar 5 cobrindo atualização do benchmark de parceria com profissionais de obra (Leroy Merlin Clube Pro relançado em 2024, campanha "Obra Premiada" do Juntos Somos+) e levantamento das frentes B2B ainda sem estratégia (condomínio, indústria/comércio local, piscineiro), que não têm case de mercado documentado e exigem abordagem direta em vez de campanha de mídia.
