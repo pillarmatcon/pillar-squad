@@ -17,7 +17,7 @@ Esta pasta é o **workspace permanente** de uma agência de marketing digital qu
 
 - `Comercial/propostas/` - uma subpasta por prospect (cliente em potencial, ainda não fechado). Identidade visual usada é sempre a da Pillar, nunca a do prospect. Ver `Comercial/propostas/README.md`.
 - `Comercial/site-pillar/` - site institucional da própria Pillar (HTML/CSS/JS). Não é proposta de prospect: usa a identidade de `_squad/_shared/identidade-agencia.md`.
-- `Comercial/materiais-prospeccao/` - criativos de aquisição de cliente da própria Pillar (não ligados a um prospect específico), produzidos pelo agente `designer`.
+- `Comercial/materiais-prospeccao/` - criativos de aquisição de cliente da própria Pillar (não ligados a um prospect específico), produzidos pelo agente `designer`. Também guarda o template oficial da carta de diagnóstico de presença digital (`carta-diagnostico-matcon/`, com README de uso), que gera uma carta por prospect em `Comercial/propostas/<nome-prospect>/`.
 
 ## Como invocar os agentes
 
