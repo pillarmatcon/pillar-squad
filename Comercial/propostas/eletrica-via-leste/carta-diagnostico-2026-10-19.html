@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carta Diagnóstico - Elétrica Via Leste</title>
+<!-- Carta de diagnóstico para Elétrica Via Leste (donos: Leonardo e Wilson). Dados: Local Falcon, varredura de 19 de outubro de 2026, grade 5x5, raio 1 km. Fachada provisória (recorte da ficha do Google). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --laranja: #f97316;
+    --laranja-escuro: #c2410c;
+    --laranja-claro: #fff1e6;
+    --marinho: #0f172a;
+    --ardosia: #64748b;
+    --fundo: #f8fafc;
+    --linha: #e2e8f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @page { size: A4; margin: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: #cbd5e1; font-family: 'Inter', sans-serif; color: var(--marinho); }
+  .page {
+    width: 210mm; height: 297mm; margin: 12px auto; background: #fff;
+    padding: 18mm 20mm 14mm; position: relative; overflow: hidden;
+    page-break-after: always; break-after: page;
+  }
+  @media print { body { background: #fff; } .page { margin: 0; } }
+
+  header.topo { display: flex; align-items: center; justify-content: space-between; padding-bottom: 6mm; border-bottom: 1px solid var(--linha); margin-bottom: 8mm; }
+  .logo { width: 112px; height: 40px; background: url(assets/logo-pillar.png) no-repeat; background-size: 145px 145px; background-position: -17px -53px; }
+  .topo-tag { font-size: 7.5pt; letter-spacing: .22em; text-transform: uppercase; color: var(--ardosia); font-weight: 500; }
+
+  .eyebrow { font-family: 'Barlow', sans-serif; font-size: 8.5pt; letter-spacing: .2em; text-transform: uppercase; color: var(--laranja-escuro); font-weight: 600; margin-bottom: 3mm; }
+  h1 { font-family: 'Barlow', sans-serif; font-size: 28pt; font-weight: 600; margin-bottom: 6mm; line-height: 1.1; }
+  h2 { font-family: 'Barlow', sans-serif; font-size: 17pt; font-weight: 600; padding-bottom: 3mm; border-bottom: 2px solid var(--marinho); margin-bottom: 6mm; line-height: 1.2; }
+  .num { font-family: 'Barlow', sans-serif; font-size: 9pt; letter-spacing: .2em; color: var(--laranja-escuro); font-weight: 600; margin-bottom: 2mm; }
+  p { font-size: 10pt; line-height: 1.65; color: #334155; margin-bottom: 4mm; }
+  p.destaque { font-weight: 600; font-style: italic; color: var(--marinho); }
+  hr { border: 0; border-top: 1px solid var(--linha); margin: 6mm 0 5mm; }
+  .apresenta { font-weight: 600; color: var(--marinho); margin-bottom: 1mm; }
+
+  .ph { background: #ffe2c9; color: var(--laranja-escuro); border-radius: 2px; padding: 0 2px; font-style: normal; }
+
+  .callout { border-left: 4px solid var(--laranja); background: var(--laranja-claro); padding: 5mm 6mm; font-family: 'Barlow', sans-serif; font-size: 13pt; font-weight: 500; line-height: 1.4; margin: 6mm 0; }
+  .eixo { display: flex; align-items: center; justify-content: center; gap: 6mm; border: 1px solid var(--linha); background: var(--fundo); padding: 5mm; margin: 5mm 0; font-family: 'Barlow', sans-serif; font-size: 14pt; font-weight: 500; }
+  .eixo b { color: var(--laranja-escuro); font-weight: 600; }
+
+  .rotulo { text-align: center; font-size: 7.5pt; letter-spacing: .22em; text-transform: uppercase; color: var(--ardosia); margin: 6mm 0 3mm; }
+  .legenda { text-align: center; font-size: 8pt; color: var(--ardosia); font-style: italic; line-height: 1.5; margin-top: 3mm; }
+  .print { border: 1.5px dashed #94a3b8; background: var(--fundo); color: var(--ardosia); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 8.5pt; line-height: 1.4; padding: 6mm; }
+  .print.celular { display: block; width: 62mm; height: 92mm; margin: 0 auto; border-radius: 6mm; padding: 34mm 6mm 0; }
+  .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .trio .print { height: 78mm; }
+
+  ul.perguntas { list-style: none; margin-bottom: 5mm; }
+  ul.perguntas li { font-style: italic; font-size: 9.5pt; line-height: 1.5; padding: 3mm 0 3mm 4mm; border-bottom: 1px solid var(--linha); color: #334155; position: relative; }
+  ul.perguntas li::before { content: ""; position: absolute; left: 0; top: 4.6mm; width: 4px; height: 4px; background: var(--laranja); }
+  .pergunta-central { text-align: center; font-family: 'Barlow', sans-serif; font-size: 13pt; line-height: 1.4; font-weight: 500; margin: 6mm 4mm; }
+
+  .whats { display: flex; align-items: center; gap: 6mm; border: 1px solid var(--linha); background: var(--fundo); padding: 4mm 5mm; margin-top: 2mm; }
+  .qr { width: 30mm; height: 30mm; flex: none; background: #fff; border: 1px solid var(--linha); padding: 1.5mm; } .qr img { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
+  .whats small { display: block; font-size: 7.5pt; letter-spacing: .2em; text-transform: uppercase; color: var(--ardosia); font-weight: 500; }
+  .whats strong { display: block; font-family: 'Barlow', sans-serif; font-size: 19pt; font-weight: 600; margin: 1mm 0; }
+  .whats span { font-size: 8.5pt; color: var(--ardosia); }
+
+  .assinatura { position: absolute; left: 20mm; right: 20mm; bottom: 20mm; display: flex; align-items: center; gap: 4mm; border-top: 1px solid var(--linha); padding-top: 4mm; }
+  .avatar { width: 13mm; height: 13mm; border-radius: 50%; background: var(--marinho); color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 12pt; flex: none; }
+  .assinatura strong { font-family: 'Barlow', sans-serif; font-size: 13pt; font-weight: 600; display: block; }
+  .assinatura small { font-size: 8.5pt; color: var(--ardosia); display: block; margin-bottom: 1.5mm; }
+  .pill { display: inline-block; background: var(--laranja-escuro); color: #fff; font-size: 7.5pt; font-weight: 600; padding: 1mm 3.5mm; border-radius: 10px; margin-right: 2mm; }
+
+  footer.rodape { position: absolute; left: 20mm; right: 20mm; bottom: 10mm; display: flex; justify-content: space-between; border-top: 1px solid var(--linha); padding-top: 2.5mm; font-size: 7.5pt; letter-spacing: .08em; color: #94a3b8; }
+
+  .mapa { display: block; width: 108mm; height: 108mm; margin: 0 auto; border: 1px solid var(--linha); }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-top: 2mm; }
+  .stat { border: 1px solid var(--linha); background: var(--fundo); padding: 5mm 4mm; text-align: center; }
+  .stat strong { display: block; font-family: 'Barlow', sans-serif; font-size: 26pt; font-weight: 600; color: var(--laranja-escuro); line-height: 1.1; }
+  .stat span { display: block; font-size: 8.5pt; color: #334155; line-height: 1.4; margin-top: 2mm; }
+
+  .duo { display: grid; grid-template-columns: 1fr auto; gap: 8mm; align-items: start; margin-top: 4mm; }
+  .duo .rotulo { margin-top: 0; }
+  .duo .mapa { width: 100%; height: auto; aspect-ratio: 1 / 1; }
+  .duo .legenda { text-align: left; font-size: 7.5pt; }
+  .duo .col-ig { width: 49mm; }
+  .duo .foto { display: block; width: 49mm; height: auto; border: 1px solid var(--linha); border-radius: 3mm; }
+  .gduo { display: grid; grid-template-columns: 1fr 52mm; gap: 6mm; align-items: start; }
+  .gduo .stats { grid-template-columns: 1fr; margin-top: 0; }
+  .gduo .stat { padding: 4mm; }
+  .gduo .foto { display: block; width: 52mm; height: auto; border: 1px solid var(--linha); border-radius: 3mm; }
+
+  .rank-wrap { display: grid; grid-template-columns: 84mm 1fr; gap: 6mm; align-items: start; margin-top: 4mm; }
+  .rank-wrap .rotulo { margin-top: 0; }
+  .rank-wrap .mapa { width: 84mm; height: 84mm; }
+  .rank-wrap .legenda { text-align: left; font-size: 7.5pt; }
+  .rank { width: 100%; border-collapse: collapse; }
+  .rank th { font-size: 6.3pt; letter-spacing: .08em; text-transform: uppercase; color: var(--ardosia); font-weight: 600; text-align: right; padding: 0 1mm 1.6mm; border-bottom: 1.5px solid var(--marinho); }
+  .rank th:nth-child(2) { text-align: left; }
+  .rank td { padding: 2mm 1mm; border-bottom: 1px solid var(--linha); font-size: 8pt; text-align: right; vertical-align: middle; }
+  .rank td.pos { text-align: left; font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 11pt; color: var(--laranja-escuro); width: 6mm; padding-left: 0; }
+  .rank td.nome { text-align: left; line-height: 1.25; color: var(--marinho); font-weight: 600; }
+  .rank td.nome small { display: block; font-weight: 400; font-size: 6.8pt; color: var(--ardosia); margin-top: .4mm; }
+  .rank tr.own td { background: var(--laranja-claro); }
+  .rank tr.sep td { border-top: 1.5px dashed #94a3b8; }
+  .rank td.num { font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 9.5pt; white-space: nowrap; }
+  .gduo3 { display: grid; grid-template-columns: 1fr 52mm 49mm; gap: 5mm; align-items: start; }
+  .gduo3 .stats { grid-template-columns: 1fr; margin-top: 0; }
+  .gduo3 .stat { padding: 4mm 3mm; }
+  .gduo3 .stat strong { font-size: 22pt; }
+  .gduo3 .foto { display: block; width: 100%; height: auto; border: 1px solid var(--linha); border-radius: 3mm; }
+  p strong { color: var(--marinho); font-weight: 600; }
+  .fachada { display: block; width: 100%; height: auto; margin-top: 5mm; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 -->
+<section class="page">
+  <header class="topo"><div class="logo" role="img" aria-label="Pillar"></div><div class="topo-tag">Diagnóstico consultivo · Elétrica Via Leste</div></header>
+  <div class="eyebrow">Carta · Diagnóstico de presença digital</div>
+  <h1>Leonardo e Wilson</h1>
+
+  <p>Esta carta chegou até vocês porque passamos um tempo estudando a presença digital da Elétrica Via Leste e encontramos algo que nos chamou a atenção. A loja tem <strong>nota 5,0 no Google</strong> e <strong>presença em 24 dos 25 pontos</strong> que mapeamos ao redor da loja. Quem constrói isso numa região em que <strong>120 lojas de material de construção</strong> aparecem na mesma busca do Google já fez a parte mais difícil.</p>
+  <p>Por isso, esta não é uma análise sobre o que está errado. É o contrário. Quando olhamos tudo o que a loja já construiu, ficamos com a impressão de que o nome dela no bairro é maior do que a quantidade de obras que chegam até o balcão hoje. <strong>A nota 5,0 com 228 avaliações mostra que quem compra aí gosta.</strong> Foi isso que nos fez querer aprofundar.</p>
+  <p>Olhamos também como a loja aparece quando alguém pesquisa "materiais de construção perto de mim" no Google Maps. Quem vai começar uma obra raramente escolhe a loja por uma rede social só. Ele vê um anúncio, pesquisa o nome no Google, lê as avaliações, chama no WhatsApp pedindo orçamento para duas ou três lojas e fecha com <strong>a que responde primeiro e entrega no prazo</strong>. Nosso olhar partiu exatamente desse caminho.</p>
+
+  <hr>
+  <p class="apresenta">Antes de continuar, uma apresentação rápida.</p>
+  <p>Somos <strong>Murillo e Alex, sócios da Pillar</strong>, agência de marketing que trabalha só com lojas de material de construção. Usamos o <strong>Método Viga Mestra</strong>, que cobre cinco frentes: dados de estoque, domínio do raio de entrega, combos de produtos, atendimento de orçamento e fidelização da obra inteira. Foi olhando a loja por essas frentes que encontramos alguns pontos que gostaríamos de mostrar a vocês.</p>
+
+  <img class="fachada" src="assets/fachada.jpg" alt="Fachada da Elétrica Via Leste">
+  <div class="legenda">Fachada da Elétrica Via Leste, na Ceilândia.</div>
+
+  <footer class="rodape"><span>Elétrica Via Leste · Diagnóstico de presença digital</span><span>01 / 05</span></footer>
+</section>
+
+<!-- PÁGINA 2 · Pilar 2 Domínio Territorial -->
+<section class="page">
+  <header class="topo"><div class="logo" role="img" aria-label="Pillar"></div><div class="topo-tag">Diagnóstico consultivo · Elétrica Via Leste</div></header>
+  <div class="num">01</div>
+  <h2>Antes de qualquer coisa: a loja já tem nome</h2>
+
+  <p>Esse foi o primeiro ponto que ficou evidente para nós. A Elétrica Via Leste já possui nota 5,0 no Google e presença em 24 dos 25 pontos pesquisados no entorno. Isso vale muito.</p>
+  <p>Em material de construção, reputação não se mede em quantidade de post. Ela está em quem indica: o pedreiro que manda o cliente para o balcão, o vizinho que viu a obra andando e perguntou onde comprou o material. Essa rede existe e foi construída com atendimento, não com anúncio.</p>
+  <p>Mas, enquanto analisávamos, outra pergunta começou a nos incomodar.</p>
+  <p class="destaque">Quanto dessa reputação está chegando a quem ainda não comprou aí?</p>
+  <p>A diferença entre ser lembrado por quem já passa na porta e ser a primeira opção de quem vai começar uma obra dentro do raio de entrega é grande. Anúncio com raio certo não serve para inflar número de seguidor. Serve para ocupar o território que a loja já conquistou, antes que o concorrente do bairro ao lado ocupe.</p>
+  <p>Se a Elétrica Via Leste já é referência para quem a conhece, imagine o que acontece quando essa mesma presença começa a aparecer de forma constante para quem está a poucos quilômetros e ainda compra em outro lugar.</p>
+
+  <div class="callout">O nome já existe. A questão agora é: até onde ele pode chegar?</div>
+
+  <footer class="rodape"><span>Elétrica Via Leste · Diagnóstico de presença digital</span><span>02 / 05</span></footer>
+</section>
+
+<!-- PÁGINA 3 · Google / Instagram -->
+<section class="page">
+  <header class="topo"><div class="logo" role="img" aria-label="Pillar"></div><div class="topo-tag">Diagnóstico consultivo · Elétrica Via Leste</div></header>
+  <div class="num">02</div>
+  <h2>E quando o cliente pesquisa no Google?</h2>
+
+  <p>Aqui encontramos o segundo ponto que merece atenção. No dia 19 de outubro, pesquisamos "materiais de construção perto de mim" no Google Maps em 25 pontos ao redor da loja, num raio de 1 km. A Elétrica Via Leste aparece em 24 deles, mas entre as 3 primeiras opções em 8% (2 pontos, ao norte do centro do mapa). A líder da região aparece no topo em 52%. Nas bordas oeste e sul, a loja fica entre o 12º lugar e fora do top 20.</p>
+  <p>Quem vê um post pode estar só passando o tempo. Quem pesquisa "materiais de construção perto de mim" está com obra rolando, precisa de preço e quer saber quem entrega hoje. É por isso que a posição pesa: ele liga ou chama no WhatsApp da primeira loja que parecer confiável, e raramente desce até a sétima.</p>
+  <p class="destaque">A loja está presente na busca quase inteira. A distância para a primeira posição é de 44 pontos percentuais.</p>
+
+  <div class="rank-wrap">
+    <div>
+      <div class="rotulo">Onde a loja aparece no mapa</div>
+      <img class="mapa" src="assets/mapa-local-falcon.png" alt="Mapa de visibilidade da loja no Google Maps">
+      <div class="legenda">Cada ponto é a posição da loja na busca "materiais de construção perto de mim" feita a partir daquele local: verde escuro, topo da busca; vermelho, longe do topo. Pontos a 500 m um do outro.</div>
+    </div>
+    <div>
+      <div class="rotulo">Quem aparece na frente</div>
+      <table class="rank"><thead><tr><th></th><th>Loja</th><th>Top 3</th><th>Pos. média</th></tr></thead><tbody><tr class=""><td class="pos">1º</td><td class="nome">Construcel - Materiais de Construção<small>nota 4,8 · 2.055 avaliações</small></td><td class="num">52%</td><td class="num">3,92</td></tr><tr class=""><td class="pos">2º</td><td class="nome">Home Center Lojas Sansão<small>nota 4,1 · 306 avaliações</small></td><td class="num">40%</td><td class="num">9,88</td></tr><tr class=""><td class="pos">3º</td><td class="nome">Obralar Setor O<small>nota 4,2 · 106 avaliações</small></td><td class="num">20%</td><td class="num">12,56</td></tr><tr class=""><td class="pos">4º</td><td class="nome">Imperio Materiais para Construção<small>nota 5,0 · 2 avaliações</small></td><td class="num">16%</td><td class="num">10,52</td></tr><tr class=""><td class="pos">5º</td><td class="nome">Berto Materiais de Construção<small>nota 5,0 · 3 avaliações</small></td><td class="num">16%</td><td class="num">16,04</td></tr><tr class="own sep"><td class="pos">7º</td><td class="nome">Elétrica Via Leste<small>nota 5,0 · 228 avaliações</small></td><td class="num">8%</td><td class="num">10,32</td></tr></tbody></table>
+      <div class="legenda">Top 3: % dos 25 pontos em que a loja fica entre as 3 primeiras opções. Pos. média: posição média em todos os pontos. A linha destacada é a posição da loja no ranking. Varredura de 19 de outubro de 2026 (Local Falcon).</div>
+    </div>
+  </div>
+
+  <footer class="rodape"><span>Elétrica Via Leste · Diagnóstico de presença digital</span><span>03 / 05</span></footer>
+</section>
+
+<!-- PÁGINA 4 · Avaliações / orçamento -->
+<section class="page">
+  <header class="topo"><div class="logo" role="img" aria-label="Pillar"></div><div class="topo-tag">Diagnóstico consultivo · Elétrica Via Leste</div></header>
+  <div class="num">03</div>
+  <h2>Avaliações, WhatsApp e orçamento também entram na decisão</h2>
+
+  <p>O mesmo raciocínio vale para o orçamento. Para quem está construindo ou reformando, o Google funciona como segunda confirmação: a loja entrega na minha rua? Tem o produto? Quem comprou ficou satisfeito? Foi aí que percebemos um sinal de espaço para crescer: são 228 avaliações no Google, com nota 5,0, contra 2.055 avaliações da líder da região (nota 4,8). A nota da Elétrica Via Leste é melhor, mas o volume de quem avaliou ainda pesa menos na hora de o cliente escolher.</p>
+  <p class="destaque">Quando alguém pesquisar materiais de construção perto de mim dentro do raio de entrega, qual loja essa pessoa vai perceber como a escolha mais óbvia?</p>
+  <p>Para nós, a oportunidade é maior do que melhorar um perfil. É fortalecer a associação entre:</p>
+
+  <div class="eixo"><span>material de construção na Ceilândia, Brasília</span><b>→</b><span><b>Elétrica Via Leste</b></span></div>
+
+  <div class="rotulo">A presença da loja hoje no Google e no Instagram</div>
+  <div class="gduo3">
+    <div class="stats">
+    <div class="stat"><strong>8%</strong><span>dos pontos com a loja entre as 3 primeiras opções (líder: 52%)</span></div>
+    <div class="stat"><strong>228</strong><span>avaliações no Google (nota 5,0)</span></div>
+    <div class="stat"><strong>120</strong><span>lojas de material de construção na mesma busca</span></div>
+  </div>
+    <img class="foto" src="assets/print-google.jpg" alt="Ficha da Elétrica Via Leste no Google">
+    <img class="foto" src="assets/print-instagram.jpg" alt="Perfil @eletricavialeste no Instagram">
+  </div>
+
+  <footer class="rodape"><span>Elétrica Via Leste · Diagnóstico de presença digital</span><span>04 / 05</span></footer>
+</section>
+
+<!-- PÁGINA 5 · O que não vejo de fora + CTA -->
+<section class="page">
+  <header class="topo"><div class="logo" role="img" aria-label="Pillar"></div><div class="topo-tag">Diagnóstico consultivo · Elétrica Via Leste</div></header>
+  <div class="num">04</div>
+  <h2>O que ainda não conseguimos ver daqui de fora</h2>
+
+  <p>Esta análise tem um limite. Nós enxergamos a vitrine: Instagram, Google e avaliações. Mas existem perguntas que só dá para responder olhando por dentro da loja.</p>
+  <ul class="perguntas">
+    <li>Quantos orçamentos chegam por semana, e quantos viram venda?</li>
+    <li>Quanto tempo leva o primeiro retorno para quem pediu orçamento pelo WhatsApp?</li>
+    <li>Quais produtos giram rápido e quais estão parados na prateleira, prendendo caixa?</li>
+    <li>Quantos clientes compram a base da obra aqui e vão buscar o acabamento em outra loja?</li>
+    <li>Quantos pedreiros e empreiteiros indicam a loja, e quantos indicam o concorrente?</li>
+  </ul>
+
+  <div class="pergunta-central">E talvez a pergunta mais importante: o tamanho da presença digital da loja é proporcional ao tamanho da reputação que ela já tem no balcão?</div>
+  <div class="callout">O que aconteceria se estoque, Google, anúncio e atendimento de orçamento passassem a trabalhar juntos?</div>
+
+  <p>A loja não precisa começar do zero. Em vários pontos, já saiu na frente. Temos algumas ideias de como estruturar o próximo passo, mas faria mais sentido mostrar pessoalmente. Se fizer sentido para vocês, adoraríamos conversar.</p>
+
+  <div class="whats">
+    <div class="qr"><img src="assets/qr-whatsapp-pillar.png" alt="QR code do WhatsApp da Pillar"></div>
+    <div><small>WhatsApp</small><strong>(61) 99574-2802</strong><span>Aponte a câmera para o QR code. A mensagem já vem pronta, é só enviar.</span></div>
+  </div>
+
+  <div class="assinatura">
+    <div class="logo" role="img" aria-label="Pillar"></div>
+    <div><strong>Pillar</strong><small>Marketing com Resultado Concreto</small><span class="pill">@pillarmatcon</span><span class="pill">(61) 99574-2802</span></div>
+  </div>
+  <footer class="rodape"><span>Elétrica Via Leste · Diagnóstico de presença digital</span><span>05 / 05</span></footer>
+</section>
+
+</body>
+</html>
