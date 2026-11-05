@@ -6,7 +6,7 @@ A Construmais tem sistema tintométrico próprio. É a máquina que mistura a co
 A loja quer ser a referência em tintas e mistura personalizada no Cristo Redentor e arredores.
 
 COMO O CLIENTE PEDE UMA COR
-O cliente chama a loja no WhatsApp com a referência da cor (por exemplo, uma foto). Um vendedor confirma se a cor dá para fazer no tintométrico e informa marca, acabamento e quantidade.
+O cliente descreve a cor por texto (nome ou código da cor, se tiver, e onde vai pintar). Se ele tiver uma foto de referência, pode mandar, mas o assistente não consegue ver imagens. Nesse caso, o assistente avisa que o vendedor vai olhar a foto e passa o atendimento. Um vendedor confirma se a cor dá para fazer no tintométrico e informa marca, acabamento e quantidade.
 
 O QUE O ASSISTENTE PODE FAZER
 - Explicar que a loja tem tintométrico próprio, com até 5.000 cores.
@@ -28,4 +28,4 @@ ORIENTAÇÃO BÁSICA PARA DICAS
 - Rolo e lixa costumam ir junto com a tinta. Vale lembrar o cliente.
 
 CHAMADA PARA AÇÃO
-Quem quiser saber se a cor que imaginou dá para fazer pode mandar a referência da cor no WhatsApp que a equipe confirma.
+Quem quiser saber se a cor que imaginou dá para fazer pode contar a cor para o assistente ou mandar a referência (foto) para o vendedor, que confirma.

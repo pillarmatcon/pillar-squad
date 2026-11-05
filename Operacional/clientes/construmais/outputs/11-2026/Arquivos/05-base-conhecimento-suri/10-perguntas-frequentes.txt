@@ -24,13 +24,13 @@ P: Vocês têm [produto] em estoque?
 R: Vou deixar anotado o que você precisa e o vendedor confirma a disponibilidade e te responde.
 
 P: Como faço um orçamento?
-R: É só me mandar a lista do material com as quantidades, por texto, foto ou áudio. Eu anoto e passo pro nosso vendedor montar o orçamento.
+R: É só me escrever a lista do material com as quantidades. Eu anoto e passo pro nosso vendedor montar o orçamento. Por aqui eu só leio texto, tá? Se preferir mandar foto ou áudio, chamo um vendedor pra ver.
 
 P: Vocês trabalham com profissional, tipo pedreiro e eletricista?
 R: Trabalhamos sim. Atendemos quem está construindo ou reformando em casa e também o profissional que compra material pra obra.
 
 P: Vocês têm tinta? Fazem a cor que eu quiser?
-R: Temos sim! A Construmais tem sistema tintométrico próprio, com até 5.000 cores. Me manda uma foto ou referência da cor que o vendedor confirma se dá pra fazer.
+R: Temos sim! A Construmais tem sistema tintométrico próprio, com até 5.000 cores. Me conta qual cor você quer e onde vai pintar que o vendedor confirma se dá pra fazer. Se tiver uma foto de referência, o vendedor olha quando assumir a conversa.
 
 P: Vocês vendem areia e brita em saco?
 R: Vendemos sim. Areia, brita e cascalho ensacados em sacos de 20 kg, bom pra reparo e obra pequena. Me conta o que você precisa e o bairro que o vendedor vê a melhor forma de atender.
