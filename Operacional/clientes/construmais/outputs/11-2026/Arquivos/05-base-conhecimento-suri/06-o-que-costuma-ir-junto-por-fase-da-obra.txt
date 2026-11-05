@@ -1,0 +1,56 @@
+O QUE COSTUMA IR JUNTO, POR FASE DA OBRA
+
+PARA QUE SERVE ESTE ARQUIVO
+Ajuda o assistente a lembrar o cliente de itens que normalmente são comprados juntos na mesma etapa da obra, para que ele não precise voltar à loja depois. É uma sugestão de atendimento, não uma oferta com preço.
+Regras:
+- Sugerir como pergunta curta, no fim do pedido. Exemplo: "Já separou a areia para esse tijolo?"
+- Não oferecer desconto por levar junto. Não existe kit com preço fechado hoje.
+- Não insistir se o cliente disser que não precisa.
+- Quem confirma o item exato e a quantidade é o vendedor.
+
+LEMBRETES RÁPIDOS DE BALCÃO
+- Quem leva areia e cimento: perguntar se precisa de vedalit.
+- Quem leva joelho e tubo (PVC): perguntar se precisa de cola.
+- Quem leva cerâmica e argamassa: perguntar se precisa de rejunte.
+- Quem leva tinta e rolo de pintura: perguntar se precisa de lixa.
+- Quem leva parafuso: perguntar se precisa de bucha, e o contrário também.
+
+FASE 1: FUNDAÇÃO E CONCRETAGEM
+Cimento, areia média, pedra britada 1 (brita 19), vergalhão CA-50 e malha soldada.
+
+FASE 2: LAJE PRÉ-MOLDADA
+Bloco para laje, treliça pré-moldada e canaleta pré-moldada.
+
+FASE 3: ALVENARIA (LEVANTAR PAREDE)
+Tijolo cerâmico de 8 furos e areia fina para o assentamento, junto com o cimento.
+Atenção técnica: argamassa colante AC-II NÃO serve para assentar tijolo. Ela é para assentar piso e cerâmica. Parede de tijolo se assenta com cimento e areia.
+
+FASE 4: COBERTURA
+Telha (canal tipo russa 1ª ou 2ª, carnaúba, ou fibrocimento). A quantidade depende da medida do telhado, que o vendedor calcula.
+
+FASE 5: IMPERMEABILIZAÇÃO
+Tarugo de polietileno, selante PU e cimento asfáltico.
+
+FASE 6: HIDRÁULICA DE ESGOTO
+Tubo PVC para esgoto, com joelhos e luvas do mesmo diâmetro, e cola.
+
+FASE 7: HIDRÁULICA DE ÁGUA FRIA E METAIS
+Joelho 90, luva e te de PVC soldável, registro de gaveta e cola.
+
+FASE 8: INSTALAÇÃO ELÉTRICA
+Cabo flexível (2,5 mm é bitola comum), caixas plásticas de embutir, fita isolante e demais itens do ponto elétrico.
+
+FASE 9: REVESTIMENTO E ACABAMENTO
+Piso cerâmico, argamassa colante AC-II (esta sim, para piso), rejunte e nivelador.
+
+FASE 10: PINTURA
+Massa PVA, tinta (inclusive no sistema tintométrico), rolo e lixa.
+
+ITENS QUE SERVEM EM QUALQUER FASE
+- Fixação: parafuso e bucha (nylon de 6, 8 e 10 mm).
+- Corte e abrasivos: disco de corte e lixa.
+
+COMO USAR NA CONVERSA
+Quando o cliente listar o que precisa, o assistente confere se a lista parece completa para a etapa da obra e pergunta de forma leve se falta algum item da fase. Depois passa a lista para o vendedor.
+Se o cliente não souber em que fase está, perguntar o que ele vai fazer (por exemplo: levantar parede, cobrir, pintar) e usar a fase correspondente.
+Nunca afirmar que um item "é obrigatório" ou que a obra "vai dar problema" sem ele. Só um profissional pode afirmar isso.
