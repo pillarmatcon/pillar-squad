@@ -14,6 +14,8 @@
 - **Sacolas 30x40:** uso interno da loja, não é revenda (o doc antigo citava R$ 23.378,30, a planilha auditada traz R$ 451,12).
 - **Tubo PVC Rosca 1 pol (R$ 8.058,63):** giro baixo confirmado, mas com dúvida de cadastro (preço R$ 96 contra custo R$ 8,06). Fora até o cadastro ser checado.
 - **Material de Uso e Consumo (R$ 31.167 sem as sacolas 30x40):** sacola, bobina, boné, celular, gôndola. Não é mercadoria de revenda, é decisão operacional do Tony.
+- **Tela Moeda Ferro 1,90cm (R$ 3.945,41):** o Tony deixou o estoque em consignação na loja de um amigo (informado em 08/11/2026). Não está disponível na Construmais, então sai da desova e da lista de destaques.
+- **Forro PVC Liso (R$ 670,11):** vendeu tudo (informado em 08/11/2026). Sai da desova.
 - **Colorantes Icores (R$ 5.224 em 9 itens):** insumo do sistema tintométrico, estoque em ml a centavos. Não é produto de prateleira.
 
 ## Pool real para a Black Friday
@@ -23,19 +25,19 @@
 | "Nunca vendeu em 14 meses" no total (planilha) | R$ 351.523 | 1.724 |
 | Menos itens acima (cumeeira, vareta, tubo, sacola 30x40, colorante 11073, uso e consumo, outros colorantes) | - R$ 198.286 | - |
 | "Nunca vendeu" limpo | ~R$ 153.200 | ~1.639 |
-| "121 a 150 dias" + "Acima de 180 dias" (sem uso e consumo) | ~R$ 99.000 | ~1.154 |
-| **Pool real** | **~R$ 252.249** | **2.793** |
+| "121 a 150 dias" + "Acima de 180 dias" (sem uso e consumo, Tela Moeda e Forro PVC) | ~R$ 94.400 | ~1.152 |
+| **Pool real** | **~R$ 247.600** | **2.791** |
 
-O pool a preço de tabela vale cerca de R$ 480 mil, ou seja, a margem cadastrada permite desconto real.
+O pool a preço de tabela vale cerca de R$ 473 mil, ou seja, a margem cadastrada permite desconto real.
 
 ## Concentração: o pool é uma cauda longa
 
 | Faixa | Valor a custo |
 |---|---|
-| 20 maiores SKUs | R$ 31.541 (12,5%) |
-| 50 maiores | R$ 50.225 (19,9%) |
-| 100 maiores | R$ 71.710 (28,4%) |
-| 200 maiores | R$ 102.352 (40,6%) |
+| 20 maiores SKUs | R$ 28.393 (11,5%) |
+| 50 maiores | R$ 46.606 (18,8%) |
+| 100 maiores | R$ 67.836 (27,4%) |
+| 200 maiores | R$ 98.262 (39,7%) |
 
 Os 20 maiores itens são pequenos: nenhum passa de R$ 4 mil. Isso muda a lógica de mídia: a Black Friday não se resolve com 1 ou 2 kits âncora, precisa de oferta ampla (vitrine de ofertas, balcão, WhatsApp) mais destaque pago em poucos itens.
 
@@ -50,17 +52,16 @@ Os 20 maiores itens são pequenos: nenhum passa de R$ 4 mil. Isso muda a lógica
 | Cadastro corrompido "MD-MD-MD..." | R$ 23.683 | 439 | R$ 45.426 |
 | Material Elétrico | R$ 21.374 | 271 | R$ 64.315 |
 | Utilidades e Jardim | R$ 16.385 | 171 | R$ 28.880 |
-| Material Básico | R$ 14.324 | 37 | R$ 24.581 |
-| Cobertura | R$ 9.461 | 25 | R$ 15.544 |
+| Material Básico | R$ 10.378 | 36 | R$ 17.817 |
+| Cobertura | R$ 8.791 | 24 | R$ 14.649 |
 | Esquadrias | R$ 9.087 | 32 | R$ 15.306 |
 
 ## Candidatos mais fortes para destaque (a validar com o Tony)
 
-Itens de ticket mais alto, com preço de tabela acima de R$ 100, que justificam um anúncio ou um destaque individual. Os 416 SKUs com preço de tabela de R$ 100 ou mais somam R$ 96.589 a custo, 38% do pool.
+Itens de ticket mais alto, com preço de tabela acima de R$ 100, que justificam um anúncio ou um destaque individual. Os 416 SKUs com preço de tabela de R$ 100 ou mais somam R$ 96.589 a custo, 39% do pool.
 
 | Código | Produto | Qtde | Custo un. | Preço | Valor a custo |
 |---|---|---|---|---|---|
-| 13801 | Tela Moeda Ferro 1,90cm | 89 | R$ 44,33 | R$ 76 | R$ 3.945 |
 | 14346 | Metalon Galv 30x20 Ch18 | 47 | R$ 62,36 | R$ 95 | R$ 2.943 |
 | 8953 | Torneira Met Filtro Imperatriz | 27 | R$ 96,28 | R$ 160 | R$ 2.600 |
 | 461 | Linha Mista 3x6 | 67,5 | R$ 33,50 | R$ 52 | R$ 2.261 |
@@ -71,7 +72,7 @@ Itens de ticket mais alto, com preço de tabela acima de R$ 100, que justificam 
 | 10442 | Porcelanato Bali Polido 61x61 | 30 | R$ 48,84 | R$ 70 | R$ 1.469 |
 | 11611 | Kit Aço Cacau 40 Cozimax | 4 | R$ 342,51 | R$ 400 | R$ 1.370 |
 
-Já aparecem pares de kit possíveis (sem Cumeeira e sem Vareta): Metalon + Tela Alambrado + Tela Moeda Ferro, Bacia + Caixa Acoplada Deca, Telhas PVC/translúcida + Forro PVC + Linha Mista.
+Já aparecem pares de kit possíveis (sem Cumeeira e sem Vareta): Metalon + Tela Alambrado, Bacia + Caixa Acoplada Deca, Telhas PVC/translúcida + Linha Mista (Tela Moeda Ferro e Forro PVC saíram, ver acima).
 
 Atenção ao Metalon: o diagnóstico de estoque registra o Metalon 30x20 com estoque zerado (furo de estoque). Conferir saldo físico antes de anunciar.
 
