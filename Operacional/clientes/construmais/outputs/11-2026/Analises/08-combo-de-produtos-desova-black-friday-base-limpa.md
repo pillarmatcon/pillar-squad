@@ -57,24 +57,23 @@ Os 20 maiores itens são pequenos: nenhum passa de R$ 4 mil. Isso muda a lógica
 | Cobertura | R$ 6.530 | 23 | R$ 11.139 |
 | Esquadrias | R$ 9.087 | 32 | R$ 15.306 |
 
-## Candidatos mais fortes para destaque (a validar com o Tony)
+## Itens aprovados pelo Tony para promoção
 
-Itens de ticket mais alto, com preço de tabela acima de R$ 100, que justificam um anúncio ou um destaque individual. Os 416 SKUs com preço de tabela de R$ 100 ou mais somam R$ 96.589 a custo, 39% do pool.
+Em 09/11/2026 o Tony respondeu à lista de candidatos de destaque: **só estes três podem entrar** na promoção.
 
-| Código | Produto | Qtde | Custo un. | Preço | Valor a custo |
-|---|---|---|---|---|---|
-| 14346 | Metalon Galv 30x20 Ch18 | 47 | R$ 62,36 | R$ 95 | R$ 2.943 |
-| 8953 | Torneira Met Filtro Imperatriz | 27 | R$ 96,28 | R$ 160 | R$ 2.600 |
-| 15511 | Madeirite Plastificado 18mm | 10 | R$ 222 | R$ 340 | R$ 2.220 |
-| 16124 | Tela Alambrado Prática | 50 | R$ 42,60 | R$ 80 | R$ 2.130 |
-| 2540 | Rebocal Multiuso Mibra 20kg | 71 | R$ 24,60 | R$ 40 | R$ 1.747 |
-| 15525 | Bacia p/ Caixa Acoplada Deca | 3 | R$ 527,27 | R$ 770 | R$ 1.582 |
-| 10442 | Porcelanato Bali Polido 61x61 | 30 | R$ 48,84 | R$ 70 | R$ 1.469 |
-| 11611 | Kit Aço Cacau 40 Cozimax | 4 | R$ 342,51 | R$ 400 | R$ 1.370 |
+| Código | Produto | Qtde | Custo un. | Preço | Valor a custo | A preço de tabela | Markup cadastrado |
+|---|---|---|---|---|---|---|---|
+| 15525 | Bacia p/ Caixa Acoplada Izy Conforto Deca | 3 | R$ 527,27 | R$ 770 | R$ 1.582 | R$ 2.310 | 46% |
+| 10442 | Porcelanato Bali Polido 61x61 (cx 1,88 m²) | 30,1 cx | R$ 48,84 | R$ 70 | R$ 1.469 | R$ 2.107 | 43% |
+| 11611 | Kit Aço Cacau 40 Cozimax | 4 | R$ 342,51 | R$ 400 | R$ 1.370 | R$ 1.600 | 17% |
+| | **Total** | | | | **R$ 4.421** | **R$ 6.017** | |
 
-Já aparecem pares de kit possíveis (sem Cumeeira e sem Vareta): Metalon + Tela Alambrado, Bacia + Caixa Acoplada Deca, Telhas PVC/translúcida (Tela Moeda Ferro, Forro PVC e Linha Mista saíram, ver acima).
-
-Atenção ao Metalon: o diagnóstico de estoque registra o Metalon 30x20 com estoque zerado (furo de estoque). Conferir saldo físico antes de anunciar.
+**Leitura:**
+- O destaque aprovado é pequeno: R$ 4.421 a custo, cerca de 1,8% do pool de ~R$ 245 mil. A Black Friday não se sustenta nesses três itens, o grosso continua sendo oferta ampla (balcão, WhatsApp, vitrine) sobre o restante do pool, que ainda não passou pela validação do Tony.
+- O Kit Aço Cacau tem markup de só 17%, pouco espaço para desconto. Qualquer desconto precisa ser calculado antes de ir para a peça.
+- A Bacia Deca pede a Caixa Acoplada (código 15526, R$ 843,24 a custo, 3 un, preço R$ 430). Ela não estava na lista enviada ao Tony, então não sei se também está apta. Perguntar antes de montar o par.
+- Os outros candidatos da lista (Metalon, Torneira Imperatriz, Madeirite, Tela Alambrado e Rebocal) ficam como **não aptos a promoção** por decisão do Tony. Não sei o motivo de cada um e não vou presumir. Com isso, caem também os pares de kit Metalon + Tela Alambrado e Telhas PVC + Linha Mista.
+- O alerta de estoque zerado do Metalon deixa de importar para a campanha.
 
 ## Tabela de conferência com o Tony
 
@@ -87,7 +86,16 @@ Atualizada à medida que o Tony responde.
 | 13801 | Tela Moeda Ferro 1,90cm | R$ 3.945,41 | Fora: consignação em loja de amigo | 08/11/2026 | Tony |
 | 14393 | Forro PVC Liso | R$ 670,11 | Fora: vendeu tudo | 08/11/2026 | Tony |
 | 461 | Linha Mista 3x6 | R$ 2.261,29 | Fora do pool: não vende mais | 08/11/2026 | Pendente: ainda tem saldo físico? Topa queimar? |
-| 5634 | Linha Massaranduba 3x6 (R$ 691,20) | R$ 691,20 | Pendente | - | Mesma família da Linha Mista, perguntar se também saiu de linha |
+| 14346 | Metalon Galv 30x20 Ch18 | R$ 2.943,39 | Fora da promoção: não apto | 09/11/2026 | Tony, sem motivo informado |
+| 8953 | Torneira Met Filtro Imperatriz | R$ 2.599,56 | Fora da promoção: não apto | 09/11/2026 | Tony, sem motivo informado |
+| 15511 | Madeirite Plastificado 18mm | R$ 2.220,00 | Fora da promoção: não apto | 09/11/2026 | Tony, sem motivo informado |
+| 16124 | Tela Alambrado Prática | R$ 2.130,00 | Fora da promoção: não apto | 09/11/2026 | Tony, sem motivo informado |
+| 2540 | Rebocal Multiuso Mibra 20kg | R$ 1.746,60 | Fora da promoção: não apto | 09/11/2026 | Tony, sem motivo informado |
+| 15525 | Bacia p/ Caixa Acoplada Deca | R$ 1.581,81 | **Apto a promoção** | 09/11/2026 | Tony |
+| 10442 | Porcelanato Bali Polido 61x61 | R$ 1.469,11 | **Apto a promoção** | 09/11/2026 | Tony |
+| 11611 | Kit Aço Cacau 40 Cozimax | R$ 1.370,04 | **Apto a promoção** | 09/11/2026 | Tony |
+| 15526 | Caixa Acoplada Duo Izy Deca | R$ 843,24 | Pendente | - | Par da Bacia, não estava na lista |
+| 5634 | Linha Massaranduba 3x6 | R$ 691,20 | Pendente | - | Mesma família da Linha Mista, perguntar se também saiu de linha |
 
 ## Pendências antes de virar plano
 
