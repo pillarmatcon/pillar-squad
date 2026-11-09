@@ -56,7 +56,7 @@
 - **Rescisão:** [...]
 
 ## Diagnóstico Método Viga Mestra
-> Respostas reais do cliente (formulário de onboarding ou reunião), organizadas pelos 5 pilares de `_squad/_shared/metodo-viga-mestra.md`.
+> Respostas reais do cliente (formulário de onboarding ou reunião), organizadas pelos 4 pilares de `_squad/_shared/metodo-viga-mestra.md`.
 
 ### Pilar 1, Inteligência de Dados
 - Sistema de gestão / ERP: [...]
@@ -82,11 +82,6 @@
 - Tempo médio de resposta: [...]
 - Script de vendas: [existe? formalizado?]
 - Follow-up de orçamento não fechado: [...]
-
-### Pilar 5, Plano Obra Integral
-- Parcerias com profissionais da construção: [...]
-- Acompanhamento de fase de obra do cliente: [...]
-- Mecanismo de fidelização: [...]
 
 ### Objetivos declarados pelo cliente
 - Meta pros próximos 12 meses: [...]

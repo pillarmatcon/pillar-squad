@@ -177,7 +177,7 @@ Padrão visual de elementos recorrentes (hierarquia headline → benefício → 
 **Componentes obrigatórios:**
 - Cabeçalho com logo Pillar + nome do prospect + data
 - Diagnóstico (2 a 3 pontos concretos sobre a situação atual do prospect, vindos de conversa/briefing real, nunca inventados)
-- Bloco "Método Viga Mestra" (3 dos 5 pilares do método, os mais aderentes ao diagnóstico deste prospect especificamente. Nomes e descrições completas de cada pilar estão em `_squad/_shared/metodo-viga-mestra.md`; se não for óbvio quais 3 encaixam melhor, pergunto ao usuário antes de escolher sozinho)
+- Bloco "Método Viga Mestra" (3 dos 4 pilares do método, os mais aderentes ao diagnóstico deste prospect especificamente. Nomes e descrições completas de cada pilar estão em `_squad/_shared/metodo-viga-mestra.md`; se não for óbvio quais 3 encaixam melhor, pergunto ao usuário antes de escolher sozinho)
 - Entregas propostas (o que a Pillar vai fazer)
 - Investimento (tabela de itens + total mensal + validade da proposta)
 - CTA de próximo passo (agendar call, responder, assinar)

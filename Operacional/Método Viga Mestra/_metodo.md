@@ -1,6 +1,6 @@
 # Método Viga Mestra
 
-Metodologia proprietária da Pillar para lojas de material de construção (MatCon), o único nicho que a agência atende. Este arquivo é a biblioteca completa de playbooks: os 5 pilares, cada atividade dentro deles e as tarefas/scripts já documentados, tudo num só lugar.
+Metodologia proprietária da Pillar para lojas de material de construção (MatCon), o único nicho que a agência atende. Este arquivo é a biblioteca completa de playbooks: os 4 pilares, cada atividade dentro deles e as tarefas/scripts já documentados, tudo num só lugar.
 
 ## Regra: aqui é template, não execução
 
@@ -10,7 +10,7 @@ A versão real, preenchida com o dado do cliente, fica em `Operacional/clientes/
 
 ## Onde está o "porquê" de cada pilar
 
-O racional completo dos 5 pilares (problema que resolve, resultado que busca, qual agente do squad mais aplica) está em `_squad/_shared/metodo-viga-mestra.md` — essa é a fonte da verdade sobre o "porquê". Este arquivo aqui é o "como": o playbook operacional de cada atividade.
+O racional completo dos 4 pilares (problema que resolve, resultado que busca, qual agente do squad mais aplica) está em `_squad/_shared/metodo-viga-mestra.md` — essa é a fonte da verdade sobre o "porquê". Este arquivo aqui é o "como": o playbook operacional de cada atividade.
 
 ## Ferramenta associada (Curva ABC)
 
@@ -26,7 +26,6 @@ Fica dito explicitamente na própria atividade, abaixo. Não existe tarefa "fant
 2. Domínio Territorial — Google Meu Negócio, Anúncios Geolocalizados, Captura de Buscas em Alta
 3. Combo de Produtos — Kits Inteligentes por Fase da Obra, Checklist de Venda Adicional, Precificação Isca
 4. Vendedor de Elite — Resposta Ultrarrápida, Playbook de Fechamento de Orçamento, Régua de Follow-up
-5. Plano Obra Integral — Jornada do Cliente, Bônus e Cashback de Recompra, Cronograma de Ofertas Preditivas, Parceria com Profissionais
 
 ---
 
@@ -670,164 +669,5 @@ A maior parte do orçamento perdido não é perdida na primeira conversa, é per
 1. **Sequência de mensagens D0 a D15**: uma mensagem por etapa, objetivo único cada.
 2. **Critério de quando arquivar**: D15 sem resposta encerra o follow-up, sem insistência infinita.
 3. **Revisão da taxa de resposta por etapa**: identificar em qual dia o cliente mais volta a responder, pra calibrar a régua.
-
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.
-
----
-
-# Pilar 5: Plano Obra Integral
-
-Agentes que mais aplicam: `@analista-dados` + `@copywriter`.
-
-**Problema que resolve:** o cliente compra o cimento, mas faz o acabamento em outra loja.
-
-**Resultado que busca:** fidelizar o cliente em todas as etapas da obra (LTV máximo).
-
-## Atividade 5.1 — Jornada do Cliente
-
-Rastrear em que fase da obra cada cliente está (fundação, alvenaria, instalações, acabamento), pra saber o que faz sentido oferecer em cada momento em vez de tratar todo cliente com a mesma oferta genérica.
-
-**Por que importa pra performance**
-
-Obra tem sequência previsível. Quem comprou cimento agora vai precisar de fiação elétrica daqui a algumas semanas e de revestimento meses depois. Loja que não registra isso perde o timing certo de oferta e deixa o cliente decidir sozinho onde comprar cada etapa seguinte, quase sempre porque a loja nunca mais apareceu depois da primeira venda. Rastrear a jornada é o que sustenta o Pilar 5 inteiro: sem saber a fase, não tem como prever a próxima oferta.
-
-**Como executar**
-
-1. Registrar a fase de obra declarada ou inferida por cada cliente, em CRM simples ou planilha, o formato importa menos que o hábito de registrar.
-2. Mapear o funil de fases típico do nicho MatCon (fundação, alvenaria, cobertura, instalações, acabamento) como referência de sequência.
-3. Atualizar o status do cliente sempre que houver contato novo (compra, orçamento, atendimento), não deixar o registro parado no primeiro cadastro.
-4. Usar esse registro como insumo pro cronograma de ofertas preditivas (atividade 5.3) e pro dashboard de LTV do `@analista-dados`.
-
-**Cadência recomendada:** atualização contínua, a cada interação com o cliente. Revisão do funil como um todo (quantos clientes em cada fase) mensal.
-
-**Indicadores de sucesso**
-
-- % de clientes com fase de obra registrada e atualizada
-- Nº de clientes que avançaram de fase e receberam oferta correspondente
-- LTV médio do cliente que teve jornada acompanhada vs cliente sem acompanhamento (quando o dado existir)
-
-**Squad responsável:** `@analista-dados` estrutura o KPI de retenção. `@copywriter` usa a fase pra calibrar a oferta.
-
-**Operação enxuta:** não precisa de CRM sofisticado pra começar. Uma planilha com nome, contato, última compra e fase estimada já é suficiente pra sustentar as ofertas preditivas da próxima atividade. Ferramenta mais robusta só se justifica quando o volume de clientes tornar a planilha difícil de manter.
-
-**Tarefas desta atividade**
-
-1. **Registro de fase da obra por cliente**: CRM ou planilha simples, atualizado a cada interação.
-2. **Mapeamento do funil de fases**: fundação, alvenaria, cobertura, instalações, acabamento, como referência pra prever a próxima necessidade.
-3. **Atualização periódica do status**: garantir que o registro não fica parado no primeiro cadastro.
-
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.
-
-## Atividade 5.2 — Bônus e Cashback de Recompra
-
-Mecanismo simples de bônus ou cashback pra dar ao cliente um motivo concreto de voltar na mesma loja quando chegar a hora de comprar o material fino (acabamento), em vez de fechar em outro lugar só por não ter sido lembrado.
-
-**Por que importa pra performance**
-
-O material fino tem margem melhor que o material bruto da fundação, mas é justamente nessa etapa que o cliente mais migra pra outra loja, seja por acreditar que "loja de material bruto não tem acabamento bom", seja por simplesmente não ter sido chamado de volta. Um mecanismo de recompra dá ao cliente um motivo tangível (não só relacionamento) pra fechar o ciclo inteiro da obra na mesma loja.
-
-**Como executar**
-
-1. Desenhar a regra do bônus ou cashback de forma simples, sem letra miúda que o cliente não entenda de cara (ex: "a cada R$ X em material bruto, R$ Y de crédito pra usar no acabamento").
-2. Confirmar com o cliente (dono da loja) se a regra é financeiramente sustentável antes de comunicar publicamente, nunca prometer benefício que a loja não confirmou como real.
-3. Comunicar o benefício no ponto de venda e na mensagem de acompanhamento (handoff com o Pilar 4, régua de follow-up).
-4. Medir a taxa de recompra de quem usou o benefício vs quem não usou.
-
-**Cadência recomendada:** definição da regra uma vez, com revisão trimestral ou sempre que a margem do material fino mudar.
-
-**Indicadores de sucesso**
-
-- Taxa de recompra de material fino por cliente que já comprou material bruto
-- % de clientes que resgatam o bônus/cashback oferecido
-- Ticket médio de acabamento entre quem usou o benefício vs quem não usou
-
-**Squad responsável:** `@copywriter` escreve a comunicação do benefício. A regra financeira precisa de confirmação do dono da loja antes de qualquer divulgação.
-
-**Operação enxuta:** um mecanismo simples e sempre cumprido gera mais confiança e recompra do que uma promoção elaborada que o cliente não entende ou desconfia. Começar com uma regra única e fácil de explicar em uma frase, só sofisticar depois que a base estiver validada.
-
-**Tarefas desta atividade**
-
-1. **Desenho do mecanismo de bônus/cashback**: regra simples, validada com o dono da loja antes de qualquer comunicação.
-2. **Comunicação do benefício**: mensagem no ponto de venda e no acompanhamento de pós-venda.
-3. **Medição de taxa de recompra**: comparar quem usou o benefício com quem não usou.
-
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.
-
-## Atividade 5.3 — Cronograma de Ofertas Preditivas
-
-Disparar a oferta certa no momento em que o cliente provavelmente vai precisar dela, antecipando a próxima etapa da obra em vez de esperar ele voltar sozinho.
-
-**Por que importa pra performance**
-
-A obra segue uma sequência previsível de necessidade. Se a loja sabe que um cliente comprou material de fundação há um tempo compatível com o avanço médio de uma obra, ela pode ser a primeira a oferecer o que vem depois, antes do cliente nem começar a procurar em outro lugar. Isso transforma o Pilar 5 de "esperar o cliente lembrar da loja" pra "a loja lembrar o cliente na hora certa".
-
-**Como executar**
-
-1. Partir do registro de jornada do cliente (atividade 5.1) pra saber a fase declarada ou inferida de cada um.
-2. Montar um calendário de ofertas por fase esperada da obra, calibrado pelo tempo médio entre etapas que o cliente (dono da loja) confirmar como realista pra região dele.
-3. Definir o gatilho de disparo: tempo desde a última compra combinado com a fase declarada, não só uma data fixa genérica.
-4. `@copywriter` escreve a mensagem da oferta preditiva, reaproveitando a régua de follow-up do Pilar 4 quando fizer sentido.
-5. Acompanhar a taxa de conversão de quem recebeu a oferta preditiva no momento certo vs fora do timing.
-
-**Cadência recomendada:** definição do calendário uma vez, disparo automático ou manual conforme o gatilho de cada cliente. Revisão do calendário a cada 2-3 meses, o tempo médio entre etapas pode variar por região e época do ano.
-
-**Indicadores de sucesso**
-
-- Taxa de conversão da oferta preditiva enviada no timing certo
-- Nº de clientes que compraram a etapa seguinte na mesma loja após receber a oferta
-- Tempo médio real entre etapas da obra, calibrado com o histórico dos próprios clientes ao longo do tempo
-
-**Squad responsável:** `@analista-dados` acompanha a jornada como KPI. `@copywriter` escreve a sequência de e-mail/WhatsApp da oferta preditiva.
-
-**Operação enxuta:** o calendário não precisa prever tudo com precisão cirúrgica. Acertar a janela aproximada (não o dia exato) já é suficiente pra sair na frente do cliente que ainda nem começou a procurar. Refinar o timing com o tempo, conforme mais dados reais de clientes forem se acumulando.
-
-**Tarefas desta atividade**
-
-1. **Calendário de ofertas por fase esperada da obra**: sequência baseada no tempo médio confirmado com o cliente, não presumido.
-2. **Gatilho de disparo**: combinação de tempo desde a última compra com fase declarada.
-3. **Acompanhamento de taxa de conversão da oferta preditiva**: medir se o timing está funcionando e recalibrar.
-
-Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.
-
-## Atividade 5.4 — Parceria com Profissionais
-
-Estruturar uma relação formal com os profissionais de campo (pedreiro, mestre de obra, eletricista, encanador, pintor) e com especificadores (arquiteto, engenheiro, construtora) que compram ou indicam compra pra loja, hoje tratados como cliente avulso mesmo sendo quem mais decide onde a obra do cliente final vai comprar.
-
-**Por que importa pra performance**
-
-Numa loja de MatCon, boa parte do cliente final B2B/residencial não escolhe a loja sozinho, ele compra onde o profissional que está tocando a obra manda comprar. Sem um programa formal, cada profissional decide por conta própria se volta e se indica, e a loja não tem nenhum jeito de reconhecer ou reforçar esse comportamento. Isso é diferente do resto do Pilar 5 (jornada, cashback, ofertas preditivas), que olha pro cliente final: aqui o alvo é o canal de indicação em si.
-
-**Benchmark de mercado (referência, não regra fixa):** grandes players do varejo de MatCon rodam programas nesse formato para profissionais, como o "Com Você"/Clube PRO da Leroy Merlin, o "Juntos Somos +", o Clube Profissional da Maiolini e o Clube do Profissional da Rede Clube da Casa. O padrão comum entre eles: cadastro simples por categoria de ofício, ganho em duas frentes (compra própria + indicação de cliente final), resgate em desconto ou vale-compra, e reconhecimento (capacitação, prioridade de atendimento) além do preço. Nenhum desses programas precisa ser copiado igual, a lógica é o que serve de referência pra uma loja pequena sem CRM.
-
-**Como executar**
-
-1. Segmentar por ofício, não tratar "profissional" como público único: pedreiro/mestre de obra, eletricista, encanador, pintor e especificador têm frequência de compra e categoria de produto relevante diferentes (ver Curva ABC do `@inteligencia-dados` pra saber qual categoria pesa mais pra cada ofício).
-2. Desenhar a régua de benefício por segmento (desconto por recompra na categoria do ofício, benefício por indicação de cliente final convertida, prioridade de atendimento/separação de pedido). Nunca comunicar percentual ou condição antes do dono da loja confirmar como política real e sustentável pra margem.
-3. Definir um cadastro mínimo (nome, contato, categoria de ofício, histórico de compra/indicação) em planilha simples, sem exigir CRM novo. Cruzar primeiro quem já é comprador recorrente no ERP antes de recrutar do zero.
-4. Rodar um piloto com a base já existente (profissionais que já compram na loja) antes de qualquer divulgação paga ou ampla.
-5. Divulgar depois do piloto validado: balcão físico, redes sociais/Google Perfil da Empresa, WhatsApp direto pra quem já foi identificado como profissional recorrente.
-6. Medir cadastro, recompra, ticket médio do profissional cadastrado vs. geral e indicação convertida.
-
-**Cadência recomendada:** desenho da régua de benefício uma vez, com revisão sempre que a margem por categoria mudar. Cadastro contínuo a cada novo profissional identificado. Revisão do programa como um todo mensal, junto com a revisão de funil da Jornada do Cliente (atividade 5.1).
-
-**Indicadores de sucesso**
-
-- Nº de profissionais cadastrados, por categoria de ofício
-- Taxa de recompra do profissional cadastrado vs. não cadastrado
-- Ticket médio do profissional cadastrado vs. ticket médio geral da loja
-- Nº de indicações rastreadas e taxa de conversão dessas indicações
-- Receita atribuída ao canal profissional/indicação como fração do faturamento mensal
-
-**Squad responsável:** `@inteligencia-dados` cruza comprador recorrente por categoria no ERP pra apoiar a segmentação inicial. `@copywriter` escreve o script de abordagem no balcão (handoff com o Pilar 4) e a comunicação do benefício. `@analista-dados` acompanha cadastro, recompra e indicação como KPI. A regra de desconto/benefício sempre precisa de confirmação do dono da loja antes de qualquer comunicação, nunca é decisão do squad sozinho.
-
-**Operação enxuta:** não precisa de cartão físico, aplicativo ou CRM sofisticado pra começar. Uma planilha de cadastro (mesmo formato da Jornada do Cliente) e uma régua de benefício simples, fácil de explicar em uma frase, já sustentam o piloto. Ferramenta mais robusta só se justifica quando o volume de profissionais cadastrados tornar a planilha difícil de manter.
-
-**Tarefas desta atividade**
-
-1. **Segmentação de profissionais por ofício**: mapear categoria de ofício e categoria de produto relevante de cada segmento.
-2. **Desenho da régua de benefício por segmento**: desconto por recompra, benefício por indicação, prioridade de atendimento, sempre validado com o dono da loja antes de comunicar.
-3. **Cadastro simples em planilha**: nome, contato, ofício, histórico de compra/indicação.
-4. **Piloto com base existente**: recrutar primeiro quem já compra na loja, antes de divulgação ampla.
-5. **Medição de cadastro, recompra e indicação**: acompanhar os indicadores de sucesso acima.
 
 Nenhuma tarefa tem arquivo `.md` de script pronto ainda. Ao criar um, seguir `_squad/_shared/template-tarefa.md`.

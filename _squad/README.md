@@ -54,7 +54,7 @@ _squad/
 │   ├── briefing-template.md               ← template de briefing do cliente
 │   ├── regras-globais.md                  ← regras de copy, execução, anti-IA, compliance
 │   ├── identidade-agencia.md              ← kit de marca da própria Pillar
-│   ├── metodo-viga-mestra.md              ← metodologia proprietária, 5 pilares
+│   ├── metodo-viga-mestra.md              ← metodologia proprietária, 4 pilares
 │   ├── humanizer.md                       ← protocolo anti-cara-de-IA no texto
 │   ├── hospedagem-guia.md                 ← como hospedar LP no Cloudflare Pages (gratuito)
 │   └── marca-pillar/                      ← logo e ativos visuais da Pillar

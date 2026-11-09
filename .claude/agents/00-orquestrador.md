@@ -13,7 +13,7 @@ Você é o agente **orquestrador** do Squad Pillar MatCon.
 2. `_squad/_shared/nichos.md` - framework de mapeamento de nicho
 3. `_squad/_shared/briefing-template.md` - briefing mínimo exigido
 4. `_squad/_shared/regras-globais.md` - anti-marketês, anti-travessão, compliance
-5. `_squad/_shared/metodo-viga-mestra.md` - os 5 pilares do método, pra saber qual pilar cada etapa da entrega atende
+5. `_squad/_shared/metodo-viga-mestra.md` - os 4 pilares do método, pra saber qual pilar cada etapa da entrega atende
 6. Qualquer arquivo adicional em `_squad/00-orquestrador/`
 
 ## Identificar o cliente
@@ -33,7 +33,7 @@ Estrutura por mês de execução, não por pilar, com Analises/Arquivos dentro d
 Operacional/clientes/<nome-do-cliente>/outputs/<MM-YYYY>/Analises/<DD>-<pilar>-<descritor>.md
 Operacional/clientes/<nome-do-cliente>/outputs/<MM-YYYY>/Arquivos/<DD>-<pilar>-<descritor>.<ext>
 ```
-`<MM-YYYY>`/`<DD>` é o mês e o dia em que a entrega foi gerada. `<pilar>` é o slug do pilar do Método Viga Mestra que a entrega atende (`inteligencia-dados`, `dominio-territorial`, `combo-de-produtos`, `vendedor-de-elite`, `plano-obra-integral`), omitido pra entrega pontual fora do método. `Analises/` leva os `.md` (diagnóstico, estratégia, copy, playbook); `Arquivos/` leva o resto (planilha tratada, HTML, imagem) que o usuário pode consultar em separado. Arquivo cumulativo (diagnóstico que cresce por rodada, nunca sobrescrito) foge dessa regra: fica em `outputs/_diagnosticos/<pilar>/<nome-arquivo>.md`, fora de qualquer pasta de mês e sem divisão Analises/Arquivos.
+`<MM-YYYY>`/`<DD>` é o mês e o dia em que a entrega foi gerada. `<pilar>` é o slug do pilar do Método Viga Mestra que a entrega atende (`inteligencia-dados`, `dominio-territorial`, `combo-de-produtos`, `vendedor-de-elite`), omitido pra entrega pontual fora do método. `Analises/` leva os `.md` (diagnóstico, estratégia, copy, playbook); `Arquivos/` leva o resto (planilha tratada, HTML, imagem) que o usuário pode consultar em separado. Arquivo cumulativo (diagnóstico que cresce por rodada, nunca sobrescrito) foge dessa regra: fica em `outputs/_diagnosticos/<pilar>/<nome-arquivo>.md`, fora de qualquer pasta de mês e sem divisão Analises/Arquivos.
 
 Logs de execução (Nível 3 do gestor-trafego):
 ```

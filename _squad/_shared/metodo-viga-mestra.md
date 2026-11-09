@@ -2,7 +2,9 @@
 
 > Metodologia proprietária da Pillar. Aplicada a todo cliente e prospect de loja de material de construção (MatCon), que é o único nicho que a Pillar atende (ver `_shared/nichos.md`). Referenciada em `_shared/identidade-agencia.md` como a metodologia própria da agência.
 
-## Os 5 pilares
+## Os 4 pilares
+
+> **Histórico:** o antigo Pilar 5 (Plano Obra Integral) foi retirado do método pela Pillar em 2026-11-09. Não oferecer, não propor e não citar como parte do método em material novo. Entregas antigas de cliente que o mencionam ficam como registro histórico.
 
 ### 1. Inteligência de Dados
 
@@ -40,15 +42,6 @@
   2. Playbook de scripts persuasivos focado em fechamento de orçamentos
   3. Régua de follow-up sistematizada para não deixar o orçamento esfriar
 
-### 5. Plano Obra Integral
-
-- **Problema que resolve:** o cliente compra o cimento, mas faz o acabamento em outra loja.
-- **Resultado que busca:** fidelizar o cliente em todas as etapas da obra (LTV máximo).
-- **Exemplos tangíveis de execução:**
-  1. Rastreamento da jornada do cliente da fundação até o acabamento
-  2. Mecanismo de bônus/cashback para garantir a recompra do material fino
-  3. Cronograma de ofertas preditivas conforme o avanço físico da obra
-  4. Parceria formal com profissionais de campo e especificadores (pedreiro, eletricista, encanador, pintor, arquiteto, engenheiro) que decidem ou indicam onde o cliente final compra
 
 ## Qual agente do squad executa cada pilar
 
@@ -58,13 +51,12 @@
 | 2. Domínio Territorial | `@gestor-trafego` | Geolocalização, raio de entrega e otimização de perfil no Google são estrutura de campanha |
 | 3. Combo de Produtos | `@copywriter` + `@gestor-trafego` | Kit e precificação isca viram oferta, ângulo de copy e criativo. Candidatos a kit vêm do diagnóstico do `@inteligencia-dados` |
 | 4. Vendedor de Elite | `@copywriter` | Script de resposta ultrarrápida, playbook de fechamento de orçamento e régua de follow-up (ver "Playbook de vendedor" em `_squad/02-copywriter/SKILL.md`) |
-| 5. Plano Obra Integral | `@analista-dados` + `@copywriter` | LTV e jornada viram KPI de retenção; cronograma de ofertas preditivas vira sequência de e-mail/WhatsApp |
 
 ## Onde este documento é usado
 
-- **Proposta comercial** (`_squad/04-webdesigner/templates-html/proposta-comercial.html`): os placeholders `{{PILAR_1_NOME}}` a `{{PILAR_3_DESCRICAO}}` usam por padrão os 3 pilares mais relevantes para o diagnóstico daquele prospect específico, escolhidos entre os 5 acima. Se o usuário não indicar quais, o agente pergunta qual dos 5 pilares tem mais aderência ao caso antes de escolher sozinho.
+- **Proposta comercial** (`_squad/04-webdesigner/templates-html/proposta-comercial.html`): os placeholders `{{PILAR_1_NOME}}` a `{{PILAR_3_DESCRICAO}}` usam por padrão os 3 pilares mais relevantes para o diagnóstico daquele prospect específico, escolhidos entre os 4 acima. Se o usuário não indicar quais, o agente pergunta qual dos 4 pilares tem mais aderência ao caso antes de escolher sozinho.
 - **Plano de tráfego, copy e dashboard** de qualquer cliente MatCon: os agentes consultam este arquivo para alinhar diagnóstico e ângulo de comunicação com a metodologia oficial da Pillar, em vez de reinventar enquadramento a cada cliente.
 
 ## Regra
 
-Este método é específico da Pillar e do nicho MatCon. Não usar os 5 pilares como framework genérico para outros nichos caso a agência um dia atenda outro tipo de cliente. Nesse cenário, o método precisaria ser adaptado ou substituído, não aplicado por analogia.
+Este método é específico da Pillar e do nicho MatCon. Não usar os 4 pilares como framework genérico para outros nichos caso a agência um dia atenda outro tipo de cliente. Nesse cenário, o método precisaria ser adaptado ou substituído, não aplicado por analogia.

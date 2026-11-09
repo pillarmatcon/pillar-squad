@@ -93,7 +93,7 @@ Com essas 5 respostas, o agente já consegue produzir saída específica.
 - Ofertas comuns: desconto para profissional cadastrado, frete grátis acima de valor X, kit de reforma (elétrica + hidráulica + tinta), parcelamento em compra de obra grande
 - Jargão a usar: orçamento, entrega, profissional (pedreiro, eletricista, pintor), obra, reforma
 - Jargão a evitar: "lead qualificado", "funil de vendas", "conversão" (cliente da loja não fala assim)
-- Metodologia proprietária aplicada pela Pillar neste nicho: Método Viga Mestra, 5 pilares (ver `_shared/metodo-viga-mestra.md`)
+- Metodologia proprietária aplicada pela Pillar neste nicho: Método Viga Mestra, 4 pilares (ver `_shared/metodo-viga-mestra.md`)
 
 ---
 
