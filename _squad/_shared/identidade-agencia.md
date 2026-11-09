@@ -6,8 +6,20 @@
 
 - **Nome:** Pillar
 - **Tagline:** "Marketing com Resultado Concreto"
-- **Metodologia própria:** Método Viga Mestra, 5 pilares. Detalhamento completo (problema, resultado, exemplos de execução, qual agente aplica cada pilar) em `_shared/metodo-viga-mestra.md`
+- **Metodologia própria:** Método Viga Mestra, 4 pilares. Detalhamento completo (problema, resultado, exemplos de execução, qual agente aplica cada pilar) em `_shared/metodo-viga-mestra.md`
 - **Nicho de atuação:** loja de material de construção (MatCon)
+
+## Oferta comercial e ICP (atualizado em 2026-11-09)
+
+> Dados confirmados pelo usuário. Usar em proposta, prospecção, abordagem e qualquer descrição da Pillar para terceiros (ex: lista de leads, bots de prospecção).
+
+- **O que vende:** assessoria de marketing exclusiva para lojas de material de construção, estruturada no Método Viga Mestra (4 pilares: Inteligência de Dados, Domínio Territorial, Combo de Produtos, Vendedor de Elite). O Pilar 5 (Plano Obra Integral) foi retirado do método e não é mais oferecido.
+- **Abrangência:** Brasil todo (atendimento remoto, sem restrição de região).
+- **Público-alvo:** dono de loja de material de construção.
+- **ICP (porte):** lojas com faturamento a partir de R$ 200 mil por mês.
+- **Fee mensal:** a partir de R$ 2.500. Valor final depende do escopo, não há tabela de planos registrada.
+- **Porta de entrada:** diagnóstico Viga Mestra gratuito e sem compromisso (site e carta de diagnóstico).
+- **Contato e sócios:** Murillo e Alex. WhatsApp (61) 99574-2802, agencia@pillarmatcon.com.br.
 
 ## Visual
 
